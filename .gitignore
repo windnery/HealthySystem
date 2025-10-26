@@ -2,5 +2,5 @@
 .idea/
 # 依赖包（通常由 Maven 管理，不需要传）
 target/
-# 忽略环境配置文件
-.env
+# 忽略本地配置文件
+application-local.yml
