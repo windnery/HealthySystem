@@ -71,8 +71,8 @@ public class DictionaryVO implements Serializable {
      * 备注
      */
 
-    @TableField(value = "beizhu")
-    private String beizhu;
+    @TableField(value = "remark")
+    private String remark;
 
 
     /**
@@ -178,8 +178,8 @@ public class DictionaryVO implements Serializable {
     /**
 	 * 设置：备注
 	 */
-    public String getBeizhu() {
-        return beizhu;
+    public String getremark() {
+        return remark;
     }
 
 
@@ -187,8 +187,8 @@ public class DictionaryVO implements Serializable {
 	 * 获取：备注
 	 */
 
-    public void setBeizhu(String beizhu) {
-        this.beizhu = beizhu;
+    public void setremark(String remark) {
+        this.remark = remark;
     }
     /**
 	 * 设置：创建时间

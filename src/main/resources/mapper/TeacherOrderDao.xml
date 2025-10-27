@@ -9,7 +9,7 @@
         ,a.Teacher_id as TeacherId
         ,a.Student_id as StudentId
         ,a.yuyue_time as yuyueTime
-        ,a.shijianduan_types as shijianduanTypes
+        ,a.Time_types as TimeTypes
         ,a.Teacher_order_yesno_types as TeacherOrderYesnoTypes
         ,a.Teacher_order_yesno_text as TeacherOrderYesnoText
         ,a.insert_time as insertTime
@@ -63,8 +63,8 @@
             <if test=" params.yuyueTimeEnd != '' and params.yuyueTimeEnd != null ">
                 <![CDATA[  and UNIX_TIMESTAMP(a.yuyue_time) <= UNIX_TIMESTAMP(#{params.yuyueTimeEnd}) ]]>
             </if>
-            <if test="params.shijianduanTypes != null and params.shijianduanTypes != ''">
-                and a.shijianduan_types = #{params.shijianduanTypes}
+            <if test="params.TimeTypes != null and params.TimeTypes != ''">
+                and a.Time_types = #{params.TimeTypes}
             </if>
             <if test="params.TeacherOrderYesnoTypes != null and params.TeacherOrderYesnoTypes != ''">
                 and a.Teacher_order_yesno_types = #{params.TeacherOrderYesnoTypes}

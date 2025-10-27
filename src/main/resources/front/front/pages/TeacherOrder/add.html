@@ -181,9 +181,9 @@
                         预约时间段：
                     </label>
                     <div class="layui-input-block">
-                        <select name="shijianduanTypes" id="shijianduanTypes" lay-filter="shijianduanTypes">
+                        <select name="TimeTypes" id="TimeTypes" lay-filter="TimeTypes">
                             <option value="">请选择</option>
-                            <option v-for="(item,index) in shijianduanTypesList" :value="item.codeIndex" :key="item.codeIndex">{{ item.indexName }}</option>
+                            <option v-for="(item,index) in TimeTypesList" :value="item.codeIndex" :key="item.codeIndex">{{ item.indexName }}</option>
                         </select>
                     </div>
                 </div>
@@ -233,7 +233,7 @@
                     TeacherId: false,
                     StudentId: false,
                     yuyueTime: false,
-                    shijianduanTypes: false,
+                    TimeTypes: false,
                     TeacherOrderYesnoTypes: false,
                     TeacherOrderYesnoText: false,
                     insertTime: false,
@@ -244,8 +244,8 @@
                     TeacherId: '',
                     StudentId: '',
                     yuyueTime: '',
-                    shijianduanTypes: '',//数字
-                    shijianduanValue: '',//数字对应的值
+                    TimeTypes: '',//数字
+                    TimeValue: '',//数字对应的值
                     TeacherOrderYesnoTypes: '',//数字
                     TeacherOrderYesnoValue: '',//数字对应的值
                     TeacherOrderYesnoText: '',
@@ -256,7 +256,7 @@
                 Teacher: {},
 
                 // 下拉框
-                shijianduanTypesList: [],
+                TimeTypesList: [],
                 TeacherOrderYesnoTypesList: [],
 
                 centerMenu: centerMenu
@@ -321,7 +321,7 @@
             initializationTeacher(localStorage.getItem("TeacherId"));
             // 下拉框
             // 预约时间段的查询和初始化
-            shijianduanTypesSelect();
+            TimeTypesSelect();
             // 预约状态的查询和初始化
             TeacherOrderYesnoTypesSelect();
 
@@ -404,11 +404,11 @@
 
 
        // 预约时间段的查询
-       function shijianduanTypesSelect() {
+       function TimeTypesSelect() {
            //填充下拉框选项
-           layui.http.request("dictionary/page?page=1&limit=100&sort=&order=&dicCode=shijianduan_types", "GET", {}, (res) => {
+           layui.http.request("dictionary/page?page=1&limit=100&sort=&order=&dicCode=Time_types", "GET", {}, (res) => {
                if(res.code == 0){
-                   vue.shijianduanTypesList = res.data.list;
+                   vue.TimeTypesList = res.data.list;
                }
            });
        }

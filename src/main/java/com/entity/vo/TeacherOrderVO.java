@@ -64,8 +64,8 @@ public class TeacherOrderVO implements Serializable {
      * 预约时间段
      */
 
-    @TableField(value = "shijianduan_types")
-    private Integer shijianduanTypes;
+    @TableField(value = "Time_types")
+    private Integer TimeTypes;
 
 
     /**
@@ -182,8 +182,8 @@ public class TeacherOrderVO implements Serializable {
     /**
 	 * 设置：预约时间段
 	 */
-    public Integer getShijianduanTypes() {
-        return shijianduanTypes;
+    public Integer getTimeTypes() {
+        return TimeTypes;
     }
 
 
@@ -191,8 +191,8 @@ public class TeacherOrderVO implements Serializable {
 	 * 获取：预约时间段
 	 */
 
-    public void setShijianduanTypes(Integer shijianduanTypes) {
-        this.shijianduanTypes = shijianduanTypes;
+    public void setTimeTypes(Integer TimeTypes) {
+        this.TimeTypes = TimeTypes;
     }
     /**
 	 * 设置：预约状态

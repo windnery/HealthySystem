@@ -4,8 +4,8 @@
         <div v-if="showFlag">
             <el-form :inline="true" :model="searchForm" class="form-content">
                 <el-row :gutter="20" class="slt" :style="{justifyContent:contents.searchBoxPosition=='1'?'flex-start':contents.searchBoxPosition=='2'?'center':'flex-end'}">
-                    <el-form-item label="时间段">
-                        <el-input prefix-icon="el-icon-search" v-model="searchForm.indexNameSearch" placeholder="时间段" clearable></el-input>
+                    <el-form-item label="预约状态">
+                        <el-input prefix-icon="el-icon-search" v-model="searchForm.indexNameSearch" placeholder="预约状态" clearable></el-input>
                     </el-form-item>
                     <el-form-item>
                         <el-button icon="el-icon-search" type="success" @click="search()">查询</el-button>
@@ -14,13 +14,13 @@
                 <el-row class="ad" :style="{justifyContent:contents.btnAdAllBoxPosition=='1'?'flex-start':contents.btnAdAllBoxPosition=='2'?'center':'flex-end'}">
                     <el-form-item>
                         <el-button
-                                v-if="isAuth('dictionaryShijianduan','新增')"
+                                v-if="isAuth('dictionaryTeacherOrderYesno','新增')"
                                 type="success"
                                 icon="el-icon-plus"
                                 @click="addOrUpdateHandler()"
                         >新增</el-button>
                         <el-button
-                                v-if="isAuth('dictionaryShijianduan','删除')"
+                                v-if="isAuth('dictionaryTeacherOrderYesno','删除')"
                                 :disabled="dataListSelections.length <= 0"
                                 type="danger"
                                 icon="el-icon-delete"
@@ -38,7 +38,7 @@
                           :row-style="rowStyle"
                           :cell-style="cellStyle"
                           :style="{width: '100%',fontSize:contents.tableContentFontSize,color:contents.tableContentFontColor}"
-                          v-if="isAuth('dictionaryShijianduan','查看')"
+                          v-if="isAuth('dictionaryTeacherOrderYesno','查看')"
                           :data="dataList"
                           v-loading="dataListLoading"
                           @selection-change="selectionChangeHandler">
@@ -52,7 +52,7 @@
                     <el-table-column  :sortable="contents.tableSortable" :align="contents.tableAlign"
                                       prop="codeIndex"
                                       header-align="center"
-                                      label="时间段编码">
+                                      label="预约状态编码">
                         <template slot-scope="scope">
                             {{scope.row.codeIndex}}
                         </template>
@@ -60,26 +60,26 @@
                     <el-table-column  :sortable="contents.tableSortable" :align="contents.tableAlign"
                                       prop="indexName"
                                       header-align="center"
-                                      label="时间段名称">
+                                      label="预约状态名称">
                         <template slot-scope="scope">
                             {{scope.row.indexName}}
                         </template>
                     </el-table-column>
                     <!--<el-table-column  :sortable="contents.tableSortable" :align="contents.tableAlign"
-                                      prop="beizhu"
+                                      prop="remark"
                                       header-align="center"
                                       label="备注">
                         <template slot-scope="scope">
-                            {{scope.row.beizhu}}
+                            {{scope.row.remark}}
                         </template>
                     </el-table-column>-->
                     <el-table-column width="300" :align="contents.tableAlign"
                                      header-align="center"
                                      label="操作">
                         <template slot-scope="scope">
-                            <el-button v-if="isAuth('dictionaryShijianduan','查看')" type="success" icon="el-icon-tickets" size="mini" @click="addOrUpdateHandler(scope.row.id,'info')">详情</el-button>
-                            <el-button v-if="isAuth('dictionaryShijianduan','修改')" type="primary" icon="el-icon-edit" size="mini" @click="addOrUpdateHandler(scope.row.id)">修改</el-button>
-                            <el-button v-if="isAuth('dictionaryShijianduan','删除')" type="danger" icon="el-icon-delete" size="mini" @click="deleteHandler(scope.row.id)">删除</el-button>
+                            <el-button v-if="isAuth('dictionaryTeacherOrderYesno','查看')" type="success" icon="el-icon-tickets" size="mini" @click="addOrUpdateHandler(scope.row.id,'info')">详情</el-button>
+                            <el-button v-if="isAuth('dictionaryTeacherOrderYesno','修改')" type="primary" icon="el-icon-edit" size="mini" @click="addOrUpdateHandler(scope.row.id)">修改</el-button>
+                            <el-button v-if="isAuth('dictionaryTeacherOrderYesno','删除')" type="danger" icon="el-icon-delete" size="mini" @click="deleteHandler(scope.row.id)">删除</el-button>
                         </template>
                     </el-table-column>
                 </el-table>
@@ -310,8 +310,8 @@
                     params['indexName'] = this.searchForm.indexNameSearch
                 }
                 //本表的
-                params['dicCode'] = "shijianduan_types"//编码名字
-                params['dicName'] = "时间段",//汉字名字
+                params['dicCode'] = "Teacher_order_yesno_types"//编码名字
+                params['dicName'] = "预约状态",//汉字名字
                 this.$http({
                     url: "dictionary/page",
                     method: "get",

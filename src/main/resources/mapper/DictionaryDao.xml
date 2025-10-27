@@ -10,7 +10,7 @@
         ,a.code_index as codeIndex
         ,a.index_name as indexName
         ,a.super_id as superId
-        ,a.beizhu as beizhu
+        ,a.remark as remark
         ,a.create_time as createTime
     </sql>
     <select id="selectListView" parameterType="map" resultType="com.entity.view.DictionaryView" >
@@ -51,8 +51,8 @@
                     a.super_id = #{params.superId}
                 )
             </if>
-            <if test=" params.beizhu != '' and params.beizhu != null and params.beizhu != 'null' ">
-                and a.beizhu like CONCAT('%',#{params.beizhu},'%')
+            <if test=" params.remark != '' and params.remark != null and params.remark != 'null' ">
+                and a.remark like CONCAT('%',#{params.remark},'%')
             </if>
 
         </where>

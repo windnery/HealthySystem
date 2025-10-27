@@ -60,7 +60,7 @@ public class DictionaryModel implements Serializable {
     /**
      * 备注
      */
-    private String beizhu;
+    private String remark;
 
 
     /**
@@ -158,16 +158,16 @@ public class DictionaryModel implements Serializable {
     /**
 	 * 获取：备注
 	 */
-    public String getBeizhu() {
-        return beizhu;
+    public String getremark() {
+        return remark;
     }
 
 
     /**
 	 * 设置：备注
 	 */
-    public void setBeizhu(String beizhu) {
-        this.beizhu = beizhu;
+    public void setremark(String remark) {
+        this.remark = remark;
     }
     /**
 	 * 获取：创建时间

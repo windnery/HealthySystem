@@ -34,13 +34,13 @@
                     </div>
                 </el-col>
                 <!--<el-col :span="12">
-                    <el-form-item class="input" v-if="type!='info'"  label="备注" prop="beizhu">
-                        <el-input v-model="ruleForm.beizhu"
-                                  placeholder="备注" clearable  :readonly="ro.beizhu"></el-input>
+                    <el-form-item class="input" v-if="type!='info'"  label="备注" prop="remark">
+                        <el-input v-model="ruleForm.remark"
+                                  placeholder="备注" clearable  :readonly="ro.remark"></el-input>
                     </el-form-item>
                     <div v-else>
-                        <el-form-item class="input" label="备注" prop="beizhu">
-                            <el-input v-model="ruleForm.beizhu"
+                        <el-form-item class="input" label="备注" prop="remark">
+                            <el-input v-model="ruleForm.remark"
                                       placeholder="备注" readonly></el-input>
                         </el-form-item>
                     </div>
@@ -71,16 +71,16 @@
                     codeIndex : true,
                     indexName : false,
                     superId : false,
-                    beizhu : false,
+                    remark : false,
                 },
                 ruleForm: {
                     codeIndex: '',
                     indexName: '',
                     superId : '',
-                    beizhu : '',
+                    remark : '',
                 },
                 rules: {
-                    /*beizhu: [
+                    /*remark: [
                         { required: true, message: '备注不能为空', trigger: 'blur' },
                         {  pattern: /^[1-9]\d*$/,
                             message: '备注只能为正整数',

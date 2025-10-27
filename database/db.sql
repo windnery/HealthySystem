@@ -50,7 +50,7 @@ CREATE TABLE `dictionary` (
 
 /*Data for the table `dictionary` */
 
-insert  into `dictionary`(`id`,`dic_code`,`dic_name`,`code_index`,`index_name`,`super_id`,`remark`,`create_time`) values (1,'sex_types','性别类型',1,'男',NULL,NULL,'2025-10-28'),(2,'sex_types','性别类型',2,'女',NULL,NULL,'2025-10-28'),(3,'Teacher_collection_types','收藏表类型',1,'收藏',NULL,NULL,'2025-10-28'),(4,'Teacher_order_yesno_types','预约状态',1,'待审核',NULL,NULL,'2025-10-28'),(5,'Teacher_order_yesno_types','预约状态',2,'同意',NULL,NULL,'2025-10-28'),(6,'Teacher_order_yesno_types','预约状态',3,'拒绝',NULL,NULL,'2025-10-28'),(7,'shijianduan_types','时间段',1,'08:00-09:00',NULL,NULL,'2025-10-28'),(8,'shijianduan_types','时间段',2,'09:00-10:00',NULL,NULL,'2025-10-28'),(9,'shijianduan_types','时间段',3,'10:00-11:00',NULL,NULL,'2025-10-28'),(10,'shijianduan_types','时间段',4,'11:00-12:00',NULL,NULL,'2025-10-28'),(11,'shijianduan_types','时间段',5,'14:00-15:00',NULL,NULL,'2025-10-28'),(12,'shijianduan_types','时间段',6,'15:00-16:00',NULL,NULL,'2025-10-28'),(13,'shijianduan_types','时间段',7,'16:00-17:00',NULL,NULL,'2025-10-28'),(14,'shijianduan_types','时间段',8,'17:00-18:00',NULL,NULL,'2025-10-28'),(15,'Info_types','通知类型',1,'通知类型1',NULL,NULL,'2025-10-28'),(16,'Info_types','通知类型',2,'通知类型2',NULL,NULL,'2025-10-28'),(17,'HealthyKnowledge_types','健康知识类型',1,'健康知识类型1',NULL,NULL,'2025-10-28'),(18,'HealthyKnowledge_types','健康知识类型',2,'健康知识类型2',NULL,NULL,'2025-10-28');
+insert  into `dictionary`(`id`,`dic_code`,`dic_name`,`code_index`,`index_name`,`super_id`,`remark`,`create_time`) values (1,'sex_types','性别类型',1,'男',NULL,NULL,'2025-10-28'),(2,'sex_types','性别类型',2,'女',NULL,NULL,'2025-10-28'),(3,'Teacher_collection_types','收藏表类型',1,'收藏',NULL,NULL,'2025-10-28'),(4,'Teacher_order_yesno_types','预约状态',1,'待审核',NULL,NULL,'2025-10-28'),(5,'Teacher_order_yesno_types','预约状态',2,'同意',NULL,NULL,'2025-10-28'),(6,'Teacher_order_yesno_types','预约状态',3,'拒绝',NULL,NULL,'2025-10-28'),(7,'Time_types','时间段',1,'08:00-09:00',NULL,NULL,'2025-10-28'),(8,'Time_types','时间段',2,'09:00-10:00',NULL,NULL,'2025-10-28'),(9,'Time_types','时间段',3,'10:00-11:00',NULL,NULL,'2025-10-28'),(10,'Time_types','时间段',4,'11:00-12:00',NULL,NULL,'2025-10-28'),(11,'Time_types','时间段',5,'14:00-15:00',NULL,NULL,'2025-10-28'),(12,'Time_types','时间段',6,'15:00-16:00',NULL,NULL,'2025-10-28'),(13,'Time_types','时间段',7,'16:00-17:00',NULL,NULL,'2025-10-28'),(14,'Time_types','时间段',8,'17:00-18:00',NULL,NULL,'2025-10-28'),(15,'Info_types','通知类型',1,'通知类型1',NULL,NULL,'2025-10-28'),(16,'Info_types','通知类型',2,'通知类型2',NULL,NULL,'2025-10-28'),(17,'HealthyKnowledge_types','健康知识类型',1,'健康知识类型1',NULL,NULL,'2025-10-28'),(18,'HealthyKnowledge_types','健康知识类型',2,'健康知识类型2',NULL,NULL,'2025-10-28');
 
 /*Table structure for table `HealthyKnowledge` */
 
@@ -183,7 +183,7 @@ CREATE TABLE `Teacher_order` (
   `Teacher_id` int(11) DEFAULT NULL COMMENT '心理老师',
   `Student_id` int(11) DEFAULT NULL COMMENT '用户',
   `yuyue_time` date DEFAULT NULL COMMENT '预约日期',
-  `shijianduan_types` int(11) DEFAULT NULL COMMENT '预约时间段 Search111 ',
+  `Time_types` int(11) DEFAULT NULL COMMENT '预约时间段 Search111 ',
   `Teacher_order_yesno_types` int(11) DEFAULT NULL COMMENT '预约状态 Search111 ',
   `Teacher_order_yesno_text` text COMMENT '审核意见',
   `insert_time` timestamp NULL DEFAULT NULL COMMENT '申请时间',
@@ -193,7 +193,7 @@ CREATE TABLE `Teacher_order` (
 
 /*Data for the table `Teacher_order` */
 
-insert  into `Teacher_order`(`id`,`Teacher_order_uuid_number`,`Teacher_id`,`Student_id`,`yuyue_time`,`shijianduan_types`,`Teacher_order_yesno_types`,`Teacher_order_yesno_text`,`insert_time`,`create_time`) values (1,'1648525919361',2,1,'2024-03-30',8,1,NULL,'2024-03-29 11:51:59','2024-03-29 11:51:59'),(2,'1648530223381',3,1,'2024-03-30',8,1,NULL,'2024-03-29 13:03:43','2024-03-29 13:03:43'),(3,'1648530268888',1,1,'2024-03-31',3,2,'key','2024-03-29 13:04:29','2024-03-29 13:04:29');
+insert  into `Teacher_order`(`id`,`Teacher_order_uuid_number`,`Teacher_id`,`Student_id`,`yuyue_time`,`Time_types`,`Teacher_order_yesno_types`,`Teacher_order_yesno_text`,`insert_time`,`create_time`) values (1,'1648525919361',2,1,'2024-03-30',8,1,NULL,'2024-03-29 11:51:59','2024-03-29 11:51:59'),(2,'1648530223381',3,1,'2024-03-30',8,1,NULL,'2024-03-29 13:03:43','2024-03-29 13:03:43'),(3,'1648530268888',1,1,'2024-03-31',3,2,'key','2024-03-29 13:04:29','2024-03-29 13:04:29');
 
 /*Table structure for table `Student` */
 

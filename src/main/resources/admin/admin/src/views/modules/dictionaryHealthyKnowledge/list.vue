@@ -66,11 +66,11 @@
                         </template>
                     </el-table-column>
                     <!--<el-table-column  :sortable="contents.tableSortable" :align="contents.tableAlign"
-                                      prop="beizhu"
+                                      prop="remark"
                                       header-align="center"
                                       label="备注">
                         <template slot-scope="scope">
-                            {{scope.row.beizhu}}
+                            {{scope.row.remark}}
                         </template>
                     </el-table-column>-->
                     <el-table-column width="300" :align="contents.tableAlign"

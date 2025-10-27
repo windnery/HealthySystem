@@ -28,10 +28,10 @@
                      </el-form-item>
                                  
                      <el-form-item :label="contents.inputTitle == 1 ? '预约时间段' : ''">
-                        <el-select v-model="searchForm.shijianduanTypes" placeholder="请选择预约时间段">
+                        <el-select v-model="searchForm.TimeTypes" placeholder="请选择预约时间段">
                             <el-option label="=-请选择-=" value=""></el-option>
                             <el-option
-                               v-for="(item,index) in shijianduanTypesSelectSearch"
+                               v-for="(item,index) in TimeTypesSelectSearch"
                                v-bind:key="index"
                                :label="item.indexName"
                                :value="item.codeIndex">
@@ -182,11 +182,11 @@
                         </template>
                     </el-table-column>
                     <el-table-column  :sortable="contents.tableSortable" :align="contents.tableAlign"
-                                      prop="shijianduanTypes"
+                                      prop="TimeTypes"
                                       header-align="center"
                                       label="预约时间段">
                         <template slot-scope="scope">
-                            {{scope.row.shijianduanValue}}
+                            {{scope.row.TimeValue}}
                         </template>
                     </el-table-column>
                     <el-table-column  :sortable="contents.tableSortable" :align="contents.tableAlign"
@@ -296,7 +296,7 @@
             userId:"",//当前登录人的id
     //级联表下拉框搜索条件
     //当前表下拉框搜索条件
-              shijianduanTypesSelectSearch : [],
+              TimeTypesSelectSearch : [],
               TeacherOrderYesnoTypesSelectSearch : [],
             form:{
                 id : null,
@@ -304,7 +304,7 @@
                 TeacherId : null,
                 StudentId : null,
                 yuyueTime : null,
-                shijianduanTypes : null,
+                TimeTypes : null,
                 TeacherOrderYesnoTypes : null,
                 TeacherOrderYesnoText : null,
                 insertTime : null,
@@ -344,7 +344,7 @@
                 //本表字段
                      '预约流水号': "TeacherOrderUuidNumber",
                      '预约日期': "yuyueTime",
-                     '预约时间段': "shijianduanTypes",
+                     '预约时间段': "TimeTypes",
                      '预约状态': "TeacherOrderYesnoTypes",
                      '审核意见': "TeacherOrderYesnoText",
                      '申请时间': "insertTime",
@@ -753,8 +753,8 @@
                     params['TeacherOrderUuidNumber'] = '%' + this.searchForm.TeacherOrderUuidNumber + '%'
                 }
                                  
-                if (this.searchForm.shijianduanTypes!= '' && this.searchForm.shijianduanTypes!= undefined) {
-                    params['shijianduanTypes'] = this.searchForm.shijianduanTypes
+                if (this.searchForm.TimeTypes!= '' && this.searchForm.TimeTypes!= undefined) {
+                    params['TimeTypes'] = this.searchForm.TimeTypes
                 }
          
                 if (this.searchForm.TeacherOrderYesnoTypes!= '' && this.searchForm.TeacherOrderYesnoTypes!= undefined) {
@@ -783,11 +783,11 @@
                 //查询当前表搜索条件所有列表
                 //填充下拉框选项
                 this.$http({
-                    url: "dictionary/page?dicCode=shijianduan_types&page=1&limit=100",
+                    url: "dictionary/page?dicCode=Time_types&page=1&limit=100",
                     method: "get",
                 }).then(({data}) => {
                     if(data && data.code === 0){
-                        this.shijianduanTypesSelectSearch = data.data.list;
+                        this.TimeTypesSelectSearch = data.data.list;
                     }
                 });
                 //填充下拉框选项

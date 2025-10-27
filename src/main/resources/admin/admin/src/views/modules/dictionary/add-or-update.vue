@@ -59,13 +59,13 @@
                </el-col>
             <input id="superId" name="superId" type="hidden">
                <el-col :span="12">
-                   <el-form-item class="input" v-if="type!='info'"  label="备注" prop="beizhu">
-                       <el-input v-model="ruleForm.beizhu"
-                                 placeholder="备注" clearable  :readonly="ro.beizhu"></el-input>
+                   <el-form-item class="input" v-if="type!='info'"  label="备注" prop="remark">
+                       <el-input v-model="ruleForm.remark"
+                                 placeholder="备注" clearable  :readonly="ro.remark"></el-input>
                    </el-form-item>
                    <div v-else>
-                       <el-form-item class="input" label="备注" prop="beizhu">
-                           <el-input v-model="ruleForm.beizhu"
+                       <el-form-item class="input" label="备注" prop="remark">
+                           <el-input v-model="ruleForm.remark"
                                      placeholder="备注" readonly></el-input>
                        </el-form-item>
                    </div>
@@ -98,7 +98,7 @@
                     codeIndex: false,
                     indexName: false,
                     superId: false,
-                    beizhu: false,
+                    remark: false,
                 },
                 ruleForm: {
                     dicCode: '',
@@ -106,7 +106,7 @@
                     codeIndex: '',
                     indexName: '',
                     superId: '',
-                    beizhu: '',
+                    remark: '',
                 },
                 rules: {
                    dicCode: [
@@ -132,7 +132,7 @@
                                   trigger: 'blur'
                               }
                           ],
-                   beizhu: [
+                   remark: [
                               { required: true, message: '备注不能为空', trigger: 'blur' },
                           ],
                 }

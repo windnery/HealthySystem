@@ -211,7 +211,7 @@ public class TeacherOrderController {
 //                            TeacherOrderEntity.setTeacherId(Integer.valueOf(data.get(0)));   //心理老师 要改的
 //                            TeacherOrderEntity.setStudentId(Integer.valueOf(data.get(0)));   //学生 要改的
 //                            TeacherOrderEntity.setYuyueTime(sdf.parse(data.get(0)));          //预约日期 要改的
-//                            TeacherOrderEntity.setShijianduanTypes(Integer.valueOf(data.get(0)));   //预约时间段 要改的
+//                            TeacherOrderEntity.setTimeTypes(Integer.valueOf(data.get(0)));   //预约时间段 要改的
 //                            TeacherOrderEntity.setTeacherOrderYesnoTypes(Integer.valueOf(data.get(0)));   //预约状态 要改的
 //                            TeacherOrderEntity.setTeacherOrderYesnoText(data.get(0));                    //审核意见 要改的
 //                            TeacherOrderEntity.setInsertTime(date);//时间

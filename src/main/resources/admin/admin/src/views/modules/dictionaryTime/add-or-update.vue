@@ -10,37 +10,37 @@
         >
             <el-row>
                 <el-col :span="12">
-                    <el-form-item class="input" v-if="type!='info'"  label="预约状态编码" prop="codeIndex">
+                    <el-form-item class="input" v-if="type!='info'"  label="时间段编码" prop="codeIndex">
                         <el-input v-model="ruleForm.codeIndex"
-                                  placeholder="预约状态编码" clearable  :readonly="ro.codeIndex"></el-input>
+                                  placeholder="时间段编码" clearable  :readonly="ro.codeIndex"></el-input>
                     </el-form-item>
                     <div v-else>
-                        <el-form-item class="input" label="预约状态编码" prop="codeIndex">
+                        <el-form-item class="input" label="时间段编码" prop="codeIndex">
                             <el-input v-model="ruleForm.codeIndex"
-                                      placeholder="预约状态编码" readonly></el-input>
+                                      placeholder="时间段编码" readonly></el-input>
                         </el-form-item>
                     </div>
                 </el-col>
                 <el-col :span="12">
-                    <el-form-item class="input" v-if="type!='info'"  label="预约状态" prop="indexName">
+                    <el-form-item class="input" v-if="type!='info'"  label="时间段" prop="indexName">
                         <el-input v-model="ruleForm.indexName"
-                                  placeholder="预约状态" clearable  :readonly="ro.indexName"></el-input>
+                                  placeholder="时间段" clearable  :readonly="ro.indexName"></el-input>
                     </el-form-item>
                     <div v-else>
-                        <el-form-item class="input" label="预约状态" prop="indexName">
+                        <el-form-item class="input" label="时间段" prop="indexName">
                             <el-input v-model="ruleForm.indexName"
-                                      placeholder="预约状态" readonly></el-input>
+                                      placeholder="时间段" readonly></el-input>
                         </el-form-item>
                     </div>
                 </el-col>
                 <!--<el-col :span="12">
-                    <el-form-item class="input" v-if="type!='info'"  label="备注" prop="beizhu">
-                        <el-input v-model="ruleForm.beizhu"
-                                  placeholder="备注" clearable  :readonly="ro.beizhu"></el-input>
+                    <el-form-item class="input" v-if="type!='info'"  label="备注" prop="remark">
+                        <el-input v-model="ruleForm.remark"
+                                  placeholder="备注" clearable  :readonly="ro.remark"></el-input>
                     </el-form-item>
                     <div v-else>
-                        <el-form-item class="input" label="备注" prop="beizhu">
-                            <el-input v-model="ruleForm.beizhu"
+                        <el-form-item class="input" label="备注" prop="remark">
+                            <el-input v-model="ruleForm.remark"
                                       placeholder="备注" readonly></el-input>
                         </el-form-item>
                     </div>
@@ -71,16 +71,16 @@
                     codeIndex : true,
                     indexName : false,
                     superId : false,
-                    beizhu : false,
+                    remark : false,
                 },
                 ruleForm: {
                     codeIndex: '',
                     indexName: '',
                     superId : '',
-                    beizhu : '',
+                    remark : '',
                 },
                 rules: {
-                    /*beizhu: [
+                    /*remark: [
                         { required: true, message: '备注不能为空', trigger: 'blur' },
                         {  pattern: /^[1-9]\d*$/,
                             message: '备注只能为正整数',
@@ -112,7 +112,7 @@
                     this.$http({
                         url: `dictionary/maxCodeIndex`,
                         method: "post",
-                        data: {"dicCode":"Teacher_order_yesno_types"}
+                        data: {"dicCode":"Time_types"}
                     }).then(({ data }) => {
                         if (data && data.code === 0) {
                             this.ruleForm.codeIndex = data.maxCodeIndex;
@@ -141,14 +141,14 @@
             // 提交
             onSubmit() {
                 if((!this.ruleForm.indexName)){
-                    this.$message.error('预约状态不能为空');
+                    this.$message.error('时间段不能为空');
                     return
                 }
                 this.$refs["ruleForm"].validate(valid => {
                     if (valid) {
                         let ruleForm = this.ruleForm;
-                        ruleForm["dicCode"]="Teacher_order_yesno_types";
-                        ruleForm["dicName"]="预约状态";
+                        ruleForm["dicCode"]="Time_types";
+                        ruleForm["dicName"]="时间段";
                         this.$http({
                             url: `dictionary/${!this.ruleForm.id ? "save" : "update"}`,
                             method: "post",

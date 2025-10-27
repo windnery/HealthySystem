@@ -10,37 +10,37 @@
         >
             <el-row>
                 <el-col :span="12">
-                    <el-form-item class="input" v-if="type!='info'"  label="健康知识类型编码" prop="codeIndex">
+                    <el-form-item class="input" v-if="type!='info'"  label="通知类型编码" prop="codeIndex">
                         <el-input v-model="ruleForm.codeIndex"
-                                  placeholder="健康知识类型编码" clearable  :readonly="ro.codeIndex"></el-input>
+                                  placeholder="通知类型编码" clearable  :readonly="ro.codeIndex"></el-input>
                     </el-form-item>
                     <div v-else>
-                        <el-form-item class="input" label="健康知识类型编码" prop="codeIndex">
+                        <el-form-item class="input" label="通知类型编码" prop="codeIndex">
                             <el-input v-model="ruleForm.codeIndex"
-                                      placeholder="健康知识类型编码" readonly></el-input>
+                                      placeholder="通知类型编码" readonly></el-input>
                         </el-form-item>
                     </div>
                 </el-col>
                 <el-col :span="12">
-                    <el-form-item class="input" v-if="type!='info'"  label="健康知识类型" prop="indexName">
+                    <el-form-item class="input" v-if="type!='info'"  label="通知类型" prop="indexName">
                         <el-input v-model="ruleForm.indexName"
-                                  placeholder="健康知识类型" clearable  :readonly="ro.indexName"></el-input>
+                                  placeholder="通知类型" clearable  :readonly="ro.indexName"></el-input>
                     </el-form-item>
                     <div v-else>
-                        <el-form-item class="input" label="健康知识类型" prop="indexName">
+                        <el-form-item class="input" label="通知类型" prop="indexName">
                             <el-input v-model="ruleForm.indexName"
-                                      placeholder="健康知识类型" readonly></el-input>
+                                      placeholder="通知类型" readonly></el-input>
                         </el-form-item>
                     </div>
                 </el-col>
                 <!--<el-col :span="12">
-                    <el-form-item class="input" v-if="type!='info'"  label="备注" prop="beizhu">
-                        <el-input v-model="ruleForm.beizhu"
-                                  placeholder="备注" clearable  :readonly="ro.beizhu"></el-input>
+                    <el-form-item class="input" v-if="type!='info'"  label="备注" prop="remark">
+                        <el-input v-model="ruleForm.remark"
+                                  placeholder="备注" clearable  :readonly="ro.remark"></el-input>
                     </el-form-item>
                     <div v-else>
-                        <el-form-item class="input" label="备注" prop="beizhu">
-                            <el-input v-model="ruleForm.beizhu"
+                        <el-form-item class="input" label="备注" prop="remark">
+                            <el-input v-model="ruleForm.remark"
                                       placeholder="备注" readonly></el-input>
                         </el-form-item>
                     </div>
@@ -71,16 +71,16 @@
                     codeIndex : true,
                     indexName : false,
                     superId : false,
-                    beizhu : false,
+                    remark : false,
                 },
                 ruleForm: {
                     codeIndex: '',
                     indexName: '',
                     superId : '',
-                    beizhu : '',
+                    remark : '',
                 },
                 rules: {
-                    /*beizhu: [
+                    /*remark: [
                         { required: true, message: '备注不能为空', trigger: 'blur' },
                         {  pattern: /^[1-9]\d*$/,
                             message: '备注只能为正整数',
@@ -112,7 +112,7 @@
                     this.$http({
                         url: `dictionary/maxCodeIndex`,
                         method: "post",
-                        data: {"dicCode":"HealthyKnowledge_types"}
+                        data: {"dicCode":"Info_types"}
                     }).then(({ data }) => {
                         if (data && data.code === 0) {
                             this.ruleForm.codeIndex = data.maxCodeIndex;
@@ -141,14 +141,14 @@
             // 提交
             onSubmit() {
                 if((!this.ruleForm.indexName)){
-                    this.$message.error('健康知识类型不能为空');
+                    this.$message.error('通知类型不能为空');
                     return
                 }
                 this.$refs["ruleForm"].validate(valid => {
                     if (valid) {
                         let ruleForm = this.ruleForm;
-                        ruleForm["dicCode"]="HealthyKnowledge_types";
-                        ruleForm["dicName"]="健康知识类型";
+                        ruleForm["dicCode"]="Info_types";
+                        ruleForm["dicName"]="通知类型";
                         this.$http({
                             url: `dictionary/${!this.ruleForm.id ? "save" : "update"}`,
                             method: "post",

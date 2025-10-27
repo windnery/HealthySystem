@@ -6,133 +6,11 @@
                 :model="ruleForm"
                 :rules="rules"
                 label-width="80px"
-                :style="{backgroundColor:addEditForm.addEditBoxColor}"
-        >
+                :style="{backgroundColor:addEditForm.addEditBoxColor}">
             <el-row>
-
-                <el-col :span="12">
-                    <el-form-item class="select" v-if="type!='info'"  label="试卷表" prop="exampaperId">
-                        <el-select v-model="ruleForm.exampaperId" placeholder="请选择试卷表" @change="exampaperChange">
-                            <el-option
-                                    v-for="(item,index) in exampaperOptions"
-                                    v-bind:key="item.id"
-                                    :label="item.exampaperName"
-                                    :value="item.id">
-                            </el-option>
-                        </el-select>
-                    </el-form-item>
-                </el-col>
-
-                <el-col :span="12">
-                    <el-form-item class="input" v-if="type!='info'"  label="考试时长(分钟)" prop="exampaperDate">
-                        <el-input v-model="exampaperForm.exampaperDate"
-                                  placeholder="考试时长(分钟)" clearable  :readonly="ro.exampaperDate" readonly></el-input>
-                    </el-form-item>
-                    <div v-else>
-                        <el-form-item class="input" label="考试时长(分钟)" prop="exampaperDate">
-                            <el-input v-model="ruleForm.exampaperDate"
-                                      placeholder="考试时长(分钟)" readonly></el-input>
-                        </el-form-item>
-                    </div>
-                </el-col>
-                <el-col :span="12">
-                    <el-form-item class="input" v-if="type!='info'"  label="试卷总分数" prop="exampaperMyscore">
-                        <el-input v-model="exampaperForm.exampaperMyscore"
-                                  placeholder="试卷总分数" clearable  :readonly="ro.exampaperMyscore" readonly></el-input>
-                    </el-form-item>
-                    <div v-else>
-                        <el-form-item class="input" label="试卷总分数" prop="exampaperMyscore">
-                            <el-input v-model="ruleForm.exampaperMyscore"
-                                      placeholder="试卷总分数" readonly></el-input>
-                        </el-form-item>
-                    </div>
-                </el-col>
-
-                <el-col :span="12">
-                    <el-form-item class="select" v-if="type!='info'"  label="试题表" prop="examquestionId">
-                        <el-select v-model="ruleForm.examquestionId" placeholder="请选择试题表" @change="examquestionChange">
-                            <el-option
-                                    v-for="(item,index) in examquestionOptions"
-                                    v-bind:key="item.id"
-                                    :label="item.examquestionName"
-                                    :value="item.id">
-                            </el-option>
-                        </el-select>
-                    </el-form-item>
-                </el-col>
-
-                <el-col :span="12">
-                    <el-form-item class="input" v-if="type!='info'"  label="试题名称" prop="examquestionName">
-                        <el-input v-model="examquestionForm.examquestionName"
-                                  placeholder="试题名称" clearable  :readonly="ro.examquestionName" readonly></el-input>
-                    </el-form-item>
-                    <div v-else>
-                        <el-form-item class="input" label="试题名称" prop="examquestionName">
-                            <el-input
-                                    type="textarea"
-                                    min="1"
-                                    v-model="ruleForm.examquestionName"
-                                    placeholder="试题名称"
-                                    clearable
-                                    readonly
-                            ></el-input>
-                        </el-form-item>
-                    </div>
-                </el-col>
-                <el-col :span="24">
-                    <el-form-item v-if="ruleForm.examquestionTypes==1||ruleForm.examquestionTypes==2||ruleForm.examquestionTypes==3" label="选项" prop="examquestionOptions">
-                        <div class="options" v-for="(item,index) in options" v-bind:key="index">
-                            {{item.code}}. {{item.text}}
-                        </div>
-                    </el-form-item>
-                </el-col>
-
-                <el-col :span="12">
-                    <el-form-item class="input" v-if="type!='info'"  label="分值" prop="examquestionScore">
-                        <el-input v-model="examquestionForm.examquestionScore"
-                                  placeholder="分值" clearable  :readonly="ro.examquestionScore" readonly></el-input>
-                    </el-form-item>
-                    <div v-else>
-                        <el-form-item class="input" label="分值" prop="examquestionScore">
-                            <el-input v-model="ruleForm.examquestionScore"
-                                      placeholder="分值" readonly></el-input>
-                        </el-form-item>
-                    </div>
-                </el-col>
-                <el-col :span="12">
-                    <el-form-item class="input" v-if="type!='info'"  label="答案解析" prop="examquestionAnalysis">
-                        <el-input v-model="examquestionForm.examquestionAnalysis"
-                                  placeholder="答案解析" clearable  :readonly="ro.examquestionAnalysis" readonly></el-input>
-                    </el-form-item>
-                    <div v-else>
-                        <el-form-item class="input" label="答案解析" prop="examquestionAnalysis">
-                            <el-input
-                                    type="textarea"
-                                    min="1"
-                                    v-model="ruleForm.examquestionAnalysis"
-                                    placeholder="答案解析"
-                                    clearable
-                                    readonly
-                            ></el-input>
-                        </el-form-item>
-                    </div>
-                </el-col>
-                <el-col :span="12">
-                    <el-form-item class="input" v-if="type!='info'"  label="试题排序" prop="examquestionSequence">
-                        <el-input v-model="examquestionForm.examquestionSequence"
-                                  placeholder="试题排序，值越大排越前面" clearable  :readonly="ro.examquestionSequence" readonly></el-input>
-                    </el-form-item>
-                    <div v-else>
-                        <el-form-item class="input" label="试题排序" prop="examquestionSequence">
-                            <el-input v-model="ruleForm.examquestionSequence"
-                                      placeholder="试题排序，值越大排越前面" readonly></el-input>
-                        </el-form-item>
-                    </div>
-                </el-col>
-
-                <el-col :span="12">
+                <el-col :span="12"  v-if="sessionTable !='Student'">
                     <el-form-item class="select" v-if="type!='info'"  label="学生" prop="StudentId">
-                        <el-select v-model="ruleForm.StudentId" placeholder="请选择学生" @change="StudentChange">
+                        <el-select v-model="ruleForm.StudentId" :disabled="ro.StudentId" filterable placeholder="请选择学生" @change="StudentChange">
                             <el-option
                                     v-for="(item,index) in StudentOptions"
                                     v-bind:key="item.id"
@@ -143,24 +21,107 @@
                     </el-form-item>
                 </el-col>
 
-                <input id="updateId" name="id" type="hidden">
-                <input id="StudentId" name="StudentId" type="hidden">
-                <input id="exampaperId" name="exampaperId" type="hidden">
-                <input id="examquestionId" name="examquestionId" type="hidden">
-                <el-col :span="12">
-                    <el-form-item class="input" v-if="type!='info'"  label="考生作答" prop="examredetailsMyanswer">
-                        <el-input v-model="ruleForm.examredetailsMyanswer"
-                                  placeholder="考生作答" clearable  :readonly="ro.examredetailsMyanswer"></el-input>
+                <el-col :span="12"  v-if="sessionTable !='Student' ">
+                    <el-form-item class="input" v-if="type!='info'"  label="学生姓名" prop="StudentName">
+                        <el-input v-model="StudentForm.StudentName"
+                                  placeholder="学生姓名" clearable readonly></el-input>
                     </el-form-item>
                     <div v-else>
-                        <el-form-item class="input" label="考生作答" prop="examredetailsMyanswer">
-                            <el-input v-model="ruleForm.examredetailsMyanswer"
-                                      placeholder="考生作答" readonly></el-input>
+                        <el-form-item class="input" label="学生姓名" prop="StudentName">
+                            <el-input v-model="ruleForm.StudentName"
+                                      placeholder="学生姓名" readonly></el-input>
+                        </el-form-item>
+                    </div>
+                </el-col>
+                <el-col :span="12"  v-if="sessionTable !='Teacher'">
+                    <el-form-item class="select" v-if="type!='info'"  label="心理老师" prop="TeacherId">
+                        <el-select v-model="ruleForm.TeacherId" :disabled="ro.TeacherId" filterable placeholder="请选择心理老师" @change="TeacherChange">
+                            <el-option
+                                    v-for="(item,index) in TeacherOptions"
+                                    v-bind:key="item.id"
+                                    :label="item.TeacherName"
+                                    :value="item.id">
+                            </el-option>
+                        </el-select>
+                    </el-form-item>
+                </el-col>
+
+                <el-col :span="12"  v-if="sessionTable !='Teacher' ">
+                    <el-form-item class="input" v-if="type!='info'"  label="心理老师姓名" prop="TeacherName">
+                        <el-input v-model="TeacherForm.TeacherName"
+                                  placeholder="心理老师姓名" clearable readonly></el-input>
+                    </el-form-item>
+                    <div v-else>
+                        <el-form-item class="input" label="心理老师姓名" prop="TeacherName">
+                            <el-input v-model="ruleForm.TeacherName"
+                                      placeholder="心理老师姓名" readonly></el-input>
+                        </el-form-item>
+                    </div>
+                </el-col>
+                <input id="updateId" name="id" type="hidden">
+               <el-col :span="12">
+                   <el-form-item class="input" v-if="type!='info'"  label="预约流水号" prop="TeacherOrderUuidNumber">
+                       <el-input v-model="ruleForm.TeacherOrderUuidNumber"
+                                 placeholder="预约流水号" clearable  :readonly="ro.TeacherOrderUuidNumber"></el-input>
+                   </el-form-item>
+                   <div v-else>
+                       <el-form-item class="input" label="预约流水号" prop="TeacherOrderUuidNumber">
+                           <el-input v-model="ruleForm.TeacherOrderUuidNumber"
+                                     placeholder="预约流水号" readonly></el-input>
+                       </el-form-item>
+                   </div>
+               </el-col>
+            <input id="TeacherId" name="TeacherId" type="hidden">
+            <input id="StudentId" name="StudentId" type="hidden">
+                <el-col :span="12">
+                    <el-form-item v-if="type!='info'"  class="input" label="预约日期" prop="yuyueTime">
+                        <el-date-picker
+                                value-format="yyyy-MM-dd"
+                                v-model="ruleForm.yuyueTime"
+                                type="date"
+                                placeholder="预约日期"
+                                :disabled="ro.yuyueTime">
+                        </el-date-picker>
+                    </el-form-item>
+                    <div v-else>
+                        <el-form-item v-if="ruleForm.yuyueTime" label="预约日期" prop="yuyueTime">
+                            <span v-html="ruleForm.yuyueTime"></span>
                         </el-form-item>
                     </div>
                 </el-col>
 
-
+                <el-col :span="12">
+                    <el-form-item class="select" v-if="type!='info'"  label="预约时间段" prop="TimeTypes">
+                        <el-select v-model="ruleForm.TimeTypes" :disabled="ro.TimeTypes" placeholder="请选择预约时间段">
+                            <el-option
+                                v-for="(item,index) in TimeTypesOptions"
+                                v-bind:key="item.codeIndex"
+                                :label="item.indexName"
+                                :value="item.codeIndex">
+                            </el-option>
+                        </el-select>
+                    </el-form-item>
+                    <div v-else>
+                        <el-form-item class="input" label="预约时间段" prop="TimeValue">
+                        <el-input v-model="ruleForm.TimeValue"
+                            placeholder="预约时间段" readonly></el-input>
+                        </el-form-item>
+                    </div>
+                </el-col>
+            <el-col :span="12" v-if="type=='info'">
+                <div>
+                    <el-form-item v-if="ruleForm.TeacherOrderYesnoTypes" label="预约状态" prop="TeacherOrderYesnoTypes">
+                        <el-input v-model="ruleForm.TeacherOrderYesnoValue" placeholder="预约状态" readonly></el-input>
+                    </el-form-item>
+                </div>
+            </el-col>
+            <el-col :span="12" v-if="type=='info'">
+                <div>
+                    <el-form-item v-if="ruleForm.TeacherOrderYesnoText" label="审核意见" prop="TeacherOrderYesnoText">
+                        <span v-html="ruleForm.TeacherOrderYesnoText"></span>
+                    </el-form-item>
+                </div>
+            </el-col>
             </el-row>
             <el-form-item class="btn">
                 <el-button v-if="type!='info'" type="primary" class="btn-success" @click="onSubmit">提交</el-button>
@@ -168,8 +129,6 @@
                 <el-button v-if="type=='info'" class="btn-close" @click="back()">返回</el-button>
             </el-form-item>
         </el-form>
-
-
     </div>
 </template>
 <script>
@@ -178,111 +137,80 @@
     import { isNumber,isIntNumer,isEmail,isPhone, isMobile,isURL,checkIdCard } from "@/utils/validate";
     export default {
         data() {
-            let self = this
-            var validateIdCard = (rule, value, callback) => {
-                if(!value){
-                    callback();
-                } else if (!checkIdCard(value)) {
-                    callback(new Error("请输入正确的身份证号码"));
-                } else {
-                    callback();
-                }
-            };
-            var validateUrl = (rule, value, callback) => {
-                if(!value){
-                    callback();
-                } else if (!isURL(value)) {
-                    callback(new Error("请输入正确的URL地址"));
-                } else {
-                    callback();
-                }
-            };
-            var validateMobile = (rule, value, callback) => {
-                if(!value){
-                    callback();
-                } else if (!isMobile(value)) {
-                    callback(new Error("请输入正确的手机号码"));
-                } else {
-                    callback();
-                }
-            };
-            var validatePhone = (rule, value, callback) => {
-                if(!value){
-                    callback();
-                } else if (!isPhone(value)) {
-                    callback(new Error("请输入正确的电话号码"));
-                } else {
-                    callback();
-                }
-            };
-            var validateEmail = (rule, value, callback) => {
-                if(!value){
-                    callback();
-                } else if (!isEmail(value)) {
-                    callback(new Error("请输入正确的邮箱地址"));
-                } else {
-                    callback();
-                }
-            };
-            var validateNumber = (rule, value, callback) => {
-                if(!value){
-                    callback();
-                } else if (!isNumber(value)) {
-                    callback(new Error("请输入数字"));
-                } else {
-                    callback();
-                }
-            };
-            var validateIntNumber = (rule, value, callback) => {
-                if(!value){
-                    callback();
-                } else if (!isIntNumer(value)) {
-                    callback(new Error("请输入整数"));
-                } else {
-                    callback();
-                }
-            };
             return {
                 addEditForm:null,
                 id: '',
                 type: '',
-                exampaperForm: {},
-                examquestionForm: {},
+                sessionTable : "",//登录账户所在表名
+                role : "",//权限
+                userId:"",//当前登录人的id
                 StudentForm: {},
-                options:[],
+                TeacherForm: {},
                 ro:{
+                    TeacherOrderUuidNumber: false,
+                    TeacherId: false,
                     StudentId: false,
-                    exampaperId: false,
-                    examquestionId: false,
-                    examredetailsMyanswer: false,
+                    yuyueTime: false,
+                    TimeTypes: false,
+                    TeacherOrderYesnoTypes: false,
+                    TeacherOrderYesnoText: false,
                     insertTime: false,
                 },
                 ruleForm: {
+                    TeacherOrderUuidNumber: new Date().getTime(),
+                    TeacherId: '',
                     StudentId: '',
-                    exampaperId: '',
-                    examquestionId: '',
-                    examredetailsMyanswer: '',
+                    yuyueTime: '',
+                    TimeTypes: '',
+                    TeacherOrderYesnoTypes: '',
+                    TeacherOrderYesnoText: '',
                     insertTime: '',
                 },
-                exampaperOptions : [],
-                examquestionOptions : [],
+                TimeTypesOptions : [],
+                TeacherOrderYesnoTypesOptions : [],
                 StudentOptions : [],
+                TeacherOptions : [],
                 rules: {
-                    StudentId: [
-                        { required: true, message: '学生id不能为空', trigger: 'blur' },
-                    ],
-                    exampaperId: [
-                        { required: true, message: '试卷（外键）不能为空', trigger: 'blur' },
-                    ],
-                    examquestionId: [
-                        { required: true, message: '试题id（外键）不能为空', trigger: 'blur' },
-                    ],
-                    examredetailsMyanswer: [
-                        { required: true, message: '考生作答不能为空', trigger: 'blur' },
-                    ],
-                    insertTime: [
-                        { required: true, message: '记录时间不能为空', trigger: 'blur' },
-                    ],
+                   TeacherOrderUuidNumber: [
+                              { required: true, message: '预约流水号不能为空', trigger: 'blur' },
+                          ],
+                   TeacherId: [
+                              { required: true, message: '心理老师不能为空', trigger: 'blur' },
+                              {  pattern: /^[1-9][0-9]*$/,
+                                  message: '只允许输入整数',
+                                  trigger: 'blur'
+                              }
+                          ],
+                   StudentId: [
+                              { required: true, message: '学生不能为空', trigger: 'blur' },
+                              {  pattern: /^[1-9][0-9]*$/,
+                                  message: '只允许输入整数',
+                                  trigger: 'blur'
+                              }
+                          ],
+                   yuyueTime: [
+                              { required: true, message: '预约日期不能为空', trigger: 'blur' },
+                          ],
+                   TimeTypes: [
+                              { required: true, message: '预约时间段不能为空', trigger: 'blur' },
+                              {  pattern: /^[1-9][0-9]*$/,
+                                  message: '只允许输入整数',
+                                  trigger: 'blur'
+                              }
+                          ],
+                   TeacherOrderYesnoTypes: [
+                              { required: true, message: '预约状态不能为空', trigger: 'blur' },
+                              {  pattern: /^[1-9][0-9]*$/,
+                                  message: '只允许输入整数',
+                                  trigger: 'blur'
+                              }
+                          ],
+                   TeacherOrderYesnoText: [
+                              { required: true, message: '审核意见不能为空', trigger: 'blur' },
+                          ],
+                   insertTime: [
+                              { required: true, message: '申请时间不能为空', trigger: 'blur' },
+                          ],
                 }
             };
         },
@@ -290,43 +218,58 @@
         computed: {
         },
         created() {
+            //获取当前登录学生的信息
+            this.sessionTable = this.$storage.get("sessionTable");
+            this.role = this.$storage.get("role");
+            this.userId = this.$storage.get("userId");
+
+
+            if (this.role != "管理员"){
+            }
             this.addEditForm = styleJs.addStyle();
             this.addEditStyleChange()
             this.addEditUploadStyleChange()
             //获取下拉框信息
+                this.$http({
+                    url:`dictionary/page?page=1&limit=100&sort=&order=&dicCode=Time_types`,
+                    method: "get"
+                }).then(({ data }) => {
+                    if (data && data.code === 0) {
+                        this.TimeTypesOptions = data.data.list;
+                    }
+                });
+                this.$http({
+                    url:`dictionary/page?page=1&limit=100&sort=&order=&dicCode=Teacher_order_yesno_types`,
+                    method: "get"
+                }).then(({ data }) => {
+                    if (data && data.code === 0) {
+                        this.TeacherOrderYesnoTypesOptions = data.data.list;
+                    }
+                });
 
-            this.$http({
-                url: `exampaper/page?page=1&limit=100`,
-                method: "get"
-            }).then(({ data }) => {
-                if (data && data.code === 0) {
-                    this.exampaperOptions = data.data.list;
-                }
-            });
+         this.$http({
+             url: `Student/page?page=1&limit=100`,
+             method: "get"
+         }).then(({ data }) => {
+             if (data && data.code === 0) {
+                this.StudentOptions = data.data.list;
+            }
+         });
+         this.$http({
+             url: `Teacher/page?page=1&limit=100`,
+             method: "get"
+         }).then(({ data }) => {
+             if (data && data.code === 0) {
+                this.TeacherOptions = data.data.list;
+            }
+         });
 
-            this.$http({
-                url: `examquestion/page?page=1&limit=100`,
-                method: "get"
-            }).then(({ data }) => {
-                if (data && data.code === 0) {
-                    this.examquestionOptions = data.data.list;
-                }
-            });
-
-            this.$http({
-                url: `Student/page?page=1&limit=100`,
-                method: "get"
-            }).then(({ data }) => {
-                if (data && data.code === 0) {
-                    this.StudentOptions = data.data.list;
-                }
-            });
-
+        },
+        mounted() {
         },
         methods: {
             // 下载
             download(file){
-
                 window.open(`${file}`)
             },
             // 初始化
@@ -337,37 +280,6 @@
                 }
                 if(this.type=='info'||this.type=='else'){
                     this.info(id);
-                }else if(this.type=='cross'){
-                    var obj = this.$storage.getObj('crossObj');
-                    console.log(this.options)
-                    for (var o in obj){
-
-                        if(o=='StudentId'){
-                            this.ruleForm.StudentId = obj[o];
-                            this.ro.StudentId = true;
-                            continue;
-                        }
-                        if(o=='exampaperId'){
-                            this.ruleForm.exampaperId = obj[o];
-                            this.ro.exampaperId = true;
-                            continue;
-                        }
-                        if(o=='examquestionId'){
-                            this.ruleForm.examquestionId = obj[o];
-                            this.ro.examquestionId = true;
-                            continue;
-                        }
-                        if(o=='examredetailsMyanswer'){
-                            this.ruleForm.examredetailsMyanswer = obj[o];
-                            this.ro.examredetailsMyanswer = true;
-                            continue;
-                        }
-                        if(o=='insertTime'){
-                            this.ruleForm.insertTime = obj[o];
-                            this.ro.insertTime = true;
-                            continue;
-                        }
-                    }
                 }
                 // 获取学生信息
                 this.$http({
@@ -378,28 +290,6 @@
                         var json = data.data;
                     } else {
                         this.$message.error(data.msg);
-                    }
-                });
-
-
-            },
-            exampaperChange(id){
-                this.$http({
-                    url: `exampaper/info/`+id,
-                    method: "get"
-                }).then(({ data }) => {
-                    if (data && data.code === 0) {
-                        this.exampaperForm = data.data;
-                    }
-                });
-            },
-            examquestionChange(id){
-                this.$http({
-                    url: `examquestion/info/`+id,
-                    method: "get"
-                }).then(({ data }) => {
-                    if (data && data.code === 0) {
-                        this.examquestionForm = data.data;
                     }
                 });
             },
@@ -413,22 +303,29 @@
                     }
                 });
             },
+            TeacherChange(id){
+                this.$http({
+                    url: `Teacher/info/`+id,
+                    method: "get"
+                }).then(({ data }) => {
+                    if (data && data.code === 0) {
+                        this.TeacherForm = data.data;
+                    }
+                });
+            },
             // 多级联动参数
             info(id) {
-                this.$http({
-                    url: `examrewrongquestion/info/${id}`,
+                let _this =this;
+                _this.$http({
+                    url: `TeacherOrder/info/${id}`,
                     method: 'get'
                 }).then(({ data }) => {
                     if (data && data.code === 0) {
-                        this.ruleForm = data.data;
-                        this.exampaperChange(data.data.exampaperId)
-                        this.examquestionChange(data.data.examquestionId)
-                        this.StudentChange(data.data.StudentId)
-                        this.options = JSON.parse(this.ruleForm.examquestionOptions)
-                        //解决前台上传图片后台不显示的问题
-                        let reg=new RegExp('../../../upload','g')//g代表全部
+                        _this.ruleForm = data.data;
+                        _this.StudentChange(data.data.StudentId)
+                        _this.TeacherChange(data.data.TeacherId)
                     } else {
-                        this.$message.error(data.msg);
+                        _this.$message.error(data.msg);
                     }
                 });
             },
@@ -437,7 +334,7 @@
                 this.$refs["ruleForm"].validate(valid => {
                     if (valid) {
                         this.$http({
-                            url:`examrewrongquestion/${!this.ruleForm.id ? "save" : "update"}`,
+                            url:`TeacherOrder/${!this.ruleForm.id ? "save" : "update"}`,
                             method: "post",
                             data: this.ruleForm
                         }).then(({ data }) => {
@@ -449,7 +346,7 @@
                                     onClose: () => {
                                         this.parent.showFlag = true;
                                         this.parent.addOrUpdateFlag = false;
-                                        this.parent.examrewrongquestionCrossAddOrUpdateFlag = false;
+                                        this.parent.TeacherOrderCrossAddOrUpdateFlag = false;
                                         this.parent.search();
                                         this.parent.contentStyleChange();
                                     }
@@ -469,7 +366,7 @@
             back() {
                 this.parent.showFlag = true;
                 this.parent.addOrUpdateFlag = false;
-                this.parent.examrewrongquestionCrossAddOrUpdateFlag = false;
+                this.parent.TeacherOrderCrossAddOrUpdateFlag = false;
                 this.parent.contentStyleChange();
             },
             //图片
@@ -613,3 +510,28 @@
         }
     };
 </script>
+<style lang="scss">
+.editor{
+  height: 500px;
+
+  & /deep/ .ql-container {
+	  height: 310px;
+  }
+}
+.amap-wrapper {
+  width: 100%;
+  height: 500px;
+}
+.search-box {
+  position: absolute;
+}
+.addEdit-block {
+	margin: -10px;
+}
+.detail-form-content {
+	padding: 12px;
+}
+.btn .el-button {
+  padding: 0;
+}</style>
+

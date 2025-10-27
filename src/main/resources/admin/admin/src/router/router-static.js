@@ -31,7 +31,7 @@ import center from '@/views/center'
     import dictionaryExamquestion from '@/views/modules/dictionaryExamquestion/list'
     import dictionaryHealthyKnowledge from '@/views/modules/dictionaryHealthyKnowledge/list'
     import dictionarySex from '@/views/modules/dictionarySex/list'
-    import dictionaryShijianduan from '@/views/modules/dictionaryShijianduan/list'
+    import dictionaryTime from '@/views/modules/dictionaryTime/list'
     import dictionaryInfo from '@/views/modules/dictionaryInfo/list'
     import dictionaryTeacherCollection from '@/views/modules/dictionaryTeacherCollection/list'
     import dictionaryTeacherOrderYesno from '@/views/modules/dictionaryTeacherOrderYesno/list'
@@ -99,9 +99,9 @@ const routes = [{
         component: dictionarySex
     }
     ,{
-        path: '/dictionaryShijianduan',
+        path: '/dictionaryTime',
         name: '时间段',
-        component: dictionaryShijianduan
+        component: dictionaryTime
     }
     ,{
         path: '/dictionaryInfo',

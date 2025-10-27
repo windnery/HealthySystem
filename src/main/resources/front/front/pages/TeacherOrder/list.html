@@ -392,7 +392,7 @@
                             <td style="width: 60px;">{{item.TeacherName}}</td>
                             <td style="width: 150px;">{{item.TeacherOrderUuidNumber}}</td>
                             <td style="width: 150px;">{{item.yuyueTime}}</td>
-                            <td style="width: 80px;">{{item.shijianduanValue}}</td>
+                            <td style="width: 80px;">{{item.TimeValue}}</td>
                             <td style="width: 80px;">{{item.TeacherOrderYesnoValue}}</td>
                             <td style="width: 150px;">{{item.TeacherOrderYesnoText}}</td>
                             <td style="width: 150px;">{{item.insertTime}}</td>
@@ -425,7 +425,7 @@
         el: '#app',
         data: {
             swiperList: [],
-            shijianduanTypesList: [],
+            TimeTypesList: [],
             TeacherOrderYesnoTypesList: [],
 
             //查询条件
@@ -433,7 +433,7 @@
                 page: 1
                 ,limit: 8
                 ,TeacherOrderUuidNumber: ""
-                ,shijianduanTypes: ""
+                ,TimeTypes: ""
                 ,TeacherOrderYesnoTypes: ""
             },
 
@@ -662,14 +662,14 @@
 
 
             //当前表的 预约时间段 字段 字典表查询
-            shijianduanTypesSelect();
+            TimeTypesSelect();
             //当前表的 预约状态 字段 字典表查询
             TeacherOrderYesnoTypesSelect();
            //当前表的 预约时间段 字段 字典表查询方法
-           function shijianduanTypesSelect() {
-               http.request("dictionary/page?page=1&limit=100&sort=&order=&dicCode=shijianduan_types", 'get', {}, function (res) {
+           function TimeTypesSelect() {
+               http.request("dictionary/page?page=1&limit=100&sort=&order=&dicCode=Time_types", 'get', {}, function (res) {
                    if(res.code == 0){
-                       vue.shijianduanTypesList = res.data.list;
+                       vue.TimeTypesList = res.data.list;
                    }
                });
            }
@@ -710,11 +710,11 @@
             });
         });
         // 预约时间段的查询
-                shijianduanTypesSelect();
-       function shijianduanTypesSelect() {
-           http.request("dictionary/page?page=1&limit=100&sort=&order=&dicCode=shijianduan_types", 'get', {}, function (res) {
+                TimeTypesSelect();
+       function TimeTypesSelect() {
+           http.request("dictionary/page?page=1&limit=100&sort=&order=&dicCode=Time_types", 'get', {}, function (res) {
                if(res.code == 0){
-                   vue.shijianduanTypesList = res.data.list;
+                   vue.TimeTypesList = res.data.list;
                }
            });
        }

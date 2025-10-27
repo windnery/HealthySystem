@@ -247,7 +247,7 @@ public class DictionaryController {
 //                            dictionaryEntity.setCodeIndex(Integer.valueOf(data.get(0)));   //编码 要改的
 //                            dictionaryEntity.setIndexName(data.get(0));                    //编码名字 要改的
 //                            dictionaryEntity.setSuperId(Integer.valueOf(data.get(0)));   //父字段id 要改的
-//                            dictionaryEntity.setBeizhu(data.get(0));                    //备注 要改的
+//                            dictionaryEntity.setremark(data.get(0));                    //备注 要改的
 //                            dictionaryEntity.setCreateTime(date);//时间
                             dictionaryList.add(dictionaryEntity);
 

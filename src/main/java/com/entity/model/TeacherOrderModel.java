@@ -53,7 +53,7 @@ public class TeacherOrderModel implements Serializable {
     /**
      * 预约时间段
      */
-    private Integer shijianduanTypes;
+    private Integer TimeTypes;
 
 
     /**
@@ -157,16 +157,16 @@ public class TeacherOrderModel implements Serializable {
     /**
 	 * 获取：预约时间段
 	 */
-    public Integer getShijianduanTypes() {
-        return shijianduanTypes;
+    public Integer getTimeTypes() {
+        return TimeTypes;
     }
 
 
     /**
 	 * 设置：预约时间段
 	 */
-    public void setShijianduanTypes(Integer shijianduanTypes) {
-        this.shijianduanTypes = shijianduanTypes;
+    public void setTimeTypes(Integer TimeTypes) {
+        this.TimeTypes = TimeTypes;
     }
     /**
 	 * 获取：预约状态

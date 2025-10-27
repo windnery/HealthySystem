@@ -18,7 +18,7 @@ public class TeacherOrderView extends TeacherOrderEntity implements Serializable
 		/**
 		* 预约时间段的值
 		*/
-		private String shijianduanValue;
+		private String TimeValue;
 		/**
 		* 预约状态的值
 		*/
@@ -96,14 +96,14 @@ public class TeacherOrderView extends TeacherOrderEntity implements Serializable
 			/**
 			* 获取： 预约时间段的值
 			*/
-			public String getShijianduanValue() {
-				return shijianduanValue;
+			public String getTimeValue() {
+				return TimeValue;
 			}
 			/**
 			* 设置： 预约时间段的值
 			*/
-			public void setShijianduanValue(String shijianduanValue) {
-				this.shijianduanValue = shijianduanValue;
+			public void setTimeValue(String TimeValue) {
+				this.TimeValue = TimeValue;
 			}
 			/**
 			* 获取： 预约状态的值

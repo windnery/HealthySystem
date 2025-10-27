@@ -27,7 +27,7 @@ const menu = {
                         ],
                         "menu":"时间段管理",
                         "menuJump":"列表",
-                        "tableName":"dictionaryShijianduan"
+                        "tableName":"dictionaryTime"
                     }
                     ,
                     {

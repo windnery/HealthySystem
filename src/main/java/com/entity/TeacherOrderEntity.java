@@ -86,9 +86,9 @@ public class TeacherOrderEntity<T> implements Serializable {
     /**
      * 预约时间段
      */
-    @TableField(value = "shijianduan_types")
+    @TableField(value = "Time_types")
 
-    private Integer shijianduanTypes;
+    private Integer TimeTypes;
 
 
     /**
@@ -195,15 +195,15 @@ public class TeacherOrderEntity<T> implements Serializable {
     /**
 	 * 设置：预约时间段
 	 */
-    public Integer getShijianduanTypes() {
-        return shijianduanTypes;
+    public Integer getTimeTypes() {
+        return TimeTypes;
     }
     /**
 	 * 获取：预约时间段
 	 */
 
-    public void setShijianduanTypes(Integer shijianduanTypes) {
-        this.shijianduanTypes = shijianduanTypes;
+    public void setTimeTypes(Integer TimeTypes) {
+        this.TimeTypes = TimeTypes;
     }
     /**
 	 * 设置：预约状态
@@ -266,7 +266,7 @@ public class TeacherOrderEntity<T> implements Serializable {
             ", TeacherId=" + TeacherId +
             ", StudentId=" + StudentId +
             ", yuyueTime=" + yuyueTime +
-            ", shijianduanTypes=" + shijianduanTypes +
+            ", TimeTypes=" + TimeTypes +
             ", TeacherOrderYesnoTypes=" + TeacherOrderYesnoTypes +
             ", TeacherOrderYesnoText=" + TeacherOrderYesnoText +
             ", insertTime=" + insertTime +
