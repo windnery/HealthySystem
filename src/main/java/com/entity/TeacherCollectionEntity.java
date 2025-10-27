@@ -60,9 +60,9 @@ public class TeacherCollectionEntity<T> implements Serializable {
     /**
      * 学生
      */
-    @TableField(value = "yonghu_id")
+    @TableField(value = "Student_id")
 
-    private Integer yonghuId;
+    private Integer StudentId;
 
 
     /**
@@ -122,15 +122,15 @@ public class TeacherCollectionEntity<T> implements Serializable {
     /**
 	 * 设置：学生
 	 */
-    public Integer getYonghuId() {
-        return yonghuId;
+    public Integer getStudentId() {
+        return StudentId;
     }
     /**
 	 * 获取：学生
 	 */
 
-    public void setYonghuId(Integer yonghuId) {
-        this.yonghuId = yonghuId;
+    public void setStudentId(Integer StudentId) {
+        this.StudentId = StudentId;
     }
     /**
 	 * 设置：类型
@@ -177,7 +177,7 @@ public class TeacherCollectionEntity<T> implements Serializable {
         return "TeacherCollection{" +
             "id=" + id +
             ", TeacherId=" + TeacherId +
-            ", yonghuId=" + yonghuId +
+            ", StudentId=" + StudentId +
             ", TeacherCollectionTypes=" + TeacherCollectionTypes +
             ", insertTime=" + insertTime +
             ", createTime=" + createTime +

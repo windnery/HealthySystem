@@ -58,7 +58,7 @@ See the Tiny docs for a full list of [integration components](https://www.tiny.c
 
 ### Customization
 
-It is easy to [configure the UI](https://www.tiny.cloud/docs/general-configuration-guide/customize-ui/) to match the design of your site and applications, and you can [configure the editor](https://www.tiny.cloud/docs/general-configuration-guide/basic-setup/) with as much or as little functionality as you like, depending on your users and requirements.
+It is easy to [configure the UI](https://www.tiny.cloud/docs/general-configuration-guide/customize-ui/) to match the design of your site and applications, and you can [configure the editor](https://www.tiny.cloud/docs/general-configuration-guide/basic-setup/) with as much or as little functionality as you like, depending on your Admin and requirements.
 
 With [50+ powerful plugins available](https://www.tiny.cloud/apps/), adding additional functionality is as simple as including a single line of code. Realizing the full power of most plugins requires only a few lines more.
 

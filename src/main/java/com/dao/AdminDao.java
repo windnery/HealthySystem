@@ -8,15 +8,15 @@ import org.apache.ibatis.annotations.Param;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.pagination.Pagination;
-import com.entity.UsersEntity;
+import com.entity.AdminEntity;
 
 /**
  * 学生
  */
-public interface UsersDao extends BaseMapper<UsersEntity> {
+public interface AdminDao extends BaseMapper<AdminEntity> {
 	
-	List<UsersEntity> selectListView(@Param("ew") Wrapper<UsersEntity> wrapper);
+	List<AdminEntity> selectListView(@Param("ew") Wrapper<AdminEntity> wrapper);
 
-	List<UsersEntity> selectListView(Pagination page, @Param("ew") Wrapper<UsersEntity> wrapper);
+	List<AdminEntity> selectListView(Pagination page, @Param("ew") Wrapper<AdminEntity> wrapper);
 	
 }

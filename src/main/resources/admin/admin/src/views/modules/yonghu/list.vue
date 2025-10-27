@@ -7,7 +7,7 @@
                 <el-row :gutter="20" class="slt" :style="{justifyContent:contents.searchBoxPosition=='1'?'flex-start':contents.searchBoxPosition=='2'?'center':'flex-end'}">
                                  
                      <el-form-item :label="contents.inputTitle == 1 ? '学生姓名' : ''">
-                         <el-input prefix-icon="el-icon-search" v-model="searchForm.yonghuName" placeholder="学生姓名" clearable></el-input>
+                         <el-input prefix-icon="el-icon-search" v-model="searchForm.StudentName" placeholder="学生姓名" clearable></el-input>
                      </el-form-item>
                                                 
 
@@ -19,14 +19,14 @@
                 <el-row class="ad" :style="{justifyContent:contents.btnAdAllBoxPosition=='1'?'flex-start':contents.btnAdAllBoxPosition=='2'?'center':'flex-end'}">
                     <el-form-item>
                         <el-button
-                                v-if="isAuth('yonghu','新增')"
+                                v-if="isAuth('Student','新增')"
                                 type="success"
                                 icon="el-icon-plus"
                                 @click="addOrUpdateHandler()"
                         >新增</el-button>
                         &nbsp;
                         <el-button
-                                v-if="isAuth('yonghu','删除')"
+                                v-if="isAuth('Student','删除')"
                                 :disabled="dataListSelections.length <= 0"
                                 type="danger"
                                 icon="el-icon-delete"
@@ -34,34 +34,34 @@
                         >删除</el-button>
                         &nbsp;
                         <el-button
-                                v-if="isAuth('yonghu','报表')"
+                                v-if="isAuth('Student','报表')"
                                 type="success"
                                 icon="el-icon-pie-chart"
                                 @click="chartDialog()"
                         >报表</el-button>
                         &nbsp;
                         <a style="text-decoration:none" class="el-button el-button--success"
-                           v-if="isAuth('yonghu','导入导出')"
+                           v-if="isAuth('Student','导入导出')"
                            icon="el-icon-download"
-                           href="http://localhost:8080/xinlijiankangxitong/upload/yonghuMuBan.xls"
+                           href="http://localhost:8080/xinlijiankangxitong/upload/StudentMuBan.xls"
                         >批量导入学生数据模板</a>
                         &nbsp;
                         <el-upload
-                                v-if="isAuth('yonghu','导入导出')"
+                                v-if="isAuth('Student','导入导出')"
                                 style="display: inline-block"
                                 action="xinlijiankangxitong/file/upload"
-                                :on-success="yonghuUploadSuccess"
-                                :on-error="yonghuUploadError"
+                                :on-success="StudentUploadSuccess"
+                                :on-error="StudentUploadError"
                                 :show-file-list = false>
                             <el-button
-                                    v-if="isAuth('yonghu','导入导出')"
+                                    v-if="isAuth('Student','导入导出')"
                                     type="success"
                                     icon="el-icon-upload2"
                             >批量导入学生数据</el-button>
                         </el-upload>
                         &nbsp;
                         <!-- 导出excel -->
-                        <download-excel v-if="isAuth('yonghu','导入导出')" style="display: inline-block" class = "export-excel-wrapper" :data = "dataList" :fields = "json_fields" name = "yonghu.xls">
+                        <download-excel v-if="isAuth('Student','导入导出')" style="display: inline-block" class = "export-excel-wrapper" :data = "dataList" :fields = "json_fields" name = "Student.xls">
                             <!-- 导出excel -->
                             <el-button
                                     type="success"
@@ -81,7 +81,7 @@
                           :row-style="rowStyle"
                           :cell-style="cellStyle"
                           :style="{width: '100%',fontSize:contents.tableContentFontSize,color:contents.tableContentFontColor}"
-                          v-if="isAuth('yonghu','查看')"
+                          v-if="isAuth('Student','查看')"
                           :data="dataList"
                           v-loading="dataListLoading"
                           @selection-change="selectionChangeHandler">
@@ -103,38 +103,38 @@
                     </el-table-column>
 
                     <el-table-column  :sortable="contents.tableSortable" :align="contents.tableAlign"
-                                   prop="yonghuName"
+                                   prop="StudentName"
                                    header-align="center"
                                    label="学生姓名">
                         <template slot-scope="scope">
-                            {{scope.row.yonghuName}}
+                            {{scope.row.StudentName}}
                         </template>
                     </el-table-column>
 
                     <el-table-column  :sortable="contents.tableSortable" :align="contents.tableAlign"
-                                   prop="yonghuPhone"
+                                   prop="StudentPhone"
                                    header-align="center"
                                    label="学生手机号">
                         <template slot-scope="scope">
-                            {{scope.row.yonghuPhone}}
+                            {{scope.row.StudentPhone}}
                         </template>
                     </el-table-column>
 
                     <el-table-column  :sortable="contents.tableSortable" :align="contents.tableAlign"
-                                   prop="yonghuIdNumber"
+                                   prop="StudentIdNumber"
                                    header-align="center"
                                    label="学生身份证号">
                         <template slot-scope="scope">
-                            {{scope.row.yonghuIdNumber}}
+                            {{scope.row.StudentIdNumber}}
                         </template>
                     </el-table-column>
-                    <el-table-column :sortable="contents.tableSortable" :align="contents.tableAlign" prop="yonghuPhoto"
+                    <el-table-column :sortable="contents.tableSortable" :align="contents.tableAlign" prop="StudentPhoto"
                                      header-align="center"
                                      width="200"
                                      label="学生头像">
                         <template slot-scope="scope">
-                            <div v-if="scope.row.yonghuPhoto">
-                                <img :src="scope.row.yonghuPhoto" width="100" height="100">
+                            <div v-if="scope.row.StudentPhoto">
+                                <img :src="scope.row.StudentPhoto" width="100" height="100">
                             </div>
                             <div v-else>无图片</div>
                         </template>
@@ -149,11 +149,11 @@
                     </el-table-column>
 
                     <el-table-column  :sortable="contents.tableSortable" :align="contents.tableAlign"
-                                   prop="yonghuEmail"
+                                   prop="StudentEmail"
                                    header-align="center"
                                    label="电子邮箱">
                         <template slot-scope="scope">
-                            {{scope.row.yonghuEmail}}
+                            {{scope.row.StudentEmail}}
                         </template>
                     </el-table-column>
 
@@ -161,12 +161,12 @@
                                      header-align="center"
                                      label="操作">
                         <template slot-scope="scope">
-                            <el-button v-if="isAuth('yonghu','查看')" type="success" icon="el-icon-tickets" size="mini" @click="addOrUpdateHandler(scope.row.id,'info')">详情</el-button>
-                            <el-button v-if="isAuth('yonghu','修改')" type="primary" icon="el-icon-edit" size="mini" @click="addOrUpdateHandler(scope.row.id)">修改</el-button>
+                            <el-button v-if="isAuth('Student','查看')" type="success" icon="el-icon-tickets" size="mini" @click="addOrUpdateHandler(scope.row.id,'info')">详情</el-button>
+                            <el-button v-if="isAuth('Student','修改')" type="primary" icon="el-icon-edit" size="mini" @click="addOrUpdateHandler(scope.row.id)">修改</el-button>
 
-                            <el-button v-if="isAuth('yonghu','删除')" type="danger" icon="el-icon-delete" size="mini" @click="deleteHandler(scope.row.id)">删除</el-button>
+                            <el-button v-if="isAuth('Student','删除')" type="danger" icon="el-icon-delete" size="mini" @click="deleteHandler(scope.row.id)">删除</el-button>
 
-                            <el-button v-if="isAuth('yonghu','修改')" type="success" icon="el-icon-tickets" size="mini" @click="resetPassword(scope.row.id)">重置密码</el-button>
+                            <el-button v-if="isAuth('Student','修改')" type="success" icon="el-icon-tickets" size="mini" @click="resetPassword(scope.row.id)">重置密码</el-button>
                         </template>
                     </el-table-column>
                 </el-table>
@@ -226,12 +226,12 @@
                 id : null,
                 username : null,
                 password : null,
-                yonghuName : null,
-                yonghuPhone : null,
-                yonghuIdNumber : null,
-                yonghuPhoto : null,
+                StudentName : null,
+                StudentPhone : null,
+                StudentIdNumber : null,
+                StudentPhoto : null,
                 sexTypes : null,
-                yonghuEmail : null,
+                StudentEmail : null,
                 createTime : null,
             },
             dataList: [],
@@ -254,12 +254,12 @@
                 //级联表字段
                 //本表字段
                      '账户': "username",
-                     '学生姓名': "yonghuName",
-                     '学生手机号': "yonghuPhone",
-                     '学生身份证号': "yonghuIdNumber",
-                     '学生头像': "yonghuPhoto",
+                     '学生姓名': "StudentName",
+                     '学生手机号': "StudentPhone",
+                     '学生身份证号': "StudentIdNumber",
+                     '学生头像': "StudentPhoto",
                      '性别': "sexTypes",
-                     '电子邮箱': "yonghuEmail",
+                     '电子邮箱': "StudentEmail",
             },
 
             };
@@ -295,17 +295,17 @@
                     riqi :_this.echartsDate.getFullYear(),
                     // riqi :_this.echartsDate.getFullYear()+"-"+(_this.echartsDate.getMonth() + 1 < 10 ? '0' + (_this.echartsDate.getMonth() + 1) : _this.echartsDate.getMonth() + 1),
                     thisTable : {//当前表
-                        tableName :'yonghu',//当前表表名,
-                        sumColum : 'yonghu_number', //求和字段
+                        tableName :'Student',//当前表表名,
+                        sumColum : 'Student_number', //求和字段
                         date : 'insert_time',//分组日期字段
-                        // string : 'yonghu_name',//分组字符串字段
-                        // types : 'yonghu_types',//分组下拉框字段
+                        // string : 'Student_name',//分组字符串字段
+                        // types : 'Student_types',//分组下拉框字段
                     },
                     // joinTable : {//级联表（可以不存在）
-                    //     tableName :'yonghu',//级联表表名
+                    //     tableName :'Student',//级联表表名
                     //     // date : 'insert_time',//分组日期字段
-                    //     string : 'yonghu_name',//分组字符串字段
-                    //     // types : 'yonghu_types',//分组下拉框字段
+                    //     string : 'Student_name',//分组字符串字段
+                    //     // types : 'Student_types',//分组下拉框字段
                     // }
                 }
                 _this.chartVisiable = true;
@@ -399,8 +399,8 @@
                 // this.$nextTick(()=>{
                 //     var statistic = this.$echarts.init(document.getElementById("statistic"),'macarons');
                 //     let params = {
-                //         tableName: "yonghu",
-                //         groupColumn: "yonghu_types",
+                //         tableName: "Student",
+                //         groupColumn: "Student_types",
                 //     }
                 //     this.$http({
                 //         url: "newSelectGroupCount",
@@ -645,15 +645,15 @@
                 }
 
                                  
-                if (this.searchForm.yonghuName!= '' && this.searchForm.yonghuName!= undefined) {
-                    params['yonghuName'] = '%' + this.searchForm.yonghuName + '%'
+                if (this.searchForm.StudentName!= '' && this.searchForm.StudentName!= undefined) {
+                    params['StudentName'] = '%' + this.searchForm.StudentName + '%'
                 }
                                                 
-                params['yonghuDelete'] = 1// 逻辑删除字段 1 未删除 2 删除
+                params['StudentDelete'] = 1// 逻辑删除字段 1 未删除 2 删除
 
 
                 this.$http({
-                    url: "yonghu/page",
+                    url: "Student/page",
                     method: "get",
                     params: params
                 }).then(({data}) => {
@@ -713,7 +713,7 @@
                     type: "warning"
                 }).then(() => {
                     this.$http({
-                        url: "yonghu/delete",
+                        url: "Student/delete",
                         method: "post",
                         data: ids
                     }).then(({data}) => {
@@ -735,7 +735,7 @@
             resetPassword(id) {
                 //重置密码
                 this.$http({
-                    url: "yonghu/resetPassword?id=" + id,
+                    url: "Student/resetPassword?id=" + id,
                     method: "get",
                     // id:id
                 }).then(({data}) => {
@@ -745,10 +745,10 @@
                 });
             },
             // 导入功能上传文件成功后调用导入方法
-            yonghuUploadSuccess(data){
+            StudentUploadSuccess(data){
                 let _this = this;
                 _this.$http({
-                    url: "yonghu/batchInsert?fileName=" + data.file,
+                    url: "Student/batchInsert?fileName=" + data.file,
                     method: "get"
                 }).then(({data}) => {
                     if(data && data.code === 0){
@@ -767,7 +767,7 @@
 
             },
             // 导入功能上传文件失败后调用导入方法
-            yonghuUploadError(data){
+            StudentUploadError(data){
                 this.$message.error('上传失败');
             },
         }

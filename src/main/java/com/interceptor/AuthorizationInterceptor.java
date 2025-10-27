@@ -37,7 +37,7 @@ public class AuthorizationInterceptor implements HandlerInterceptor {
 
 
         String servletPath = request.getServletPath();
-        if("/dictionary/page".equals(request.getServletPath())  || "/file/upload".equals(request.getServletPath()) || "/yonghu/register".equals(request.getServletPath()) ){//请求路径是字典表或者文件上传 直接放行
+        if("/dictionary/page".equals(request.getServletPath())  || "/file/upload".equals(request.getServletPath()) || "/Student/register".equals(request.getServletPath()) ){//请求路径是字典表或者文件上传 直接放行
             return true;
         }
         //支持跨域请求

@@ -15,7 +15,7 @@
   The licenses for most software are designed to take away your
 freedom to share and change it.  By contrast, the GNU General Public
 Licenses are intended to guarantee your freedom to share and change
-free software--to make sure the software is free for all its users.
+free software--to make sure the software is free for all its Admin.
 
   This license, the Lesser General Public License, applies to some
 specially designated software packages--typically libraries--of the
@@ -58,7 +58,7 @@ introduced by others.
 
   Finally, software patents pose a constant threat to the existence of
 any free program.  We wish to make sure that a company cannot
-effectively restrict the users of a free program by obtaining a
+effectively restrict the Admin of a free program by obtaining a
 restrictive license from a patent holder.  Therefore, we insist that
 any patent license obtained for a version of the library must be
 consistent with the full freedom of use specified in this license.
@@ -102,7 +102,7 @@ operating system, as well as its variant, the GNU/Linux operating
 system.
 
   Although the Lesser General Public License is Less protective of the
-users' freedom, it does ensure that the user of a program that is
+Admin' freedom, it does ensure that the user of a program that is
 linked with the Library has the freedom and the wherewithal to run
 that program using a modified version of the Library.
 

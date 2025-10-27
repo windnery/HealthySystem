@@ -50,7 +50,7 @@ public class TeacherMesController {
 
     //级联表service
     @Autowired
-    private YonghuService yonghuService;
+    private StudentService studentService;
     @Autowired
     private TeacherService TeacherService;
 
@@ -66,7 +66,7 @@ public class TeacherMesController {
         if(false)
             return R.error(511,"永不会进入");
         else if("学生".equals(role))
-            params.put("yonghuId",request.getSession().getAttribute("userId"));
+            params.put("StudentId",request.getSession().getAttribute("userId"));
         else if("心理老师".equals(role))
             params.put("TeacherId",request.getSession().getAttribute("userId"));
         if(params.get("orderBy")==null || params.get("orderBy")==""){
@@ -96,10 +96,10 @@ public class TeacherMesController {
             BeanUtils.copyProperties( TeacherMes , view );//把实体数据重构到view中
 
                 //级联表
-                YonghuEntity yonghu = yonghuService.selectById(TeacherMes.getYonghuId());
-                if(yonghu != null){
-                    BeanUtils.copyProperties( yonghu , view ,new String[]{ "id", "createTime", "insertTime", "updateTime"});//把级联的数据添加到view中,并排除id和创建时间字段
-                    view.setYonghuId(yonghu.getId());
+                StudentEntity Student = studentService.selectById(TeacherMes.getStudentId());
+                if(Student != null){
+                    BeanUtils.copyProperties( Student , view ,new String[]{ "id", "createTime", "insertTime", "updateTime"});//把级联的数据添加到view中,并排除id和创建时间字段
+                    view.setStudentId(Student.getId());
                 }
                 //级联表
                 TeacherEntity Teacher = TeacherService.selectById(TeacherMes.getTeacherId());
@@ -129,7 +129,7 @@ public class TeacherMesController {
         else if("心理老师".equals(role))
             TeacherMes.setTeacherId(Integer.valueOf(String.valueOf(request.getSession().getAttribute("userId"))));
         else if("学生".equals(role))
-            TeacherMes.setYonghuId(Integer.valueOf(String.valueOf(request.getSession().getAttribute("userId"))));
+            TeacherMes.setStudentId(Integer.valueOf(String.valueOf(request.getSession().getAttribute("userId"))));
 
         TeacherMes.setInsertTime(new Date());
         TeacherMes.setCreateTime(new Date());
@@ -150,7 +150,7 @@ public class TeacherMesController {
 //        else if("心理老师".equals(role))
 //            TeacherMes.setTeacherId(Integer.valueOf(String.valueOf(request.getSession().getAttribute("userId"))));
 //        else if("学生".equals(role))
-//            TeacherMes.setYonghuId(Integer.valueOf(String.valueOf(request.getSession().getAttribute("userId"))));
+//            TeacherMes.setStudentId(Integer.valueOf(String.valueOf(request.getSession().getAttribute("userId"))));
         //根据字段查询是否有相同数据
         Wrapper<TeacherMesEntity> queryWrapper = new EntityWrapper<TeacherMesEntity>()
             .eq("id",0)
@@ -184,7 +184,7 @@ public class TeacherMesController {
     @RequestMapping("/batchInsert")
     public R save( String fileName, HttpServletRequest request){
         logger.debug("batchInsert方法:,,Controller:{},,fileName:{}",this.getClass().getName(),fileName);
-        Integer yonghuId = Integer.valueOf(String.valueOf(request.getSession().getAttribute("userId")));
+        Integer StudentId = Integer.valueOf(String.valueOf(request.getSession().getAttribute("userId")));
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try {
             List<TeacherMesEntity> TeacherMesList = new ArrayList<>();//上传的东西
@@ -209,7 +209,7 @@ public class TeacherMesController {
                             //循环
                             TeacherMesEntity TeacherMesEntity = new TeacherMesEntity();
 //                            TeacherMesEntity.setTeacherId(Integer.valueOf(data.get(0)));   //心理老师 要改的
-//                            TeacherMesEntity.setYonghuId(Integer.valueOf(data.get(0)));   //学生 要改的
+//                            TeacherMesEntity.setStudentId(Integer.valueOf(data.get(0)));   //学生 要改的
 //                            TeacherMesEntity.setTeacherMesText(data.get(0));                    //留言内容 要改的
 //                            TeacherMesEntity.setInsertTime(date);//时间
 //                            TeacherMesEntity.setReplyText(data.get(0));                    //回复内容 要改的
@@ -273,10 +273,10 @@ public class TeacherMesController {
                 BeanUtils.copyProperties( TeacherMes , view );//把实体数据重构到view中
 
                 //级联表
-                    YonghuEntity yonghu = yonghuService.selectById(TeacherMes.getYonghuId());
-                if(yonghu != null){
-                    BeanUtils.copyProperties( yonghu , view ,new String[]{ "id", "createDate"});//把级联的数据添加到view中,并排除id和创建时间字段
-                    view.setYonghuId(yonghu.getId());
+                    StudentEntity Student = studentService.selectById(TeacherMes.getStudentId());
+                if(Student != null){
+                    BeanUtils.copyProperties( Student , view ,new String[]{ "id", "createDate"});//把级联的数据添加到view中,并排除id和创建时间字段
+                    view.setStudentId(Student.getId());
                 }
                 //级联表
                     TeacherEntity Teacher = TeacherService.selectById(TeacherMes.getTeacherId());

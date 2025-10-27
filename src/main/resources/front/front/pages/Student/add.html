@@ -116,7 +116,7 @@
                     </label>
                     <div class="layui-input-block">
                         <input class="layui-input main_borderColor" :style='{"padding":"0 12px","boxShadow":"0 0 0px rgba(160, 67, 26, 1)","backgroundColor":"#fff","color":"rgba(135, 206, 250, 1)","borderRadius":"4px","textAlign":"left","borderWidth":"1px","fontSize":"15px","borderStyle":"solid","height":"40px"}'
-                           v-model="detail.yonghuName" type="text" :readonly="ro.yonghuName" name="yonghuName" id="yonghuName" autocomplete="off">
+                           v-model="detail.StudentName" type="text" :readonly="ro.StudentName" name="StudentName" id="StudentName" autocomplete="off">
                     </div>
                 </div>
 <!-- 手机号 -->
@@ -126,7 +126,7 @@
                     </label>
                     <div class="layui-input-block">
                         <input class="layui-input main_borderColor" :style='{"padding":"0 12px","boxShadow":"0 0 0px rgba(160, 67, 26, 1)","backgroundColor":"#fff","color":"rgba(135, 206, 250, 1)","borderRadius":"4px","textAlign":"left","borderWidth":"1px","fontSize":"15px","borderStyle":"solid","height":"40px"}'
-                           v-model="detail.yonghuPhone" lay-verify="phone|required" type="text" :readonly="ro.yonghuPhone" name="yonghuPhone" id="yonghuPhone" autocomplete="off">
+                           v-model="detail.StudentPhone" lay-verify="phone|required" type="text" :readonly="ro.StudentPhone" name="StudentPhone" id="StudentPhone" autocomplete="off">
                     </div>
                 </div>
     <!-- 身份证号 -->
@@ -136,7 +136,7 @@
                     </label>
                     <div class="layui-input-block">
                         <input class="layui-input main_borderColor" :style='{"padding":"0 12px","boxShadow":"0 0 0px rgba(160, 67, 26, 1)","backgroundColor":"#fff","color":"rgba(135, 206, 250, 1)","borderRadius":"4px","textAlign":"left","borderWidth":"1px","fontSize":"15px","borderStyle":"solid","height":"40px"}'
-                           v-model="detail.yonghuIdNumber" lay-verify="identity|required" type="text" :readonly="ro.yonghuIdNumber" name="yonghuIdNumber" id="yonghuIdNumber" autocomplete="off">
+                           v-model="detail.StudentIdNumber" lay-verify="identity|required" type="text" :readonly="ro.StudentIdNumber" name="StudentIdNumber" id="StudentIdNumber" autocomplete="off">
                     </div>
                 </div>
                     <div class="layui-form-item main_borderColor" :style='{"padding":"10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0 0 10px 0","backgroundColor":"rgba(255, 255, 255, 0)","borderRadius":"1px","borderWidth":"0 0 1px 0","borderStyle":"solid"}'>
@@ -144,11 +144,11 @@
                         学生头像：
                     </label>
                     <div class="layui-input-block">
-                        <div v-if="detail.yonghuPhoto" style="display:inline-block;margin-right:10px;">
-                            <img id="yonghuPhotoImg" style="width: 100px;height: 100px;border-radius: 50%;border: 2px solid #EEEEEE;" :src="detail.yonghuPhoto">
-                            <input type="hidden" :value="detail.yonghuPhoto" id="yonghuPhoto" name="yonghuPhoto" />
+                        <div v-if="detail.StudentPhoto" style="display:inline-block;margin-right:10px;">
+                            <img id="StudentPhotoImg" style="width: 100px;height: 100px;border-radius: 50%;border: 2px solid #EEEEEE;" :src="detail.StudentPhoto">
+                            <input type="hidden" :value="detail.StudentPhoto" id="StudentPhoto" name="StudentPhoto" />
                         </div>
-                        <button v-if="!ro.yonghuPhoto" :style='{"padding":"0 10px","boxShadow":"0 0 0px rgba(255,0,0,.5)","margin":"0 10px 0 0","borderColor":"#ccc","color":"#fff","borderRadius":"8px","borderWidth":"0","width":"auto","fontSize":"14px","borderStyle":"solid","height":"44px"}' type="button" class="layui-btn btn-theme main_backgroundColor" id="yonghuPhotoUpload">
+                        <button v-if="!ro.StudentPhoto" :style='{"padding":"0 10px","boxShadow":"0 0 0px rgba(255,0,0,.5)","margin":"0 10px 0 0","borderColor":"#ccc","color":"#fff","borderRadius":"8px","borderWidth":"0","width":"auto","fontSize":"14px","borderStyle":"solid","height":"44px"}' type="button" class="layui-btn btn-theme main_backgroundColor" id="StudentPhotoUpload">
                             <i v-if="true" :style='{"color":"#fff","show":true,"fontSize":"14px"}' class="layui-icon">&#xe67c;</i>上传学生头像
                         </button>
                     </div>
@@ -171,7 +171,7 @@
                     </label>
                     <div class="layui-input-block">
                         <input class="layui-input main_borderColor" :style='{"padding":"0 12px","boxShadow":"0 0 0px rgba(160, 67, 26, 1)","backgroundColor":"#fff","color":"rgba(135, 206, 250, 1)","borderRadius":"4px","textAlign":"left","borderWidth":"1px","fontSize":"15px","borderStyle":"solid","height":"40px"}'
-                           v-model="detail.yonghuEmail" lay-verify="email|required" type="text" :readonly="ro.yonghuEmail" name="yonghuEmail" id="yonghuEmail" autocomplete="off">
+                           v-model="detail.StudentEmail" lay-verify="email|required" type="text" :readonly="ro.StudentEmail" name="StudentEmail" id="StudentEmail" autocomplete="off">
                     </div>
                 </div>
                     <div class="layui-form-item main_borderColor" :style='{"padding":"10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0 0 10px 0","backgroundColor":"rgba(255, 255, 255, 0)","borderRadius":"1px","borderWidth":"0 0 1px 0","borderStyle":"solid"}'>
@@ -218,24 +218,24 @@
                 ro:{
                     username: false,
                     password: false,
-                    yonghuName: false,
-                    yonghuPhone: false,
-                    yonghuIdNumber: false,
-                    yonghuPhoto: false,
+                    StudentName: false,
+                    StudentPhone: false,
+                    StudentIdNumber: false,
+                    StudentPhoto: false,
                     sexTypes: false,
-                    yonghuEmail: false,
+                    StudentEmail: false,
                     createTime: false,
                 },
                 detail: {
                     username: '',
                     password: '',
-                    yonghuName: '',
-                    yonghuPhone: '',
-                    yonghuIdNumber: '',
-                    yonghuPhoto: '',
+                    StudentName: '',
+                    StudentPhone: '',
+                    StudentIdNumber: '',
+                    StudentPhoto: '',
                     sexTypes: '',//数字
                     sexValue: '',//数字对应的值
-                    yonghuEmail: '',
+                    StudentEmail: '',
                     createTime: '',
                 },
                 // 级联表的
@@ -308,7 +308,7 @@
             // 学生头像的文件上传
             upload.render({
                 //绑定元素
-                elem: '#yonghuPhotoUpload',
+                elem: '#StudentPhotoUpload',
                 //上传接口
                 url: http.baseurl + 'file/upload',
                 // 请求头
@@ -333,9 +333,9 @@
                             icon: 6
                         })
                         var url = http.baseurl + 'upload/' + res.file;
-                        jquery('#yonghuPhoto').val(url);
-                        vue.detail.yonghuPhoto = url;
-                        jquery('#yonghuPhotoImg').attr('src', url);
+                        jquery('#StudentPhoto').val(url);
+                        vue.detail.StudentPhoto = url;
+                        jquery('#StudentPhotoImg').attr('src', url);
                     } else {
                         layer.msg(res.msg, {
                             time: 2000,
@@ -385,13 +385,13 @@
                 data = data.field;
                 data["Id"]= localStorage.getItem("userid");
                 // 提交数据
-                http.requestJson('yonghu/add', 'post', data, function (res) {
+                http.requestJson('Student/add', 'post', data, function (res) {
                     if(res.code == 0){
                         layer.msg('提交成功', {
                             time: 2000,
                             icon: 6
                         }, function () {
-                            vue.jump("../yonghu/list.html");
+                            vue.jump("../Student/list.html");
                             // back();
                         });
                     }else{

@@ -22,7 +22,7 @@
 
 
                     <el-form-item :label="contents.inputTitle == 1 ? '学生姓名' : ''">
-                        <el-input prefix-icon="el-icon-search" v-model="searchForm.yonghuName" placeholder="学生姓名" clearable></el-input>
+                        <el-input prefix-icon="el-icon-search" v-model="searchForm.StudentName" placeholder="学生姓名" clearable></el-input>
                     </el-form-item>
 
 
@@ -144,11 +144,11 @@
                     </el-table-column>
 
                     <el-table-column  :sortable="contents.tableSortable" :align="contents.tableAlign"
-                                      prop="yonghuName"
+                                      prop="StudentName"
                                       header-align="center"
                                       label="学生姓名">
                         <template slot-scope="scope">
-                            {{scope.row.yonghuName}}
+                            {{scope.row.StudentName}}
                         </template>
                     </el-table-column>
 
@@ -476,8 +476,8 @@
                     params['createTimeEndSearch'] =  this.searchForm.createTimeEndSearch
                 }
 
-                if(this.searchForm.yonghuName!='' && this.searchForm.yonghuName!=undefined){
-                    params['yonghuName'] = '%' + this.searchForm.yonghuName + '%'
+                if(this.searchForm.StudentName!='' && this.searchForm.StudentName!=undefined){
+                    params['StudentName'] = '%' + this.searchForm.StudentName + '%'
                 }
                 if(this.searchForm.createTimeStartSearch!='' && this.searchForm.createTimeStartSearch!=undefined){
                     params['createTimeStartSearch'] =  this.searchForm.createTimeStartSearch

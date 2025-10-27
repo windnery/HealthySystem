@@ -57,9 +57,9 @@
 
                 storeupFlag: 0,//收藏 [0为收藏 1已收藏]
                 //系统推荐
-                yonghuRecommendList: [],
+                StudentRecommendList: [],
                     // 当前详情页表
-                detailTable: 'yonghu',
+                detailTable: 'Student',
             },
             methods: {
                 jump(url) {
@@ -69,24 +69,24 @@
                     return isFrontAuth(tablename, button)
                 },
                 //预约
-                yonghuYuyue(){
+                StudentYuyue(){
                     let _this = this;
-                    // localStorage.setItem('yonghuId', _this.detail.id);
-                    // _this.jump("../yonghuOrder/add.html");
+                    // localStorage.setItem('StudentId', _this.detail.id);
+                    // _this.jump("../StudentOrder/add.html");
 
                     let data={
-                        yonghuId:_this.detail.id,
-                        yonghuId:localStorage.getItem("userid"),
-                        yonghuOrderYesnoTypes:1,
+                        StudentId:_this.detail.id,
+                        StudentId:localStorage.getItem("userid"),
+                        StudentOrderYesnoTypes:1,
                     }
                     // 提交数据
-                    layui.http.requestJson('yonghuOrder/add', 'post', data, function (res) {
+                    layui.http.requestJson('StudentOrder/add', 'post', data, function (res) {
                         if(res.code == 0) {
                             layui.layer.msg('预约成功', {
                                 time: 2000,
                                 icon: 6
                             }, function () {
-                                _this.jump("../yonghuOrder/list.html");
+                                _this.jump("../StudentOrder/list.html");
                             });
                         }else{
                             layui.layer.msg(res.msg, {

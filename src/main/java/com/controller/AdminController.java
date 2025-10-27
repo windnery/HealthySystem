@@ -7,7 +7,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.service.UsersService;
+import com.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.annotation.IgnoreAuth;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.entity.UsersEntity;
+import com.entity.AdminEntity;
 import com.service.TokenService;
 import com.utils.MPUtil;
 import com.utils.PageUtils;
@@ -28,12 +28,12 @@ import com.utils.R;
 /**
  * 登录相关
  */
-@RequestMapping("users")
+@RequestMapping("Admin")
 @RestController
-public class UsersController {
+public class AdminController {
 	
 	@Autowired
-	private UsersService usersService;
+	private AdminService adminService;
 	
 	@Autowired
 	private TokenService tokenService;
@@ -44,11 +44,11 @@ public class UsersController {
 	@IgnoreAuth
 	@PostMapping(value = "/login")
 	public R login(String username, String password, String captcha, HttpServletRequest request) {
-		UsersEntity user = usersService.selectOne(new EntityWrapper<UsersEntity>().eq("username", username));
+		AdminEntity user = adminService.selectOne(new EntityWrapper<AdminEntity>().eq("username", username));
 		if(user==null || !user.getPassword().equals(password)) {
 			return R.error("账号或密码不正确");
 		}
-		String token = tokenService.generateToken(user.getId(),username, "users", user.getRole());
+		String token = tokenService.generateToken(user.getId(),username, "Admin", user.getRole());
 		R r = R.ok();
 		r.put("token", token);
 		r.put("role",user.getRole());
@@ -61,12 +61,12 @@ public class UsersController {
 	 */
 	@IgnoreAuth
 	@PostMapping(value = "/register")
-	public R register(@RequestBody UsersEntity user){
+	public R register(@RequestBody AdminEntity user){
 //    	ValidatorUtils.validateEntity(user);
-    	if(usersService.selectOne(new EntityWrapper<UsersEntity>().eq("username", user.getUsername())) !=null) {
+    	if(adminService.selectOne(new EntityWrapper<AdminEntity>().eq("username", user.getUsername())) !=null) {
     		return R.error("学生已存在");
     	}
-        usersService.insert(user);
+        adminService.insert(user);
         return R.ok();
     }
 
@@ -85,12 +85,12 @@ public class UsersController {
     @IgnoreAuth
 	@RequestMapping(value = "/resetPass")
     public R resetPass(String username, HttpServletRequest request){
-    	UsersEntity user = usersService.selectOne(new EntityWrapper<UsersEntity>().eq("username", username));
+    	AdminEntity user = adminService.selectOne(new EntityWrapper<AdminEntity>().eq("username", username));
     	if(user==null) {
     		return R.error("账号不存在");
     	}
     	user.setPassword("123456");
-        usersService.update(user,null);
+        adminService.update(user,null);
         return R.ok("密码已重置为：123456");
     }
 	
@@ -98,9 +98,9 @@ public class UsersController {
      * 列表
      */
     @RequestMapping("/page")
-    public R page(@RequestParam Map<String, Object> params,UsersEntity user){
-        EntityWrapper<UsersEntity> ew = new EntityWrapper<UsersEntity>();
-    	PageUtils page = usersService.queryPage(params, MPUtil.sort(MPUtil.between(MPUtil.allLike(ew, user), params), params));
+    public R page(@RequestParam Map<String, Object> params, AdminEntity user){
+        EntityWrapper<AdminEntity> ew = new EntityWrapper<AdminEntity>();
+    	PageUtils page = adminService.queryPage(params, MPUtil.sort(MPUtil.between(MPUtil.allLike(ew, user), params), params));
         return R.ok().put("data", page);
     }
 
@@ -108,10 +108,10 @@ public class UsersController {
      * 列表
      */
     @RequestMapping("/list")
-    public R list( UsersEntity user){
-       	EntityWrapper<UsersEntity> ew = new EntityWrapper<UsersEntity>();
+    public R list( AdminEntity user){
+       	EntityWrapper<AdminEntity> ew = new EntityWrapper<AdminEntity>();
       	ew.allEq(MPUtil.allEQMapPre( user, "user")); 
-        return R.ok().put("data", usersService.selectListView(ew));
+        return R.ok().put("data", adminService.selectListView(ew));
     }
 
     /**
@@ -119,7 +119,7 @@ public class UsersController {
      */
     @RequestMapping("/info/{id}")
     public R info(@PathVariable("id") String id){
-        UsersEntity user = usersService.selectById(id);
+        AdminEntity user = adminService.selectById(id);
         return R.ok().put("data", user);
     }
     
@@ -129,7 +129,7 @@ public class UsersController {
     @RequestMapping("/session")
     public R getCurrUser(HttpServletRequest request){
     	Integer id = (Integer)request.getSession().getAttribute("userId");
-        UsersEntity user = usersService.selectById(id);
+        AdminEntity user = adminService.selectById(id);
         return R.ok().put("data", user);
     }
 
@@ -137,13 +137,13 @@ public class UsersController {
      * 保存
      */
     @PostMapping("/save")
-    public R save(@RequestBody UsersEntity user){
+    public R save(@RequestBody AdminEntity user){
 //    	ValidatorUtils.validateEntity(user);
-    	if(usersService.selectOne(new EntityWrapper<UsersEntity>().eq("username", user.getUsername())) !=null) {
+    	if(adminService.selectOne(new EntityWrapper<AdminEntity>().eq("username", user.getUsername())) !=null) {
     		return R.error("学生已存在");
     	}
     	user.setPassword("123456");
-        usersService.insert(user);
+        adminService.insert(user);
         return R.ok();
     }
 
@@ -151,9 +151,9 @@ public class UsersController {
      * 修改
      */
     @RequestMapping("/update")
-    public R update(@RequestBody UsersEntity user){
+    public R update(@RequestBody AdminEntity user){
 //        ValidatorUtils.validateEntity(user);
-        usersService.updateById(user);//全部更新
+        adminService.updateById(user);//全部更新
         return R.ok();
     }
 
@@ -162,7 +162,7 @@ public class UsersController {
      */
     @RequestMapping("/delete")
     public R delete(@RequestBody Long[] ids){
-        usersService.deleteBatchIds(Arrays.asList(ids));
+        adminService.deleteBatchIds(Arrays.asList(ids));
         return R.ok();
     }
 }

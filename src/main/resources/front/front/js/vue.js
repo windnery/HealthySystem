@@ -2605,7 +2605,7 @@
         : res
     };
     // this is a slot using the new v-slot syntax without scope. although it is
-    // compiled as a scoped slot, render fn users would expect it to be present
+    // compiled as a scoped slot, render fn Admin would expect it to be present
     // on this.$slots because the usage is semantically a normal slot.
     if (fn.proxy) {
       Object.defineProperty(normalSlots, key, {

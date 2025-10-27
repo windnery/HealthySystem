@@ -290,7 +290,7 @@
                     examquestionName: this.ruleForm.examquestionName,
                     examredetailsMyscore: defen,
                     examredetailsMyanswer: this.answer,
-                    yonghuId: this.user.id,
+                    StudentId: this.user.id,
                 };
                 this.$http({
                     url: `examredetails/saveExamredetails?examrecordId=`+this.$route.params.examrecordId,

@@ -2,16 +2,11 @@ package com.entity;
 
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.lang.reflect.InvocationTargetException;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -26,16 +21,16 @@ import com.baomidou.mybatisplus.enums.IdType;
  * @author 
  * @email
  */
-@TableName("yonghu")
-public class YonghuEntity<T> implements Serializable {
+@TableName("Student")
+public class StudentEntity<T> implements Serializable {
     private static final long serialVersionUID = 1L;
 
 
-	public YonghuEntity() {
+	public StudentEntity() {
 
 	}
 
-	public YonghuEntity(T t) {
+	public StudentEntity(T t) {
 		try {
 			BeanUtils.copyProperties(this, t);
 		} catch (IllegalAccessException | InvocationTargetException e) {
@@ -73,33 +68,33 @@ public class YonghuEntity<T> implements Serializable {
     /**
      * 学生姓名
      */
-    @TableField(value = "yonghu_name")
+    @TableField(value = "Student_name")
 
-    private String yonghuName;
+    private String StudentName;
 
 
     /**
      * 学生手机号
      */
-    @TableField(value = "yonghu_phone")
+    @TableField(value = "Student_phone")
 
-    private String yonghuPhone;
+    private String StudentPhone;
 
 
     /**
      * 学生身份证号
      */
-    @TableField(value = "yonghu_id_number")
+    @TableField(value = "Student_id_number")
 
-    private String yonghuIdNumber;
+    private String StudentIdNumber;
 
 
     /**
      * 学生头像
      */
-    @TableField(value = "yonghu_photo")
+    @TableField(value = "Student_photo")
 
-    private String yonghuPhoto;
+    private String StudentPhoto;
 
 
     /**
@@ -113,9 +108,9 @@ public class YonghuEntity<T> implements Serializable {
     /**
      * 电子邮箱
      */
-    @TableField(value = "yonghu_email")
+    @TableField(value = "Student_email")
 
-    private String yonghuEmail;
+    private String StudentEmail;
 
 
     /**
@@ -170,54 +165,54 @@ public class YonghuEntity<T> implements Serializable {
     /**
 	 * 设置：学生姓名
 	 */
-    public String getYonghuName() {
-        return yonghuName;
+    public String getStudentName() {
+        return StudentName;
     }
     /**
 	 * 获取：学生姓名
 	 */
 
-    public void setYonghuName(String yonghuName) {
-        this.yonghuName = yonghuName;
+    public void setStudentName(String StudentName) {
+        this.StudentName = StudentName;
     }
     /**
 	 * 设置：学生手机号
 	 */
-    public String getYonghuPhone() {
-        return yonghuPhone;
+    public String getStudentPhone() {
+        return StudentPhone;
     }
     /**
 	 * 获取：学生手机号
 	 */
 
-    public void setYonghuPhone(String yonghuPhone) {
-        this.yonghuPhone = yonghuPhone;
+    public void setStudentPhone(String StudentPhone) {
+        this.StudentPhone = StudentPhone;
     }
     /**
 	 * 设置：学生身份证号
 	 */
-    public String getYonghuIdNumber() {
-        return yonghuIdNumber;
+    public String getStudentIdNumber() {
+        return StudentIdNumber;
     }
     /**
 	 * 获取：学生身份证号
 	 */
 
-    public void setYonghuIdNumber(String yonghuIdNumber) {
-        this.yonghuIdNumber = yonghuIdNumber;
+    public void setStudentIdNumber(String StudentIdNumber) {
+        this.StudentIdNumber = StudentIdNumber;
     }
     /**
 	 * 设置：学生头像
 	 */
-    public String getYonghuPhoto() {
-        return yonghuPhoto;
+    public String getStudentPhoto() {
+        return StudentPhoto;
     }
     /**
 	 * 获取：学生头像
 	 */
 
-    public void setYonghuPhoto(String yonghuPhoto) {
-        this.yonghuPhoto = yonghuPhoto;
+    public void setStudentPhoto(String StudentPhoto) {
+        this.StudentPhoto = StudentPhoto;
     }
     /**
 	 * 设置：性别
@@ -235,15 +230,15 @@ public class YonghuEntity<T> implements Serializable {
     /**
 	 * 设置：电子邮箱
 	 */
-    public String getYonghuEmail() {
-        return yonghuEmail;
+    public String getStudentEmail() {
+        return StudentEmail;
     }
     /**
 	 * 获取：电子邮箱
 	 */
 
-    public void setYonghuEmail(String yonghuEmail) {
-        this.yonghuEmail = yonghuEmail;
+    public void setStudentEmail(String StudentEmail) {
+        this.StudentEmail = StudentEmail;
     }
     /**
 	 * 设置：创建时间
@@ -261,16 +256,16 @@ public class YonghuEntity<T> implements Serializable {
 
     @Override
     public String toString() {
-        return "Yonghu{" +
+        return "Student{" +
             "id=" + id +
             ", username=" + username +
             ", password=" + password +
-            ", yonghuName=" + yonghuName +
-            ", yonghuPhone=" + yonghuPhone +
-            ", yonghuIdNumber=" + yonghuIdNumber +
-            ", yonghuPhoto=" + yonghuPhoto +
+            ", StudentName=" + StudentName +
+            ", StudentPhone=" + StudentPhone +
+            ", StudentIdNumber=" + StudentIdNumber +
+            ", StudentPhoto=" + StudentPhoto +
             ", sexTypes=" + sexTypes +
-            ", yonghuEmail=" + yonghuEmail +
+            ", StudentEmail=" + StudentEmail +
             ", createTime=" + createTime +
         "}";
     }

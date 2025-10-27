@@ -1,6 +1,5 @@
 package com.entity.vo;
 
-import com.entity.YonghuEntity;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -14,8 +13,8 @@ import java.io.Serializable;
  * 手机端接口返回实体辅助类
  * （主要作用去除一些不必要的字段）
  */
-@TableName("yonghu")
-public class YonghuVO implements Serializable {
+@TableName("Student")
+public class StudentVO implements Serializable {
     private static final long serialVersionUID = 1L;
 
 
@@ -47,32 +46,32 @@ public class YonghuVO implements Serializable {
      * 学生姓名
      */
 
-    @TableField(value = "yonghu_name")
-    private String yonghuName;
+    @TableField(value = "Student_name")
+    private String StudentName;
 
 
     /**
      * 学生手机号
      */
 
-    @TableField(value = "yonghu_phone")
-    private String yonghuPhone;
+    @TableField(value = "Student_phone")
+    private String StudentPhone;
 
 
     /**
      * 学生身份证号
      */
 
-    @TableField(value = "yonghu_id_number")
-    private String yonghuIdNumber;
+    @TableField(value = "Student_id_number")
+    private String StudentIdNumber;
 
 
     /**
      * 学生头像
      */
 
-    @TableField(value = "yonghu_photo")
-    private String yonghuPhoto;
+    @TableField(value = "Student_photo")
+    private String StudentPhoto;
 
 
     /**
@@ -87,8 +86,8 @@ public class YonghuVO implements Serializable {
      * 电子邮箱
      */
 
-    @TableField(value = "yonghu_email")
-    private String yonghuEmail;
+    @TableField(value = "Student_email")
+    private String StudentEmail;
 
 
     /**
@@ -149,8 +148,8 @@ public class YonghuVO implements Serializable {
     /**
 	 * 设置：学生姓名
 	 */
-    public String getYonghuName() {
-        return yonghuName;
+    public String getStudentName() {
+        return StudentName;
     }
 
 
@@ -158,14 +157,14 @@ public class YonghuVO implements Serializable {
 	 * 获取：学生姓名
 	 */
 
-    public void setYonghuName(String yonghuName) {
-        this.yonghuName = yonghuName;
+    public void setStudentName(String StudentName) {
+        this.StudentName = StudentName;
     }
     /**
 	 * 设置：学生手机号
 	 */
-    public String getYonghuPhone() {
-        return yonghuPhone;
+    public String getStudentPhone() {
+        return StudentPhone;
     }
 
 
@@ -173,14 +172,14 @@ public class YonghuVO implements Serializable {
 	 * 获取：学生手机号
 	 */
 
-    public void setYonghuPhone(String yonghuPhone) {
-        this.yonghuPhone = yonghuPhone;
+    public void setStudentPhone(String StudentPhone) {
+        this.StudentPhone = StudentPhone;
     }
     /**
 	 * 设置：学生身份证号
 	 */
-    public String getYonghuIdNumber() {
-        return yonghuIdNumber;
+    public String getStudentIdNumber() {
+        return StudentIdNumber;
     }
 
 
@@ -188,14 +187,14 @@ public class YonghuVO implements Serializable {
 	 * 获取：学生身份证号
 	 */
 
-    public void setYonghuIdNumber(String yonghuIdNumber) {
-        this.yonghuIdNumber = yonghuIdNumber;
+    public void setStudentIdNumber(String StudentIdNumber) {
+        this.StudentIdNumber = StudentIdNumber;
     }
     /**
 	 * 设置：学生头像
 	 */
-    public String getYonghuPhoto() {
-        return yonghuPhoto;
+    public String getStudentPhoto() {
+        return StudentPhoto;
     }
 
 
@@ -203,8 +202,8 @@ public class YonghuVO implements Serializable {
 	 * 获取：学生头像
 	 */
 
-    public void setYonghuPhoto(String yonghuPhoto) {
-        this.yonghuPhoto = yonghuPhoto;
+    public void setStudentPhoto(String StudentPhoto) {
+        this.StudentPhoto = StudentPhoto;
     }
     /**
 	 * 设置：性别
@@ -224,8 +223,8 @@ public class YonghuVO implements Serializable {
     /**
 	 * 设置：电子邮箱
 	 */
-    public String getYonghuEmail() {
-        return yonghuEmail;
+    public String getStudentEmail() {
+        return StudentEmail;
     }
 
 
@@ -233,8 +232,8 @@ public class YonghuVO implements Serializable {
 	 * 获取：电子邮箱
 	 */
 
-    public void setYonghuEmail(String yonghuEmail) {
-        this.yonghuEmail = yonghuEmail;
+    public void setStudentEmail(String StudentEmail) {
+        this.StudentEmail = StudentEmail;
     }
     /**
 	 * 设置：创建时间

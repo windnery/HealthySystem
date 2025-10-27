@@ -231,7 +231,7 @@
                 ro:{
                     TeacherOrderUuidNumber: true,
                     TeacherId: false,
-                    yonghuId: false,
+                    StudentId: false,
                     yuyueTime: false,
                     shijianduanTypes: false,
                     TeacherOrderYesnoTypes: false,
@@ -242,7 +242,7 @@
                 detail: {
                     TeacherOrderUuidNumber: new Date().getTime(),//数字
                     TeacherId: '',
-                    yonghuId: '',
+                    StudentId: '',
                     yuyueTime: '',
                     shijianduanTypes: '',//数字
                     shijianduanValue: '',//数字对应的值
@@ -357,7 +357,7 @@
             // 提交
             form.on('submit(thisSubmit)', function (data) {
                 data = data.field;
-                data["yonghuId"]= localStorage.getItem("userid");
+                data["StudentId"]= localStorage.getItem("userid");
                 data["TeacherOrderYesnoTypes"]= 1;
                 // 提交数据
                 http.requestJson('TeacherOrder/add', 'post', data, function (res) {

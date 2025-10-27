@@ -13,17 +13,17 @@
                         <el-form-item label="重复密码" class="input">
                             <el-input type="password" v-model="ruleForm.repetitionPassword" autocomplete="off" show-password/>
                         </el-form-item>
-                        <el-form-item label="学生姓名" class="input" v-if="tableName=='yonghu'">
-                            <el-input v-model="ruleForm.yonghuName" autocomplete="off" placeholder="学生姓名"  />
+                        <el-form-item label="学生姓名" class="input" v-if="tableName=='Student'">
+                            <el-input v-model="ruleForm.StudentName" autocomplete="off" placeholder="学生姓名"  />
                         </el-form-item>
-                        <el-form-item label="学生手机号" class="input" v-if="tableName=='yonghu'">
-                            <el-input v-model="ruleForm.yonghuPhone" autocomplete="off" placeholder="学生手机号"  />
+                        <el-form-item label="学生手机号" class="input" v-if="tableName=='Student'">
+                            <el-input v-model="ruleForm.StudentPhone" autocomplete="off" placeholder="学生手机号"  />
                         </el-form-item>
-                        <el-form-item label="学生身份证号" class="input" v-if="tableName=='yonghu'">
-                            <el-input v-model="ruleForm.yonghuIdNumber" autocomplete="off" placeholder="学生身份证号"  />
+                        <el-form-item label="学生身份证号" class="input" v-if="tableName=='Student'">
+                            <el-input v-model="ruleForm.StudentIdNumber" autocomplete="off" placeholder="学生身份证号"  />
                         </el-form-item>
-                        <el-form-item label="电子邮箱" class="input" v-if="tableName=='yonghu'">
-                            <el-input v-model="ruleForm.yonghuEmail" autocomplete="off" placeholder="电子邮箱"  />
+                        <el-form-item label="电子邮箱" class="input" v-if="tableName=='Student'">
+                            <el-input v-model="ruleForm.StudentEmail" autocomplete="off" placeholder="电子邮箱"  />
                         </el-form-item>
                         <el-form-item label="心理老师姓名" class="input" v-if="tableName=='Teacher'">
                             <el-input v-model="ruleForm.TeacherName" autocomplete="off" placeholder="心理老师姓名"  />
@@ -88,19 +88,19 @@
                                 this.$message.error('密码和重复密码不一致');
                                 return
                             }
-                            if((!this.ruleForm.yonghuName)&& 'yonghu'==this.tableName){
+                            if((!this.ruleForm.StudentName)&& 'Student'==this.tableName){
                                 this.$message.error('学生姓名不能为空');
                                 return
                             }
-                             if('yonghu' == this.tableName && this.ruleForm.yonghuPhone&&(!this.$validate.isMobile(this.ruleForm.yonghuPhone))){
+                             if('Student' == this.tableName && this.ruleForm.StudentPhone&&(!this.$validate.isMobile(this.ruleForm.StudentPhone))){
                                  this.$message.error('手机应输入手机格式');
                                  return
                              }
-                            if((!this.ruleForm.yonghuIdNumber)&& 'yonghu'==this.tableName){
+                            if((!this.ruleForm.StudentIdNumber)&& 'Student'==this.tableName){
                                 this.$message.error('学生身份证号不能为空');
                                 return
                             }
-                            if('yonghu' == this.tableName && this.ruleForm.yonghuEmail&&(!this.$validate.isEmail(this.ruleForm.yonghuEmail))){
+                            if('Student' == this.tableName && this.ruleForm.StudentEmail&&(!this.$validate.isEmail(this.ruleForm.StudentEmail))){
                                 this.$message.error("邮箱应输入邮件格式");
                                 return
                             }

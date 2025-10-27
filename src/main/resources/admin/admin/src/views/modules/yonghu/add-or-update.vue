@@ -22,55 +22,55 @@
                    </div>
                </el-col>
                <el-col :span="12">
-                   <el-form-item class="input" v-if="type!='info'"  label="学生姓名" prop="yonghuName">
-                       <el-input v-model="ruleForm.yonghuName"
-                                 placeholder="学生姓名" clearable  :readonly="ro.yonghuName"></el-input>
+                   <el-form-item class="input" v-if="type!='info'"  label="学生姓名" prop="StudentName">
+                       <el-input v-model="ruleForm.StudentName"
+                                 placeholder="学生姓名" clearable  :readonly="ro.StudentName"></el-input>
                    </el-form-item>
                    <div v-else>
-                       <el-form-item class="input" label="学生姓名" prop="yonghuName">
-                           <el-input v-model="ruleForm.yonghuName"
+                       <el-form-item class="input" label="学生姓名" prop="StudentName">
+                           <el-input v-model="ruleForm.StudentName"
                                      placeholder="学生姓名" readonly></el-input>
                        </el-form-item>
                    </div>
                </el-col>
                <el-col :span="12">
-                   <el-form-item class="input" v-if="type!='info'"  label="学生手机号" prop="yonghuPhone">
-                       <el-input v-model="ruleForm.yonghuPhone"
-                                 placeholder="学生手机号" clearable  :readonly="ro.yonghuPhone"></el-input>
+                   <el-form-item class="input" v-if="type!='info'"  label="学生手机号" prop="StudentPhone">
+                       <el-input v-model="ruleForm.StudentPhone"
+                                 placeholder="学生手机号" clearable  :readonly="ro.StudentPhone"></el-input>
                    </el-form-item>
                    <div v-else>
-                       <el-form-item class="input" label="学生手机号" prop="yonghuPhone">
-                           <el-input v-model="ruleForm.yonghuPhone"
+                       <el-form-item class="input" label="学生手机号" prop="StudentPhone">
+                           <el-input v-model="ruleForm.StudentPhone"
                                      placeholder="学生手机号" readonly></el-input>
                        </el-form-item>
                    </div>
                </el-col>
                <el-col :span="12">
-                   <el-form-item class="input" v-if="type!='info'"  label="学生身份证号" prop="yonghuIdNumber">
-                       <el-input v-model="ruleForm.yonghuIdNumber"
-                                 placeholder="学生身份证号" clearable  :readonly="ro.yonghuIdNumber"></el-input>
+                   <el-form-item class="input" v-if="type!='info'"  label="学生身份证号" prop="StudentIdNumber">
+                       <el-input v-model="ruleForm.StudentIdNumber"
+                                 placeholder="学生身份证号" clearable  :readonly="ro.StudentIdNumber"></el-input>
                    </el-form-item>
                    <div v-else>
-                       <el-form-item class="input" label="学生身份证号" prop="yonghuIdNumber">
-                           <el-input v-model="ruleForm.yonghuIdNumber"
+                       <el-form-item class="input" label="学生身份证号" prop="StudentIdNumber">
+                           <el-input v-model="ruleForm.StudentIdNumber"
                                      placeholder="学生身份证号" readonly></el-input>
                        </el-form-item>
                    </div>
                </el-col>
                 <el-col :span="12">
-                    <el-form-item class="upload" v-if="type!='info' && !ro.yonghuPhoto" label="学生头像" prop="yonghuPhoto">
+                    <el-form-item class="upload" v-if="type!='info' && !ro.StudentPhoto" label="学生头像" prop="StudentPhoto">
                         <file-upload
                             tip="点击上传学生头像"
                             action="file/upload"
                             :limit="3"
                             :multiple="true"
-                            :fileUrls="ruleForm.yonghuPhoto?ruleForm.yonghuPhoto:''"
-                            @change="yonghuPhotoUploadChange"
+                            :fileUrls="ruleForm.StudentPhoto?ruleForm.StudentPhoto:''"
+                            @change="StudentPhotoUploadChange"
                         ></file-upload>
                     </el-form-item>
                     <div v-else>
-                        <el-form-item v-if="ruleForm.yonghuPhoto" label="学生头像" prop="yonghuPhoto">
-                            <img style="margin-right:20px;" v-bind:key="index" v-for="(item,index) in (ruleForm.yonghuPhoto || '').split(',')" :src="item" width="100" height="100">
+                        <el-form-item v-if="ruleForm.StudentPhoto" label="学生头像" prop="StudentPhoto">
+                            <img style="margin-right:20px;" v-bind:key="index" v-for="(item,index) in (ruleForm.StudentPhoto || '').split(',')" :src="item" width="100" height="100">
                         </el-form-item>
                     </div>
                 </el-col>
@@ -93,13 +93,13 @@
                     </div>
                 </el-col>
                <el-col :span="12">
-                   <el-form-item class="input" v-if="type!='info'"  label="电子邮箱" prop="yonghuEmail">
-                       <el-input v-model="ruleForm.yonghuEmail"
-                                 placeholder="电子邮箱" clearable  :readonly="ro.yonghuEmail"></el-input>
+                   <el-form-item class="input" v-if="type!='info'"  label="电子邮箱" prop="StudentEmail">
+                       <el-input v-model="ruleForm.StudentEmail"
+                                 placeholder="电子邮箱" clearable  :readonly="ro.StudentEmail"></el-input>
                    </el-form-item>
                    <div v-else>
-                       <el-form-item class="input" label="电子邮箱" prop="yonghuEmail">
-                           <el-input v-model="ruleForm.yonghuEmail"
+                       <el-form-item class="input" label="电子邮箱" prop="StudentEmail">
+                           <el-input v-model="ruleForm.StudentEmail"
                                      placeholder="电子邮箱" readonly></el-input>
                        </el-form-item>
                    </div>
@@ -129,22 +129,22 @@
                 ro:{
                     username: false,
                     password: false,
-                    yonghuName: false,
-                    yonghuPhone: false,
-                    yonghuIdNumber: false,
-                    yonghuPhoto: false,
+                    StudentName: false,
+                    StudentPhone: false,
+                    StudentIdNumber: false,
+                    StudentPhoto: false,
                     sexTypes: false,
-                    yonghuEmail: false,
+                    StudentEmail: false,
                 },
                 ruleForm: {
                     username: '',
                     password: '',
-                    yonghuName: '',
-                    yonghuPhone: '',
-                    yonghuIdNumber: '',
-                    yonghuPhoto: '',
+                    StudentName: '',
+                    StudentPhone: '',
+                    StudentIdNumber: '',
+                    StudentPhoto: '',
                     sexTypes: '',
-                    yonghuEmail: '',
+                    StudentEmail: '',
                 },
                 sexTypesOptions : [],
                 rules: {
@@ -154,24 +154,24 @@
                    password: [
                               { required: true, message: '密码不能为空', trigger: 'blur' },
                           ],
-                   yonghuName: [
+                   StudentName: [
                               { required: true, message: '学生姓名不能为空', trigger: 'blur' },
                           ],
-                   yonghuPhone: [
+                   StudentPhone: [
                               {  required: true, message: '学生手机号不能为空', trigger: 'blur' },
                               {  pattern: /^(13[0-9]|14[01456879]|15[0-35-9]|16[2567]|17[0-8]|18[0-9]|19[0-35-9])\d{8}$/,
                                  message: '学生手机号格式不对',
                                  trigger: 'blur'
                               }
                           ],
-                   yonghuIdNumber: [
+                   StudentIdNumber: [
                               { required: true, message: '学生身份证号不能为空', trigger: 'blur' },
                               { pattern: /^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/,
                                 message: '学生身份证号格式有误！',
                                 trigger: 'blur'
                               }
                           ],
-                   yonghuPhoto: [
+                   StudentPhoto: [
                               { required: true, message: '学生头像不能为空', trigger: 'blur' },
                           ],
                    sexTypes: [
@@ -181,7 +181,7 @@
                                   trigger: 'blur'
                               }
                           ],
-                   yonghuEmail: [
+                   StudentEmail: [
                               { required: true, message: '电子邮箱不能为空', trigger: 'blur' },
                               { pattern: /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/,
                                 message: '电子邮箱只能是邮箱格式',
@@ -250,7 +250,7 @@
             info(id) {
                 let _this =this;
                 _this.$http({
-                    url: `yonghu/info/${id}`,
+                    url: `Student/info/${id}`,
                     method: 'get'
                 }).then(({ data }) => {
                     if (data && data.code === 0) {
@@ -265,7 +265,7 @@
                 this.$refs["ruleForm"].validate(valid => {
                     if (valid) {
                         this.$http({
-                            url:`yonghu/${!this.ruleForm.id ? "save" : "update"}`,
+                            url:`Student/${!this.ruleForm.id ? "save" : "update"}`,
                             method: "post",
                             data: this.ruleForm
                         }).then(({ data }) => {
@@ -277,7 +277,7 @@
                                     onClose: () => {
                                         this.parent.showFlag = true;
                                         this.parent.addOrUpdateFlag = false;
-                                        this.parent.yonghuCrossAddOrUpdateFlag = false;
+                                        this.parent.StudentCrossAddOrUpdateFlag = false;
                                         this.parent.search();
                                         this.parent.contentStyleChange();
                                     }
@@ -297,12 +297,12 @@
             back() {
                 this.parent.showFlag = true;
                 this.parent.addOrUpdateFlag = false;
-                this.parent.yonghuCrossAddOrUpdateFlag = false;
+                this.parent.StudentCrossAddOrUpdateFlag = false;
                 this.parent.contentStyleChange();
             },
             //图片
-            yonghuPhotoUploadChange(fileUrls){
-                this.ruleForm.yonghuPhoto = fileUrls;
+            StudentPhotoUploadChange(fileUrls){
+                this.ruleForm.StudentPhoto = fileUrls;
                 this.addEditUploadStyleChange()
             },
 

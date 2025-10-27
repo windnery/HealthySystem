@@ -298,7 +298,7 @@
                          :style='{"padding":"0 10px","boxShadow":"0 0 6px rgba(255,0,0,0)","margin":"0","borderColor":"rgba(0,0,0,0)","backgroundColor":"transparent","color":"rgba(17, 16, 16, 1)","borderRadius":"0","textAlign":"right","borderWidth":"0","width":"auto","fontSize":"16px","borderStyle":"solid"}'>
                         学生姓名
                     </div>
-                    <input type="text" v-model="searchForm.yonghuName"
+                    <input type="text" v-model="searchForm.StudentName"
                            :style='{"boxShadow":"0 0 6px rgba(255,0,0,0)","borderColor":"#ccc","backgroundColor":"#fff","color":"rgba(135, 206, 250, 1)","borderRadius":"8px","textAlign":"center","borderWidth":"0","width":"140px","fontSize":"14px","borderStyle":"solid","height":"44px"}'
                            placeholder="学生姓名" autocomplete="off"
                            class="layui-input">
@@ -307,7 +307,7 @@
                 <button id="btn-search" :style='{"padding":"0 15px","boxShadow":"0 0 8px rgba(0,0,0,0)","margin":"0 0 0 10px","borderColor":"rgba(135, 206, 250, 1)","color":"#fff","borderRadius":"4px","borderWidth":"0","width":"auto","fontSize":"14px","borderStyle":"solid","height":"40px"}' type="button" class="layui-btn layui-btn-normal sub_backgroundColor">
                     <i v-if="true" class="layui-icon layui-icon-search"></i>搜索
                 </button>
-                <button v-if="isAuth('yonghu','新增')" @click="jump('../yonghu/add.html')" :style='{"padding":"0 15px","boxShadow":"0 0 8px rgba(0,0,0,0)","margin":"0 0 0 10px","borderColor":"rgba(135, 206, 250, 1)","backgroundColor":"rgba(135, 206, 250, 1)","color":"#fff","borderRadius":"4px","borderWidth":"0","width":"auto","fontSize":"14px","borderStyle":"solid","height":"40px"}' type="button" class="layui-btn btn-theme">
+                <button v-if="isAuth('Student','新增')" @click="jump('../Student/add.html')" :style='{"padding":"0 15px","boxShadow":"0 0 8px rgba(0,0,0,0)","margin":"0 0 0 10px","borderColor":"rgba(135, 206, 250, 1)","backgroundColor":"rgba(135, 206, 250, 1)","color":"#fff","borderRadius":"4px","borderWidth":"0","width":"auto","fontSize":"14px","borderStyle":"solid","height":"40px"}' type="button" class="layui-btn btn-theme">
                     <i v-if="true" class="layui-icon">&#xe654;</i>添加
                 </button>
             </form>
@@ -339,7 +339,7 @@
             searchForm: {
                 page: 1
                 ,limit: 8
-                ,yonghuName: ""
+                ,StudentName: ""
             },
 
 
@@ -451,7 +451,7 @@
 
             function pageList() {
                 // 获取列表数据
-                http.request('yonghu/list', 'get', vue.searchForm, function (res) {
+                http.request('Student/list', 'get', vue.searchForm, function (res) {
                     vue.dataList = res.data.list;
                     // 分页
                     laypage.render({
@@ -464,7 +464,7 @@
                             vue.searchForm.page = obj.curr;//翻页
                             //首次不执行
                             if (!first) {
-                                http.request('yonghu/list', 'get', vue.searchForm, function (res1) {
+                                http.request('Student/list', 'get', vue.searchForm, function (res1) {
                                     vue.dataList = res1.data.list;
                                 })
                             }

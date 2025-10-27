@@ -18,36 +18,36 @@
         <el-row class="ad" :style="{justifyContent:contents.btnAdAllBoxPosition=='1'?'flex-start':contents.btnAdAllBoxPosition=='2'?'center':'flex-end'}">
           <el-form-item>
             <el-button
-              v-if="isAuth('users','新增') && contents.btnAdAllIcon == 1 && contents.btnAdAllIconPosition == 1"
+              v-if="isAuth('Admin','新增') && contents.btnAdAllIcon == 1 && contents.btnAdAllIconPosition == 1"
               type="success"
               icon="el-icon-plus"
               @click="addOrUpdateHandler()"
             >{{ contents.btnAdAllFont == 1?'新增':'' }}</el-button>
             <el-button
-              v-if="isAuth('users','新增') && contents.btnAdAllIcon == 1 && contents.btnAdAllIconPosition == 2"
+              v-if="isAuth('Admin','新增') && contents.btnAdAllIcon == 1 && contents.btnAdAllIconPosition == 2"
               type="success"
               @click="addOrUpdateHandler()"
             >{{ contents.btnAdAllFont == 1?'新增':'' }}<i class="el-icon-plus el-icon--right" /></el-button>
             <el-button
-              v-if="isAuth('users','新增') && contents.btnAdAllIcon == 0"
+              v-if="isAuth('Admin','新增') && contents.btnAdAllIcon == 0"
               type="success"
               @click="addOrUpdateHandler()"
             >{{ contents.btnAdAllFont == 1?'新增':'' }}</el-button>
             <el-button
-              v-if="isAuth('users','删除') && contents.btnAdAllIcon == 1 && contents.btnAdAllIconPosition == 1 && contents.tableSelection"
+              v-if="isAuth('Admin','删除') && contents.btnAdAllIcon == 1 && contents.btnAdAllIconPosition == 1 && contents.tableSelection"
               :disabled="dataListSelections.length <= 0"
               type="danger"
               icon="el-icon-delete"
               @click="deleteHandler()"
             >{{ contents.btnAdAllFont == 1?'删除':'' }}</el-button>
             <el-button
-              v-if="isAuth('users','删除') && contents.btnAdAllIcon == 1 && contents.btnAdAllIconPosition == 2 && contents.tableSelection"
+              v-if="isAuth('Admin','删除') && contents.btnAdAllIcon == 1 && contents.btnAdAllIconPosition == 2 && contents.tableSelection"
               :disabled="dataListSelections.length <= 0"
               type="danger"
               @click="deleteHandler()"
             >{{ contents.btnAdAllFont == 1?'删除':'' }}<i class="el-icon-delete el-icon--right" /></el-button>
             <el-button
-              v-if="isAuth('users','删除') && contents.btnAdAllIcon == 0 && contents.tableSelection"
+              v-if="isAuth('Admin','删除') && contents.btnAdAllIcon == 0 && contents.tableSelection"
               :disabled="dataListSelections.length <= 0"
               type="danger"
               @click="deleteHandler()"
@@ -66,7 +66,7 @@
             :row-style="rowStyle"
             :cell-style="cellStyle"
             :style="{width: '100%',fontSize:contents.tableContentFontSize,color:contents.tableContentFontColor}"
-            v-if="isAuth('users','查看')"
+            v-if="isAuth('Admin','查看')"
             :data="dataList"
             v-loading="dataListLoading"
             @selection-change="selectionChangeHandler">
@@ -105,19 +105,19 @@
                 header-align="center"
                 label="操作">
                 <template slot-scope="scope">
-                <el-button v-if="isAuth('users','查看') && contents.tableBtnIcon == 1 && contents.tableBtnIconPosition == 1" type="success" icon="el-icon-tickets" size="mini" @click="addOrUpdateHandler(scope.row.id,'info')">{{ contents.tableBtnFont == 1?'详情':'' }}</el-button>
-                <el-button v-if="isAuth('users','查看') && contents.tableBtnIcon == 1 && contents.tableBtnIconPosition == 2" type="success" size="mini" @click="addOrUpdateHandler(scope.row.id,'info')">{{ contents.tableBtnFont == 1?'详情':'' }}<i class="el-icon-tickets el-icon--right" /></el-button>
-                <el-button v-if="isAuth('users','查看') && contents.tableBtnIcon == 0" type="success" size="mini" @click="addOrUpdateHandler(scope.row.id,'info')">{{ contents.tableBtnFont == 1?'详情':'' }}</el-button>
-                <el-button v-if="isAuth('users','修改') && contents.tableBtnIcon == 1 && contents.tableBtnIconPosition == 1" type="primary" icon="el-icon-edit" size="mini" @click="addOrUpdateHandler(scope.row.id)">{{ contents.tableBtnFont == 1?'修改':'' }}</el-button>
-                <el-button v-if="isAuth('users','修改') && contents.tableBtnIcon == 1 && contents.tableBtnIconPosition == 2" type="primary" size="mini" @click="addOrUpdateHandler(scope.row.id)">{{ contents.tableBtnFont == 1?'修改':'' }}<i class="el-icon-edit el-icon--right" /></el-button>
-                <el-button v-if="isAuth('users','修改') && contents.tableBtnIcon == 0" type="primary" size="mini" @click="addOrUpdateHandler(scope.row.id)">{{ contents.tableBtnFont == 1?'修改':'' }}</el-button>
+                <el-button v-if="isAuth('Admin','查看') && contents.tableBtnIcon == 1 && contents.tableBtnIconPosition == 1" type="success" icon="el-icon-tickets" size="mini" @click="addOrUpdateHandler(scope.row.id,'info')">{{ contents.tableBtnFont == 1?'详情':'' }}</el-button>
+                <el-button v-if="isAuth('Admin','查看') && contents.tableBtnIcon == 1 && contents.tableBtnIconPosition == 2" type="success" size="mini" @click="addOrUpdateHandler(scope.row.id,'info')">{{ contents.tableBtnFont == 1?'详情':'' }}<i class="el-icon-tickets el-icon--right" /></el-button>
+                <el-button v-if="isAuth('Admin','查看') && contents.tableBtnIcon == 0" type="success" size="mini" @click="addOrUpdateHandler(scope.row.id,'info')">{{ contents.tableBtnFont == 1?'详情':'' }}</el-button>
+                <el-button v-if="isAuth('Admin','修改') && contents.tableBtnIcon == 1 && contents.tableBtnIconPosition == 1" type="primary" icon="el-icon-edit" size="mini" @click="addOrUpdateHandler(scope.row.id)">{{ contents.tableBtnFont == 1?'修改':'' }}</el-button>
+                <el-button v-if="isAuth('Admin','修改') && contents.tableBtnIcon == 1 && contents.tableBtnIconPosition == 2" type="primary" size="mini" @click="addOrUpdateHandler(scope.row.id)">{{ contents.tableBtnFont == 1?'修改':'' }}<i class="el-icon-edit el-icon--right" /></el-button>
+                <el-button v-if="isAuth('Admin','修改') && contents.tableBtnIcon == 0" type="primary" size="mini" @click="addOrUpdateHandler(scope.row.id)">{{ contents.tableBtnFont == 1?'修改':'' }}</el-button>
 
 
 
 
-                <el-button v-if="isAuth('users','删除') && contents.tableBtnIcon == 1 && contents.tableBtnIconPosition == 1" type="danger" icon="el-icon-delete" size="mini" @click="deleteHandler(scope.row.id)">{{ contents.tableBtnFont == 1?'删除':'' }}</el-button>
-                <el-button v-if="isAuth('users','删除') && contents.tableBtnIcon == 1 && contents.tableBtnIconPosition == 2" type="danger" size="mini" @click="deleteHandler(scope.row.id)">{{ contents.tableBtnFont == 1?'删除':'' }}<i class="el-icon-delete el-icon--right" /></el-button>
-                <el-button v-if="isAuth('users','删除') && contents.tableBtnIcon == 0" type="danger" size="mini" @click="deleteHandler(scope.row.id)">{{ contents.tableBtnFont == 1?'删除':'' }}</el-button>
+                <el-button v-if="isAuth('Admin','删除') && contents.tableBtnIcon == 1 && contents.tableBtnIconPosition == 1" type="danger" icon="el-icon-delete" size="mini" @click="deleteHandler(scope.row.id)">{{ contents.tableBtnFont == 1?'删除':'' }}</el-button>
+                <el-button v-if="isAuth('Admin','删除') && contents.tableBtnIcon == 1 && contents.tableBtnIconPosition == 2" type="danger" size="mini" @click="deleteHandler(scope.row.id)">{{ contents.tableBtnFont == 1?'删除':'' }}<i class="el-icon-delete el-icon--right" /></el-button>
+                <el-button v-if="isAuth('Admin','删除') && contents.tableBtnIcon == 0" type="danger" size="mini" @click="deleteHandler(scope.row.id)">{{ contents.tableBtnFont == 1?'删除':'' }}</el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -383,7 +383,7 @@ export default {
             params['username'] = '%' + this.searchForm.username + '%'
           }
       this.$http({
-        url: "users/page",
+        url: "Admin/page",
         method: "get",
         params: params
       }).then(({ data }) => {
@@ -442,7 +442,7 @@ export default {
         type: "warning"
       }).then(() => {
         this.$http({
-          url: "users/delete",
+          url: "Admin/delete",
           method: "post",
           data: ids
         }).then(({ data }) => {

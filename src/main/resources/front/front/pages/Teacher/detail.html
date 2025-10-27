@@ -209,9 +209,9 @@
                                 <div class="message-list" :style='{"padding":"0 20px 20px","boxShadow":"0 0 0px rgba(255,0,0,.3)","margin":"0","borderColor":"#92d289","backgroundColor":"#fff","borderRadius":"4px","borderWidth":"0","borderStyle":"solid"}'>
                                     <div v-for="(item,index) in TeacherLiuyanDataList" :style='{"padding":"20px 0","boxShadow":"0 0 0px rgba(255,0,0,0)","margin":"0","borderColor":"rgba(0,0,0,.3)","backgroundColor":"#fff","borderRadius":"0","borderWidth":"0 0 1px 0","borderStyle":"solid"}' class="message-item">
                                         <div class="username-container">
-                                            <img :src="item.yonghuPhoto" :style='{"boxShadow":"0 0 0px rgba(255,0,0,.3)","margin":"0 10px 0 0","borderColor":"rgba(0,0,0,.3)","borderRadius":"50%","borderWidth":"0","width":"40px","borderStyle":"solid","height":"40px"}' class="avator">
+                                            <img :src="item.StudentPhoto" :style='{"boxShadow":"0 0 0px rgba(255,0,0,.3)","margin":"0 10px 0 0","borderColor":"rgba(0,0,0,.3)","borderRadius":"50%","borderWidth":"0","width":"40px","borderStyle":"solid","height":"40px"}' class="avator">
                                             <span style="display: inline-block;" :style='{"padding":"0 10px","boxShadow":"0 0 0px rgba(255,0,0,.3)","margin":"0","borderColor":"rgba(0,0,0,.3)","backgroundColor":"#fff","color":"rgba(6, 82, 121, 1)","borderRadius":"4px","borderWidth":"0","width":"auto","lineHeight":"28px","fontSize":"14px","borderStyle":"solid"}' class="username">
-                                                {{item.yonghuName}}
+                                                {{item.StudentName}}
                                             </span>
                                         </div>
                                         <div class="content" style="margin: 0;flex: 1;">
@@ -295,7 +295,7 @@
 
                     // let data={
                     //     TeacherId:_this.detail.id,
-                    //     yonghuId:localStorage.getItem("userid"),
+                    //     StudentId:localStorage.getItem("userid"),
                     //     TeacherOrderYesnoTypes:1,
                     // }
                     // // 提交数据
@@ -323,7 +323,7 @@
                         limit: 1,
                         TeacherId: _this.detail.id,
                         TeacherCollectionTypes: 1,
-                        yonghuId: localStorage.getItem('userid'),
+                        StudentId: localStorage.getItem('userid'),
                     }, (res) => {
                         if (res.data.list.length == 1) {
                             layui.http.requestJson('TeacherCollection/delete', 'post', [res.data.list[0].id], function (res) {
@@ -337,7 +337,7 @@
                             return false;
                         }
                         layui.http.requestJson('TeacherCollection/add', 'post', {
-                            yonghuId: localStorage.getItem('userid'),
+                            StudentId: localStorage.getItem('userid'),
                             TeacherId: _this.detail.id,
                             TeacherCollectionTypes: 1,
                         }, function (res) {
@@ -414,7 +414,7 @@
                     page: 1,
                     limit: 1,
                     TeacherId: vue.detail.id,
-                    yonghuId: localStorage.getItem('userid'),
+                    StudentId: localStorage.getItem('userid'),
                 }, function (res) {
                     if(res.data.total >0){
                         res.data.list.forEach(element => {
@@ -462,7 +462,7 @@
 
             // 提交留言
             form.on('submit(TeacherLiuyanText)', function (data) {
-                data.yonghuId = localStorage.getItem('userid');
+                data.StudentId = localStorage.getItem('userid');
                 data.tableName = localStorage.getItem('userTable');
                 data.TeacherLiuyanText =jquery("#TeacherLiuyanText").val();
                 if(data.TeacherLiuyanText == null || data.TeacherLiuyanText == ''){

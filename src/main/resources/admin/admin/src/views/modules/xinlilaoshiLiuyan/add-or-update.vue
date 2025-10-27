@@ -8,27 +8,27 @@
                 label-width="80px"
                 :style="{backgroundColor:addEditForm.addEditBoxColor}">
             <el-row>
-                <el-col :span="12"  v-if="sessionTable !='yonghu'">
-                    <el-form-item class="select" v-if="type!='info'"  label="学生" prop="yonghuId">
-                        <el-select v-model="ruleForm.yonghuId" :disabled="ro.yonghuId" filterable placeholder="请选择学生" @change="yonghuChange">
+                <el-col :span="12"  v-if="sessionTable !='Student'">
+                    <el-form-item class="select" v-if="type!='info'"  label="学生" prop="StudentId">
+                        <el-select v-model="ruleForm.StudentId" :disabled="ro.StudentId" filterable placeholder="请选择学生" @change="StudentChange">
                             <el-option
-                                    v-for="(item,index) in yonghuOptions"
+                                    v-for="(item,index) in StudentOptions"
                                     v-bind:key="item.id"
-                                    :label="item.yonghuName"
+                                    :label="item.StudentName"
                                     :value="item.id">
                             </el-option>
                         </el-select>
                     </el-form-item>
                 </el-col>
 
-                <el-col :span="12"  v-if="sessionTable !='yonghu' ">
-                    <el-form-item class="input" v-if="type!='info'"  label="学生姓名" prop="yonghuName">
-                        <el-input v-model="yonghuForm.yonghuName"
+                <el-col :span="12"  v-if="sessionTable !='Student' ">
+                    <el-form-item class="input" v-if="type!='info'"  label="学生姓名" prop="StudentName">
+                        <el-input v-model="StudentForm.StudentName"
                                   placeholder="学生姓名" clearable readonly></el-input>
                     </el-form-item>
                     <div v-else>
-                        <el-form-item class="input" label="学生姓名" prop="yonghuName">
-                            <el-input v-model="ruleForm.yonghuName"
+                        <el-form-item class="input" label="学生姓名" prop="StudentName">
+                            <el-input v-model="ruleForm.StudentName"
                                       placeholder="学生姓名" readonly></el-input>
                         </el-form-item>
                     </div>
@@ -60,7 +60,7 @@
                 </el-col>
                 <input id="updateId" name="id" type="hidden">
             <input id="TeacherId" name="TeacherId" type="hidden">
-            <input id="yonghuId" name="yonghuId" type="hidden">
+            <input id="StudentId" name="StudentId" type="hidden">
                 <el-col :span="24">
                     <el-form-item v-if="type!='info'"  label="留言内容" prop="TeacherLiuyanText">
                         <el-input type="textarea"  :readonly="ro.TeacherLiuyanText" v-model="ruleForm.TeacherLiuyanText" placeholder="留言内容"></el-input>
@@ -103,11 +103,11 @@
                 sessionTable : "",//登录账户所在表名
                 role : "",//权限
                 userId:"",//当前登录人的id
-                yonghuForm: {},
+                StudentForm: {},
                 TeacherForm: {},
                 ro:{
                     TeacherId: false,
-                    yonghuId: false,
+                    StudentId: false,
                     TeacherLiuyanText: false,
                     insertTime: false,
                     replyText: false,
@@ -115,13 +115,13 @@
                 },
                 ruleForm: {
                     TeacherId: '',
-                    yonghuId: '',
+                    StudentId: '',
                     TeacherLiuyanText: '',
                     insertTime: '',
                     replyText: '',
                     updateTime: '',
                 },
-                yonghuOptions : [],
+                StudentOptions : [],
                 TeacherOptions : [],
                 rules: {
                    TeacherId: [
@@ -131,7 +131,7 @@
                                   trigger: 'blur'
                               }
                           ],
-                   yonghuId: [
+                   StudentId: [
                               { required: true, message: '学生不能为空', trigger: 'blur' },
                               {  pattern: /^[1-9][0-9]*$/,
                                   message: '只允许输入整数',
@@ -165,7 +165,7 @@
 
             if (this.role != "管理员"){
                 this.ro.TeacherId = true;//心理老师
-                this.ro.yonghuId = true;//学生
+                this.ro.StudentId = true;//学生
                 this.ro.TeacherLiuyanText = true;//留言内容
             }
             this.addEditForm = styleJs.addStyle();
@@ -174,11 +174,11 @@
             //获取下拉框信息
 
          this.$http({
-             url: `yonghu/page?page=1&limit=100`,
+             url: `Student/page?page=1&limit=100`,
              method: "get"
          }).then(({ data }) => {
              if (data && data.code === 0) {
-                this.yonghuOptions = data.data.list;
+                this.StudentOptions = data.data.list;
             }
          });
          this.$http({
@@ -219,13 +219,13 @@
                     }
                 });
             },
-            yonghuChange(id){
+            StudentChange(id){
                 this.$http({
-                    url: `yonghu/info/`+id,
+                    url: `Student/info/`+id,
                     method: "get"
                 }).then(({ data }) => {
                     if (data && data.code === 0) {
-                        this.yonghuForm = data.data;
+                        this.StudentForm = data.data;
                     }
                 });
             },
@@ -248,7 +248,7 @@
                 }).then(({ data }) => {
                     if (data && data.code === 0) {
                         _this.ruleForm = data.data;
-                        _this.yonghuChange(data.data.yonghuId)
+                        _this.StudentChange(data.data.StudentId)
                         _this.TeacherChange(data.data.TeacherId)
                     } else {
                         _this.$message.error(data.msg);

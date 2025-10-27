@@ -131,12 +131,12 @@
                 </el-col>
 
                 <el-col :span="12">
-                    <el-form-item class="select" v-if="type!='info'"  label="学生" prop="yonghuId">
-                        <el-select v-model="ruleForm.yonghuId" placeholder="请选择学生" @change="yonghuChange">
+                    <el-form-item class="select" v-if="type!='info'"  label="学生" prop="StudentId">
+                        <el-select v-model="ruleForm.StudentId" placeholder="请选择学生" @change="StudentChange">
                             <el-option
-                                    v-for="(item,index) in yonghuOptions"
+                                    v-for="(item,index) in StudentOptions"
                                     v-bind:key="item.id"
-                                    :label="item.yonghuName"
+                                    :label="item.StudentName"
                                     :value="item.id">
                             </el-option>
                         </el-select>
@@ -144,7 +144,7 @@
                 </el-col>
 
                 <input id="updateId" name="id" type="hidden">
-                <input id="yonghuId" name="yonghuId" type="hidden">
+                <input id="StudentId" name="StudentId" type="hidden">
                 <input id="exampaperId" name="exampaperId" type="hidden">
                 <input id="examquestionId" name="examquestionId" type="hidden">
                 <el-col :span="12">
@@ -248,17 +248,17 @@
                 type: '',
                 exampaperForm: {},
                 examquestionForm: {},
-                yonghuForm: {},
+                StudentForm: {},
                 options:[],
                 ro:{
-                    yonghuId: false,
+                    StudentId: false,
                     exampaperId: false,
                     examquestionId: false,
                     examredetailsMyanswer: false,
                     insertTime: false,
                 },
                 ruleForm: {
-                    yonghuId: '',
+                    StudentId: '',
                     exampaperId: '',
                     examquestionId: '',
                     examredetailsMyanswer: '',
@@ -266,9 +266,9 @@
                 },
                 exampaperOptions : [],
                 examquestionOptions : [],
-                yonghuOptions : [],
+                StudentOptions : [],
                 rules: {
-                    yonghuId: [
+                    StudentId: [
                         { required: true, message: '学生id不能为空', trigger: 'blur' },
                     ],
                     exampaperId: [
@@ -314,11 +314,11 @@
             });
 
             this.$http({
-                url: `yonghu/page?page=1&limit=100`,
+                url: `Student/page?page=1&limit=100`,
                 method: "get"
             }).then(({ data }) => {
                 if (data && data.code === 0) {
-                    this.yonghuOptions = data.data.list;
+                    this.StudentOptions = data.data.list;
                 }
             });
 
@@ -342,9 +342,9 @@
                     console.log(this.options)
                     for (var o in obj){
 
-                        if(o=='yonghuId'){
-                            this.ruleForm.yonghuId = obj[o];
-                            this.ro.yonghuId = true;
+                        if(o=='StudentId'){
+                            this.ruleForm.StudentId = obj[o];
+                            this.ro.StudentId = true;
                             continue;
                         }
                         if(o=='exampaperId'){
@@ -403,13 +403,13 @@
                     }
                 });
             },
-            yonghuChange(id){
+            StudentChange(id){
                 this.$http({
-                    url: `yonghu/info/`+id,
+                    url: `Student/info/`+id,
                     method: "get"
                 }).then(({ data }) => {
                     if (data && data.code === 0) {
-                        this.yonghuForm = data.data;
+                        this.StudentForm = data.data;
                     }
                 });
             },
@@ -423,7 +423,7 @@
                         this.ruleForm = data.data;
                         this.exampaperChange(data.data.exampaperId)
                         this.examquestionChange(data.data.examquestionId)
-                        this.yonghuChange(data.data.yonghuId)
+                        this.StudentChange(data.data.StudentId)
                         this.options = JSON.parse(this.ruleForm.examquestionOptions)
                         //解决前台上传图片后台不显示的问题
                         let reg=new RegExp('../../../upload','g')//g代表全部

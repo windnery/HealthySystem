@@ -268,10 +268,10 @@
                         // types : 'Info_types',//分组下拉框字段
                     },
                     // joinTable : {//级联表（可以不存在）
-                    //     tableName :'yonghu',//级联表表名
+                    //     tableName :'Student',//级联表表名
                     //     // date : 'insert_time',//分组日期字段
-                    //     string : 'yonghu_name',//分组字符串字段
-                    //     // types : 'yonghu_types',//分组下拉框字段
+                    //     string : 'Student_name',//分组字符串字段
+                    //     // types : 'Student_types',//分组下拉框字段
                     // }
                 }
                 _this.chartVisiable = true;

@@ -8,7 +8,7 @@
                                                 
                                          
                     <el-form-item :label="contents.inputTitle == 1 ? '学生姓名' : ''">
-                        <el-input prefix-icon="el-icon-search" v-model="searchForm.yonghuName" placeholder="学生姓名" clearable></el-input>
+                        <el-input prefix-icon="el-icon-search" v-model="searchForm.StudentName" placeholder="学生姓名" clearable></el-input>
                     </el-form-item>
                                                                                                                                              
                     <el-form-item :label="contents.inputTitle == 1 ? '心理老师姓名' : ''">
@@ -97,11 +97,11 @@
                     </el-table-column>
                     <el-table-column label="索引" v-if="contents.tableIndex" type="index" width="50" />
                     <el-table-column  :sortable="contents.tableSortable" :align="contents.tableAlign"
-                                      prop="yonghuName"
+                                      prop="StudentName"
                                       header-align="center"
                                       label="学生姓名">
                         <template slot-scope="scope">
-                            {{scope.row.yonghuName}}
+                            {{scope.row.StudentName}}
                         </template>
                     </el-table-column>
                     <el-table-column  :sortable="contents.tableSortable" :align="contents.tableAlign"
@@ -197,7 +197,7 @@
             form:{
                 id : null,
                 TeacherId : null,
-                yonghuId : null,
+                StudentId : null,
                 TeacherCollectionTypes : null,
                 insertTime : null,
                 createTime : null,
@@ -220,11 +220,11 @@
             //导出excel
             json_fields: {
                 //级联表字段
-                     '学生姓名': 'yonghuName',
-                     '学生手机号': 'yonghuPhone',
-                     '学生身份证号': 'yonghuIdNumber',
-                     '学生头像': 'yonghuPhoto',
-                     '电子邮箱': 'yonghuEmail',
+                     '学生姓名': 'StudentName',
+                     '学生手机号': 'StudentPhone',
+                     '学生身份证号': 'StudentIdNumber',
+                     '学生头像': 'StudentPhoto',
+                     '电子邮箱': 'StudentEmail',
                      '心理老师姓名': 'TeacherName',
                      '心理老师手机号': 'TeacherPhone',
                      '心理老师头像': 'TeacherPhoto',
@@ -276,10 +276,10 @@
                         // types : 'Teacher_collection_types',//分组下拉框字段
                     },
                     // joinTable : {//级联表（可以不存在）
-                    //     tableName :'yonghu',//级联表表名
+                    //     tableName :'Student',//级联表表名
                     //     // date : 'insert_time',//分组日期字段
-                    //     string : 'yonghu_name',//分组字符串字段
-                    //     // types : 'yonghu_types',//分组下拉框字段
+                    //     string : 'Student_name',//分组字符串字段
+                    //     // types : 'Student_types',//分组下拉框字段
                     // }
                 }
                 _this.chartVisiable = true;
@@ -620,8 +620,8 @@
                 }
 
                                          
-                if (this.searchForm.yonghuName!= '' && this.searchForm.yonghuName!= undefined) {
-                    params['yonghuName'] = '%' + this.searchForm.yonghuName + '%'
+                if (this.searchForm.StudentName!= '' && this.searchForm.StudentName!= undefined) {
+                    params['StudentName'] = '%' + this.searchForm.StudentName + '%'
                 }
                                                                                                                                              
                 if (this.searchForm.TeacherName!= '' && this.searchForm.TeacherName!= undefined) {

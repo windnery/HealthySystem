@@ -68,9 +68,9 @@ public class TeacherOrderEntity<T> implements Serializable {
     /**
      * 学生
      */
-    @TableField(value = "yonghu_id")
+    @TableField(value = "Student_id")
 
-    private Integer yonghuId;
+    private Integer StudentId;
 
 
     /**
@@ -169,15 +169,15 @@ public class TeacherOrderEntity<T> implements Serializable {
     /**
 	 * 设置：学生
 	 */
-    public Integer getYonghuId() {
-        return yonghuId;
+    public Integer getStudentId() {
+        return StudentId;
     }
     /**
 	 * 获取：学生
 	 */
 
-    public void setYonghuId(Integer yonghuId) {
-        this.yonghuId = yonghuId;
+    public void setStudentId(Integer StudentId) {
+        this.StudentId = StudentId;
     }
     /**
 	 * 设置：预约日期
@@ -264,7 +264,7 @@ public class TeacherOrderEntity<T> implements Serializable {
             "id=" + id +
             ", TeacherOrderUuidNumber=" + TeacherOrderUuidNumber +
             ", TeacherId=" + TeacherId +
-            ", yonghuId=" + yonghuId +
+            ", StudentId=" + StudentId +
             ", yuyueTime=" + yuyueTime +
             ", shijianduanTypes=" + shijianduanTypes +
             ", TeacherOrderYesnoTypes=" + TeacherOrderYesnoTypes +

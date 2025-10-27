@@ -61,12 +61,12 @@
                 </el-col>
 
                 <el-col :span="12">
-                    <el-form-item class="select" v-if="type!='info'"  label="学生" prop="yonghuId">
-                        <el-select v-model="ruleForm.yonghuId" placeholder="请选择学生" @change="yonghuChange">
+                    <el-form-item class="select" v-if="type!='info'"  label="学生" prop="StudentId">
+                        <el-select v-model="ruleForm.StudentId" placeholder="请选择学生" @change="StudentChange">
                             <el-option
-                                    v-for="(item,index) in yonghuOptions"
+                                    v-for="(item,index) in StudentOptions"
                                     v-bind:key="item.id"
-                                    :label="item.yonghuName"
+                                    :label="item.StudentName"
                                     :value="item.id">
                             </el-option>
                         </el-select>
@@ -74,60 +74,60 @@
                 </el-col>
 
                 <el-col :span="12">
-                    <el-form-item class="input" v-if="type!='info'"  label="学生姓名" prop="yonghuName">
-                        <el-input v-model="yonghuForm.yonghuName"
-                                  placeholder="学生姓名" clearable  :readonly="ro.yonghuName" readonly></el-input>
+                    <el-form-item class="input" v-if="type!='info'"  label="学生姓名" prop="StudentName">
+                        <el-input v-model="StudentForm.StudentName"
+                                  placeholder="学生姓名" clearable  :readonly="ro.StudentName" readonly></el-input>
                     </el-form-item>
                     <div v-else>
-                        <el-form-item class="input" label="学生姓名" prop="yonghuName">
-                            <el-input v-model="ruleForm.yonghuName"
+                        <el-form-item class="input" label="学生姓名" prop="StudentName">
+                            <el-input v-model="ruleForm.StudentName"
                                       placeholder="学生姓名" readonly></el-input>
                         </el-form-item>
                     </div>
                 </el-col>
                 <el-col :span="12">
-                    <el-form-item class="input" v-if="type!='info'"  label="身份证号" prop="yonghuIdNumber">
-                        <el-input v-model="yonghuForm.yonghuIdNumber"
-                                  placeholder="身份证号" clearable  :readonly="ro.yonghuIdNumber" readonly></el-input>
+                    <el-form-item class="input" v-if="type!='info'"  label="身份证号" prop="StudentIdNumber">
+                        <el-input v-model="StudentForm.StudentIdNumber"
+                                  placeholder="身份证号" clearable  :readonly="ro.StudentIdNumber" readonly></el-input>
                     </el-form-item>
                     <div v-else>
-                        <el-form-item class="input" label="身份证号" prop="yonghuIdNumber">
-                            <el-input v-model="ruleForm.yonghuIdNumber"
+                        <el-form-item class="input" label="身份证号" prop="StudentIdNumber">
+                            <el-input v-model="ruleForm.StudentIdNumber"
                                       placeholder="身份证号" readonly></el-input>
                         </el-form-item>
                     </div>
                 </el-col>
                 <el-col :span="12">
-                    <el-form-item class="input" v-if="type!='info'"  label="手机号" prop="yonghuPhone">
-                        <el-input v-model="yonghuForm.yonghuPhone"
-                                  placeholder="手机号" clearable  :readonly="ro.yonghuPhone" readonly></el-input>
+                    <el-form-item class="input" v-if="type!='info'"  label="手机号" prop="StudentPhone">
+                        <el-input v-model="StudentForm.StudentPhone"
+                                  placeholder="手机号" clearable  :readonly="ro.StudentPhone" readonly></el-input>
                     </el-form-item>
                     <div v-else>
-                        <el-form-item class="input" label="手机号" prop="yonghuPhone">
-                            <el-input v-model="ruleForm.yonghuPhone"
+                        <el-form-item class="input" label="手机号" prop="StudentPhone">
+                            <el-input v-model="ruleForm.StudentPhone"
                                       placeholder="手机号" readonly></el-input>
                         </el-form-item>
                     </div>
                 </el-col>
                 <el-col :span="12">
-                    <el-form-item class="input" v-if="type!='info'"  label="邮箱" prop="yonghuEmail">
-                        <el-input v-model="yonghuForm.yonghuEmail"
-                                  placeholder="邮箱" clearable  :readonly="ro.yonghuEmail" readonly></el-input>
+                    <el-form-item class="input" v-if="type!='info'"  label="邮箱" prop="StudentEmail">
+                        <el-input v-model="StudentForm.StudentEmail"
+                                  placeholder="邮箱" clearable  :readonly="ro.StudentEmail" readonly></el-input>
                     </el-form-item>
                     <div v-else>
-                        <el-form-item class="input" label="邮箱" prop="yonghuEmail">
-                            <el-input v-model="ruleForm.yonghuEmail"
+                        <el-form-item class="input" label="邮箱" prop="StudentEmail">
+                            <el-input v-model="ruleForm.StudentEmail"
                                       placeholder="邮箱" readonly></el-input>
                         </el-form-item>
                     </div>
                 </el-col>
                 <el-col :span="24">
-                    <el-form-item class="upload" v-if="type!='info' && !ro.yonghuPhoto" label="照片" prop="yonghuPhoto">
-                        <img style="margin-right:20px;" v-bind:key="index" v-for="(item,index) in (yonghuForm.yonghuPhoto || '').split(',')" :src="item" width="100" height="100">
+                    <el-form-item class="upload" v-if="type!='info' && !ro.StudentPhoto" label="照片" prop="StudentPhoto">
+                        <img style="margin-right:20px;" v-bind:key="index" v-for="(item,index) in (StudentForm.StudentPhoto || '').split(',')" :src="item" width="100" height="100">
                     </el-form-item>
                     <div v-else>
-                        <el-form-item v-if="ruleForm.yonghuPhoto" label="照片" prop="yonghuPhoto">
-                            <img style="margin-right:20px;" v-bind:key="index" v-for="(item,index) in (ruleForm.yonghuPhoto || '').split(',')" :src="item" width="100" height="100">
+                        <el-form-item v-if="ruleForm.StudentPhoto" label="照片" prop="StudentPhoto">
+                            <img style="margin-right:20px;" v-bind:key="index" v-for="(item,index) in (ruleForm.StudentPhoto || '').split(',')" :src="item" width="100" height="100">
                         </el-form-item>
                     </div>
                 </el-col>
@@ -144,7 +144,7 @@
                         </el-form-item>
                     </div>
                 </el-col>
-                <input id="yonghuId" name="yonghuId" type="hidden">
+                <input id="StudentId" name="StudentId" type="hidden">
                 <input id="exampaperId" name="exampaperId" type="hidden">
                 <el-col :span="12">
                     <el-form-item class="input" v-if="type!='info'"  label="所得总分" prop="totalScore">
@@ -246,28 +246,28 @@
                 id: '',
                 type: '',
                 exampaperForm: {},
-                yonghuForm: {},
+                StudentForm: {},
                 ro:{
                     examrecordUuidNumber: false,
-                    yonghuId: false,
+                    StudentId: false,
                     exampaperId: false,
                     totalScore: false,
                     insertTime: false,
                 },
                 ruleForm: {
                     examrecordUuidNumber: '',
-                    yonghuId: '',
+                    StudentId: '',
                     exampaperId: '',
                     totalScore: '',
                     insertTime: '',
                 },
                 exampaperOptions : [],
-                yonghuOptions : [],
+                StudentOptions : [],
                 rules: {
                     examrecordUuidNumber: [
                         { required: true, message: '考试编号不能为空', trigger: 'blur' },
                     ],
-                    yonghuId: [
+                    StudentId: [
                         { required: true, message: '考试学生不能为空', trigger: 'blur' },
                     ],
                     exampaperId: [
@@ -301,11 +301,11 @@
             });
 
             this.$http({
-                url: `yonghu/page?page=1&limit=100`,
+                url: `Student/page?page=1&limit=100`,
                 method: "get"
             }).then(({ data }) => {
                 if (data && data.code === 0) {
-                    this.yonghuOptions = data.data.list;
+                    this.StudentOptions = data.data.list;
                 }
             });
 
@@ -333,9 +333,9 @@
                             this.ro.examrecordUuidNumber = true;
                             continue;
                         }
-                        if(o=='yonghuId'){
-                            this.ruleForm.yonghuId = obj[o];
-                            this.ro.yonghuId = true;
+                        if(o=='StudentId'){
+                            this.ruleForm.StudentId = obj[o];
+                            this.ro.StudentId = true;
                             continue;
                         }
                         if(o=='exampaperId'){
@@ -379,13 +379,13 @@
                     }
                 });
             },
-            yonghuChange(id){
+            StudentChange(id){
                 this.$http({
-                    url: `yonghu/info/`+id,
+                    url: `Student/info/`+id,
                     method: "get"
                 }).then(({ data }) => {
                     if (data && data.code === 0) {
-                        this.yonghuForm = data.data;
+                        this.StudentForm = data.data;
                     }
                 });
             },
@@ -398,7 +398,7 @@
                     if (data && data.code === 0) {
                         this.ruleForm = data.data;
                         this.exampaperChange(data.data.exampaperId)
-                        this.yonghuChange(data.data.yonghuId)
+                        this.StudentChange(data.data.StudentId)
                         //解决前台上传图片后台不显示的问题
                         let reg=new RegExp('../../../upload','g')//g代表全部
                     } else {

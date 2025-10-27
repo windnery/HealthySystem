@@ -8046,8 +8046,8 @@
       var components = get(spec, 'components').getOr([]);
       return map$1(components, build$1);
     };
-    var buildFromSpec = function (userSpec) {
-      var _a = make$1(userSpec), specEvents = _a.events, spec = __rest(_a, ['events']);
+    var buildFromSpec = function (Adminpec) {
+      var _a = make$1(Adminpec), specEvents = _a.events, spec = __rest(_a, ['events']);
       var components = buildSubcomponents(spec);
       var completeSpec = __assign(__assign({}, spec), {
         events: __assign(__assign({}, DefaultEvents), specEvents),
@@ -8097,8 +8097,8 @@
     var uids = generate$3;
     var build$1 = function (spec) {
       return getPremade(spec).fold(function () {
-        var userSpecWithUid = spec.hasOwnProperty('uid') ? spec : __assign({ uid: uids('') }, spec);
-        return buildFromSpec(userSpecWithUid).getOrDie();
+        var AdminpecWithUid = spec.hasOwnProperty('uid') ? spec : __assign({ uid: uids('') }, spec);
+        return buildFromSpec(AdminpecWithUid).getOrDie();
       }, function (prebuilt) {
         return prebuilt;
       });

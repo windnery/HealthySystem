@@ -215,7 +215,7 @@
                             学生姓名
                         </label>
                         <div class="layui-input-block input">
-                            <input type="text" v-model="detail.yonghuName" name="yonghuName" id="yonghuName" lay-verify="required" placeholder="学生姓名" autocomplete="off" class="layui-input">
+                            <input type="text" v-model="detail.StudentName" name="StudentName" id="StudentName" lay-verify="required" placeholder="学生姓名" autocomplete="off" class="layui-input">
                         </div>
                     </div>
                     <div class="layui-form-item main_borderColor"  :style='{"padding":"10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0 0 10px 0","backgroundColor":"#fff","borderRadius":"1px","borderWidth":"0 0 1px 0","borderStyle":"solid"}'>
@@ -223,7 +223,7 @@
                             学生手机号
                         </label>
                         <div class="layui-input-block input">
-                            <input type="text" v-model="detail.yonghuPhone" name="yonghuPhone" id="yonghuPhone" lay-verify="required|phone" placeholder="学生手机号" autocomplete="off" class="layui-input">
+                            <input type="text" v-model="detail.StudentPhone" name="StudentPhone" id="StudentPhone" lay-verify="required|phone" placeholder="学生手机号" autocomplete="off" class="layui-input">
                         </div>
                     </div>
                     <div class="layui-form-item main_borderColor"  :style='{"padding":"10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0 0 10px 0","backgroundColor":"#fff","borderRadius":"1px","borderWidth":"0 0 1px 0","borderStyle":"solid"}'>
@@ -231,7 +231,7 @@
                             学生身份证号
                         </label>
                         <div class="layui-input-block input">
-                            <input type="text" v-model="detail.yonghuIdNumber" name="yonghuIdNumber" id="yonghuIdNumber" lay-verify="required|identity" placeholder="学生身份证号" autocomplete="off" class="layui-input">
+                            <input type="text" v-model="detail.StudentIdNumber" name="StudentIdNumber" id="StudentIdNumber" lay-verify="required|identity" placeholder="学生身份证号" autocomplete="off" class="layui-input">
                         </div>
                     </div>
                     <div class="layui-form-item main_borderColor"  :style='{"padding":"10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0 0 10px 0","backgroundColor":"#fff","borderRadius":"1px","borderWidth":"0 0 1px 0","borderStyle":"solid"}'>
@@ -239,8 +239,8 @@
                             学生头像
                         </label>
                         <div class="layui-input-block">
-                            <img id="yonghuPhotoImg" style="width: 100px;height: 100px;border-radius: 50%;border: 2px solid #EEEEEE;" :style='{"boxShadow":"0 0 3px rgba(160, 67, 26, 1)","borderColor":"rgba(135, 206, 250, 1)","backgroundColor":"#fff","borderRadius":"10px","borderWidth":"1px","width":"80px","borderStyle":"solid","height":"80px"}' :src="detail.yonghuPhoto">
-                            <input type="hidden" v-model="detail.yonghuPhoto" id="yonghuPhoto" name="yonghuPhoto" />
+                            <img id="StudentPhotoImg" style="width: 100px;height: 100px;border-radius: 50%;border: 2px solid #EEEEEE;" :style='{"boxShadow":"0 0 3px rgba(160, 67, 26, 1)","borderColor":"rgba(135, 206, 250, 1)","backgroundColor":"#fff","borderRadius":"10px","borderWidth":"1px","width":"80px","borderStyle":"solid","height":"80px"}' :src="detail.StudentPhoto">
+                            <input type="hidden" v-model="detail.StudentPhoto" id="StudentPhoto" name="StudentPhoto" />
                         </div>
                     </div>
                     <div class="layui-form-item main_borderColor"  :style='{"padding":"10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0 0 10px 0","backgroundColor":"#fff","borderRadius":"1px","borderWidth":"0 0 1px 0","borderStyle":"solid"}'>
@@ -249,7 +249,7 @@
                         </label>
                         <div class="layui-input-block">
                             <button class="main_backgroundColor" :style='{"padding":"0 10px","boxShadow":"0 0 0px rgba(255,0,0,.5)","margin":"0 10px 0 0","borderColor":"#ccc","color":"#fff","borderRadius":"8px","borderWidth":"0","width":"auto","fontSize":"14px","borderStyle":"solid","height":"44px"}' type="button" class="layui-btn btn-theme"
-                                    id="yonghuPhotoUpload">
+                                    id="StudentPhotoUpload">
                                 <i v-if="true" :style='{"color":"#fff","show":true,"fontSize":"14px"}' class="layui-icon">&#xe67c;</i>上传学生头像
                             </button>
                         </div>
@@ -274,7 +274,7 @@
                             电子邮箱
                         </label>
                         <div class="layui-input-block input">
-                            <input type="text" v-model="detail.yonghuEmail" name="yonghuEmail" id="yonghuEmail" lay-verify="required|email" placeholder="电子邮箱" autocomplete="off" class="layui-input">
+                            <input type="text" v-model="detail.StudentEmail" name="StudentEmail" id="StudentEmail" lay-verify="required|email" placeholder="电子邮箱" autocomplete="off" class="layui-input">
                         </div>
                     </div>
 
@@ -315,13 +315,13 @@
                 detail: {
                     username: '',
                     password: '',
-                    yonghuName: '',
-                    yonghuPhone: '',
-                    yonghuIdNumber: '',
-                    yonghuPhoto: '',
+                    StudentName: '',
+                    StudentPhone: '',
+                    StudentIdNumber: '',
+                    StudentPhoto: '',
                     sexTypes: '',//数字
                     sexValue: '',//数字对应的值
-                    yonghuEmail: '',
+                    StudentEmail: '',
                     createTime: '',
                 },
                 sexTypesList: [],
@@ -421,9 +421,9 @@
 
             // 上传 文件/图片
             // 学生头像的文件上传
-            var yonghuPhotoUpload = upload.render({
+            var StudentPhotoUpload = upload.render({
                 //绑定元素
-                elem: '#yonghuPhotoUpload',
+                elem: '#StudentPhotoUpload',
                 //上传接口
                 url: http.baseurl + 'file/upload',
                 // 请求头
@@ -448,7 +448,7 @@
                             icon: 6
                         })
                         var url = http.baseurl + 'upload/' + res.file;
-                        vue.detail.yonghuPhoto = url;
+                        vue.detail.StudentPhoto = url;
                     } else {
                         layer.msg(res.msg, {
                             time: 2000,
@@ -477,12 +477,12 @@
                 });
             }
 
-            http.request(`yonghu/session`, 'get', {}, function(data) {
+            http.request(`Student/session`, 'get', {}, function(data) {
                 // 表单赋值
                 // form.val("myForm", data.data);
                 vue.detail = data.data
                 // 图片赋值
-                //jquery("#yonghuPhotoImg").attr("src", data.data.yonghuPhoto);
+                //jquery("#StudentPhotoImg").attr("src", data.data.StudentPhoto);
             });
 
             // 提交表单

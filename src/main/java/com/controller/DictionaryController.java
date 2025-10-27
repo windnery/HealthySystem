@@ -49,7 +49,7 @@ public class DictionaryController {
     //级联表service
 
     @Autowired
-    private YonghuService yonghuService;
+    private StudentService studentService;
     @Autowired
     private TeacherService teacherService;
 
@@ -218,7 +218,7 @@ public class DictionaryController {
     @RequestMapping("/batchInsert")
     public R save( String fileName, HttpServletRequest request){
         logger.debug("batchInsert方法:,,Controller:{},,fileName:{}",this.getClass().getName(),fileName);
-        Integer yonghuId = Integer.valueOf(String.valueOf(request.getSession().getAttribute("userId")));
+        Integer StudentId = Integer.valueOf(String.valueOf(request.getSession().getAttribute("userId")));
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try {
             List<DictionaryEntity> dictionaryList = new ArrayList<>();//上传的东西

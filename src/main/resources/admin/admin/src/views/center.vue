@@ -8,38 +8,38 @@
     >  
      <el-row>
                     <el-col :span="12">
-           <el-form-item v-if="flag=='yonghu'"  label='学生姓名' prop="yonghuName">
-               <el-input v-model="ruleForm.yonghuName"  placeholder='学生姓名' clearable></el-input>
+           <el-form-item v-if="flag=='Student'"  label='学生姓名' prop="StudentName">
+               <el-input v-model="ruleForm.StudentName"  placeholder='学生姓名' clearable></el-input>
            </el-form-item>
          </el-col>
 
          <el-col :span="12">
-           <el-form-item v-if="flag=='yonghu'"  label='学生手机号' prop="yonghuPhone">
-               <el-input v-model="ruleForm.yonghuPhone"  placeholder='学生手机号' clearable></el-input>
+           <el-form-item v-if="flag=='Student'"  label='学生手机号' prop="StudentPhone">
+               <el-input v-model="ruleForm.StudentPhone"  placeholder='学生手机号' clearable></el-input>
            </el-form-item>
          </el-col>
 
          <el-col :span="12">
-           <el-form-item v-if="flag=='yonghu'"  label='学生身份证号' prop="yonghuIdNumber">
-               <el-input v-model="ruleForm.yonghuIdNumber"  placeholder='学生身份证号' clearable></el-input>
+           <el-form-item v-if="flag=='Student'"  label='学生身份证号' prop="StudentIdNumber">
+               <el-input v-model="ruleForm.StudentIdNumber"  placeholder='学生身份证号' clearable></el-input>
            </el-form-item>
          </el-col>
 
          <el-col :span="12">
-             <el-form-item v-if="flag=='yonghu'" label='学生头像' prop="yonghuPhoto">
+             <el-form-item v-if="flag=='Student'" label='学生头像' prop="StudentPhoto">
                  <file-upload
                          tip="点击上传照片"
                          action="file/upload"
                          :limit="3"
                          :multiple="true"
-                         :fileUrls="ruleForm.yonghuPhoto?ruleForm.yonghuPhoto:''"
-                         @change="yonghuPhotoUploadChange"
+                         :fileUrls="ruleForm.StudentPhoto?ruleForm.StudentPhoto:''"
+                         @change="StudentPhotoUploadChange"
                  ></file-upload>
              </el-form-item>
          </el-col>
          <el-col :span="12">
-           <el-form-item v-if="flag=='yonghu'"  label='电子邮箱' prop="yonghuEmail">
-               <el-input v-model="ruleForm.yonghuEmail"  placeholder='电子邮箱' clearable></el-input>
+           <el-form-item v-if="flag=='Student'"  label='电子邮箱' prop="StudentEmail">
+               <el-input v-model="ruleForm.StudentEmail"  placeholder='电子邮箱' clearable></el-input>
            </el-form-item>
          </el-col>
 
@@ -95,12 +95,12 @@
                  </editor>
              </el-form-item>
          </el-col>
-         <el-form-item v-if="flag=='users'" label="学生名" prop="username">
+         <el-form-item v-if="flag=='Admin'" label="学生名" prop="username">
              <el-input v-model="ruleForm.username"
                        placeholder="学生名"></el-input>
          </el-form-item>
          <el-col :span="12">
-             <el-form-item v-if="flag!='users'"  label="性别" prop="sexTypes">
+             <el-form-item v-if="flag!='Admin'"  label="性别" prop="sexTypes">
                  <el-select v-model="ruleForm.sexTypes" placeholder="请选择性别">
                      <el-option
                              v-for="(item,index) in sexTypesOptions"
@@ -129,7 +129,7 @@ export default {
     return {
         ruleForm: {},
         flag: '',
-        usersFlag: false,
+        AdminFlag: false,
         // sexTypesOptions : [],
 // 注册表 学生
     // 注册的类型字段 学生
@@ -178,8 +178,8 @@ export default {
       });
   },
   methods: {
-    yonghuPhotoUploadChange(fileUrls) {
-        this.ruleForm.yonghuPhoto = fileUrls;
+    StudentPhotoUploadChange(fileUrls) {
+        this.ruleForm.StudentPhoto = fileUrls;
     },
     TeacherPhotoUploadChange(fileUrls) {
         this.ruleForm.TeacherPhoto = fileUrls;
@@ -187,26 +187,26 @@ export default {
 
 
     onUpdateHandler() {
-                         if((!this.ruleForm.yonghuName)&& 'yonghu'==this.flag){
+                         if((!this.ruleForm.StudentName)&& 'Student'==this.flag){
                              this.$message.error('学生姓名不能为空');
                              return
                          }
 
-                             if( 'yonghu' ==this.flag && this.ruleForm.yonghuPhone&&(!isMobile(this.ruleForm.yonghuPhone))){
+                             if( 'Student' ==this.flag && this.ruleForm.StudentPhone&&(!isMobile(this.ruleForm.StudentPhone))){
                                  this.$message.error(`手机应输入手机格式`);
                                  return
                              }
-                         if((!this.ruleForm.yonghuIdNumber)&& 'yonghu'==this.flag){
+                         if((!this.ruleForm.StudentIdNumber)&& 'Student'==this.flag){
                              this.$message.error('学生身份证号不能为空');
                              return
                          }
 
-                         if((!this.ruleForm.yonghuPhoto)&& 'yonghu'==this.flag){
+                         if((!this.ruleForm.StudentPhoto)&& 'Student'==this.flag){
                              this.$message.error('学生头像不能为空');
                              return
                          }
 
-                             if( 'yonghu' ==this.flag && this.ruleForm.yonghuEmail&&(!isEmail(this.ruleForm.yonghuEmail))){
+                             if( 'Student' ==this.flag && this.ruleForm.StudentEmail&&(!isEmail(this.ruleForm.StudentEmail))){
                                  this.$message.error(`邮箱应输入邮箱格式`);
                                  return
                              }
@@ -243,11 +243,11 @@ export default {
                              return
                          }
 
-        if((!this.ruleForm.sexTypes) && this.flag!='users'){
+        if((!this.ruleForm.sexTypes) && this.flag!='Admin'){
             this.$message.error('性别不能为空');
             return
         }
-      if('users'==this.flag && this.ruleForm.username.trim().length<1) {
+      if('Admin'==this.flag && this.ruleForm.username.trim().length<1) {
         this.$message.error(`学生名不能为空`);
         return	
       }

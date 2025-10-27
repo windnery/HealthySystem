@@ -184,7 +184,7 @@ export default {
     // 多级联动参数
     info(id) {
       this.$http({
-        url: `users/info/${id}`,
+        url: `Admin/info/${id}`,
         method: "get"
       }).then(({ data }) => {
         if (data && data.code === 0) {
@@ -201,7 +201,7 @@ export default {
       this.$refs["ruleForm"].validate(valid => {
         if (valid) {
           this.$http({
-            url: `users/${!this.ruleForm.id ? "save" : "update"}`,
+            url: `Admin/${!this.ruleForm.id ? "save" : "update"}`,
             method: "post",
             data: this.ruleForm
           }).then(({ data }) => {
@@ -213,7 +213,7 @@ export default {
                 onClose: () => {
                   this.parent.showFlag = true;
                   this.parent.addOrUpdateFlag = false;
-                  this.parent.usersCrossAddOrUpdateFlag = false;
+                  this.parent.AdminCrossAddOrUpdateFlag = false;
                   this.parent.search();
                   this.parent.contentStyleChange();
                 }
@@ -233,7 +233,7 @@ export default {
     back() {
       this.parent.showFlag = true;
       this.parent.addOrUpdateFlag = false;
-      this.parent.usersCrossAddOrUpdateFlag = false;
+      this.parent.AdminCrossAddOrUpdateFlag = false;
       this.parent.contentStyleChange();
     },
 	addEditStyleChange() {

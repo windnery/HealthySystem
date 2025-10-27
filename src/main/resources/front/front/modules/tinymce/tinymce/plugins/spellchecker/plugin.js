@@ -489,8 +489,8 @@
       };
     };
     var sendRpcCall = function (editor, pluginUrl, currentLanguageState, name, data, successCallback, errorCallback) {
-      var userSpellcheckCallback = Settings.getSpellcheckerCallback(editor);
-      var spellCheckCallback = userSpellcheckCallback ? userSpellcheckCallback : defaultSpellcheckCallback(editor, pluginUrl, currentLanguageState);
+      var AdminpellcheckCallback = Settings.getSpellcheckerCallback(editor);
+      var spellCheckCallback = AdminpellcheckCallback ? AdminpellcheckCallback : defaultSpellcheckCallback(editor, pluginUrl, currentLanguageState);
       spellCheckCallback.call(editor.plugins.spellchecker, name, data, successCallback, errorCallback);
     };
     var spellcheck = function (editor, pluginUrl, startedState, textMatcherState, lastSuggestionsState, currentLanguageState) {

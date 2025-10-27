@@ -121,7 +121,7 @@
             </div>
         </div>
         <button class="main_backgroundColor" :style='{"padding":"0 10px","boxShadow":"0 0 0px rgba(255,0,0,.5)","margin":"10px auto","borderColor":"#ccc","borderRadius":"8px","borderWidth":"0","width":"60%","fontSize":"14px","borderStyle":"solid","height":"44px"}' class="layui-btn layui-btn-fluid layui-btn-danger btn-submit" lay-submit lay-filter="login">登录</button>
-        <p :style='{"color":"rgba(160, 67, 26, 1)","textAlign":"right","fontSize":"12px"}' class="txt"><a style="color: inherit;font-size: inherit;" href="javascript:registerClick('yonghu')">注册学生</a></p>
+        <p :style='{"color":"rgba(160, 67, 26, 1)","textAlign":"right","fontSize":"12px"}' class="txt"><a style="color: inherit;font-size: inherit;" href="javascript:registerClick('Student')">注册学生</a></p>
     </form>
 </div>
 
@@ -233,7 +233,7 @@
 
 
             data = data.field;
-            data.role ='yonghu';
+            data.role ='Student';
             if(false) {
                 var arr = []
                 for(var i = 0;i<codes.length;i++) {

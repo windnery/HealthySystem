@@ -33,7 +33,7 @@ public class TeacherCollectionModel implements Serializable {
     /**
      * 学生
      */
-    private Integer yonghuId;
+    private Integer StudentId;
 
 
     /**
@@ -89,16 +89,16 @@ public class TeacherCollectionModel implements Serializable {
     /**
 	 * 获取：学生
 	 */
-    public Integer getYonghuId() {
-        return yonghuId;
+    public Integer getStudentId() {
+        return StudentId;
     }
 
 
     /**
 	 * 设置：学生
 	 */
-    public void setYonghuId(Integer yonghuId) {
-        this.yonghuId = yonghuId;
+    public void setStudentId(Integer StudentId) {
+        this.StudentId = StudentId;
     }
     /**
 	 * 获取：类型

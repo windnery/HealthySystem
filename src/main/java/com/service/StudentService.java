@@ -2,14 +2,13 @@ package com.service;
 
 import com.baomidou.mybatisplus.service.IService;
 import com.utils.PageUtils;
-import com.entity.YonghuEntity;
+import com.entity.StudentEntity;
 import java.util.Map;
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * 学生 服务类
  */
-public interface YonghuService extends IService<YonghuEntity> {
+public interface StudentService extends IService<StudentEntity> {
 
     /**
     * @param params 查询参数

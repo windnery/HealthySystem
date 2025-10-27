@@ -12,7 +12,7 @@ import pay from '@/views/pay'
 import register from '@/views/register'
 import center from '@/views/center'
 
-     import users from '@/views/modules/users/list'
+     import Admin from '@/views/modules/Admin/list'
     import dictionary from '@/views/modules/dictionary/list'
     import exampaper from '@/views/modules/exampaper/list'
     import examquestion from '@/views/modules/examquestion/list'
@@ -24,7 +24,7 @@ import center from '@/views/center'
     import TeacherCollection from '@/views/modules/TeacherCollection/list'
     import TeacherLiuyan from '@/views/modules/TeacherLiuyan/list'
     import TeacherOrder from '@/views/modules/TeacherOrder/list'
-    import yonghu from '@/views/modules/yonghu/list'
+    import Student from '@/views/modules/Student/list'
     import Teacher from '@/views/modules/Teacher/list'
     import config from '@/views/modules/config/list'
     import dictionaryExampaper from '@/views/modules/dictionaryExampaper/list'
@@ -68,9 +68,9 @@ const routes = [{
       component: center,
       meta: {icon:'', title:'center'}
     } ,{
-        path: '/users',
+        path: '/Admin',
         name: '管理信息',
-        component: users
+        component: Admin
       }
 	  ,{
 	      path: '/adminexam',
@@ -181,9 +181,9 @@ const routes = [{
         component: TeacherOrder
       }
     ,{
-        path: '/yonghu',
+        path: '/Student',
         name: '学生',
-        component: yonghu
+        component: Student
       }
     ,{
         path: '/Teacher',

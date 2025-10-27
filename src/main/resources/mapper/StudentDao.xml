@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dao.YonghuDao">
+<mapper namespace="com.dao.StudentDao">
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         a.id as id
         ,a.username as username
         ,a.password as password
-        ,a.yonghu_name as yonghuName
-        ,a.yonghu_phone as yonghuPhone
-        ,a.yonghu_id_number as yonghuIdNumber
-        ,a.yonghu_photo as yonghuPhoto
+        ,a.Student_name as StudentName
+        ,a.Student_phone as StudentPhone
+        ,a.Student_id_number as StudentIdNumber
+        ,a.Student_photo as StudentPhoto
         ,a.sex_types as sexTypes
-        ,a.yonghu_email as yonghuEmail
+        ,a.Student_email as StudentEmail
         ,a.create_time as createTime
     </sql>
-    <select id="selectListView" parameterType="map" resultType="com.entity.view.YonghuView" >
+    <select id="selectListView" parameterType="map" resultType="com.entity.view.StudentView" >
         SELECT
         <include refid="Base_Column_List" />
 
 --         级联表的字段
 
-        FROM yonghu  a
+        FROM Student  a
 
         <where>
             <if test="params.ids != null">
@@ -36,20 +36,20 @@
             <if test=" params.password != '' and params.password != null and params.password != 'null' ">
                 and a.password like CONCAT('%',#{params.password},'%')
             </if>
-            <if test=" params.yonghuName != '' and params.yonghuName != null and params.yonghuName != 'null' ">
-                and a.yonghu_name like CONCAT('%',#{params.yonghuName},'%')
+            <if test=" params.StudentName != '' and params.StudentName != null and params.StudentName != 'null' ">
+                and a.Student_name like CONCAT('%',#{params.StudentName},'%')
             </if>
-            <if test=" params.yonghuPhone != '' and params.yonghuPhone != null and params.yonghuPhone != 'null' ">
-                and a.yonghu_phone like CONCAT('%',#{params.yonghuPhone},'%')
+            <if test=" params.StudentPhone != '' and params.StudentPhone != null and params.StudentPhone != 'null' ">
+                and a.Student_phone like CONCAT('%',#{params.StudentPhone},'%')
             </if>
-            <if test=" params.yonghuIdNumber != '' and params.yonghuIdNumber != null and params.yonghuIdNumber != 'null' ">
-                and a.yonghu_id_number like CONCAT('%',#{params.yonghuIdNumber},'%')
+            <if test=" params.StudentIdNumber != '' and params.StudentIdNumber != null and params.StudentIdNumber != 'null' ">
+                and a.Student_id_number like CONCAT('%',#{params.StudentIdNumber},'%')
             </if>
             <if test="params.sexTypes != null and params.sexTypes != ''">
                 and a.sex_types = #{params.sexTypes}
             </if>
-            <if test=" params.yonghuEmail != '' and params.yonghuEmail != null and params.yonghuEmail != 'null' ">
-                and a.yonghu_email like CONCAT('%',#{params.yonghuEmail},'%')
+            <if test=" params.StudentEmail != '' and params.StudentEmail != null and params.StudentEmail != 'null' ">
+                and a.Student_email like CONCAT('%',#{params.StudentEmail},'%')
             </if>
 
         </where>

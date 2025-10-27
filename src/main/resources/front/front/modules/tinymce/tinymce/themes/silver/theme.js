@@ -3135,8 +3135,8 @@
       var components = get(spec, 'components').getOr([]);
       return map(components, build$1);
     };
-    var buildFromSpec = function (userSpec) {
-      var _a = make(userSpec), specEvents = _a.events, spec = __rest(_a, ['events']);
+    var buildFromSpec = function (Adminpec) {
+      var _a = make(Adminpec), specEvents = _a.events, spec = __rest(_a, ['events']);
       var components = buildSubcomponents(spec);
       var completeSpec = __assign(__assign({}, spec), {
         events: __assign(__assign({}, DefaultEvents), specEvents),
@@ -3186,8 +3186,8 @@
     var uids = generate$2;
     var build$1 = function (spec) {
       return getPremade(spec).fold(function () {
-        var userSpecWithUid = spec.hasOwnProperty('uid') ? spec : __assign({ uid: uids('') }, spec);
-        return buildFromSpec(userSpecWithUid).getOrDie();
+        var AdminpecWithUid = spec.hasOwnProperty('uid') ? spec : __assign({ uid: uids('') }, spec);
+        return buildFromSpec(AdminpecWithUid).getOrDie();
       }, function (prebuilt) {
         return prebuilt;
       });
@@ -8837,7 +8837,7 @@
     var getMaxHeightSetting = function (editor) {
       return Option.from(editor.getParam('max_height')).filter(isNumber);
     };
-    var getUserStyleFormats = function (editor) {
+    var getAdmintyleFormats = function (editor) {
       return Option.from(editor.getParam('style_formats')).filter(isArray);
     };
     var isMergeStyleFormats = function (editor) {
@@ -21119,7 +21119,7 @@
       return result.formats;
     };
     var getStyleFormats = function (editor) {
-      return getUserStyleFormats(editor).map(function (userFormats) {
+      return getAdmintyleFormats(editor).map(function (userFormats) {
         var registeredUserFormats = registerCustomFormats(editor, userFormats);
         return isMergeStyleFormats(editor) ? defaultStyleFormats.concat(registeredUserFormats) : registeredUserFormats;
       }).getOr(defaultStyleFormats);

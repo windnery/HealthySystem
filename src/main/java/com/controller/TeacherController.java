@@ -51,7 +51,7 @@ public class TeacherController {
     //级联表service
 
     @Autowired
-    private YonghuService yonghuService;
+    private StudentService studentService;
 
 
     /**
@@ -64,7 +64,7 @@ public class TeacherController {
         if(false)
             return R.error(511,"永不会进入");
         else if("学生".equals(role))
-            params.put("yonghuId",request.getSession().getAttribute("userId"));
+            params.put("StudentId",request.getSession().getAttribute("userId"));
         else if("心理老师".equals(role))
             params.put("TeacherId",request.getSession().getAttribute("userId"));
         if(params.get("orderBy")==null || params.get("orderBy")==""){
@@ -180,7 +180,7 @@ public class TeacherController {
     @RequestMapping("/batchInsert")
     public R save( String fileName, HttpServletRequest request){
         logger.debug("batchInsert方法:,,Controller:{},,fileName:{}",this.getClass().getName(),fileName);
-        Integer yonghuId = Integer.valueOf(String.valueOf(request.getSession().getAttribute("userId")));
+        Integer StudentId = Integer.valueOf(String.valueOf(request.getSession().getAttribute("userId")));
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try {
             List<TeacherEntity> TeacherList = new ArrayList<>();//上传的东西

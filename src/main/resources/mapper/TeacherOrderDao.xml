@@ -7,7 +7,7 @@
         a.id as id
         ,a.Teacher_order_uuid_number as TeacherOrderUuidNumber
         ,a.Teacher_id as TeacherId
-        ,a.yonghu_id as yonghuId
+        ,a.Student_id as StudentId
         ,a.yuyue_time as yuyueTime
         ,a.shijianduan_types as shijianduanTypes
         ,a.Teacher_order_yesno_types as TeacherOrderYesnoTypes
@@ -20,11 +20,11 @@
         <include refid="Base_Column_List" />
 
 --         级联表的字段
-        ,yonghu.yonghu_name as yonghuName
-        ,yonghu.yonghu_phone as yonghuPhone
-        ,yonghu.yonghu_id_number as yonghuIdNumber
-        ,yonghu.yonghu_photo as yonghuPhoto
-        ,yonghu.yonghu_email as yonghuEmail
+        ,Student.Student_name as StudentName
+        ,Student.Student_phone as StudentPhone
+        ,Student.Student_id_number as StudentIdNumber
+        ,Student.Student_photo as StudentPhoto
+        ,Student.Student_email as StudentEmail
         ,Teacher.Teacher_name as TeacherName
         ,Teacher.Teacher_phone as TeacherPhone
         ,Teacher.Teacher_photo as TeacherPhoto
@@ -34,7 +34,7 @@
         ,Teacher.Teacher_content as TeacherContent
 
         FROM Teacher_order  a
-        left JOIN yonghu yonghu ON a.yonghu_id = yonghu.id
+        left JOIN Student Student ON a.Student_id = Student.id
         left JOIN Teacher Teacher ON a.Teacher_id = Teacher.id
 
         <where>
@@ -52,9 +52,9 @@
                     a.Teacher_id = #{params.TeacherId}
                 )
             </if>
-            <if test="params.yonghuId != null and params.yonghuId != ''">
+            <if test="params.StudentId != null and params.StudentId != ''">
                 and (
-                    a.yonghu_id = #{params.yonghuId}
+                    a.Student_id = #{params.StudentId}
                 )
             </if>
             <if test=" params.yuyueTimeStart != '' and params.yuyueTimeStart != null ">
@@ -80,20 +80,20 @@
             </if>
 
                 <!-- 判断学生的id不为空 -->
-            <if test=" params.yonghuIdNotNull != '' and params.yonghuIdNotNull != null and params.yonghuIdNotNull != 'null' ">
-                and a.yonghu_id IS NOT NULL
+            <if test=" params.StudentIdNotNull != '' and params.StudentIdNotNull != null and params.StudentIdNotNull != 'null' ">
+                and a.Student_id IS NOT NULL
             </if>
-            <if test=" params.yonghuName != '' and params.yonghuName != null and params.yonghuName != 'null' ">
-                and yonghu.yonghu_name like CONCAT('%',#{params.yonghuName},'%')
+            <if test=" params.StudentName != '' and params.StudentName != null and params.StudentName != 'null' ">
+                and Student.Student_name like CONCAT('%',#{params.StudentName},'%')
             </if>
-            <if test=" params.yonghuPhone != '' and params.yonghuPhone != null and params.yonghuPhone != 'null' ">
-                and yonghu.yonghu_phone like CONCAT('%',#{params.yonghuPhone},'%')
+            <if test=" params.StudentPhone != '' and params.StudentPhone != null and params.StudentPhone != 'null' ">
+                and Student.Student_phone like CONCAT('%',#{params.StudentPhone},'%')
             </if>
-            <if test=" params.yonghuIdNumber != '' and params.yonghuIdNumber != null and params.yonghuIdNumber != 'null' ">
-                and yonghu.yonghu_id_number like CONCAT('%',#{params.yonghuIdNumber},'%')
+            <if test=" params.StudentIdNumber != '' and params.StudentIdNumber != null and params.StudentIdNumber != 'null' ">
+                and Student.Student_id_number like CONCAT('%',#{params.StudentIdNumber},'%')
             </if>
-            <if test=" params.yonghuEmail != '' and params.yonghuEmail != null and params.yonghuEmail != 'null' ">
-                and yonghu.yonghu_email like CONCAT('%',#{params.yonghuEmail},'%')
+            <if test=" params.StudentEmail != '' and params.StudentEmail != null and params.StudentEmail != 'null' ">
+                and Student.Student_email like CONCAT('%',#{params.StudentEmail},'%')
             </if>
                 <!-- 判断心理老师的id不为空 -->
             <if test=" params.TeacherIdNotNull != '' and params.TeacherIdNotNull != null and params.TeacherIdNotNull != 'null' ">

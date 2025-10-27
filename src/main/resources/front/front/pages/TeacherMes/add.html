@@ -162,7 +162,7 @@
                 dataList: [],
                 ro:{
                     TeacherId: false,
-                    yonghuId: false,
+                    StudentId: false,
                     TeacherLiuyanText: false,
                     insertTime: false,
                     replyText: false,
@@ -171,7 +171,7 @@
                 },
                 detail: {
                     TeacherId: '',
-                    yonghuId: '',
+                    StudentId: '',
                     TeacherLiuyanText: '',
                     insertTime: '',
                     replyText: '',
@@ -273,7 +273,7 @@
             // 提交
             form.on('submit(thisSubmit)', function (data) {
                 data = data.field;
-                data["yonghuId"]= localStorage.getItem("userid");
+                data["StudentId"]= localStorage.getItem("userid");
                 // 提交数据
                 http.requestJson('TeacherLiuyan/add', 'post', data, function (res) {
                     if(res.code == 0){

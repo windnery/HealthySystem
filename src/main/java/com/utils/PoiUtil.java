@@ -78,13 +78,13 @@ public class PoiUtil {
     public static void main(String[] args) {
         try {
             //导入
-            List<List<String>> lists = PoiUtil.poiImport("C:/Users/Administrator/Desktop/工作1.xls");
+            List<List<String>> lists = PoiUtil.poiImport("C:/Admin/Administrator/Desktop/工作1.xls");
             System.out.println();
 
 
             //导出
 
-            PoiUtil.poiExport(lists, "C:/Users/Administrator/Desktop/工作1.xls");
+            PoiUtil.poiExport(lists, "C:/Admin/Administrator/Desktop/工作1.xls");
 
 //
 //            List<List<String>> list = new ArrayList<>();
@@ -101,7 +101,7 @@ public class PoiUtil {
 //                dataList111.add("内容" + i);
 //                list.add(dataList111);
 //            }
-//            PoiUtil.poiExport(list, "C:/Users/Administrator/Desktop/工作1.xls");
+//            PoiUtil.poiExport(list, "C:/Admin/Administrator/Desktop/工作1.xls");
         } catch (Exception e) {
             e.printStackTrace();
         }

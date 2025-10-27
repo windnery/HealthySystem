@@ -47,7 +47,7 @@
                     ,payClick() {
                     let data={
 			TeacherId: localStorage.getItem('userid'),
-			yonghuId: localStorage.getItem('userid'),
+			StudentId: localStorage.getItem('userid'),
                     }
                         // 获取商品详情信息
                         layui.http.request(`TeacherOrder/order`, 'POST', data, (res) => {
@@ -120,7 +120,7 @@
                         window.parent.location.href = '../login/login.jsp';
                     });
                 }
-                http.request(`yonghu/session`, 'get', {}, function(data) {
+                http.request(`Student/session`, 'get', {}, function(data) {
                     vue.user = data.data;
                     // 学生当前学生折扣信息
                     http.request('dictionary/page', 'get', {

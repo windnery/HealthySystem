@@ -38,8 +38,8 @@ public class TeacherMesVO implements Serializable {
      * 学生
      */
 
-    @TableField(value = "yonghu_id")
-    private Integer yonghuId;
+    @TableField(value = "Student_id")
+    private Integer StudentId;
 
 
     /**
@@ -121,8 +121,8 @@ public class TeacherMesVO implements Serializable {
     /**
 	 * 设置：学生
 	 */
-    public Integer getYonghuId() {
-        return yonghuId;
+    public Integer getStudentId() {
+        return StudentId;
     }
 
 
@@ -130,8 +130,8 @@ public class TeacherMesVO implements Serializable {
 	 * 获取：学生
 	 */
 
-    public void setYonghuId(Integer yonghuId) {
-        this.yonghuId = yonghuId;
+    public void setStudentId(Integer StudentId) {
+        this.StudentId = StudentId;
     }
     /**
 	 * 设置：留言内容

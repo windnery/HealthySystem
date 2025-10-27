@@ -50,7 +50,7 @@ public class TeacherCollectionController {
 
     //级联表service
     @Autowired
-    private YonghuService yonghuService;
+    private StudentService studentService;
     @Autowired
     private TeacherService TeacherService;
 
@@ -66,7 +66,7 @@ public class TeacherCollectionController {
         if(false)
             return R.error(511,"永不会进入");
         else if("学生".equals(role))
-            params.put("yonghuId",request.getSession().getAttribute("userId"));
+            params.put("StudentId",request.getSession().getAttribute("userId"));
         else if("心理老师".equals(role))
             params.put("TeacherId",request.getSession().getAttribute("userId"));
         if(params.get("orderBy")==null || params.get("orderBy")==""){
@@ -96,10 +96,10 @@ public class TeacherCollectionController {
             BeanUtils.copyProperties( TeacherCollection , view );//把实体数据重构到view中
 
                 //级联表
-                YonghuEntity yonghu = yonghuService.selectById(TeacherCollection.getYonghuId());
-                if(yonghu != null){
-                    BeanUtils.copyProperties( yonghu , view ,new String[]{ "id", "createTime", "insertTime", "updateTime"});//把级联的数据添加到view中,并排除id和创建时间字段
-                    view.setYonghuId(yonghu.getId());
+                StudentEntity Student = studentService.selectById(TeacherCollection.getStudentId());
+                if(Student != null){
+                    BeanUtils.copyProperties( Student , view ,new String[]{ "id", "createTime", "insertTime", "updateTime"});//把级联的数据添加到view中,并排除id和创建时间字段
+                    view.setStudentId(Student.getId());
                 }
                 //级联表
                 TeacherEntity Teacher = TeacherService.selectById(TeacherCollection.getTeacherId());
@@ -129,11 +129,11 @@ public class TeacherCollectionController {
         else if("心理老师".equals(role))
             TeacherCollection.setTeacherId(Integer.valueOf(String.valueOf(request.getSession().getAttribute("userId"))));
         else if("学生".equals(role))
-            TeacherCollection.setYonghuId(Integer.valueOf(String.valueOf(request.getSession().getAttribute("userId"))));
+            TeacherCollection.setStudentId(Integer.valueOf(String.valueOf(request.getSession().getAttribute("userId"))));
 
         Wrapper<TeacherCollectionEntity> queryWrapper = new EntityWrapper<TeacherCollectionEntity>()
             .eq("Teacher_id", TeacherCollection.getTeacherId())
-            .eq("yonghu_id", TeacherCollection.getYonghuId())
+            .eq("Student_id", TeacherCollection.getStudentId())
             .eq("Teacher_collection_types", TeacherCollection.getTeacherCollectionTypes())
             ;
 
@@ -162,13 +162,13 @@ public class TeacherCollectionController {
 //        else if("心理老师".equals(role))
 //            TeacherCollection.setTeacherId(Integer.valueOf(String.valueOf(request.getSession().getAttribute("userId"))));
 //        else if("学生".equals(role))
-//            TeacherCollection.setYonghuId(Integer.valueOf(String.valueOf(request.getSession().getAttribute("userId"))));
+//            TeacherCollection.setStudentId(Integer.valueOf(String.valueOf(request.getSession().getAttribute("userId"))));
         //根据字段查询是否有相同数据
         Wrapper<TeacherCollectionEntity> queryWrapper = new EntityWrapper<TeacherCollectionEntity>()
             .notIn("id",TeacherCollection.getId())
             .andNew()
             .eq("Teacher_id", TeacherCollection.getTeacherId())
-            .eq("yonghu_id", TeacherCollection.getYonghuId())
+            .eq("Student_id", TeacherCollection.getStudentId())
             .eq("Teacher_collection_types", TeacherCollection.getTeacherCollectionTypes())
             ;
 
@@ -199,7 +199,7 @@ public class TeacherCollectionController {
     @RequestMapping("/batchInsert")
     public R save( String fileName, HttpServletRequest request){
         logger.debug("batchInsert方法:,,Controller:{},,fileName:{}",this.getClass().getName(),fileName);
-        Integer yonghuId = Integer.valueOf(String.valueOf(request.getSession().getAttribute("userId")));
+        Integer StudentId = Integer.valueOf(String.valueOf(request.getSession().getAttribute("userId")));
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try {
             List<TeacherCollectionEntity> TeacherCollectionList = new ArrayList<>();//上传的东西
@@ -224,7 +224,7 @@ public class TeacherCollectionController {
                             //循环
                             TeacherCollectionEntity TeacherCollectionEntity = new TeacherCollectionEntity();
 //                            TeacherCollectionEntity.setTeacherId(Integer.valueOf(data.get(0)));   //心理老师 要改的
-//                            TeacherCollectionEntity.setYonghuId(Integer.valueOf(data.get(0)));   //学生 要改的
+//                            TeacherCollectionEntity.setStudentId(Integer.valueOf(data.get(0)));   //学生 要改的
 //                            TeacherCollectionEntity.setTeacherCollectionTypes(Integer.valueOf(data.get(0)));   //类型 要改的
 //                            TeacherCollectionEntity.setInsertTime(date);//时间
 //                            TeacherCollectionEntity.setCreateTime(date);//时间
@@ -286,10 +286,10 @@ public class TeacherCollectionController {
                 BeanUtils.copyProperties( TeacherCollection , view );//把实体数据重构到view中
 
                 //级联表
-                    YonghuEntity yonghu = yonghuService.selectById(TeacherCollection.getYonghuId());
-                if(yonghu != null){
-                    BeanUtils.copyProperties( yonghu , view ,new String[]{ "id", "createDate"});//把级联的数据添加到view中,并排除id和创建时间字段
-                    view.setYonghuId(yonghu.getId());
+                    StudentEntity Student = studentService.selectById(TeacherCollection.getStudentId());
+                if(Student != null){
+                    BeanUtils.copyProperties( Student , view ,new String[]{ "id", "createDate"});//把级联的数据添加到view中,并排除id和创建时间字段
+                    view.setStudentId(Student.getId());
                 }
                 //级联表
                     TeacherEntity Teacher = TeacherService.selectById(TeacherCollection.getTeacherId());
@@ -314,7 +314,7 @@ public class TeacherCollectionController {
         logger.debug("add方法:,,Controller:{},,TeacherCollection:{}",this.getClass().getName(),TeacherCollection.toString());
         Wrapper<TeacherCollectionEntity> queryWrapper = new EntityWrapper<TeacherCollectionEntity>()
             .eq("Teacher_id", TeacherCollection.getTeacherId())
-            .eq("yonghu_id", TeacherCollection.getYonghuId())
+            .eq("Student_id", TeacherCollection.getStudentId())
             .eq("Teacher_collection_types", TeacherCollection.getTeacherCollectionTypes())
             ;
         logger.info("sql语句:"+queryWrapper.getSqlSegment());

@@ -1,8 +1,5 @@
 package com.entity.model;
 
-import com.entity.YonghuEntity;
-
-import com.baomidou.mybatisplus.annotations.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -15,7 +12,7 @@ import java.io.Serializable;
  *（实际开发中配合移动端接口开发手动去掉些没用的字段， 后端一般用entity就够用了）
  * 取自ModelAndView 的model名称
  */
-public class YonghuModel implements Serializable {
+public class StudentModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
 
@@ -42,25 +39,25 @@ public class YonghuModel implements Serializable {
     /**
      * 学生姓名
      */
-    private String yonghuName;
+    private String StudentName;
 
 
     /**
      * 学生手机号
      */
-    private String yonghuPhone;
+    private String StudentPhone;
 
 
     /**
      * 学生身份证号
      */
-    private String yonghuIdNumber;
+    private String StudentIdNumber;
 
 
     /**
      * 学生头像
      */
-    private String yonghuPhoto;
+    private String StudentPhoto;
 
 
     /**
@@ -72,7 +69,7 @@ public class YonghuModel implements Serializable {
     /**
      * 电子邮箱
      */
-    private String yonghuEmail;
+    private String StudentEmail;
 
 
     /**
@@ -128,58 +125,58 @@ public class YonghuModel implements Serializable {
     /**
 	 * 获取：学生姓名
 	 */
-    public String getYonghuName() {
-        return yonghuName;
+    public String getStudentName() {
+        return StudentName;
     }
 
 
     /**
 	 * 设置：学生姓名
 	 */
-    public void setYonghuName(String yonghuName) {
-        this.yonghuName = yonghuName;
+    public void setStudentName(String StudentName) {
+        this.StudentName = StudentName;
     }
     /**
 	 * 获取：学生手机号
 	 */
-    public String getYonghuPhone() {
-        return yonghuPhone;
+    public String getStudentPhone() {
+        return StudentPhone;
     }
 
 
     /**
 	 * 设置：学生手机号
 	 */
-    public void setYonghuPhone(String yonghuPhone) {
-        this.yonghuPhone = yonghuPhone;
+    public void setStudentPhone(String StudentPhone) {
+        this.StudentPhone = StudentPhone;
     }
     /**
 	 * 获取：学生身份证号
 	 */
-    public String getYonghuIdNumber() {
-        return yonghuIdNumber;
+    public String getStudentIdNumber() {
+        return StudentIdNumber;
     }
 
 
     /**
 	 * 设置：学生身份证号
 	 */
-    public void setYonghuIdNumber(String yonghuIdNumber) {
-        this.yonghuIdNumber = yonghuIdNumber;
+    public void setStudentIdNumber(String StudentIdNumber) {
+        this.StudentIdNumber = StudentIdNumber;
     }
     /**
 	 * 获取：学生头像
 	 */
-    public String getYonghuPhoto() {
-        return yonghuPhoto;
+    public String getStudentPhoto() {
+        return StudentPhoto;
     }
 
 
     /**
 	 * 设置：学生头像
 	 */
-    public void setYonghuPhoto(String yonghuPhoto) {
-        this.yonghuPhoto = yonghuPhoto;
+    public void setStudentPhoto(String StudentPhoto) {
+        this.StudentPhoto = StudentPhoto;
     }
     /**
 	 * 获取：性别
@@ -198,16 +195,16 @@ public class YonghuModel implements Serializable {
     /**
 	 * 获取：电子邮箱
 	 */
-    public String getYonghuEmail() {
-        return yonghuEmail;
+    public String getStudentEmail() {
+        return StudentEmail;
     }
 
 
     /**
 	 * 设置：电子邮箱
 	 */
-    public void setYonghuEmail(String yonghuEmail) {
-        this.yonghuEmail = yonghuEmail;
+    public void setStudentEmail(String StudentEmail) {
+        this.StudentEmail = StudentEmail;
     }
     /**
 	 * 获取：创建时间
