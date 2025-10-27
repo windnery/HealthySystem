@@ -1,6 +1,5 @@
 package com.entity.vo;
 
-import com.entity.TongzhiEntity;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -14,8 +13,8 @@ import java.io.Serializable;
  * 手机端接口返回实体辅助类
  * （主要作用去除一些不必要的字段）
  */
-@TableName("tongzhi")
-public class TongzhiVO implements Serializable {
+@TableName("Info")
+public class InfoVO implements Serializable {
     private static final long serialVersionUID = 1L;
 
 
@@ -31,24 +30,24 @@ public class TongzhiVO implements Serializable {
      * 通知名称
      */
 
-    @TableField(value = "tongzhi_name")
-    private String tongzhiName;
+    @TableField(value = "Info_name")
+    private String InfoName;
 
 
     /**
      * 通知图片
      */
 
-    @TableField(value = "tongzhi_photo")
-    private String tongzhiPhoto;
+    @TableField(value = "Info_photo")
+    private String InfoPhoto;
 
 
     /**
      * 通知类型
      */
 
-    @TableField(value = "tongzhi_types")
-    private Integer tongzhiTypes;
+    @TableField(value = "Info_types")
+    private Integer InfoTypes;
 
 
     /**
@@ -65,8 +64,8 @@ public class TongzhiVO implements Serializable {
      * 通知详情
      */
 
-    @TableField(value = "tongzhi_content")
-    private String tongzhiContent;
+    @TableField(value = "Info_content")
+    private String InfoContent;
 
 
     /**
@@ -97,8 +96,8 @@ public class TongzhiVO implements Serializable {
     /**
 	 * 设置：通知名称
 	 */
-    public String getTongzhiName() {
-        return tongzhiName;
+    public String getInfoName() {
+        return InfoName;
     }
 
 
@@ -106,14 +105,14 @@ public class TongzhiVO implements Serializable {
 	 * 获取：通知名称
 	 */
 
-    public void setTongzhiName(String tongzhiName) {
-        this.tongzhiName = tongzhiName;
+    public void setInfoName(String InfoName) {
+        this.InfoName = InfoName;
     }
     /**
 	 * 设置：通知图片
 	 */
-    public String getTongzhiPhoto() {
-        return tongzhiPhoto;
+    public String getInfoPhoto() {
+        return InfoPhoto;
     }
 
 
@@ -121,14 +120,14 @@ public class TongzhiVO implements Serializable {
 	 * 获取：通知图片
 	 */
 
-    public void setTongzhiPhoto(String tongzhiPhoto) {
-        this.tongzhiPhoto = tongzhiPhoto;
+    public void setInfoPhoto(String InfoPhoto) {
+        this.InfoPhoto = InfoPhoto;
     }
     /**
 	 * 设置：通知类型
 	 */
-    public Integer getTongzhiTypes() {
-        return tongzhiTypes;
+    public Integer getInfoTypes() {
+        return InfoTypes;
     }
 
 
@@ -136,8 +135,8 @@ public class TongzhiVO implements Serializable {
 	 * 获取：通知类型
 	 */
 
-    public void setTongzhiTypes(Integer tongzhiTypes) {
-        this.tongzhiTypes = tongzhiTypes;
+    public void setInfoTypes(Integer InfoTypes) {
+        this.InfoTypes = InfoTypes;
     }
     /**
 	 * 设置：通知发布时间
@@ -157,8 +156,8 @@ public class TongzhiVO implements Serializable {
     /**
 	 * 设置：通知详情
 	 */
-    public String getTongzhiContent() {
-        return tongzhiContent;
+    public String getInfoContent() {
+        return InfoContent;
     }
 
 
@@ -166,8 +165,8 @@ public class TongzhiVO implements Serializable {
 	 * 获取：通知详情
 	 */
 
-    public void setTongzhiContent(String tongzhiContent) {
-        this.tongzhiContent = tongzhiContent;
+    public void setInfoContent(String InfoContent) {
+        this.InfoContent = InfoContent;
     }
     /**
 	 * 设置：创建时间 show1 show2 nameShow

@@ -87,15 +87,15 @@
         </div>
 
         <div class="news-container">
-            <h1 class="title">{{detail.tongzhiName}}</h1>
+            <h1 class="title">{{detail.InfoName}}</h1>
             <div class="auth-container">
                 时间：{{detail.insertTime}}
             </div>
-            <div class="content" style="word-break: break-all;" v-html="myFilters(detail.tongzhiContent)">
+            <div class="content" style="word-break: break-all;" v-html="myFilters(detail.InfoContent)">
             </div>
             <div class="btn-container main_backgroundColor"  :style='{"padding":"0 10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"10px 0 10px 0","borderColor":"rgba(0,0,0,.3)","borderRadius":"4px","alignItems":"center","borderWidth":"0","borderStyle":"solid","justifyContent":"flex-end","height":"64px"}'>
                 <div class="title" style="font-size: 18px;color:#999;">
-                    本篇文章：{{detail.tongzhiName}}
+                    本篇文章：{{detail.InfoName}}
                 </div>
                 <button class="main_backgroundColor" :style='{"padding":"0 15px","boxShadow":"0 0 8px rgba(0,0,0,0)","margin":"0 0 0 10px","borderColor":"rgba(135, 206, 250, 1)","color":"#fff","borderRadius":"4px","borderWidth":"0","width":"auto","fontSize":"14px","borderStyle":"solid","height":"40px"}' onclick="back()" type="button" class="layui-btn layui-btn-lg btn-theme">
                     <i v-if="true" class="layui-icon">&#xe65c;</i> 返回列表
@@ -140,9 +140,9 @@
 
                 storeupFlag: 0,//收藏 [0为收藏 1已收藏]
                 //系统推荐
-                tongzhiRecommendList: [],
+                InfoRecommendList: [],
                     // 当前详情页表
-                detailTable: 'tongzhi',
+                detailTable: 'Info',
             },
             methods: {
                 jump(url) {
@@ -152,24 +152,24 @@
                     return isFrontAuth(tablename, button)
                 },
                 //预约
-                tongzhiYuyue(){
+                InfoYuyue(){
                     let _this = this;
-                    // localStorage.setItem('tongzhiId', _this.detail.id);
-                    // _this.jump("../tongzhiOrder/add.html");
+                    // localStorage.setItem('InfoId', _this.detail.id);
+                    // _this.jump("../InfoOrder/add.html");
 
                     let data={
-                        tongzhiId:_this.detail.id,
+                        InfoId:_this.detail.id,
                         yonghuId:localStorage.getItem("userid"),
-                        tongzhiOrderYesnoTypes:1,
+                        InfoOrderYesnoTypes:1,
                     }
                     // 提交数据
-                    layui.http.requestJson('tongzhiOrder/add', 'post', data, function (res) {
+                    layui.http.requestJson('InfoOrder/add', 'post', data, function (res) {
                         if(res.code == 0) {
                             layui.layer.msg('预约成功', {
                                 time: 2000,
                                 icon: 6
                             }, function () {
-                                _this.jump("../tongzhiOrder/list.html");
+                                _this.jump("../InfoOrder/list.html");
                             });
                         }else{
                             layui.layer.msg(res.msg, {
@@ -230,10 +230,10 @@
                 }
             });
             // 详情信息
-            http.request('tongzhi/detail/' + id, 'get', {}, function(res) {
+            http.request('Info/detail/' + id, 'get', {}, function(res) {
                 vue.detail = res.data;
-                vue.title = vue.detail.tongzhiName;
-                vue.detail.tongzhiContent = vue.detail.tongzhiContent.replace(/<img/g,'<img style="width: 100%;"')
+                vue.title = vue.detail.InfoName;
+                vue.detail.InfoContent = vue.detail.InfoContent.replace(/<img/g,'<img style="width: 100%;"')
             });
         });
     </script>

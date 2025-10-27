@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dao.TongzhiDao">
+<mapper namespace="com.dao.InfoDao">
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         a.id as id
-        ,a.tongzhi_name as tongzhiName
-        ,a.tongzhi_photo as tongzhiPhoto
-        ,a.tongzhi_types as tongzhiTypes
+        ,a.Info_name as InfoName
+        ,a.Info_photo as InfoPhoto
+        ,a.Info_types as InfoTypes
         ,a.insert_time as insertTime
-        ,a.tongzhi_content as tongzhiContent
+        ,a.Info_content as InfoContent
         ,a.create_time as createTime
     </sql>
-    <select id="selectListView" parameterType="map" resultType="com.entity.view.TongzhiView" >
+    <select id="selectListView" parameterType="map" resultType="com.entity.view.InfoView" >
         SELECT
         <include refid="Base_Column_List" />
 
 --         级联表的字段
 
-        FROM tongzhi  a
+        FROM Info  a
 
         <where>
             <if test="params.ids != null">
@@ -27,11 +27,11 @@
                 #{item}
                 </foreach>
             </if>
-            <if test=" params.tongzhiName != '' and params.tongzhiName != null and params.tongzhiName != 'null' ">
-                and a.tongzhi_name like CONCAT('%',#{params.tongzhiName},'%')
+            <if test=" params.InfoName != '' and params.InfoName != null and params.InfoName != 'null' ">
+                and a.Info_name like CONCAT('%',#{params.InfoName},'%')
             </if>
-            <if test="params.tongzhiTypes != null and params.tongzhiTypes != ''">
-                and a.tongzhi_types = #{params.tongzhiTypes}
+            <if test="params.InfoTypes != null and params.InfoTypes != ''">
+                and a.Info_types = #{params.InfoTypes}
             </if>
             <if test=" params.insertTimeStart != '' and params.insertTimeStart != null ">
                 <![CDATA[  and UNIX_TIMESTAMP(a.insert_time) >= UNIX_TIMESTAMP(#{params.insertTimeStart}) ]]>
@@ -39,8 +39,8 @@
             <if test=" params.insertTimeEnd != '' and params.insertTimeEnd != null ">
                 <![CDATA[  and UNIX_TIMESTAMP(a.insert_time) <= UNIX_TIMESTAMP(#{params.insertTimeEnd}) ]]>
             </if>
-            <if test=" params.tongzhiContent != '' and params.tongzhiContent != null and params.tongzhiContent != 'null' ">
-                and a.tongzhi_content like CONCAT('%',#{params.tongzhiContent},'%')
+            <if test=" params.InfoContent != '' and params.InfoContent != null and params.InfoContent != 'null' ">
+                and a.Info_content like CONCAT('%',#{params.InfoContent},'%')
             </if>
 
         </where>

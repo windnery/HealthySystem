@@ -2,16 +2,11 @@ package com.entity;
 
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.lang.reflect.InvocationTargetException;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -26,16 +21,16 @@ import com.baomidou.mybatisplus.enums.IdType;
  * @author 
  * @email
  */
-@TableName("tongzhi")
-public class TongzhiEntity<T> implements Serializable {
+@TableName("Info")
+public class InfoEntity<T> implements Serializable {
     private static final long serialVersionUID = 1L;
 
 
-	public TongzhiEntity() {
+	public InfoEntity() {
 
 	}
 
-	public TongzhiEntity(T t) {
+	public InfoEntity(T t) {
 		try {
 			BeanUtils.copyProperties(this, t);
 		} catch (IllegalAccessException | InvocationTargetException e) {
@@ -57,25 +52,25 @@ public class TongzhiEntity<T> implements Serializable {
     /**
      * 通知名称
      */
-    @TableField(value = "tongzhi_name")
+    @TableField(value = "Info_name")
 
-    private String tongzhiName;
+    private String InfoName;
 
 
     /**
      * 通知图片
      */
-    @TableField(value = "tongzhi_photo")
+    @TableField(value = "Info_photo")
 
-    private String tongzhiPhoto;
+    private String InfoPhoto;
 
 
     /**
      * 通知类型
      */
-    @TableField(value = "tongzhi_types")
+    @TableField(value = "Info_types")
 
-    private Integer tongzhiTypes;
+    private Integer InfoTypes;
 
 
     /**
@@ -91,9 +86,9 @@ public class TongzhiEntity<T> implements Serializable {
     /**
      * 通知详情
      */
-    @TableField(value = "tongzhi_content")
+    @TableField(value = "Info_content")
 
-    private String tongzhiContent;
+    private String InfoContent;
 
 
     /**
@@ -122,41 +117,41 @@ public class TongzhiEntity<T> implements Serializable {
     /**
 	 * 设置：通知名称
 	 */
-    public String getTongzhiName() {
-        return tongzhiName;
+    public String getInfoName() {
+        return InfoName;
     }
     /**
 	 * 获取：通知名称
 	 */
 
-    public void setTongzhiName(String tongzhiName) {
-        this.tongzhiName = tongzhiName;
+    public void setInfoName(String InfoName) {
+        this.InfoName = InfoName;
     }
     /**
 	 * 设置：通知图片
 	 */
-    public String getTongzhiPhoto() {
-        return tongzhiPhoto;
+    public String getInfoPhoto() {
+        return InfoPhoto;
     }
     /**
 	 * 获取：通知图片
 	 */
 
-    public void setTongzhiPhoto(String tongzhiPhoto) {
-        this.tongzhiPhoto = tongzhiPhoto;
+    public void setInfoPhoto(String InfoPhoto) {
+        this.InfoPhoto = InfoPhoto;
     }
     /**
 	 * 设置：通知类型
 	 */
-    public Integer getTongzhiTypes() {
-        return tongzhiTypes;
+    public Integer getInfoTypes() {
+        return InfoTypes;
     }
     /**
 	 * 获取：通知类型
 	 */
 
-    public void setTongzhiTypes(Integer tongzhiTypes) {
-        this.tongzhiTypes = tongzhiTypes;
+    public void setInfoTypes(Integer InfoTypes) {
+        this.InfoTypes = InfoTypes;
     }
     /**
 	 * 设置：通知发布时间
@@ -174,15 +169,15 @@ public class TongzhiEntity<T> implements Serializable {
     /**
 	 * 设置：通知详情
 	 */
-    public String getTongzhiContent() {
-        return tongzhiContent;
+    public String getInfoContent() {
+        return InfoContent;
     }
     /**
 	 * 获取：通知详情
 	 */
 
-    public void setTongzhiContent(String tongzhiContent) {
-        this.tongzhiContent = tongzhiContent;
+    public void setInfoContent(String InfoContent) {
+        this.InfoContent = InfoContent;
     }
     /**
 	 * 设置：创建时间
@@ -200,13 +195,13 @@ public class TongzhiEntity<T> implements Serializable {
 
     @Override
     public String toString() {
-        return "Tongzhi{" +
+        return "Info{" +
             "id=" + id +
-            ", tongzhiName=" + tongzhiName +
-            ", tongzhiPhoto=" + tongzhiPhoto +
-            ", tongzhiTypes=" + tongzhiTypes +
+            ", InfoName=" + InfoName +
+            ", InfoPhoto=" + InfoPhoto +
+            ", InfoTypes=" + InfoTypes +
             ", insertTime=" + insertTime +
-            ", tongzhiContent=" + tongzhiContent +
+            ", InfoContent=" + InfoContent +
             ", createTime=" + createTime +
         "}";
     }

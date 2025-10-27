@@ -2,21 +2,17 @@
 package com.controller;
 
 import java.io.File;
-import java.math.BigDecimal;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.JSONObject;
 import java.util.*;
 import org.springframework.beans.BeanUtils;
 import javax.servlet.http.HttpServletRequest;
-import org.springframework.web.context.ContextLoader;
-import javax.servlet.ServletContext;
+
 import com.service.TokenService;
 import com.utils.*;
-import java.lang.reflect.InvocationTargetException;
 
 import com.service.DictionaryService;
-import org.apache.commons.lang3.StringUtils;
 import com.annotation.IgnoreAuth;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,7 +26,6 @@ import com.entity.view.*;
 import com.service.*;
 import com.utils.PageUtils;
 import com.utils.R;
-import com.alibaba.fastjson.*;
 
 /**
  * 学生
@@ -213,15 +208,6 @@ public class YonghuController {
                         for(List<String> data:dataList){
                             //循环
                             YonghuEntity yonghuEntity = new YonghuEntity();
-//                            yonghuEntity.setUsername(data.get(0));                    //账户 要改的
-//                            //yonghuEntity.setPassword("123456");//密码
-//                            yonghuEntity.setYonghuName(data.get(0));                    //学生姓名 要改的
-//                            yonghuEntity.setYonghuPhone(data.get(0));                    //学生手机号 要改的
-//                            yonghuEntity.setYonghuIdNumber(data.get(0));                    //学生身份证号 要改的
-//                            yonghuEntity.setYonghuPhoto("");//详情和图片
-//                            yonghuEntity.setSexTypes(Integer.valueOf(data.get(0)));   //性别 要改的
-//                            yonghuEntity.setYonghuEmail(data.get(0));                    //电子邮箱 要改的
-//                            yonghuEntity.setCreateTime(date);//时间
                             yonghuList.add(yonghuEntity);
 
 
@@ -304,11 +290,7 @@ public class YonghuController {
         YonghuEntity yonghu = yonghuService.selectOne(new EntityWrapper<YonghuEntity>().eq("username", username));
         if(yonghu==null || !yonghu.getPassword().equals(password))
             return R.error("账号或密码不正确");
-        //  // 获取监听器中的字典表
-        // ServletContext servletContext = ContextLoader.getCurrentWebApplicationContext().getServletContext();
-        // Map<String, Map<Integer, String>> dictionaryMap= (Map<String, Map<Integer, String>>) servletContext.getAttribute("dictionaryMap");
-        // Map<Integer, String> role_types = dictionaryMap.get("role_types");
-        // role_types.get(.getRoleTypes());
+
         String token = tokenService.generateToken(yonghu.getId(),username, "yonghu", "学生");
         R r = R.ok();
         r.put("token", token);

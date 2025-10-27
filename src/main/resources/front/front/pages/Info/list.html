@@ -298,7 +298,7 @@
                          :style='{"padding":"0 10px","boxShadow":"0 0 6px rgba(255,0,0,0)","margin":"0","borderColor":"rgba(0,0,0,0)","backgroundColor":"transparent","color":"rgba(17, 16, 16, 1)","borderRadius":"0","textAlign":"right","borderWidth":"0","width":"auto","fontSize":"16px","borderStyle":"solid"}'>
                         通知名称
                     </div>
-                    <input type="text" v-model="searchForm.tongzhiName"
+                    <input type="text" v-model="searchForm.InfoName"
                            :style='{"boxShadow":"0 0 6px rgba(255,0,0,0)","borderColor":"#ccc","backgroundColor":"#fff","color":"rgba(135, 206, 250, 1)","borderRadius":"8px","textAlign":"center","borderWidth":"0","width":"140px","fontSize":"14px","borderStyle":"solid","height":"44px"}'
                            placeholder="通知名称" autocomplete="off"
                            class="layui-input">
@@ -307,28 +307,28 @@
                 <button id="btn-search" :style='{"padding":"0 15px","boxShadow":"0 0 8px rgba(0,0,0,0)","margin":"0 0 0 10px","borderColor":"rgba(135, 206, 250, 1)","color":"#fff","borderRadius":"4px","borderWidth":"0","width":"auto","fontSize":"14px","borderStyle":"solid","height":"40px"}' type="button" class="layui-btn layui-btn-normal sub_backgroundColor">
                     <i v-if="true" class="layui-icon layui-icon-search"></i>搜索
                 </button>
-                <button v-if="isAuth('tongzhi','新增')" @click="jump('../tongzhi/add.html')" :style='{"padding":"0 15px","boxShadow":"0 0 8px rgba(0,0,0,0)","margin":"0 0 0 10px","borderColor":"rgba(135, 206, 250, 1)","backgroundColor":"rgba(135, 206, 250, 1)","color":"#fff","borderRadius":"4px","borderWidth":"0","width":"auto","fontSize":"14px","borderStyle":"solid","height":"40px"}' type="button" class="layui-btn btn-theme">
+                <button v-if="isAuth('Info','新增')" @click="jump('../Info/add.html')" :style='{"padding":"0 15px","boxShadow":"0 0 8px rgba(0,0,0,0)","margin":"0 0 0 10px","borderColor":"rgba(135, 206, 250, 1)","backgroundColor":"rgba(135, 206, 250, 1)","color":"#fff","borderRadius":"4px","borderWidth":"0","width":"auto","fontSize":"14px","borderStyle":"solid","height":"40px"}' type="button" class="layui-btn btn-theme">
                     <i v-if="true" class="layui-icon">&#xe654;</i>添加
                 </button>
             </form>
 
                 <div class="list news">
-                    <div @click="jump('../tongzhi/detail.html?id='+item.id);"
+                    <div @click="jump('../Info/detail.html?id='+item.id);"
                          v-for="(item,index) in dataList" :key="index" class="list-item"
                          :class="2=='1'?'list-item1':2=='3'?'list-item3':''">
                         <div class="list-item-body animation-box"
                              :style='{"padding":"10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0 0 10px 0","borderColor":"rgba(0,0,0,.3)","backgroundColor":"#fff","borderRadius":"4px","borderWidth":"0","borderStyle":"solid"}'>
                             <img :style='{"boxShadow":"0 0 0px rgba(255,0,0,.8)","borderColor":"rgba(0,0,0,.3)","borderRadius":"0","borderWidth":"0","width":"170px","borderStyle":"solid","height":"200px"}'
-                                 :src="item.tongzhiPhoto">
+                                 :src="item.InfoPhoto">
                             <div class="item-info">
-                                <div v-if="item.tongzhiName" class="main_color"
+                                <div v-if="item.InfoName" class="main_color"
                                      :style='{"isshow":true,"padding":"0","margin":"5px 0 0 0","backgroundColor":"rgba(0,0,0,0)","borderRadius":"0","textAlign":"center","width":"100%","fontSize":"16px"}'>
-                                    {{item.tongzhiName}}
+                                    {{item.InfoName}}
                                 </div>
-                                <div v-if="item.tongzhiContent" class="sub_color"
+                                <div v-if="item.InfoContent" class="sub_color"
                                      :style='{"padding":"0","margin":"10px 0 0 0","backgroundColor":"rgba(0,0,0,0)","borderRadius":"0","textAlign":"center","width":"100%","fontSize":"14px"}'
                                      class="time">
-                                    {{item.tongzhiContent|subString}}
+                                    {{item.InfoContent|subString}}
                                 </div>
                             </div>
                         </div>
@@ -355,13 +355,13 @@
         el: '#app',
         data: {
             swiperList: [],
-            tongzhiTypesList: [],
+            InfoTypesList: [],
 
             //查询条件
             searchForm: {
                 page: 1
                 ,limit: 8
-                ,tongzhiName: ""
+                ,InfoName: ""
             },
 
 
@@ -454,16 +454,16 @@
 
         //通知类型的动态搜素
         $(document).on("click", ".thisTableType-search", function (e) {
-            vue.searchForm.tongzhiTypes = $(this).attr('index');
+            vue.searchForm.InfoTypes = $(this).attr('index');
             pageList();
         });
 
 
            //当前表的 通知类型 字段 字典表查询方法
-           function tongzhiTypesSelect() {
-               http.request("dictionary/page?page=1&limit=100&sort=&order=&dicCode=tongzhi_types", 'get', {}, function (res) {
+           function InfoTypesSelect() {
+               http.request("dictionary/page?page=1&limit=100&sort=&order=&dicCode=Info_types", 'get', {}, function (res) {
                    if(res.code == 0){
-                       vue.tongzhiTypesList = res.data.list;
+                       vue.InfoTypesList = res.data.list;
                    }
                });
            }
@@ -479,7 +479,7 @@
 
             function pageList() {
                 // 获取列表数据
-                http.request('tongzhi/list', 'get', vue.searchForm, function (res) {
+                http.request('Info/list', 'get', vue.searchForm, function (res) {
                     vue.dataList = res.data.list;
                     // 分页
                     laypage.render({
@@ -492,7 +492,7 @@
                             vue.searchForm.page = obj.curr;//翻页
                             //首次不执行
                             if (!first) {
-                                http.request('tongzhi/list', 'get', vue.searchForm, function (res1) {
+                                http.request('Info/list', 'get', vue.searchForm, function (res1) {
                                     vue.dataList = res1.data.list;
                                 })
                             }

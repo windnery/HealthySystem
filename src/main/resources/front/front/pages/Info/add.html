@@ -107,7 +107,7 @@
                     </label>
                     <div class="layui-input-block">
                         <input class="layui-input main_borderColor" :style='{"padding":"0 12px","boxShadow":"0 0 0px rgba(160, 67, 26, 1)","backgroundColor":"#fff","color":"rgba(135, 206, 250, 1)","borderRadius":"4px","textAlign":"left","borderWidth":"1px","fontSize":"15px","borderStyle":"solid","height":"40px"}'
-                           v-model="detail.tongzhiName" type="text" :readonly="ro.tongzhiName" name="tongzhiName" id="tongzhiName" autocomplete="off">
+                           v-model="detail.InfoName" type="text" :readonly="ro.InfoName" name="InfoName" id="InfoName" autocomplete="off">
                     </div>
                 </div>
                 <div class="layui-form-item main_borderColor" :style='{"padding":"10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0 0 10px 0","backgroundColor":"rgba(255, 255, 255, 0)","borderRadius":"1px","borderWidth":"0 0 1px 0","borderStyle":"solid"}'>
@@ -115,11 +115,11 @@
                         通知图片：
                     </label>
                     <div class="layui-input-block">
-                        <div v-if="detail.tongzhiPhoto" style="display:inline-block;margin-right:10px;">
-                            <img id="tongzhiPhotoImg" style="width: 100px;height: 100px;border-radius: 50%;border: 2px solid #EEEEEE;" :src="detail.tongzhiPhoto">
-                            <input type="hidden" :value="detail.tongzhiPhoto" id="tongzhiPhoto" name="tongzhiPhoto" />
+                        <div v-if="detail.InfoPhoto" style="display:inline-block;margin-right:10px;">
+                            <img id="InfoPhotoImg" style="width: 100px;height: 100px;border-radius: 50%;border: 2px solid #EEEEEE;" :src="detail.InfoPhoto">
+                            <input type="hidden" :value="detail.InfoPhoto" id="InfoPhoto" name="InfoPhoto" />
                         </div>
-                        <button v-if="!ro.tongzhiPhoto" :style='{"padding":"0 10px","boxShadow":"0 0 0px rgba(255,0,0,.5)","margin":"0 10px 0 0","borderColor":"#ccc","color":"#fff","borderRadius":"8px","borderWidth":"0","width":"auto","fontSize":"14px","borderStyle":"solid","height":"44px"}' type="button" class="layui-btn btn-theme main_backgroundColor" id="tongzhiPhotoUpload">
+                        <button v-if="!ro.InfoPhoto" :style='{"padding":"0 10px","boxShadow":"0 0 0px rgba(255,0,0,.5)","margin":"0 10px 0 0","borderColor":"#ccc","color":"#fff","borderRadius":"8px","borderWidth":"0","width":"auto","fontSize":"14px","borderStyle":"solid","height":"44px"}' type="button" class="layui-btn btn-theme main_backgroundColor" id="InfoPhotoUpload">
                             <i v-if="true" :style='{"color":"#fff","show":true,"fontSize":"14px"}' class="layui-icon">&#xe67c;</i>上传通知图片
                         </button>
                     </div>
@@ -129,9 +129,9 @@
                         通知类型：
                     </label>
                     <div class="layui-input-block">
-                        <select name="tongzhiTypes" id="tongzhiTypes" lay-filter="tongzhiTypes">
+                        <select name="InfoTypes" id="InfoTypes" lay-filter="InfoTypes">
                             <option value="">请选择</option>
-                            <option v-for="(item,index) in tongzhiTypesList" v-bind:key="index" :value="item.codeIndex" :key="item.codeIndex">{{ item.indexName }}</option>
+                            <option v-for="(item,index) in InfoTypesList" v-bind:key="index" :value="item.codeIndex" :key="item.codeIndex">{{ item.indexName }}</option>
                         </select>
                     </div>
                 </div>
@@ -177,26 +177,26 @@
                 }],
                 dataList: [],
                 ro:{
-                    tongzhiName: false,
-                    tongzhiPhoto: false,
-                    tongzhiTypes: false,
+                    InfoName: false,
+                    InfoPhoto: false,
+                    InfoTypes: false,
                     insertTime: false,
-                    tongzhiContent: false,
+                    InfoContent: false,
                     createTime: false,
                 },
                 detail: {
-                    tongzhiName: '',
-                    tongzhiPhoto: '',
-                    tongzhiTypes: '',//数字
-                    tongzhiValue: '',//数字对应的值
+                    InfoName: '',
+                    InfoPhoto: '',
+                    InfoTypes: '',//数字
+                    InfoValue: '',//数字对应的值
                     insertTime: '',
-                    tongzhiContent: '',
+                    InfoContent: '',
                     createTime: '',
                 },
                 // 级联表的
 
                 // 下拉框
-                tongzhiTypesList: [],
+                InfoTypesList: [],
 
                 centerMenu: centerMenu
             },
@@ -257,13 +257,13 @@
 
             // 下拉框
             // 通知类型的查询和初始化
-            tongzhiTypesSelect();
+            InfoTypesSelect();
 
            // 上传文件
             // 通知图片的文件上传
             upload.render({
                 //绑定元素
-                elem: '#tongzhiPhotoUpload',
+                elem: '#InfoPhotoUpload',
                 //上传接口
                 url: http.baseurl + 'file/upload',
                 // 请求头
@@ -288,9 +288,9 @@
                             icon: 6
                         })
                         var url = http.baseurl + 'upload/' + res.file;
-                        jquery('#tongzhiPhoto').val(url);
-                        vue.detail.tongzhiPhoto = url;
-                        jquery('#tongzhiPhotoImg').attr('src', url);
+                        jquery('#InfoPhoto').val(url);
+                        vue.detail.InfoPhoto = url;
+                        jquery('#InfoPhotoImg').attr('src', url);
                     } else {
                         layer.msg(res.msg, {
                             time: 2000,
@@ -340,13 +340,13 @@
                 data = data.field;
                 data["Id"]= localStorage.getItem("userid");
                 // 提交数据
-                http.requestJson('tongzhi/add', 'post', data, function (res) {
+                http.requestJson('Info/add', 'post', data, function (res) {
                     if(res.code == 0){
                         layer.msg('提交成功', {
                             time: 2000,
                             icon: 6
                         }, function () {
-                            vue.jump("../tongzhi/list.html");
+                            vue.jump("../Info/list.html");
                             // back();
                         });
                     }else{
@@ -375,11 +375,11 @@
 
 
        // 通知类型的查询
-       function tongzhiTypesSelect() {
+       function InfoTypesSelect() {
            //填充下拉框选项
-           layui.http.request("dictionary/page?page=1&limit=100&sort=&order=&dicCode=tongzhi_types", "GET", {}, (res) => {
+           layui.http.request("dictionary/page?page=1&limit=100&sort=&order=&dicCode=Info_types", "GET", {}, (res) => {
                if(res.code == 0){
-                   vue.tongzhiTypesList = res.data.list;
+                   vue.InfoTypesList = res.data.list;
                }
            });
        }

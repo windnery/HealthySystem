@@ -1,8 +1,5 @@
 package com.entity.model;
 
-import com.entity.TongzhiEntity;
-
-import com.baomidou.mybatisplus.annotations.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -15,7 +12,7 @@ import java.io.Serializable;
  *（实际开发中配合移动端接口开发手动去掉些没用的字段， 后端一般用entity就够用了）
  * 取自ModelAndView 的model名称
  */
-public class TongzhiModel implements Serializable {
+public class InfoModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
 
@@ -30,19 +27,19 @@ public class TongzhiModel implements Serializable {
     /**
      * 通知名称
      */
-    private String tongzhiName;
+    private String InfoName;
 
 
     /**
      * 通知图片
      */
-    private String tongzhiPhoto;
+    private String InfoPhoto;
 
 
     /**
      * 通知类型
      */
-    private Integer tongzhiTypes;
+    private Integer InfoTypes;
 
 
     /**
@@ -56,7 +53,7 @@ public class TongzhiModel implements Serializable {
     /**
      * 通知详情
      */
-    private String tongzhiContent;
+    private String InfoContent;
 
 
     /**
@@ -84,44 +81,44 @@ public class TongzhiModel implements Serializable {
     /**
 	 * 获取：通知名称
 	 */
-    public String getTongzhiName() {
-        return tongzhiName;
+    public String getInfoName() {
+        return InfoName;
     }
 
 
     /**
 	 * 设置：通知名称
 	 */
-    public void setTongzhiName(String tongzhiName) {
-        this.tongzhiName = tongzhiName;
+    public void setInfoName(String InfoName) {
+        this.InfoName = InfoName;
     }
     /**
 	 * 获取：通知图片
 	 */
-    public String getTongzhiPhoto() {
-        return tongzhiPhoto;
+    public String getInfoPhoto() {
+        return InfoPhoto;
     }
 
 
     /**
 	 * 设置：通知图片
 	 */
-    public void setTongzhiPhoto(String tongzhiPhoto) {
-        this.tongzhiPhoto = tongzhiPhoto;
+    public void setInfoPhoto(String InfoPhoto) {
+        this.InfoPhoto = InfoPhoto;
     }
     /**
 	 * 获取：通知类型
 	 */
-    public Integer getTongzhiTypes() {
-        return tongzhiTypes;
+    public Integer getInfoTypes() {
+        return InfoTypes;
     }
 
 
     /**
 	 * 设置：通知类型
 	 */
-    public void setTongzhiTypes(Integer tongzhiTypes) {
-        this.tongzhiTypes = tongzhiTypes;
+    public void setInfoTypes(Integer InfoTypes) {
+        this.InfoTypes = InfoTypes;
     }
     /**
 	 * 获取：通知发布时间
@@ -140,16 +137,16 @@ public class TongzhiModel implements Serializable {
     /**
 	 * 获取：通知详情
 	 */
-    public String getTongzhiContent() {
-        return tongzhiContent;
+    public String getInfoContent() {
+        return InfoContent;
     }
 
 
     /**
 	 * 设置：通知详情
 	 */
-    public void setTongzhiContent(String tongzhiContent) {
-        this.tongzhiContent = tongzhiContent;
+    public void setInfoContent(String InfoContent) {
+        this.InfoContent = InfoContent;
     }
     /**
 	 * 获取：创建时间 show1 show2 nameShow
