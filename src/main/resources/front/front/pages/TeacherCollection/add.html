@@ -108,7 +108,7 @@
                     <div class="layui-input-block">
                         <select name="TeacherCollectionTypes" id="TeacherCollectionTypes" lay-filter="TeacherCollectionTypes">
                             <option value="">请选择</option>
-                            <option v-for="(item,index) in TeacherCollectionTypesList" v-bind:key="index" :value="item.codeIndex" :key="item.codeIndex">{{ item.indexName }}</option>
+                            <option v-for="(item,index) in TeacherCollectionTypesList" :value="item.codeIndex" :key="item.codeIndex">{{ item.indexName }}</option>
                         </select>
                     </div>
                 </div>

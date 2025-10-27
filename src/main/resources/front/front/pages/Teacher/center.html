@@ -201,7 +201,7 @@
         <p class="subtitle">USER / CENTER</p>
     </div>
     <ul id="category">
-        <li v-for="(item,index) in centerMenu" v-bind:key="index" :class="index==0?'bbbb':''">
+        <li v-for="(item,index) in centerMenu" :class="index==0?'bbbb':''">
             <a :href="'javascript:jump(\''+item.url+'\')'" style="color:#FFFFFF;" :class="index==0?'aaaa':''">{{item.name}}</a>
         </li>
     </ul>

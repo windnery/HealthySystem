@@ -314,7 +314,7 @@
 
                     <div style="margin-top: 2em;">
                         <div class="row">
-                            <div v-for="(item,index) in dataList" v-bind:key="index"  class="col-md-3 list-grid">
+                            <div v-for="(item,index) in dataList" class="col-md-3 list-grid">
                                 <div @click="jumpCheck('../Teacher/detail.html?id='+item.id , item.aaaaaaaaaa == null?'':item.aaaaaaaaaa , item.shangxiaTypes == null?'':item.shangxiaTypes)" class="list-img">
                                     <img :src="item.TeacherPhoto?item.TeacherPhoto.split(',')[0]:''" class="img-responsive" style="height: 350px;width:100%;" />
                                     <div class="textbox"></div>

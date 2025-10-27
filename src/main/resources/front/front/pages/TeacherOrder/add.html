@@ -183,7 +183,7 @@
                     <div class="layui-input-block">
                         <select name="shijianduanTypes" id="shijianduanTypes" lay-filter="shijianduanTypes">
                             <option value="">请选择</option>
-                            <option v-for="(item,index) in shijianduanTypesList" v-bind:key="index" :value="item.codeIndex" :key="item.codeIndex">{{ item.indexName }}</option>
+                            <option v-for="(item,index) in shijianduanTypesList" :value="item.codeIndex" :key="item.codeIndex">{{ item.indexName }}</option>
                         </select>
                     </div>
                 </div>
