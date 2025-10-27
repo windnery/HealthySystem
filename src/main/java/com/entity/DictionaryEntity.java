@@ -97,9 +97,9 @@ public class DictionaryEntity<T> implements Serializable {
     /**
      * 备注
      */
-    @TableField(value = "beizhu")
+    @TableField(value = "remark")
 
-    private String beizhu;
+    private String remark;
 
 
     /**
@@ -193,15 +193,15 @@ public class DictionaryEntity<T> implements Serializable {
     /**
 	 * 设置：备注
 	 */
-    public String getBeizhu() {
-        return beizhu;
+    public String getremark() {
+        return remark;
     }
     /**
 	 * 获取：备注
 	 */
 
-    public void setBeizhu(String beizhu) {
-        this.beizhu = beizhu;
+    public void setremark(String remark) {
+        this.remark = remark;
     }
     /**
 	 * 设置：创建时间
@@ -226,7 +226,7 @@ public class DictionaryEntity<T> implements Serializable {
             ", codeIndex=" + codeIndex +
             ", indexName=" + indexName +
             ", superId=" + superId +
-            ", beizhu=" + beizhu +
+            ", remark=" + remark +
             ", createTime=" + createTime +
         "}";
     }
