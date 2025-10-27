@@ -2,16 +2,11 @@ package com.entity;
 
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.lang.reflect.InvocationTargetException;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -26,16 +21,16 @@ import com.baomidou.mybatisplus.enums.IdType;
  * @author 
  * @email
  */
-@TableName("jiankangzhishi")
-public class JiankangzhishiEntity<T> implements Serializable {
+@TableName("HealthyKnowledge")
+public class HealthyKnowledgeEntity<T> implements Serializable {
     private static final long serialVersionUID = 1L;
 
 
-	public JiankangzhishiEntity() {
+	public HealthyKnowledgeEntity() {
 
 	}
 
-	public JiankangzhishiEntity(T t) {
+	public HealthyKnowledgeEntity(T t) {
 		try {
 			BeanUtils.copyProperties(this, t);
 		} catch (IllegalAccessException | InvocationTargetException e) {
@@ -57,25 +52,25 @@ public class JiankangzhishiEntity<T> implements Serializable {
     /**
      * 健康知识名称
      */
-    @TableField(value = "jiankangzhishi_name")
+    @TableField(value = "HealthyKnowledge_name")
 
-    private String jiankangzhishiName;
+    private String HealthyKnowledgeName;
 
 
     /**
      * 健康知识图片
      */
-    @TableField(value = "jiankangzhishi_photo")
+    @TableField(value = "HealthyKnowledge_photo")
 
-    private String jiankangzhishiPhoto;
+    private String HealthyKnowledgePhoto;
 
 
     /**
      * 健康知识类型
      */
-    @TableField(value = "jiankangzhishi_types")
+    @TableField(value = "HealthyKnowledge_types")
 
-    private Integer jiankangzhishiTypes;
+    private Integer HealthyKnowledgeTypes;
 
 
     /**
@@ -91,9 +86,9 @@ public class JiankangzhishiEntity<T> implements Serializable {
     /**
      * 健康知识详情
      */
-    @TableField(value = "jiankangzhishi_content")
+    @TableField(value = "HealthyKnowledge_content")
 
-    private String jiankangzhishiContent;
+    private String HealthyKnowledgeContent;
 
 
     /**
@@ -122,41 +117,41 @@ public class JiankangzhishiEntity<T> implements Serializable {
     /**
 	 * 设置：健康知识名称
 	 */
-    public String getJiankangzhishiName() {
-        return jiankangzhishiName;
+    public String getHealthyKnowledgeName() {
+        return HealthyKnowledgeName;
     }
     /**
 	 * 获取：健康知识名称
 	 */
 
-    public void setJiankangzhishiName(String jiankangzhishiName) {
-        this.jiankangzhishiName = jiankangzhishiName;
+    public void setHealthyKnowledgeName(String HealthyKnowledgeName) {
+        this.HealthyKnowledgeName = HealthyKnowledgeName;
     }
     /**
 	 * 设置：健康知识图片
 	 */
-    public String getJiankangzhishiPhoto() {
-        return jiankangzhishiPhoto;
+    public String getHealthyKnowledgePhoto() {
+        return HealthyKnowledgePhoto;
     }
     /**
 	 * 获取：健康知识图片
 	 */
 
-    public void setJiankangzhishiPhoto(String jiankangzhishiPhoto) {
-        this.jiankangzhishiPhoto = jiankangzhishiPhoto;
+    public void setHealthyKnowledgePhoto(String HealthyKnowledgePhoto) {
+        this.HealthyKnowledgePhoto = HealthyKnowledgePhoto;
     }
     /**
 	 * 设置：健康知识类型
 	 */
-    public Integer getJiankangzhishiTypes() {
-        return jiankangzhishiTypes;
+    public Integer getHealthyKnowledgeTypes() {
+        return HealthyKnowledgeTypes;
     }
     /**
 	 * 获取：健康知识类型
 	 */
 
-    public void setJiankangzhishiTypes(Integer jiankangzhishiTypes) {
-        this.jiankangzhishiTypes = jiankangzhishiTypes;
+    public void setHealthyKnowledgeTypes(Integer HealthyKnowledgeTypes) {
+        this.HealthyKnowledgeTypes = HealthyKnowledgeTypes;
     }
     /**
 	 * 设置：健康知识发布时间
@@ -174,15 +169,15 @@ public class JiankangzhishiEntity<T> implements Serializable {
     /**
 	 * 设置：健康知识详情
 	 */
-    public String getJiankangzhishiContent() {
-        return jiankangzhishiContent;
+    public String getHealthyKnowledgeContent() {
+        return HealthyKnowledgeContent;
     }
     /**
 	 * 获取：健康知识详情
 	 */
 
-    public void setJiankangzhishiContent(String jiankangzhishiContent) {
-        this.jiankangzhishiContent = jiankangzhishiContent;
+    public void setHealthyKnowledgeContent(String HealthyKnowledgeContent) {
+        this.HealthyKnowledgeContent = HealthyKnowledgeContent;
     }
     /**
 	 * 设置：创建时间
@@ -200,13 +195,13 @@ public class JiankangzhishiEntity<T> implements Serializable {
 
     @Override
     public String toString() {
-        return "Jiankangzhishi{" +
+        return "HealthyKnowledge{" +
             "id=" + id +
-            ", jiankangzhishiName=" + jiankangzhishiName +
-            ", jiankangzhishiPhoto=" + jiankangzhishiPhoto +
-            ", jiankangzhishiTypes=" + jiankangzhishiTypes +
+            ", HealthyKnowledgeName=" + HealthyKnowledgeName +
+            ", HealthyKnowledgePhoto=" + HealthyKnowledgePhoto +
+            ", HealthyKnowledgeTypes=" + HealthyKnowledgeTypes +
             ", insertTime=" + insertTime +
-            ", jiankangzhishiContent=" + jiankangzhishiContent +
+            ", HealthyKnowledgeContent=" + HealthyKnowledgeContent +
             ", createTime=" + createTime +
         "}";
     }

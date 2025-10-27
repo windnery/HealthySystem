@@ -51,7 +51,7 @@ public class CommonController{
 	
 	private static String BAIDU_DITU_AK = null;
 	
-	@RequestMapping("/location")
+	/*@RequestMapping("/location")
 	public R location(String lng,String lat) {
 		if(BAIDU_DITU_AK==null) {
 			BAIDU_DITU_AK = configService.selectOne(new EntityWrapper<ConfigEntity>().eq("name", "baidu_ditu_ak")).getValue();
@@ -63,17 +63,17 @@ public class CommonController{
 		return R.ok().put("data", map);
 	}
 	
-	/**
+	*//**
 	 * 人脸比对
 	 * 
 	 * @param face1 人脸1
 	 * @param face2 人脸2
 	 * @return
-	 */
+	 *//*
 	@RequestMapping("/matchFace")
 	public R matchFace(String face1, String face2, HttpServletRequest request) {
 		if(client==null) {
-			/*String AppID = configService.selectOne(new EntityWrapper<ConfigEntity>().eq("name", "AppID")).getValue();*/
+			*//*String AppID = configService.selectOne(new EntityWrapper<ConfigEntity>().eq("name", "AppID")).getValue();*//*
 			String APIKey = configService.selectOne(new EntityWrapper<ConfigEntity>().eq("name", "APIKey")).getValue();
 			String SecretKey = configService.selectOne(new EntityWrapper<ConfigEntity>().eq("name", "SecretKey")).getValue();
 			String token = BaiduUtil.getAuth(APIKey, SecretKey);
@@ -106,10 +106,10 @@ public class CommonController{
 		return R.ok().put("data", com.alibaba.fastjson.JSONObject.parse(res.get("result").toString()));
 	}
     
-	/**
+	*//**
 	 * 获取table表中的column列表(联动接口)
 	 * @return
-	 */
+	 *//*
 	@RequestMapping("/option/{tableName}/{columnName}")
 	@IgnoreAuth
 	public R getOption(@PathVariable("tableName") String tableName, @PathVariable("columnName") String columnName,String level,String parent) {
@@ -126,10 +126,10 @@ public class CommonController{
 		return R.ok().put("data", data);
 	}
 	
-	/**
+	*//**
 	 * 根据table中的column获取单条记录
 	 * @return
-	 */
+	 *//*
 	@RequestMapping("/follow/{tableName}/{columnName}")
 	@IgnoreAuth
 	public R getFollowByOption(@PathVariable("tableName") String tableName, @PathVariable("columnName") String columnName, @RequestParam String columnValue) {
@@ -141,11 +141,11 @@ public class CommonController{
 		return R.ok().put("data", result);
 	}
 	
-	/**
+	*//**
 	 * 修改table表的sfsh状态
 	 * @param map
 	 * @return
-	 */
+	 *//*
 	@RequestMapping("/sh/{tableName}")
 	public R sh(@PathVariable("tableName") String tableName, @RequestBody Map<String, Object> map) {
 		map.put("table", tableName);
@@ -153,14 +153,14 @@ public class CommonController{
 		return R.ok();
 	}
 	
-	/**
+	*//**
 	 * 获取需要提醒的记录数
 	 * @param tableName
 	 * @param columnName
 	 * @param type 1:数字 2:日期
 	 * @param map
 	 * @return
-	 */
+	 *//*
 	@RequestMapping("/remind/{tableName}/{columnName}/{type}")
 	@IgnoreAuth
 	public R remindCount(@PathVariable("tableName") String tableName, @PathVariable("columnName") String columnName, 
@@ -194,9 +194,9 @@ public class CommonController{
 		return R.ok().put("count", count);
 	}
 
-	/**
+	*//**
 	 * 圖表统计
-	 */
+	 *//*
 	@IgnoreAuth
 	@RequestMapping("/group/{tableName}")
 	public R group1(@PathVariable("tableName") String tableName, @RequestParam Map<String,Object> params) {
@@ -206,9 +206,9 @@ public class CommonController{
 	}
 
 
-	/**
+	*//**
 	 * 单列求和
-	 */
+	 *//*
 	@RequestMapping("/cal/{tableName}/{columnName}")
 	@IgnoreAuth
 	public R cal(@PathVariable("tableName") String tableName, @PathVariable("columnName") String columnName) {
@@ -219,9 +219,9 @@ public class CommonController{
 		return R.ok().put("data", result);
 	}
 	
-	/**
+	*//**
 	 * 分组统计
-	 */
+	 *//*
 	@RequestMapping("/group/{tableName}/{columnName}")
 	@IgnoreAuth
 	public R group(@PathVariable("tableName") String tableName, @PathVariable("columnName") String columnName) {
@@ -232,9 +232,9 @@ public class CommonController{
 		return R.ok().put("data", result);
 	}
 	
-	/**
+	*//**
 	 * （按值统计）
-	 */
+	 *//*
 	@RequestMapping("/value/{tableName}/{xColumnName}/{yColumnName}")
 	@IgnoreAuth
 	public R value(@PathVariable("tableName") String tableName, @PathVariable("yColumnName") String yColumnName, @PathVariable("xColumnName") String xColumnName) {
@@ -247,20 +247,20 @@ public class CommonController{
 	}
 
 
-	/**
+	*//**
 	 * 下面为新加的
 	 *
 	 *
 	 *
-	 */
+	 *//*
 
-	/**
+	*//**
 	 * 查询字典表的分组求和
 	 * tableName  		表名
 	 * groupColumn  		分组字段
 	 * sumCloum			统计字段
 	 * @return
-	 */
+	 *//*
 	@RequestMapping("/newSelectGroupSum")
 	public R newSelectGroupSum(@RequestParam Map<String,Object> params) {
 		logger.debug("newSelectGroupSum:,,Controller:{},,params:{}",this.getClass().getName(),params);
@@ -269,7 +269,7 @@ public class CommonController{
 	}
 
 
-    /**
+    *//**
      tableName 查询表
      condition1 条件1
      condition1Value 条件1值
@@ -278,7 +278,7 @@ public class CommonController{
      取值
         有值 Number(res.data.value.toFixed(1))
         无值 if(res.data){}
-     * */
+     * *//*
     @IgnoreAuth
     @RequestMapping("/queryScore")
     public R queryScore(@RequestParam Map<String, Object> params) {
@@ -287,12 +287,12 @@ public class CommonController{
         return R.ok().put("data", queryScore);
     }
 
-	/**
+	*//**
 	 * 查询字典表的分组统计总条数
 	 *  tableName  		表名
 	 *	groupColumn  	分组字段
 	 * @return
-	 */
+	 *//*
 	@RequestMapping("/newSelectGroupCount")
 	public R newSelectGroupCount(@RequestParam Map<String,Object> params) {
 		logger.debug("newSelectGroupCount:,,Controller:{},,params:{}",this.getClass().getName(),params);
@@ -301,14 +301,14 @@ public class CommonController{
 	}
 
 
-	/**
+	*//**
 	 * 当前表的日期分组求和
 	 * tableName  		表名
 	 * groupColumn  		分组字段
 	 * sumCloum			统计字段
 	 * dateFormatType	日期格式化类型   1:年 2:月 3:日
 	 * @return
-	 */
+	 *//*
 	@RequestMapping("/newSelectDateGroupSum")
 	public R newSelectDateGroupSum(@RequestParam Map<String,Object> params) {
 		logger.debug("newSelectDateGroupSum:,,Controller:{},,params:{}",this.getClass().getName(),params);
@@ -326,14 +326,14 @@ public class CommonController{
 		return R.ok().put("data", result);
 	}
 
-	/**
+	*//**
 	 *
 	 * 查询字典表的分组统计总条数
 	 * tableName  		表名
 	 * groupColumn  		分组字段
 	 * dateFormatType	日期格式化类型   1:年 2:月 3:日
 	 * @return
-	 */
+	 *//*
 	@RequestMapping("/newSelectDateGroupCount")
 	public R newSelectDateGroupCount(@RequestParam Map<String,Object> params) {
 		logger.debug("newSelectDateGroupCount:,,Controller:{},,params:{}",this.getClass().getName(),params);
@@ -350,7 +350,7 @@ public class CommonController{
 		List<Map<String, Object>> result = commonService.newSelectDateGroupCount(params);
 		return R.ok().put("data", result);
 	}
-/**
+*//**
  * 饼状图
  * -- 饼状图  查询当前表
  -- 				查询字典表【月】
@@ -372,10 +372,10 @@ public class CommonController{
  -- 				查询时间
  -- 				 统计 	-- 统计每个月的订单销售数量
  -- 				 求和 	-- 查询每个月的订单销售额
- */
+ *//*
 
 
-/**
+*//**
  * 柱状图
  -- 柱状图  查询当前表
  --             某个【年，月】
@@ -390,11 +390,11 @@ public class CommonController{
  --   						【日期，字符串，下拉框】
  -- 						求和
  --   						【日期，字符串，下拉框】
- */
+ *//*
 
-    /**
+    *//**
      * 柱状图求和
-     */
+     *//*
     @RequestMapping("/barSum")
     public R barSum(@RequestParam Map<String,Object> params) {
         logger.debug("barSum方法:,,Controller:{},,params:{}",this.getClass().getName(), com.alibaba.fastjson.JSONObject.toJSONString(params));
@@ -544,9 +544,9 @@ public class CommonController{
 		return R.ok().put("data", resultMap);
     }
 	
-	/**
+	*//**
      * 柱状图统计
-     */
+     *//*
     @RequestMapping("/barCount")
     public R barCount(@RequestParam Map<String,Object> params) {
         logger.debug("barCount方法:,,Controller:{},,params:{}",this.getClass().getName(), com.alibaba.fastjson.JSONObject.toJSONString(params));
@@ -694,5 +694,5 @@ public class CommonController{
 		resultMap.put("yAxis",yAxis);
 		resultMap.put("legend",legend);
 		return R.ok().put("data", resultMap);
-    }
+    }*/
 }

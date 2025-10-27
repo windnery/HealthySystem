@@ -2,14 +2,13 @@ package com.service;
 
 import com.baomidou.mybatisplus.service.IService;
 import com.utils.PageUtils;
-import com.entity.JiankangzhishiEntity;
+import com.entity.HealthyKnowledgeEntity;
 import java.util.Map;
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * 健康知识 服务类
  */
-public interface JiankangzhishiService extends IService<JiankangzhishiEntity> {
+public interface HealthyKnowledgeService extends IService<HealthyKnowledgeEntity> {
 
     /**
     * @param params 查询参数

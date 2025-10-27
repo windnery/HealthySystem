@@ -1,28 +1,24 @@
 package com.service.impl;
 
-import com.utils.StringUtil;
 import org.springframework.stereotype.Service;
-import java.lang.reflect.Field;
+
 import java.util.*;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import org.springframework.transaction.annotation.Transactional;
 import com.utils.PageUtils;
 import com.utils.Query;
-import org.springframework.web.context.ContextLoader;
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
-import com.dao.JiankangzhishiDao;
-import com.entity.JiankangzhishiEntity;
-import com.service.JiankangzhishiService;
-import com.entity.view.JiankangzhishiView;
+import com.dao.HealthyKnowledgeDao;
+import com.entity.HealthyKnowledgeEntity;
+import com.service.HealthyKnowledgeService;
+import com.entity.view.HealthyKnowledgeView;
 
 /**
  * 健康知识 服务实现类
  */
-@Service("jiankangzhishiService")
+@Service("HealthyKnowledgeService")
 @Transactional
-public class JiankangzhishiServiceImpl extends ServiceImpl<JiankangzhishiDao, JiankangzhishiEntity> implements JiankangzhishiService {
+public class HealthyKnowledgeServiceImpl extends ServiceImpl<HealthyKnowledgeDao, HealthyKnowledgeEntity> implements HealthyKnowledgeService {
 
     @Override
     public PageUtils queryPage(Map<String,Object> params) {
@@ -30,7 +26,7 @@ public class JiankangzhishiServiceImpl extends ServiceImpl<JiankangzhishiDao, Ji
             params.put("page","1");
             params.put("limit","10");
         }
-        Page<JiankangzhishiView> page =new Query<JiankangzhishiView>(params).getPage();
+        Page<HealthyKnowledgeView> page =new Query<HealthyKnowledgeView>(params).getPage();
         page.setRecords(baseMapper.selectListView(page,params));
         return new PageUtils(page);
     }

@@ -1,6 +1,6 @@
 package com.entity.vo;
 
-import com.entity.JiankangzhishiEntity;
+import com.entity.HealthyKnowledgeEntity;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -14,8 +14,8 @@ import java.io.Serializable;
  * 手机端接口返回实体辅助类
  * （主要作用去除一些不必要的字段）
  */
-@TableName("jiankangzhishi")
-public class JiankangzhishiVO implements Serializable {
+@TableName("HealthyKnowledge")
+public class HealthyKnowledgeVO implements Serializable {
     private static final long serialVersionUID = 1L;
 
 
@@ -31,24 +31,24 @@ public class JiankangzhishiVO implements Serializable {
      * 健康知识名称
      */
 
-    @TableField(value = "jiankangzhishi_name")
-    private String jiankangzhishiName;
+    @TableField(value = "HealthyKnowledge_name")
+    private String HealthyKnowledgeName;
 
 
     /**
      * 健康知识图片
      */
 
-    @TableField(value = "jiankangzhishi_photo")
-    private String jiankangzhishiPhoto;
+    @TableField(value = "HealthyKnowledge_photo")
+    private String HealthyKnowledgePhoto;
 
 
     /**
      * 健康知识类型
      */
 
-    @TableField(value = "jiankangzhishi_types")
-    private Integer jiankangzhishiTypes;
+    @TableField(value = "HealthyKnowledge_types")
+    private Integer HealthyKnowledgeTypes;
 
 
     /**
@@ -65,8 +65,8 @@ public class JiankangzhishiVO implements Serializable {
      * 健康知识详情
      */
 
-    @TableField(value = "jiankangzhishi_content")
-    private String jiankangzhishiContent;
+    @TableField(value = "HealthyKnowledge_content")
+    private String HealthyKnowledgeContent;
 
 
     /**
@@ -97,8 +97,8 @@ public class JiankangzhishiVO implements Serializable {
     /**
 	 * 设置：健康知识名称
 	 */
-    public String getJiankangzhishiName() {
-        return jiankangzhishiName;
+    public String getHealthyKnowledgeName() {
+        return HealthyKnowledgeName;
     }
 
 
@@ -106,14 +106,14 @@ public class JiankangzhishiVO implements Serializable {
 	 * 获取：健康知识名称
 	 */
 
-    public void setJiankangzhishiName(String jiankangzhishiName) {
-        this.jiankangzhishiName = jiankangzhishiName;
+    public void setHealthyKnowledgeName(String HealthyKnowledgeName) {
+        this.HealthyKnowledgeName = HealthyKnowledgeName;
     }
     /**
 	 * 设置：健康知识图片
 	 */
-    public String getJiankangzhishiPhoto() {
-        return jiankangzhishiPhoto;
+    public String getHealthyKnowledgePhoto() {
+        return HealthyKnowledgePhoto;
     }
 
 
@@ -121,14 +121,14 @@ public class JiankangzhishiVO implements Serializable {
 	 * 获取：健康知识图片
 	 */
 
-    public void setJiankangzhishiPhoto(String jiankangzhishiPhoto) {
-        this.jiankangzhishiPhoto = jiankangzhishiPhoto;
+    public void setHealthyKnowledgePhoto(String HealthyKnowledgePhoto) {
+        this.HealthyKnowledgePhoto = HealthyKnowledgePhoto;
     }
     /**
 	 * 设置：健康知识类型
 	 */
-    public Integer getJiankangzhishiTypes() {
-        return jiankangzhishiTypes;
+    public Integer getHealthyKnowledgeTypes() {
+        return HealthyKnowledgeTypes;
     }
 
 
@@ -136,8 +136,8 @@ public class JiankangzhishiVO implements Serializable {
 	 * 获取：健康知识类型
 	 */
 
-    public void setJiankangzhishiTypes(Integer jiankangzhishiTypes) {
-        this.jiankangzhishiTypes = jiankangzhishiTypes;
+    public void setHealthyKnowledgeTypes(Integer HealthyKnowledgeTypes) {
+        this.HealthyKnowledgeTypes = HealthyKnowledgeTypes;
     }
     /**
 	 * 设置：健康知识发布时间
@@ -157,8 +157,8 @@ public class JiankangzhishiVO implements Serializable {
     /**
 	 * 设置：健康知识详情
 	 */
-    public String getJiankangzhishiContent() {
-        return jiankangzhishiContent;
+    public String getHealthyKnowledgeContent() {
+        return HealthyKnowledgeContent;
     }
 
 
@@ -166,8 +166,8 @@ public class JiankangzhishiVO implements Serializable {
 	 * 获取：健康知识详情
 	 */
 
-    public void setJiankangzhishiContent(String jiankangzhishiContent) {
-        this.jiankangzhishiContent = jiankangzhishiContent;
+    public void setHealthyKnowledgeContent(String HealthyKnowledgeContent) {
+        this.HealthyKnowledgeContent = HealthyKnowledgeContent;
     }
     /**
 	 * 设置：创建时间 show1 show2 nameShow

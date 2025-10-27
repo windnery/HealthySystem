@@ -12,7 +12,7 @@
         ,a.jiankangzhishi_content as jiankangzhishiContent
         ,a.create_time as createTime
     </sql>
-    <select id="selectListView" parameterType="map" resultType="com.entity.view.JiankangzhishiView" >
+    <select id="selectListView" parameterType="map" resultType="com.entity.view.HealthyKnowledgeView" >
         SELECT
         <include refid="Base_Column_List" />
 

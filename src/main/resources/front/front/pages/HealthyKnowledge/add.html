@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>答题详情表添加</title>
+    <title>健康知识添加</title>
     <!-- bootstrap样式，地图插件使用 -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../../layui/css/layui.css">
@@ -101,32 +101,38 @@
 
             <form class="layui-form layui-form-pane add" lay-filter="myForm">
     <!-- 当前表的 -->
-<!-- 唯一uuid -->
                 <div class="layui-form-item main_borderColor" :style='{"padding":"10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0 0 10px 0","backgroundColor":"rgba(255, 255, 255, 0)","borderRadius":"1px","borderWidth":"0 0 1px 0","borderStyle":"solid"}'>
                     <label  :style='{"width":"110px","borderColor": "rgba(255, 255, 255, 0)","padding":"0 12px 0 0","backgroundColor":"rgba(255, 255, 255, 0)","fontSize":"15px","color":"#333","textAlign":"left"}' class="layui-form-label">
-                        试卷编号：
+                        健康知识名称：
                     </label>
                     <div class="layui-input-block">
                         <input class="layui-input main_borderColor" :style='{"padding":"0 12px","boxShadow":"0 0 0px rgba(160, 67, 26, 1)","backgroundColor":"#fff","color":"rgba(135, 206, 250, 1)","borderRadius":"4px","textAlign":"left","borderWidth":"1px","fontSize":"15px","borderStyle":"solid","height":"40px"}'
-                               v-model="detail.examredetailsUuidNumber" lay-verify="required" type="text" :readonly="ro.examredetailsUuidNumber" name="examredetailsUuidNumber" id="examredetailsUuidNumber" autocomplete="off">
+                           v-model="detail.HealthyKnowledgeName" type="text" :readonly="ro.HealthyKnowledgeName" name="HealthyKnowledgeName" id="HealthyKnowledgeName" autocomplete="off">
                     </div>
                 </div>
                 <div class="layui-form-item main_borderColor" :style='{"padding":"10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0 0 10px 0","backgroundColor":"rgba(255, 255, 255, 0)","borderRadius":"1px","borderWidth":"0 0 1px 0","borderStyle":"solid"}'>
                     <label  :style='{"width":"110px","borderColor": "rgba(255, 255, 255, 0)","padding":"0 12px 0 0","backgroundColor":"rgba(255, 255, 255, 0)","fontSize":"15px","color":"#333","textAlign":"left"}' class="layui-form-label">
-                        考生答案：
+                        健康知识图片：
                     </label>
                     <div class="layui-input-block">
-                        <input class="layui-input main_borderColor" :style='{"padding":"0 12px","boxShadow":"0 0 0px rgba(160, 67, 26, 1)","backgroundColor":"#fff","color":"rgba(135, 206, 250, 1)","borderRadius":"4px","textAlign":"left","borderWidth":"1px","fontSize":"15px","borderStyle":"solid","height":"40px"}'
-                           v-model="detail.examredetailsMyanswer" type="text" :readonly="ro.examredetailsMyanswer" name="examredetailsMyanswer" id="examredetailsMyanswer" autocomplete="off">
+                        <div v-if="detail.HealthyKnowledgePhoto" style="display:inline-block;margin-right:10px;">
+                            <img id="HealthyKnowledgePhotoImg" style="width: 100px;height: 100px;border-radius: 50%;border: 2px solid #EEEEEE;" :src="detail.HealthyKnowledgePhoto">
+                            <input type="hidden" :value="detail.HealthyKnowledgePhoto" id="HealthyKnowledgePhoto" name="HealthyKnowledgePhoto" />
+                        </div>
+                        <button v-if="!ro.HealthyKnowledgePhoto" :style='{"padding":"0 10px","boxShadow":"0 0 0px rgba(255,0,0,.5)","margin":"0 10px 0 0","borderColor":"#ccc","color":"#fff","borderRadius":"8px","borderWidth":"0","width":"auto","fontSize":"14px","borderStyle":"solid","height":"44px"}' type="button" class="layui-btn btn-theme main_backgroundColor" id="HealthyKnowledgePhotoUpload">
+                            <i v-if="true" :style='{"color":"#fff","show":true,"fontSize":"14px"}' class="layui-icon">&#xe67c;</i>上传健康知识图片
+                        </button>
                     </div>
                 </div>
-                <div class="layui-form-item main_borderColor" :style='{"padding":"10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0 0 10px 0","backgroundColor":"rgba(255, 255, 255, 0)","borderRadius":"1px","borderWidth":"0 0 1px 0","borderStyle":"solid"}'>
+                    <div class="layui-form-item main_borderColor" :style='{"padding":"10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0 0 10px 0","backgroundColor":"rgba(255, 255, 255, 0)","borderRadius":"1px","borderWidth":"0 0 1px 0","borderStyle":"solid"}'>
                     <label  :style='{"width":"110px","borderColor": "rgba(255, 255, 255, 0)","padding":"0 12px 0 0","backgroundColor":"rgba(255, 255, 255, 0)","fontSize":"15px","color":"#333","textAlign":"left"}' class="layui-form-label">
-                        试题得分：
+                        健康知识类型：
                     </label>
                     <div class="layui-input-block">
-                        <input class="layui-input main_borderColor" :style='{"padding":"0 12px","boxShadow":"0 0 0px rgba(160, 67, 26, 1)","backgroundColor":"#fff","color":"rgba(135, 206, 250, 1)","borderRadius":"4px","textAlign":"left","borderWidth":"1px","fontSize":"15px","borderStyle":"solid","height":"40px"}'
-                           v-model="detail.examredetailsMyscore" lay-verify="integer|required" type="text" :readonly="ro.examredetailsMyscore" name="examredetailsMyscore" id="examredetailsMyscore" autocomplete="off">
+                        <select name="HealthyKnowledgeTypes" id="HealthyKnowledgeTypes" lay-filter="HealthyKnowledgeTypes">
+                            <option value="">请选择</option>
+                            <option v-for="(item,index) in HealthyKnowledgeTypesList" v-bind:key="index" :value="item.codeIndex" :key="item.codeIndex">{{ item.indexName }}</option>
+                        </select>
                     </div>
                 </div>
                 <div class="layui-form-item main_borderColor" :style='{"padding":"10px","boxShadow":"0 0 0px rgba(255,0,0,.8)","margin":"0 0 10px 0","backgroundColor":"rgba(255, 255, 255, 0)","borderRadius":"1px","borderWidth":"0 0 1px 0","borderStyle":"solid"}'>
@@ -171,24 +177,26 @@
                 }],
                 dataList: [],
                 ro:{
-                    examredetailsUuidNumber: true,
-                    yonghuId: false,
-                    examquestionId: false,
-                    examredetailsMyanswer: false,
-                    examredetailsMyscore: false,
+                    HealthyKnowledgeName: false,
+                    HealthyKnowledgePhoto: false,
+                    HealthyKnowledgeTypes: false,
+                    insertTime: false,
+                    HealthyKnowledgeContent: false,
                     createTime: false,
                 },
                 detail: {
-                    examredetailsUuidNumber: new Date().getTime(),//数字
-                    yonghuId: '',
-                    examquestionId: '',
-                    examredetailsMyanswer: '',
-                    examredetailsMyscore: '',
+                    HealthyKnowledgeName: '',
+                    HealthyKnowledgePhoto: '',
+                    HealthyKnowledgeTypes: '',//数字
+                    HealthyKnowledgeValue: '',//数字对应的值
+                    insertTime: '',
+                    HealthyKnowledgeContent: '',
                     createTime: '',
                 },
                 // 级联表的
 
                 // 下拉框
+                HealthyKnowledgeTypesList: [],
 
                 centerMenu: centerMenu
             },
@@ -248,8 +256,57 @@
             });
 
             // 下拉框
+            // 健康知识类型的查询和初始化
+            HealthyKnowledgeTypesSelect();
 
            // 上传文件
+            // 健康知识图片的文件上传
+            upload.render({
+                //绑定元素
+                elem: '#HealthyKnowledgePhotoUpload',
+                //上传接口
+                url: http.baseurl + 'file/upload',
+                // 请求头
+                headers: {
+                    Token: localStorage.getItem('Token')
+                },
+                // 允许上传时校验的文件类型
+                accept: 'images',
+                before: function () {
+                    //loading层
+                    var index = layer.load(1, {
+                        shade: [0.1, '#fff'] //0.1透明度的白色背景
+                    });
+                },
+                // 上传成功
+                done: function (res) {
+                    console.log(res);
+                    layer.closeAll();
+                    if (res.code == 0) {
+                        layer.msg("上传成功", {
+                            time: 2000,
+                            icon: 6
+                        })
+                        var url = http.baseurl + 'upload/' + res.file;
+                        jquery('#HealthyKnowledgePhoto').val(url);
+                        vue.detail.HealthyKnowledgePhoto = url;
+                        jquery('#HealthyKnowledgePhotoImg').attr('src', url);
+                    } else {
+                        layer.msg(res.msg, {
+                            time: 2000,
+                            icon: 5
+                        })
+                    }
+                },
+                //请求异常回调
+                error: function () {
+                    layer.closeAll();
+                    layer.msg("请求接口异常", {
+                        time: 2000,
+                        icon: 5
+                    })
+                }
+            });
             // 日期效验规则及格式
             dateTimePick();
             // 表单效验规则
@@ -281,15 +338,15 @@
             // 提交
             form.on('submit(thisSubmit)', function (data) {
                 data = data.field;
-                data["yonghuId"]= localStorage.getItem("userid");
+                data["Id"]= localStorage.getItem("userid");
                 // 提交数据
-                http.requestJson('examredetails/add', 'post', data, function (res) {
+                http.requestJson('HealthyKnowledge/add', 'post', data, function (res) {
                     if(res.code == 0){
                         layer.msg('提交成功', {
                             time: 2000,
                             icon: 6
                         }, function () {
-                            vue.jump("../examredetails/list.html");
+                            vue.jump("../HealthyKnowledge/list.html");
                             // back();
                         });
                     }else{
@@ -315,6 +372,17 @@
         }
 
 
+
+
+       // 健康知识类型的查询
+       function HealthyKnowledgeTypesSelect() {
+           //填充下拉框选项
+           layui.http.request("dictionary/page?page=1&limit=100&sort=&order=&dicCode=HealthyKnowledge_types", "GET", {}, (res) => {
+               if(res.code == 0){
+                   vue.HealthyKnowledgeTypesList = res.data.list;
+               }
+           });
+       }
 
 
     </script>

@@ -1,8 +1,7 @@
 package com.entity.model;
 
-import com.entity.JiankangzhishiEntity;
+import com.entity.HealthyKnowledgeEntity;
 
-import com.baomidou.mybatisplus.annotations.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -15,7 +14,7 @@ import java.io.Serializable;
  *（实际开发中配合移动端接口开发手动去掉些没用的字段， 后端一般用entity就够用了）
  * 取自ModelAndView 的model名称
  */
-public class JiankangzhishiModel implements Serializable {
+public class HealthyKnowledgeModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
 
@@ -30,19 +29,19 @@ public class JiankangzhishiModel implements Serializable {
     /**
      * 健康知识名称
      */
-    private String jiankangzhishiName;
+    private String HealthyKnowledgeName;
 
 
     /**
      * 健康知识图片
      */
-    private String jiankangzhishiPhoto;
+    private String HealthyKnowledgePhoto;
 
 
     /**
      * 健康知识类型
      */
-    private Integer jiankangzhishiTypes;
+    private Integer HealthyKnowledgeTypes;
 
 
     /**
@@ -56,7 +55,7 @@ public class JiankangzhishiModel implements Serializable {
     /**
      * 健康知识详情
      */
-    private String jiankangzhishiContent;
+    private String HealthyKnowledgeContent;
 
 
     /**
@@ -84,44 +83,44 @@ public class JiankangzhishiModel implements Serializable {
     /**
 	 * 获取：健康知识名称
 	 */
-    public String getJiankangzhishiName() {
-        return jiankangzhishiName;
+    public String getHealthyKnowledgeName() {
+        return HealthyKnowledgeName;
     }
 
 
     /**
 	 * 设置：健康知识名称
 	 */
-    public void setJiankangzhishiName(String jiankangzhishiName) {
-        this.jiankangzhishiName = jiankangzhishiName;
+    public void setHealthyKnowledgeName(String HealthyKnowledgeName) {
+        this.HealthyKnowledgeName = HealthyKnowledgeName;
     }
     /**
 	 * 获取：健康知识图片
 	 */
-    public String getJiankangzhishiPhoto() {
-        return jiankangzhishiPhoto;
+    public String getHealthyKnowledgePhoto() {
+        return HealthyKnowledgePhoto;
     }
 
 
     /**
 	 * 设置：健康知识图片
 	 */
-    public void setJiankangzhishiPhoto(String jiankangzhishiPhoto) {
-        this.jiankangzhishiPhoto = jiankangzhishiPhoto;
+    public void setHealthyKnowledgePhoto(String HealthyKnowledgePhoto) {
+        this.HealthyKnowledgePhoto = HealthyKnowledgePhoto;
     }
     /**
 	 * 获取：健康知识类型
 	 */
-    public Integer getJiankangzhishiTypes() {
-        return jiankangzhishiTypes;
+    public Integer getHealthyKnowledgeTypes() {
+        return HealthyKnowledgeTypes;
     }
 
 
     /**
 	 * 设置：健康知识类型
 	 */
-    public void setJiankangzhishiTypes(Integer jiankangzhishiTypes) {
-        this.jiankangzhishiTypes = jiankangzhishiTypes;
+    public void setHealthyKnowledgeTypes(Integer HealthyKnowledgeTypes) {
+        this.HealthyKnowledgeTypes = HealthyKnowledgeTypes;
     }
     /**
 	 * 获取：健康知识发布时间
@@ -140,16 +139,16 @@ public class JiankangzhishiModel implements Serializable {
     /**
 	 * 获取：健康知识详情
 	 */
-    public String getJiankangzhishiContent() {
-        return jiankangzhishiContent;
+    public String getHealthyKnowledgeContent() {
+        return HealthyKnowledgeContent;
     }
 
 
     /**
 	 * 设置：健康知识详情
 	 */
-    public void setJiankangzhishiContent(String jiankangzhishiContent) {
-        this.jiankangzhishiContent = jiankangzhishiContent;
+    public void setHealthyKnowledgeContent(String HealthyKnowledgeContent) {
+        this.HealthyKnowledgeContent = HealthyKnowledgeContent;
     }
     /**
 	 * 获取：创建时间 show1 show2 nameShow
