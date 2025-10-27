@@ -33,41 +33,41 @@
                         </el-form-item>
                     </div>
                 </el-col>
-                <el-col :span="12"  v-if="sessionTable !='xinlilaoshi'">
-                    <el-form-item class="select" v-if="type!='info'"  label="心理老师" prop="xinlilaoshiId">
-                        <el-select v-model="ruleForm.xinlilaoshiId" :disabled="ro.xinlilaoshiId" filterable placeholder="请选择心理老师" @change="xinlilaoshiChange">
+                <el-col :span="12"  v-if="sessionTable !='Teacher'">
+                    <el-form-item class="select" v-if="type!='info'"  label="心理老师" prop="TeacherId">
+                        <el-select v-model="ruleForm.TeacherId" :disabled="ro.TeacherId" filterable placeholder="请选择心理老师" @change="TeacherChange">
                             <el-option
-                                    v-for="(item,index) in xinlilaoshiOptions"
+                                    v-for="(item,index) in TeacherOptions"
                                     v-bind:key="item.id"
-                                    :label="item.xinlilaoshiName"
+                                    :label="item.TeacherName"
                                     :value="item.id">
                             </el-option>
                         </el-select>
                     </el-form-item>
                 </el-col>
 
-                <el-col :span="12"  v-if="sessionTable !='xinlilaoshi' ">
-                    <el-form-item class="input" v-if="type!='info'"  label="心理老师姓名" prop="xinlilaoshiName">
-                        <el-input v-model="xinlilaoshiForm.xinlilaoshiName"
+                <el-col :span="12"  v-if="sessionTable !='Teacher' ">
+                    <el-form-item class="input" v-if="type!='info'"  label="心理老师姓名" prop="TeacherName">
+                        <el-input v-model="TeacherForm.TeacherName"
                                   placeholder="心理老师姓名" clearable readonly></el-input>
                     </el-form-item>
                     <div v-else>
-                        <el-form-item class="input" label="心理老师姓名" prop="xinlilaoshiName">
-                            <el-input v-model="ruleForm.xinlilaoshiName"
+                        <el-form-item class="input" label="心理老师姓名" prop="TeacherName">
+                            <el-input v-model="ruleForm.TeacherName"
                                       placeholder="心理老师姓名" readonly></el-input>
                         </el-form-item>
                     </div>
                 </el-col>
                 <input id="updateId" name="id" type="hidden">
-            <input id="xinlilaoshiId" name="xinlilaoshiId" type="hidden">
+            <input id="TeacherId" name="TeacherId" type="hidden">
             <input id="yonghuId" name="yonghuId" type="hidden">
                 <el-col :span="24">
-                    <el-form-item v-if="type!='info'"  label="留言内容" prop="xinlilaoshiLiuyanText">
-                        <el-input type="textarea"  :readonly="ro.xinlilaoshiLiuyanText" v-model="ruleForm.xinlilaoshiLiuyanText" placeholder="留言内容"></el-input>
+                    <el-form-item v-if="type!='info'"  label="留言内容" prop="TeacherLiuyanText">
+                        <el-input type="textarea"  :readonly="ro.TeacherLiuyanText" v-model="ruleForm.TeacherLiuyanText" placeholder="留言内容"></el-input>
                     </el-form-item>
                     <div v-else>
-                        <el-form-item v-if="ruleForm.xinlilaoshiLiuyanText" label="留言内容" prop="xinlilaoshiLiuyanText">
-                            <span v-html="ruleForm.xinlilaoshiLiuyanText"></span>
+                        <el-form-item v-if="ruleForm.TeacherLiuyanText" label="留言内容" prop="TeacherLiuyanText">
+                            <span v-html="ruleForm.TeacherLiuyanText"></span>
                         </el-form-item>
                     </div>
                 </el-col>
@@ -104,27 +104,27 @@
                 role : "",//权限
                 userId:"",//当前登录人的id
                 yonghuForm: {},
-                xinlilaoshiForm: {},
+                TeacherForm: {},
                 ro:{
-                    xinlilaoshiId: false,
+                    TeacherId: false,
                     yonghuId: false,
-                    xinlilaoshiLiuyanText: false,
+                    TeacherLiuyanText: false,
                     insertTime: false,
                     replyText: false,
                     updateTime: false,
                 },
                 ruleForm: {
-                    xinlilaoshiId: '',
+                    TeacherId: '',
                     yonghuId: '',
-                    xinlilaoshiLiuyanText: '',
+                    TeacherLiuyanText: '',
                     insertTime: '',
                     replyText: '',
                     updateTime: '',
                 },
                 yonghuOptions : [],
-                xinlilaoshiOptions : [],
+                TeacherOptions : [],
                 rules: {
-                   xinlilaoshiId: [
+                   TeacherId: [
                               { required: true, message: '心理老师不能为空', trigger: 'blur' },
                               {  pattern: /^[1-9][0-9]*$/,
                                   message: '只允许输入整数',
@@ -138,7 +138,7 @@
                                   trigger: 'blur'
                               }
                           ],
-                   xinlilaoshiLiuyanText: [
+                   TeacherLiuyanText: [
                               { required: true, message: '留言内容不能为空', trigger: 'blur' },
                           ],
                    insertTime: [
@@ -164,9 +164,9 @@
 
 
             if (this.role != "管理员"){
-                this.ro.xinlilaoshiId = true;//心理老师
+                this.ro.TeacherId = true;//心理老师
                 this.ro.yonghuId = true;//学生
-                this.ro.xinlilaoshiLiuyanText = true;//留言内容
+                this.ro.TeacherLiuyanText = true;//留言内容
             }
             this.addEditForm = styleJs.addStyle();
             this.addEditStyleChange()
@@ -182,11 +182,11 @@
             }
          });
          this.$http({
-             url: `xinlilaoshi/page?page=1&limit=100`,
+             url: `Teacher/page?page=1&limit=100`,
              method: "get"
          }).then(({ data }) => {
              if (data && data.code === 0) {
-                this.xinlilaoshiOptions = data.data.list;
+                this.TeacherOptions = data.data.list;
             }
          });
 
@@ -229,13 +229,13 @@
                     }
                 });
             },
-            xinlilaoshiChange(id){
+            TeacherChange(id){
                 this.$http({
-                    url: `xinlilaoshi/info/`+id,
+                    url: `Teacher/info/`+id,
                     method: "get"
                 }).then(({ data }) => {
                     if (data && data.code === 0) {
-                        this.xinlilaoshiForm = data.data;
+                        this.TeacherForm = data.data;
                     }
                 });
             },
@@ -243,13 +243,13 @@
             info(id) {
                 let _this =this;
                 _this.$http({
-                    url: `xinlilaoshiLiuyan/info/${id}`,
+                    url: `TeacherLiuyan/info/${id}`,
                     method: 'get'
                 }).then(({ data }) => {
                     if (data && data.code === 0) {
                         _this.ruleForm = data.data;
                         _this.yonghuChange(data.data.yonghuId)
-                        _this.xinlilaoshiChange(data.data.xinlilaoshiId)
+                        _this.TeacherChange(data.data.TeacherId)
                     } else {
                         _this.$message.error(data.msg);
                     }
@@ -260,7 +260,7 @@
                 this.$refs["ruleForm"].validate(valid => {
                     if (valid) {
                         this.$http({
-                            url:`xinlilaoshiLiuyan/${!this.ruleForm.id ? "save" : "update"}`,
+                            url:`TeacherLiuyan/${!this.ruleForm.id ? "save" : "update"}`,
                             method: "post",
                             data: this.ruleForm
                         }).then(({ data }) => {
@@ -272,7 +272,7 @@
                                     onClose: () => {
                                         this.parent.showFlag = true;
                                         this.parent.addOrUpdateFlag = false;
-                                        this.parent.xinlilaoshiLiuyanCrossAddOrUpdateFlag = false;
+                                        this.parent.TeacherLiuyanCrossAddOrUpdateFlag = false;
                                         this.parent.search();
                                         this.parent.contentStyleChange();
                                     }
@@ -292,7 +292,7 @@
             back() {
                 this.parent.showFlag = true;
                 this.parent.addOrUpdateFlag = false;
-                this.parent.xinlilaoshiLiuyanCrossAddOrUpdateFlag = false;
+                this.parent.TeacherLiuyanCrossAddOrUpdateFlag = false;
                 this.parent.contentStyleChange();
             },
             //图片

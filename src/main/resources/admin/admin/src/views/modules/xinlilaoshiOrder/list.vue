@@ -1,21 +1,21 @@
 <template>
     <div class="main-content">
-        <el-dialog title="审核" :visible.sync="xinlilaoshiOrderYesnoTypesVisible">
+        <el-dialog title="审核" :visible.sync="TeacherOrderYesnoTypesVisible">
             <el-form :model="form">
                 <input type="hidden" v-model="form.id">
                 <el-form-item label="审核" >
-                    <el-select v-model="form.xinlilaoshiOrderYesnoTypes" placeholder="请选择审核类型">
+                    <el-select v-model="form.TeacherOrderYesnoTypes" placeholder="请选择审核类型">
                         <el-option label="通过" value="2"></el-option>
                         <el-option label="拒绝" value="3"></el-option>
                     </el-select>
                 </el-form-item>
                 <el-form-item label="审核意见">
-                    <el-input type="textarea" v-model="form.xinlilaoshiOrderYesnoText" placeholder="审核意见"></el-input>
+                    <el-input type="textarea" v-model="form.TeacherOrderYesnoText" placeholder="审核意见"></el-input>
                 </el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
-                <el-button @click="xinlilaoshiOrderYesnoTypesVisible = false">取 消</el-button>
-                <el-button type="primary" @click="xinlilaoshiOrderYesnoTypesShenhe">提 交</el-button>
+                <el-button @click="TeacherOrderYesnoTypesVisible = false">取 消</el-button>
+                <el-button type="primary" @click="TeacherOrderYesnoTypesShenhe">提 交</el-button>
             </div>
         </el-dialog>
         <!-- 条件查询 -->
@@ -24,7 +24,7 @@
                 <el-row :gutter="20" class="slt" :style="{justifyContent:contents.searchBoxPosition=='1'?'flex-start':contents.searchBoxPosition=='2'?'center':'flex-end'}">
                  
                      <el-form-item :label="contents.inputTitle == 1 ? '预约流水号' : ''">
-                         <el-input prefix-icon="el-icon-search" v-model="searchForm.xinlilaoshiOrderUuidNumber" placeholder="预约流水号" clearable></el-input>
+                         <el-input prefix-icon="el-icon-search" v-model="searchForm.TeacherOrderUuidNumber" placeholder="预约流水号" clearable></el-input>
                      </el-form-item>
                                  
                      <el-form-item :label="contents.inputTitle == 1 ? '预约时间段' : ''">
@@ -43,10 +43,10 @@
 
          
                      <el-form-item :label="contents.inputTitle == 1 ? '预约状态' : ''">
-                        <el-select v-model="searchForm.xinlilaoshiOrderYesnoTypes" placeholder="请选择预约状态">
+                        <el-select v-model="searchForm.TeacherOrderYesnoTypes" placeholder="请选择预约状态">
                             <el-option label="=-请选择-=" value=""></el-option>
                             <el-option
-                               v-for="(item,index) in xinlilaoshiOrderYesnoTypesSelectSearch"
+                               v-for="(item,index) in TeacherOrderYesnoTypesSelectSearch"
                                v-bind:key="index"
                                :label="item.indexName"
                                :value="item.codeIndex">
@@ -63,7 +63,7 @@
                     </el-form-item>
                                                                                                                                              
                     <el-form-item :label="contents.inputTitle == 1 ? '心理老师姓名' : ''">
-                        <el-input prefix-icon="el-icon-search" v-model="searchForm.xinlilaoshiName" placeholder="心理老师姓名" clearable></el-input>
+                        <el-input prefix-icon="el-icon-search" v-model="searchForm.TeacherName" placeholder="心理老师姓名" clearable></el-input>
                     </el-form-item>
                                                                                                                                             
 
@@ -74,14 +74,14 @@
                 <el-row class="ad" :style="{justifyContent:contents.btnAdAllBoxPosition=='1'?'flex-start':contents.btnAdAllBoxPosition=='2'?'center':'flex-end'}">
                     <el-form-item>
                         <el-button
-                                v-if="isAuth('xinlilaoshiOrder','新增')"
+                                v-if="isAuth('TeacherOrder','新增')"
                                 type="success"
                                 icon="el-icon-plus"
                                 @click="addOrUpdateHandler()"
                         >新增</el-button>
                         &nbsp;
                         <el-button
-                                v-if="isAuth('xinlilaoshiOrder','删除')"
+                                v-if="isAuth('TeacherOrder','删除')"
                                 :disabled="dataListSelections.length <= 0"
                                 type="danger"
                                 icon="el-icon-delete"
@@ -89,34 +89,34 @@
                         >删除</el-button>
                         &nbsp;
                         <el-button
-                                v-if="isAuth('xinlilaoshiOrder','报表')"
+                                v-if="isAuth('TeacherOrder','报表')"
                                 type="success"
                                 icon="el-icon-pie-chart"
                                 @click="chartDialog()"
                         >报表</el-button>
                         &nbsp;
                         <a style="text-decoration:none" class="el-button el-button--success"
-                           v-if="isAuth('xinlilaoshiOrder','导入导出')"
+                           v-if="isAuth('TeacherOrder','导入导出')"
                            icon="el-icon-download"
-                           href="http://localhost:8080/xinlijiankangxitong/upload/xinlilaoshiOrderMuBan.xls"
+                           href="http://localhost:8080/xinlijiankangxitong/upload/TeacherOrderMuBan.xls"
                         >批量导入心理咨询预约申请数据模板</a>
                         &nbsp;
                         <el-upload
-                                v-if="isAuth('xinlilaoshiOrder','导入导出')"
+                                v-if="isAuth('TeacherOrder','导入导出')"
                                 style="display: inline-block"
                                 action="xinlijiankangxitong/file/upload"
-                                :on-success="xinlilaoshiOrderUploadSuccess"
-                                :on-error="xinlilaoshiOrderUploadError"
+                                :on-success="TeacherOrderUploadSuccess"
+                                :on-error="TeacherOrderUploadError"
                                 :show-file-list = false>
                             <el-button
-                                    v-if="isAuth('xinlilaoshiOrder','导入导出')"
+                                    v-if="isAuth('TeacherOrder','导入导出')"
                                     type="success"
                                     icon="el-icon-upload2"
                             >批量导入心理咨询预约申请数据</el-button>
                         </el-upload>
                         &nbsp;
                         <!-- 导出excel -->
-                        <download-excel v-if="isAuth('xinlilaoshiOrder','导入导出')" style="display: inline-block" class = "export-excel-wrapper" :data = "dataList" :fields = "json_fields" name = "xinlilaoshiOrder.xls">
+                        <download-excel v-if="isAuth('TeacherOrder','导入导出')" style="display: inline-block" class = "export-excel-wrapper" :data = "dataList" :fields = "json_fields" name = "TeacherOrder.xls">
                             <!-- 导出excel -->
                             <el-button
                                     type="success"
@@ -136,7 +136,7 @@
                           :row-style="rowStyle"
                           :cell-style="cellStyle"
                           :style="{width: '100%',fontSize:contents.tableContentFontSize,color:contents.tableContentFontColor}"
-                          v-if="isAuth('xinlilaoshiOrder','查看')"
+                          v-if="isAuth('TeacherOrder','查看')"
                           :data="dataList"
                           v-loading="dataListLoading"
                           @selection-change="selectionChangeHandler">
@@ -156,20 +156,20 @@
                         </template>
                     </el-table-column>
                     <el-table-column  :sortable="contents.tableSortable" :align="contents.tableAlign"
-                                      prop="xinlilaoshiName"
+                                      prop="TeacherName"
                                       header-align="center"
                                       label="心理老师姓名">
                         <template slot-scope="scope">
-                            {{scope.row.xinlilaoshiName}}
+                            {{scope.row.TeacherName}}
                         </template>
                     </el-table-column>
 
                     <el-table-column  :sortable="contents.tableSortable" :align="contents.tableAlign"
-                                   prop="xinlilaoshiOrderUuidNumber"
+                                   prop="TeacherOrderUuidNumber"
                                    header-align="center"
                                    label="预约流水号">
                         <template slot-scope="scope">
-                            {{scope.row.xinlilaoshiOrderUuidNumber}}
+                            {{scope.row.TeacherOrderUuidNumber}}
                         </template>
                     </el-table-column>
 
@@ -190,23 +190,23 @@
                         </template>
                     </el-table-column>
                     <el-table-column  :sortable="contents.tableSortable" :align="contents.tableAlign"
-                                      prop="xinlilaoshiOrderYesnoTypes"
+                                      prop="TeacherOrderYesnoTypes"
                                       header-align="center"
                                       label="预约状态">
                         <template slot-scope="scope">
-                            {{scope.row.xinlilaoshiOrderYesnoValue}}
+                            {{scope.row.TeacherOrderYesnoValue}}
                         </template>
                     </el-table-column>
                     <el-table-column  :sortable="contents.tableSortable" :align="contents.tableAlign"
-                                      prop="xinlilaoshiOrderYesnoText"
+                                      prop="TeacherOrderYesnoText"
                                       header-align="center"
                                       label="审核意见">
                         <template slot-scope="scope">
-                            <span v-if="scope.row.xinlilaoshiOrderYesnoText != null &&scope.row.xinlilaoshiOrderYesnoText.length>10">
-                                {{scope.row.xinlilaoshiOrderYesnoText.slice(0,10)}}...
+                            <span v-if="scope.row.TeacherOrderYesnoText != null &&scope.row.TeacherOrderYesnoText.length>10">
+                                {{scope.row.TeacherOrderYesnoText.slice(0,10)}}...
                             </span>
                             <span v-else>
-                                {{scope.row.xinlilaoshiOrderYesnoText}}
+                                {{scope.row.TeacherOrderYesnoText}}
                             </span>
                         </template>
                     </el-table-column>
@@ -224,11 +224,11 @@
                                      header-align="center"
                                      label="操作">
                         <template slot-scope="scope">
-                            <el-button v-if="isAuth('xinlilaoshiOrder','查看')" type="success" icon="el-icon-tickets" size="mini" @click="addOrUpdateHandler(scope.row.id,'info')">详情</el-button>
-                            <el-button v-if="isAuth('xinlilaoshiOrder','修改')" type="primary" icon="el-icon-edit" size="mini" @click="addOrUpdateHandler(scope.row.id)">修改</el-button>
+                            <el-button v-if="isAuth('TeacherOrder','查看')" type="success" icon="el-icon-tickets" size="mini" @click="addOrUpdateHandler(scope.row.id,'info')">详情</el-button>
+                            <el-button v-if="isAuth('TeacherOrder','修改')" type="primary" icon="el-icon-edit" size="mini" @click="addOrUpdateHandler(scope.row.id)">修改</el-button>
 
-                            <el-button v-if="isAuth('xinlilaoshiOrder','删除')" type="danger" icon="el-icon-delete" size="mini" @click="deleteHandler(scope.row.id)">删除</el-button>
-                            <el-button v-if="isAuth('xinlilaoshiOrder','审核') && scope.row.xinlilaoshiOrderYesnoTypes == 1 " type="primary" icon="el-icon-thumb" size="mini" @click="openYesnoTypes(scope.row.id)">审核</el-button>
+                            <el-button v-if="isAuth('TeacherOrder','删除')" type="danger" icon="el-icon-delete" size="mini" @click="deleteHandler(scope.row.id)">删除</el-button>
+                            <el-button v-if="isAuth('TeacherOrder','审核') && scope.row.TeacherOrderYesnoTypes == 1 " type="primary" icon="el-icon-thumb" size="mini" @click="openYesnoTypes(scope.row.id)">审核</el-button>
 
                         </template>
                     </el-table-column>
@@ -297,16 +297,16 @@
     //级联表下拉框搜索条件
     //当前表下拉框搜索条件
               shijianduanTypesSelectSearch : [],
-              xinlilaoshiOrderYesnoTypesSelectSearch : [],
+              TeacherOrderYesnoTypesSelectSearch : [],
             form:{
                 id : null,
-                xinlilaoshiOrderUuidNumber : null,
-                xinlilaoshiId : null,
+                TeacherOrderUuidNumber : null,
+                TeacherId : null,
                 yonghuId : null,
                 yuyueTime : null,
                 shijianduanTypes : null,
-                xinlilaoshiOrderYesnoTypes : null,
-                xinlilaoshiOrderYesnoText : null,
+                TeacherOrderYesnoTypes : null,
+                TeacherOrderYesnoText : null,
                 insertTime : null,
                 createTime : null,
             },
@@ -325,7 +325,7 @@
             contents:null,
             layouts: '',
 
-            xinlilaoshiOrderYesnoTypesVisible : false,
+            TeacherOrderYesnoTypesVisible : false,
 
             //导出excel
             json_fields: {
@@ -335,18 +335,18 @@
                      '学生身份证号': 'yonghuIdNumber',
                      '学生头像': 'yonghuPhoto',
                      '电子邮箱': 'yonghuEmail',
-                     '心理老师姓名': 'xinlilaoshiName',
-                     '心理老师手机号': 'xinlilaoshiPhone',
-                     '心理老师头像': 'xinlilaoshiPhoto',
-                     '电子邮箱': 'xinlilaoshiEmail',
-                     '擅长': 'xinlilaoshiShanchang',
-                     '履历': 'xinlilaoshiLvli',
+                     '心理老师姓名': 'TeacherName',
+                     '心理老师手机号': 'TeacherPhone',
+                     '心理老师头像': 'TeacherPhoto',
+                     '电子邮箱': 'TeacherEmail',
+                     '擅长': 'TeacherShanchang',
+                     '履历': 'TeacherLvli',
                 //本表字段
-                     '预约流水号': "xinlilaoshiOrderUuidNumber",
+                     '预约流水号': "TeacherOrderUuidNumber",
                      '预约日期': "yuyueTime",
                      '预约时间段': "shijianduanTypes",
-                     '预约状态': "xinlilaoshiOrderYesnoTypes",
-                     '审核意见': "xinlilaoshiOrderYesnoText",
+                     '预约状态': "TeacherOrderYesnoTypes",
+                     '审核意见': "TeacherOrderYesnoText",
                      '申请时间': "insertTime",
             },
 
@@ -358,7 +358,7 @@
 			//模态框状态
 			commentbackVisible:false,
 			//评分
-		    xinlilaoshiCommentbackPingfenNumber:0,            };
+		    TeacherCommentbackPingfenNumber:0,            };
         },
         created() {
             this.contents = styleJs.listStyle();
@@ -391,11 +391,11 @@
                     riqi :_this.echartsDate.getFullYear(),
                     // riqi :_this.echartsDate.getFullYear()+"-"+(_this.echartsDate.getMonth() + 1 < 10 ? '0' + (_this.echartsDate.getMonth() + 1) : _this.echartsDate.getMonth() + 1),
                     thisTable : {//当前表
-                        tableName :'xinlilaoshi_order',//当前表表名,
-                        sumColum : 'xinlilaoshi_order_number', //求和字段
+                        tableName :'Teacher_order',//当前表表名,
+                        sumColum : 'Teacher_order_number', //求和字段
                         date : 'insert_time',//分组日期字段
-                        // string : 'xinlilaoshi_order_name',//分组字符串字段
-                        // types : 'xinlilaoshi_order_types',//分组下拉框字段
+                        // string : 'Teacher_order_name',//分组字符串字段
+                        // types : 'Teacher_order_types',//分组下拉框字段
                     },
                     // joinTable : {//级联表（可以不存在）
                     //     tableName :'yonghu',//级联表表名
@@ -495,8 +495,8 @@
                 // this.$nextTick(()=>{
                 //     var statistic = this.$echarts.init(document.getElementById("statistic"),'macarons');
                 //     let params = {
-                //         tableName: "xinlilaoshi_order",
-                //         groupColumn: "xinlilaoshi_order_types",
+                //         tableName: "Teacher_order",
+                //         groupColumn: "Teacher_order_types",
                 //     }
                 //     this.$http({
                 //         url: "newSelectGroupCount",
@@ -745,27 +745,27 @@
                     params['yonghuName'] = '%' + this.searchForm.yonghuName + '%'
                 }
                                                                                                                                              
-                if (this.searchForm.xinlilaoshiName!= '' && this.searchForm.xinlilaoshiName!= undefined) {
-                    params['xinlilaoshiName'] = '%' + this.searchForm.xinlilaoshiName + '%'
+                if (this.searchForm.TeacherName!= '' && this.searchForm.TeacherName!= undefined) {
+                    params['TeacherName'] = '%' + this.searchForm.TeacherName + '%'
                 }
                                                                                                                                                              
-                if (this.searchForm.xinlilaoshiOrderUuidNumber!= '' && this.searchForm.xinlilaoshiOrderUuidNumber!= undefined) {
-                    params['xinlilaoshiOrderUuidNumber'] = '%' + this.searchForm.xinlilaoshiOrderUuidNumber + '%'
+                if (this.searchForm.TeacherOrderUuidNumber!= '' && this.searchForm.TeacherOrderUuidNumber!= undefined) {
+                    params['TeacherOrderUuidNumber'] = '%' + this.searchForm.TeacherOrderUuidNumber + '%'
                 }
                                  
                 if (this.searchForm.shijianduanTypes!= '' && this.searchForm.shijianduanTypes!= undefined) {
                     params['shijianduanTypes'] = this.searchForm.shijianduanTypes
                 }
          
-                if (this.searchForm.xinlilaoshiOrderYesnoTypes!= '' && this.searchForm.xinlilaoshiOrderYesnoTypes!= undefined) {
-                    params['xinlilaoshiOrderYesnoTypes'] = this.searchForm.xinlilaoshiOrderYesnoTypes
+                if (this.searchForm.TeacherOrderYesnoTypes!= '' && this.searchForm.TeacherOrderYesnoTypes!= undefined) {
+                    params['TeacherOrderYesnoTypes'] = this.searchForm.TeacherOrderYesnoTypes
                 }
                         
-                params['xinlilaoshiOrderDelete'] = 1// 逻辑删除字段 1 未删除 2 删除
+                params['TeacherOrderDelete'] = 1// 逻辑删除字段 1 未删除 2 删除
 
 
                 this.$http({
-                    url: "xinlilaoshiOrder/page",
+                    url: "TeacherOrder/page",
                     method: "get",
                     params: params
                 }).then(({data}) => {
@@ -792,11 +792,11 @@
                 });
                 //填充下拉框选项
                 this.$http({
-                    url: "dictionary/page?dicCode=xinlilaoshi_order_yesno_types&page=1&limit=100",
+                    url: "dictionary/page?dicCode=Teacher_order_yesno_types&page=1&limit=100",
                     method: "get",
                 }).then(({data}) => {
                     if(data && data.code === 0){
-                        this.xinlilaoshiOrderYesnoTypesSelectSearch = data.data.list;
+                        this.TeacherOrderYesnoTypesSelectSearch = data.data.list;
                     }
                 });
             },
@@ -843,7 +843,7 @@
                     type: "warning"
                 }).then(() => {
                     this.$http({
-                        url: "xinlilaoshiOrder/delete",
+                        url: "TeacherOrder/delete",
                         method: "post",
                         data: ids
                     }).then(({data}) => {
@@ -863,10 +863,10 @@
                 });
             },
             // 导入功能上传文件成功后调用导入方法
-            xinlilaoshiOrderUploadSuccess(data){
+            TeacherOrderUploadSuccess(data){
                 let _this = this;
                 _this.$http({
-                    url: "xinlilaoshiOrder/batchInsert?fileName=" + data.file,
+                    url: "TeacherOrder/batchInsert?fileName=" + data.file,
                     method: "get"
                 }).then(({data}) => {
                     if(data && data.code === 0){
@@ -885,30 +885,30 @@
 
             },
             // 导入功能上传文件失败后调用导入方法
-            xinlilaoshiOrderUploadError(data){
+            TeacherOrderUploadError(data){
                 this.$message.error('上传失败');
             },
             openYesnoTypes(id) {
                 let _this = this;
                 _this.form.id = null;
                 _this.form.id = id;
-                            _this.form.xinlilaoshiOrderYesnoText = null;
-                _this.form.xinlilaoshiOrderYesnoTypes = "请选择审核结果";
-                _this.xinlilaoshiOrderYesnoTypesVisible = true;
+                            _this.form.TeacherOrderYesnoText = null;
+                _this.form.TeacherOrderYesnoTypes = "请选择审核结果";
+                _this.TeacherOrderYesnoTypesVisible = true;
             },
 
-            xinlilaoshiOrderYesnoTypesShenhe() {
+            TeacherOrderYesnoTypesShenhe() {
                 let _this = this;
-                if(_this.form.xinlilaoshiOrderYesnoTypes == "请选择审核结果"){
+                if(_this.form.TeacherOrderYesnoTypes == "请选择审核结果"){
                     alert("请选择审核结果");
                     return false;
                 }
-                if(_this.form.xinlilaoshiOrderYesnoText == null || _this.form.xinlilaoshiOrderYesnoText == ""){
+                if(_this.form.TeacherOrderYesnoText == null || _this.form.TeacherOrderYesnoText == ""){
                         alert("请输入审核原因");
                         return false;
                 }
                 this.$http({
-                    url:`xinlilaoshiOrder/update`,
+                    url:`TeacherOrder/update`,
                     method: "post",
                     data: _this.form
                 }).then(({ data }) => {
@@ -918,13 +918,13 @@
                             type: "success",
                             duration: 1500,
                             onClose: () => {
-                                _this.xinlilaoshiOrderYesnoTypesVisible = false;
+                                _this.TeacherOrderYesnoTypesVisible = false;
                                 _this.search();
                             }
                         });
                     } else {
                         this.$message.error(data.msg);
-                        _this.xinlilaoshiOrderYesnoTypesVisible = false;
+                        _this.TeacherOrderYesnoTypesVisible = false;
                     }
                 });
             },        }

@@ -2,21 +2,17 @@
 package com.controller;
 
 import java.io.File;
-import java.math.BigDecimal;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import com.alibaba.fastjson.JSONObject;
 import java.util.*;
 import org.springframework.beans.BeanUtils;
 import javax.servlet.http.HttpServletRequest;
-import org.springframework.web.context.ContextLoader;
 import javax.servlet.ServletContext;
 import com.service.TokenService;
 import com.utils.*;
-import java.lang.reflect.InvocationTargetException;
 
 import com.service.DictionaryService;
-import org.apache.commons.lang3.StringUtils;
 import com.annotation.IgnoreAuth;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,7 +26,6 @@ import com.entity.view.*;
 import com.service.*;
 import com.utils.PageUtils;
 import com.utils.R;
-import com.alibaba.fastjson.*;
 
 /**
  * 字典
@@ -56,7 +51,7 @@ public class DictionaryController {
     @Autowired
     private YonghuService yonghuService;
     @Autowired
-    private XinlilaoshiService xinlilaoshiService;
+    private TeacherService teacherService;
 
 
     /**

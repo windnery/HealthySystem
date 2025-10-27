@@ -25,14 +25,14 @@
                         <el-form-item label="电子邮箱" class="input" v-if="tableName=='yonghu'">
                             <el-input v-model="ruleForm.yonghuEmail" autocomplete="off" placeholder="电子邮箱"  />
                         </el-form-item>
-                        <el-form-item label="心理老师姓名" class="input" v-if="tableName=='xinlilaoshi'">
-                            <el-input v-model="ruleForm.xinlilaoshiName" autocomplete="off" placeholder="心理老师姓名"  />
+                        <el-form-item label="心理老师姓名" class="input" v-if="tableName=='Teacher'">
+                            <el-input v-model="ruleForm.TeacherName" autocomplete="off" placeholder="心理老师姓名"  />
                         </el-form-item>
-                        <el-form-item label="心理老师手机号" class="input" v-if="tableName=='xinlilaoshi'">
-                            <el-input v-model="ruleForm.xinlilaoshiPhone" autocomplete="off" placeholder="心理老师手机号"  />
+                        <el-form-item label="心理老师手机号" class="input" v-if="tableName=='Teacher'">
+                            <el-input v-model="ruleForm.TeacherPhone" autocomplete="off" placeholder="心理老师手机号"  />
                         </el-form-item>
-                        <el-form-item label="电子邮箱" class="input" v-if="tableName=='xinlilaoshi'">
-                            <el-input v-model="ruleForm.xinlilaoshiEmail" autocomplete="off" placeholder="电子邮箱"  />
+                        <el-form-item label="电子邮箱" class="input" v-if="tableName=='Teacher'">
+                            <el-input v-model="ruleForm.TeacherEmail" autocomplete="off" placeholder="电子邮箱"  />
                         </el-form-item>
                         <div style="display: flex;flex-wrap: wrap;width: 100%;justify-content: center;">
                             <el-button class="btn" type="primary" @click="login()">注册</el-button>
@@ -104,15 +104,15 @@
                                 this.$message.error("邮箱应输入邮件格式");
                                 return
                             }
-                            if((!this.ruleForm.xinlilaoshiName)&& 'xinlilaoshi'==this.tableName){
+                            if((!this.ruleForm.TeacherName)&& 'Teacher'==this.tableName){
                                 this.$message.error('心理老师姓名不能为空');
                                 return
                             }
-                             if('xinlilaoshi' == this.tableName && this.ruleForm.xinlilaoshiPhone&&(!this.$validate.isMobile(this.ruleForm.xinlilaoshiPhone))){
+                             if('Teacher' == this.tableName && this.ruleForm.TeacherPhone&&(!this.$validate.isMobile(this.ruleForm.TeacherPhone))){
                                  this.$message.error('手机应输入手机格式');
                                  return
                              }
-                            if('xinlilaoshi' == this.tableName && this.ruleForm.xinlilaoshiEmail&&(!this.$validate.isEmail(this.ruleForm.xinlilaoshiEmail))){
+                            if('Teacher' == this.tableName && this.ruleForm.TeacherEmail&&(!this.$validate.isEmail(this.ruleForm.TeacherEmail))){
                                 this.$message.error("邮箱应输入邮件格式");
                                 return
                             }

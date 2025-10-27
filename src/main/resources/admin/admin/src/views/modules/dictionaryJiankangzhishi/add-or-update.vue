@@ -112,7 +112,7 @@
                     this.$http({
                         url: `dictionary/maxCodeIndex`,
                         method: "post",
-                        data: {"dicCode":"jiankangzhishi_types"}
+                        data: {"dicCode":"HealthyKnowledge_types"}
                     }).then(({ data }) => {
                         if (data && data.code === 0) {
                             this.ruleForm.codeIndex = data.maxCodeIndex;
@@ -147,7 +147,7 @@
                 this.$refs["ruleForm"].validate(valid => {
                     if (valid) {
                         let ruleForm = this.ruleForm;
-                        ruleForm["dicCode"]="jiankangzhishi_types";
+                        ruleForm["dicCode"]="HealthyKnowledge_types";
                         ruleForm["dicName"]="健康知识类型";
                         this.$http({
                             url: `dictionary/${!this.ruleForm.id ? "save" : "update"}`,

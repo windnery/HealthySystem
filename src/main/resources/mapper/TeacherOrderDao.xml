@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.TeacherOrderDao">
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        a.id as id
+        ,a.Teacher_order_uuid_number as TeacherOrderUuidNumber
+        ,a.Teacher_id as TeacherId
+        ,a.yonghu_id as yonghuId
+        ,a.yuyue_time as yuyueTime
+        ,a.shijianduan_types as shijianduanTypes
+        ,a.Teacher_order_yesno_types as TeacherOrderYesnoTypes
+        ,a.Teacher_order_yesno_text as TeacherOrderYesnoText
+        ,a.insert_time as insertTime
+        ,a.create_time as createTime
+    </sql>
+    <select id="selectListView" parameterType="map" resultType="com.entity.view.TeacherOrderView" >
+        SELECT
+        <include refid="Base_Column_List" />
+
+--         级联表的字段
+        ,yonghu.yonghu_name as yonghuName
+        ,yonghu.yonghu_phone as yonghuPhone
+        ,yonghu.yonghu_id_number as yonghuIdNumber
+        ,yonghu.yonghu_photo as yonghuPhoto
+        ,yonghu.yonghu_email as yonghuEmail
+        ,Teacher.Teacher_name as TeacherName
+        ,Teacher.Teacher_phone as TeacherPhone
+        ,Teacher.Teacher_photo as TeacherPhoto
+        ,Teacher.Teacher_email as TeacherEmail
+        ,Teacher.Teacher_shanchang as TeacherShanchang
+        ,Teacher.Teacher_lvli as TeacherLvli
+        ,Teacher.Teacher_content as TeacherContent
+
+        FROM Teacher_order  a
+        left JOIN yonghu yonghu ON a.yonghu_id = yonghu.id
+        left JOIN Teacher Teacher ON a.Teacher_id = Teacher.id
+
+        <where>
+            <if test="params.ids != null">
+                and a.id in
+                <foreach item="item" index="index" collection="params.ids" open="(" separator="," close=")">
+                #{item}
+                </foreach>
+            </if>
+            <if test=" params.TeacherOrderUuidNumber != '' and params.TeacherOrderUuidNumber != null and params.TeacherOrderUuidNumber != 'null' ">
+                and a.Teacher_order_uuid_number like CONCAT('%',#{params.TeacherOrderUuidNumber},'%')
+            </if>
+            <if test="params.TeacherId != null and params.TeacherId != ''">
+                and (
+                    a.Teacher_id = #{params.TeacherId}
+                )
+            </if>
+            <if test="params.yonghuId != null and params.yonghuId != ''">
+                and (
+                    a.yonghu_id = #{params.yonghuId}
+                )
+            </if>
+            <if test=" params.yuyueTimeStart != '' and params.yuyueTimeStart != null ">
+                <![CDATA[  and UNIX_TIMESTAMP(a.yuyue_time) >= UNIX_TIMESTAMP(#{params.yuyueTimeStart}) ]]>
+            </if>
+            <if test=" params.yuyueTimeEnd != '' and params.yuyueTimeEnd != null ">
+                <![CDATA[  and UNIX_TIMESTAMP(a.yuyue_time) <= UNIX_TIMESTAMP(#{params.yuyueTimeEnd}) ]]>
+            </if>
+            <if test="params.shijianduanTypes != null and params.shijianduanTypes != ''">
+                and a.shijianduan_types = #{params.shijianduanTypes}
+            </if>
+            <if test="params.TeacherOrderYesnoTypes != null and params.TeacherOrderYesnoTypes != ''">
+                and a.Teacher_order_yesno_types = #{params.TeacherOrderYesnoTypes}
+            </if>
+            <if test=" params.TeacherOrderYesnoText != '' and params.TeacherOrderYesnoText != null and params.TeacherOrderYesnoText != 'null' ">
+                and a.Teacher_order_yesno_text like CONCAT('%',#{params.TeacherOrderYesnoText},'%')
+            </if>
+            <if test=" params.insertTimeStart != '' and params.insertTimeStart != null ">
+                <![CDATA[  and UNIX_TIMESTAMP(a.insert_time) >= UNIX_TIMESTAMP(#{params.insertTimeStart}) ]]>
+            </if>
+            <if test=" params.insertTimeEnd != '' and params.insertTimeEnd != null ">
+                <![CDATA[  and UNIX_TIMESTAMP(a.insert_time) <= UNIX_TIMESTAMP(#{params.insertTimeEnd}) ]]>
+            </if>
+
+                <!-- 判断学生的id不为空 -->
+            <if test=" params.yonghuIdNotNull != '' and params.yonghuIdNotNull != null and params.yonghuIdNotNull != 'null' ">
+                and a.yonghu_id IS NOT NULL
+            </if>
+            <if test=" params.yonghuName != '' and params.yonghuName != null and params.yonghuName != 'null' ">
+                and yonghu.yonghu_name like CONCAT('%',#{params.yonghuName},'%')
+            </if>
+            <if test=" params.yonghuPhone != '' and params.yonghuPhone != null and params.yonghuPhone != 'null' ">
+                and yonghu.yonghu_phone like CONCAT('%',#{params.yonghuPhone},'%')
+            </if>
+            <if test=" params.yonghuIdNumber != '' and params.yonghuIdNumber != null and params.yonghuIdNumber != 'null' ">
+                and yonghu.yonghu_id_number like CONCAT('%',#{params.yonghuIdNumber},'%')
+            </if>
+            <if test=" params.yonghuEmail != '' and params.yonghuEmail != null and params.yonghuEmail != 'null' ">
+                and yonghu.yonghu_email like CONCAT('%',#{params.yonghuEmail},'%')
+            </if>
+                <!-- 判断心理老师的id不为空 -->
+            <if test=" params.TeacherIdNotNull != '' and params.TeacherIdNotNull != null and params.TeacherIdNotNull != 'null' ">
+                and a.Teacher_id IS NOT NULL
+            </if>
+            <if test=" params.TeacherName != '' and params.TeacherName != null and params.TeacherName != 'null' ">
+                and Teacher.Teacher_name like CONCAT('%',#{params.TeacherName},'%')
+            </if>
+            <if test=" params.TeacherPhone != '' and params.TeacherPhone != null and params.TeacherPhone != 'null' ">
+                and Teacher.Teacher_phone like CONCAT('%',#{params.TeacherPhone},'%')
+            </if>
+            <if test=" params.TeacherEmail != '' and params.TeacherEmail != null and params.TeacherEmail != 'null' ">
+                and Teacher.Teacher_email like CONCAT('%',#{params.TeacherEmail},'%')
+            </if>
+            <if test=" params.TeacherShanchang != '' and params.TeacherShanchang != null and params.TeacherShanchang != 'null' ">
+                and Teacher.Teacher_shanchang like CONCAT('%',#{params.TeacherShanchang},'%')
+            </if>
+            <if test=" params.TeacherLvli != '' and params.TeacherLvli != null and params.TeacherLvli != 'null' ">
+                and Teacher.Teacher_lvli like CONCAT('%',#{params.TeacherLvli},'%')
+            </if>
+            <if test=" params.TeacherContent != '' and params.TeacherContent != null and params.TeacherContent != 'null' ">
+                and Teacher.Teacher_content like CONCAT('%',#{params.TeacherContent},'%')
+            </if>
+        </where>
+
+        order by a.${params.orderBy} desc 
+    </select>
+
+</mapper>

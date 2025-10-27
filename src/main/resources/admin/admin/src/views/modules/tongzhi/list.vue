@@ -7,7 +7,7 @@
                 <el-row :gutter="20" class="slt" :style="{justifyContent:contents.searchBoxPosition=='1'?'flex-start':contents.searchBoxPosition=='2'?'center':'flex-end'}">
                  
                      <el-form-item :label="contents.inputTitle == 1 ? '通知名称' : ''">
-                         <el-input prefix-icon="el-icon-search" v-model="searchForm.tongzhiName" placeholder="通知名称" clearable></el-input>
+                         <el-input prefix-icon="el-icon-search" v-model="searchForm.InfoName" placeholder="通知名称" clearable></el-input>
                      </el-form-item>
                                         
 
@@ -19,14 +19,14 @@
                 <el-row class="ad" :style="{justifyContent:contents.btnAdAllBoxPosition=='1'?'flex-start':contents.btnAdAllBoxPosition=='2'?'center':'flex-end'}">
                     <el-form-item>
                         <el-button
-                                v-if="isAuth('tongzhi','新增')"
+                                v-if="isAuth('Info','新增')"
                                 type="success"
                                 icon="el-icon-plus"
                                 @click="addOrUpdateHandler()"
                         >新增</el-button>
                         &nbsp;
                         <el-button
-                                v-if="isAuth('tongzhi','删除')"
+                                v-if="isAuth('Info','删除')"
                                 :disabled="dataListSelections.length <= 0"
                                 type="danger"
                                 icon="el-icon-delete"
@@ -34,34 +34,34 @@
                         >删除</el-button>
                         &nbsp;
                         <el-button
-                                v-if="isAuth('tongzhi','报表')"
+                                v-if="isAuth('Info','报表')"
                                 type="success"
                                 icon="el-icon-pie-chart"
                                 @click="chartDialog()"
                         >报表</el-button>
                         &nbsp;
                         <a style="text-decoration:none" class="el-button el-button--success"
-                           v-if="isAuth('tongzhi','导入导出')"
+                           v-if="isAuth('Info','导入导出')"
                            icon="el-icon-download"
-                           href="http://localhost:8080/xinlijiankangxitong/upload/tongzhiMuBan.xls"
+                           href="http://localhost:8080/xinlijiankangxitong/upload/InfoMuBan.xls"
                         >批量导入通知数据模板</a>
                         &nbsp;
                         <el-upload
-                                v-if="isAuth('tongzhi','导入导出')"
+                                v-if="isAuth('Info','导入导出')"
                                 style="display: inline-block"
                                 action="xinlijiankangxitong/file/upload"
-                                :on-success="tongzhiUploadSuccess"
-                                :on-error="tongzhiUploadError"
+                                :on-success="InfoUploadSuccess"
+                                :on-error="InfoUploadError"
                                 :show-file-list = false>
                             <el-button
-                                    v-if="isAuth('tongzhi','导入导出')"
+                                    v-if="isAuth('Info','导入导出')"
                                     type="success"
                                     icon="el-icon-upload2"
                             >批量导入通知数据</el-button>
                         </el-upload>
                         &nbsp;
                         <!-- 导出excel -->
-                        <download-excel v-if="isAuth('tongzhi','导入导出')" style="display: inline-block" class = "export-excel-wrapper" :data = "dataList" :fields = "json_fields" name = "tongzhi.xls">
+                        <download-excel v-if="isAuth('Info','导入导出')" style="display: inline-block" class = "export-excel-wrapper" :data = "dataList" :fields = "json_fields" name = "Info.xls">
                             <!-- 导出excel -->
                             <el-button
                                     type="success"
@@ -81,7 +81,7 @@
                           :row-style="rowStyle"
                           :cell-style="cellStyle"
                           :style="{width: '100%',fontSize:contents.tableContentFontSize,color:contents.tableContentFontColor}"
-                          v-if="isAuth('tongzhi','查看')"
+                          v-if="isAuth('Info','查看')"
                           :data="dataList"
                           v-loading="dataListLoading"
                           @selection-change="selectionChangeHandler">
@@ -94,30 +94,30 @@
                     <el-table-column label="索引" v-if="contents.tableIndex" type="index" width="50" />
 
                     <el-table-column  :sortable="contents.tableSortable" :align="contents.tableAlign"
-                                   prop="tongzhiName"
+                                   prop="InfoName"
                                    header-align="center"
                                    label="通知名称">
                         <template slot-scope="scope">
-                            {{scope.row.tongzhiName}}
+                            {{scope.row.InfoName}}
                         </template>
                     </el-table-column>
-                    <el-table-column :sortable="contents.tableSortable" :align="contents.tableAlign" prop="tongzhiPhoto"
+                    <el-table-column :sortable="contents.tableSortable" :align="contents.tableAlign" prop="InfoPhoto"
                                      header-align="center"
                                      width="200"
                                      label="通知图片">
                         <template slot-scope="scope">
-                            <div v-if="scope.row.tongzhiPhoto">
-                                <img :src="scope.row.tongzhiPhoto" width="100" height="100">
+                            <div v-if="scope.row.InfoPhoto">
+                                <img :src="scope.row.InfoPhoto" width="100" height="100">
                             </div>
                             <div v-else>无图片</div>
                         </template>
                     </el-table-column>
                     <el-table-column  :sortable="contents.tableSortable" :align="contents.tableAlign"
-                                      prop="tongzhiTypes"
+                                      prop="InfoTypes"
                                       header-align="center"
                                       label="通知类型">
                         <template slot-scope="scope">
-                            {{scope.row.tongzhiValue}}
+                            {{scope.row.InfoValue}}
                         </template>
                     </el-table-column>
 
@@ -134,10 +134,10 @@
                                      header-align="center"
                                      label="操作">
                         <template slot-scope="scope">
-                            <el-button v-if="isAuth('tongzhi','查看')" type="success" icon="el-icon-tickets" size="mini" @click="addOrUpdateHandler(scope.row.id,'info')">详情</el-button>
-                            <el-button v-if="isAuth('tongzhi','修改')" type="primary" icon="el-icon-edit" size="mini" @click="addOrUpdateHandler(scope.row.id)">修改</el-button>
+                            <el-button v-if="isAuth('Info','查看')" type="success" icon="el-icon-tickets" size="mini" @click="addOrUpdateHandler(scope.row.id,'info')">详情</el-button>
+                            <el-button v-if="isAuth('Info','修改')" type="primary" icon="el-icon-edit" size="mini" @click="addOrUpdateHandler(scope.row.id)">修改</el-button>
 
-                            <el-button v-if="isAuth('tongzhi','删除')" type="danger" icon="el-icon-delete" size="mini" @click="deleteHandler(scope.row.id)">删除</el-button>
+                            <el-button v-if="isAuth('Info','删除')" type="danger" icon="el-icon-delete" size="mini" @click="deleteHandler(scope.row.id)">删除</el-button>
 
                         </template>
                     </el-table-column>
@@ -196,11 +196,11 @@
     //当前表下拉框搜索条件
             form:{
                 id : null,
-                tongzhiName : null,
-                tongzhiPhoto : null,
-                tongzhiTypes : null,
+                InfoName : null,
+                InfoPhoto : null,
+                InfoTypes : null,
                 insertTime : null,
-                tongzhiContent : null,
+                InfoContent : null,
                 createTime : null,
             },
             dataList: [],
@@ -222,9 +222,9 @@
             json_fields: {
                 //级联表字段
                 //本表字段
-                     '通知名称': "tongzhiName",
-                     '通知图片': "tongzhiPhoto",
-                     '通知类型': "tongzhiTypes",
+                     '通知名称': "InfoName",
+                     '通知图片': "InfoPhoto",
+                     '通知类型': "InfoTypes",
                      '通知发布时间': "insertTime",
             },
 
@@ -261,11 +261,11 @@
                     riqi :_this.echartsDate.getFullYear(),
                     // riqi :_this.echartsDate.getFullYear()+"-"+(_this.echartsDate.getMonth() + 1 < 10 ? '0' + (_this.echartsDate.getMonth() + 1) : _this.echartsDate.getMonth() + 1),
                     thisTable : {//当前表
-                        tableName :'tongzhi',//当前表表名,
-                        sumColum : 'tongzhi_number', //求和字段
+                        tableName :'Info',//当前表表名,
+                        sumColum : 'Info_number', //求和字段
                         date : 'insert_time',//分组日期字段
-                        // string : 'tongzhi_name',//分组字符串字段
-                        // types : 'tongzhi_types',//分组下拉框字段
+                        // string : 'Info_name',//分组字符串字段
+                        // types : 'Info_types',//分组下拉框字段
                     },
                     // joinTable : {//级联表（可以不存在）
                     //     tableName :'yonghu',//级联表表名
@@ -365,8 +365,8 @@
                 // this.$nextTick(()=>{
                 //     var statistic = this.$echarts.init(document.getElementById("statistic"),'macarons');
                 //     let params = {
-                //         tableName: "tongzhi",
-                //         groupColumn: "tongzhi_types",
+                //         tableName: "Info",
+                //         groupColumn: "Info_types",
                 //     }
                 //     this.$http({
                 //         url: "newSelectGroupCount",
@@ -611,15 +611,15 @@
                 }
 
                  
-                if (this.searchForm.tongzhiName!= '' && this.searchForm.tongzhiName!= undefined) {
-                    params['tongzhiName'] = '%' + this.searchForm.tongzhiName + '%'
+                if (this.searchForm.InfoName!= '' && this.searchForm.InfoName!= undefined) {
+                    params['InfoName'] = '%' + this.searchForm.InfoName + '%'
                 }
                                         
-                params['tongzhiDelete'] = 1// 逻辑删除字段 1 未删除 2 删除
+                params['InfoDelete'] = 1// 逻辑删除字段 1 未删除 2 删除
 
 
                 this.$http({
-                    url: "tongzhi/page",
+                    url: "Info/page",
                     method: "get",
                     params: params
                 }).then(({data}) => {
@@ -679,7 +679,7 @@
                     type: "warning"
                 }).then(() => {
                     this.$http({
-                        url: "tongzhi/delete",
+                        url: "Info/delete",
                         method: "post",
                         data: ids
                     }).then(({data}) => {
@@ -699,10 +699,10 @@
                 });
             },
             // 导入功能上传文件成功后调用导入方法
-            tongzhiUploadSuccess(data){
+            InfoUploadSuccess(data){
                 let _this = this;
                 _this.$http({
-                    url: "tongzhi/batchInsert?fileName=" + data.file,
+                    url: "Info/batchInsert?fileName=" + data.file,
                     method: "get"
                 }).then(({data}) => {
                     if(data && data.code === 0){
@@ -721,7 +721,7 @@
 
             },
             // 导入功能上传文件失败后调用导入方法
-            tongzhiUploadError(data){
+            InfoUploadError(data){
                 this.$message.error('上传失败');
             },
         }

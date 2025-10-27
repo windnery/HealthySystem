@@ -12,7 +12,7 @@
                     </el-form-item>
                                                                                                                                              
                     <el-form-item :label="contents.inputTitle == 1 ? '心理老师姓名' : ''">
-                        <el-input prefix-icon="el-icon-search" v-model="searchForm.xinlilaoshiName" placeholder="心理老师姓名" clearable></el-input>
+                        <el-input prefix-icon="el-icon-search" v-model="searchForm.TeacherName" placeholder="心理老师姓名" clearable></el-input>
                     </el-form-item>
                                                                                                                                             
 
@@ -23,14 +23,14 @@
                 <el-row class="ad" :style="{justifyContent:contents.btnAdAllBoxPosition=='1'?'flex-start':contents.btnAdAllBoxPosition=='2'?'center':'flex-end'}">
                     <el-form-item>
                         <el-button
-                                v-if="isAuth('xinlilaoshiLiuyan','新增')"
+                                v-if="isAuth('TeacherLiuyan','新增')"
                                 type="success"
                                 icon="el-icon-plus"
                                 @click="addOrUpdateHandler()"
                         >新增</el-button>
                         &nbsp;
                         <el-button
-                                v-if="isAuth('xinlilaoshiLiuyan','删除')"
+                                v-if="isAuth('TeacherLiuyan','删除')"
                                 :disabled="dataListSelections.length <= 0"
                                 type="danger"
                                 icon="el-icon-delete"
@@ -38,34 +38,34 @@
                         >删除</el-button>
                         &nbsp;
                         <el-button
-                                v-if="isAuth('xinlilaoshiLiuyan','报表')"
+                                v-if="isAuth('TeacherLiuyan','报表')"
                                 type="success"
                                 icon="el-icon-pie-chart"
                                 @click="chartDialog()"
                         >报表</el-button>
                         &nbsp;
                         <a style="text-decoration:none" class="el-button el-button--success"
-                           v-if="isAuth('xinlilaoshiLiuyan','导入导出')"
+                           v-if="isAuth('TeacherLiuyan','导入导出')"
                            icon="el-icon-download"
-                           href="http://localhost:8080/xinlijiankangxitong/upload/xinlilaoshiLiuyanMuBan.xls"
+                           href="http://localhost:8080/xinlijiankangxitong/upload/TeacherLiuyanMuBan.xls"
                         >批量导入心理老师留言数据模板</a>
                         &nbsp;
                         <el-upload
-                                v-if="isAuth('xinlilaoshiLiuyan','导入导出')"
+                                v-if="isAuth('TeacherLiuyan','导入导出')"
                                 style="display: inline-block"
                                 action="xinlijiankangxitong/file/upload"
-                                :on-success="xinlilaoshiLiuyanUploadSuccess"
-                                :on-error="xinlilaoshiLiuyanUploadError"
+                                :on-success="TeacherLiuyanUploadSuccess"
+                                :on-error="TeacherLiuyanUploadError"
                                 :show-file-list = false>
                             <el-button
-                                    v-if="isAuth('xinlilaoshiLiuyan','导入导出')"
+                                    v-if="isAuth('TeacherLiuyan','导入导出')"
                                     type="success"
                                     icon="el-icon-upload2"
                             >批量导入心理老师留言数据</el-button>
                         </el-upload>
                         &nbsp;
                         <!-- 导出excel -->
-                        <download-excel v-if="isAuth('xinlilaoshiLiuyan','导入导出')" style="display: inline-block" class = "export-excel-wrapper" :data = "dataList" :fields = "json_fields" name = "xinlilaoshiLiuyan.xls">
+                        <download-excel v-if="isAuth('TeacherLiuyan','导入导出')" style="display: inline-block" class = "export-excel-wrapper" :data = "dataList" :fields = "json_fields" name = "TeacherLiuyan.xls">
                             <!-- 导出excel -->
                             <el-button
                                     type="success"
@@ -85,7 +85,7 @@
                           :row-style="rowStyle"
                           :cell-style="cellStyle"
                           :style="{width: '100%',fontSize:contents.tableContentFontSize,color:contents.tableContentFontColor}"
-                          v-if="isAuth('xinlilaoshiLiuyan','查看')"
+                          v-if="isAuth('TeacherLiuyan','查看')"
                           :data="dataList"
                           v-loading="dataListLoading"
                           @selection-change="selectionChangeHandler">
@@ -105,23 +105,23 @@
                         </template>
                     </el-table-column>
                     <el-table-column  :sortable="contents.tableSortable" :align="contents.tableAlign"
-                                      prop="xinlilaoshiName"
+                                      prop="TeacherName"
                                       header-align="center"
                                       label="心理老师姓名">
                         <template slot-scope="scope">
-                            {{scope.row.xinlilaoshiName}}
+                            {{scope.row.TeacherName}}
                         </template>
                     </el-table-column>
                     <el-table-column  :sortable="contents.tableSortable" :align="contents.tableAlign"
-                                      prop="xinlilaoshiLiuyanText"
+                                      prop="TeacherLiuyanText"
                                       header-align="center"
                                       label="留言内容">
                         <template slot-scope="scope">
-                            <span v-if="scope.row.xinlilaoshiLiuyanText != null &&scope.row.xinlilaoshiLiuyanText.length>10">
-                                {{scope.row.xinlilaoshiLiuyanText.slice(0,10)}}...
+                            <span v-if="scope.row.TeacherLiuyanText != null &&scope.row.TeacherLiuyanText.length>10">
+                                {{scope.row.TeacherLiuyanText.slice(0,10)}}...
                             </span>
                             <span v-else>
-                                {{scope.row.xinlilaoshiLiuyanText}}
+                                {{scope.row.TeacherLiuyanText}}
                             </span>
                         </template>
                     </el-table-column>
@@ -161,10 +161,10 @@
                                      header-align="center"
                                      label="操作">
                         <template slot-scope="scope">
-                            <el-button v-if="isAuth('xinlilaoshiLiuyan','查看')" type="success" icon="el-icon-tickets" size="mini" @click="addOrUpdateHandler(scope.row.id,'info')">详情</el-button>
-                            <el-button v-if="isAuth('xinlilaoshiLiuyan','修改') " type="primary" icon="el-icon-edit" size="mini" @click="addOrUpdateHandler(scope.row.id)">回复</el-button>
+                            <el-button v-if="isAuth('TeacherLiuyan','查看')" type="success" icon="el-icon-tickets" size="mini" @click="addOrUpdateHandler(scope.row.id,'info')">详情</el-button>
+                            <el-button v-if="isAuth('TeacherLiuyan','修改') " type="primary" icon="el-icon-edit" size="mini" @click="addOrUpdateHandler(scope.row.id)">回复</el-button>
 
-                            <el-button v-if="isAuth('xinlilaoshiLiuyan','删除')" type="danger" icon="el-icon-delete" size="mini" @click="deleteHandler(scope.row.id)">删除</el-button>
+                            <el-button v-if="isAuth('TeacherLiuyan','删除')" type="danger" icon="el-icon-delete" size="mini" @click="deleteHandler(scope.row.id)">删除</el-button>
 
                         </template>
                     </el-table-column>
@@ -223,9 +223,9 @@
     //当前表下拉框搜索条件
             form:{
                 id : null,
-                xinlilaoshiId : null,
+                TeacherId : null,
                 yonghuId : null,
-                xinlilaoshiLiuyanText : null,
+                TeacherLiuyanText : null,
                 insertTime : null,
                 replyText : null,
                 updateTime : null,
@@ -254,14 +254,14 @@
                      '学生身份证号': 'yonghuIdNumber',
                      '学生头像': 'yonghuPhoto',
                      '电子邮箱': 'yonghuEmail',
-                     '心理老师姓名': 'xinlilaoshiName',
-                     '心理老师手机号': 'xinlilaoshiPhone',
-                     '心理老师头像': 'xinlilaoshiPhoto',
-                     '电子邮箱': 'xinlilaoshiEmail',
-                     '擅长': 'xinlilaoshiShanchang',
-                     '履历': 'xinlilaoshiLvli',
+                     '心理老师姓名': 'TeacherName',
+                     '心理老师手机号': 'TeacherPhone',
+                     '心理老师头像': 'TeacherPhoto',
+                     '电子邮箱': 'TeacherEmail',
+                     '擅长': 'TeacherShanchang',
+                     '履历': 'TeacherLvli',
                 //本表字段
-                     '留言内容': "xinlilaoshiLiuyanText",
+                     '留言内容': "TeacherLiuyanText",
                      '留言时间': "insertTime",
                      '回复内容': "replyText",
                      '回复时间': "updateTime",
@@ -300,11 +300,11 @@
                     riqi :_this.echartsDate.getFullYear(),
                     // riqi :_this.echartsDate.getFullYear()+"-"+(_this.echartsDate.getMonth() + 1 < 10 ? '0' + (_this.echartsDate.getMonth() + 1) : _this.echartsDate.getMonth() + 1),
                     thisTable : {//当前表
-                        tableName :'xinlilaoshi_liuyan',//当前表表名,
-                        sumColum : 'xinlilaoshi_liuyan_number', //求和字段
+                        tableName :'Teacher_liuyan',//当前表表名,
+                        sumColum : 'Teacher_liuyan_number', //求和字段
                         date : 'insert_time',//分组日期字段
-                        // string : 'xinlilaoshi_liuyan_name',//分组字符串字段
-                        // types : 'xinlilaoshi_liuyan_types',//分组下拉框字段
+                        // string : 'Teacher_liuyan_name',//分组字符串字段
+                        // types : 'Teacher_liuyan_types',//分组下拉框字段
                     },
                     // joinTable : {//级联表（可以不存在）
                     //     tableName :'yonghu',//级联表表名
@@ -404,8 +404,8 @@
                 // this.$nextTick(()=>{
                 //     var statistic = this.$echarts.init(document.getElementById("statistic"),'macarons');
                 //     let params = {
-                //         tableName: "xinlilaoshi_liuyan",
-                //         groupColumn: "xinlilaoshi_liuyan_types",
+                //         tableName: "Teacher_liuyan",
+                //         groupColumn: "Teacher_liuyan_types",
                 //     }
                 //     this.$http({
                 //         url: "newSelectGroupCount",
@@ -654,15 +654,15 @@
                     params['yonghuName'] = '%' + this.searchForm.yonghuName + '%'
                 }
                                                                                                                                              
-                if (this.searchForm.xinlilaoshiName!= '' && this.searchForm.xinlilaoshiName!= undefined) {
-                    params['xinlilaoshiName'] = '%' + this.searchForm.xinlilaoshiName + '%'
+                if (this.searchForm.TeacherName!= '' && this.searchForm.TeacherName!= undefined) {
+                    params['TeacherName'] = '%' + this.searchForm.TeacherName + '%'
                 }
                                                                                                                                                                                                             
-                params['xinlilaoshiLiuyanDelete'] = 1// 逻辑删除字段 1 未删除 2 删除
+                params['TeacherLiuyanDelete'] = 1// 逻辑删除字段 1 未删除 2 删除
 
 
                 this.$http({
-                    url: "xinlilaoshiLiuyan/page",
+                    url: "TeacherLiuyan/page",
                     method: "get",
                     params: params
                 }).then(({data}) => {
@@ -722,7 +722,7 @@
                     type: "warning"
                 }).then(() => {
                     this.$http({
-                        url: "xinlilaoshiLiuyan/delete",
+                        url: "TeacherLiuyan/delete",
                         method: "post",
                         data: ids
                     }).then(({data}) => {
@@ -742,10 +742,10 @@
                 });
             },
             // 导入功能上传文件成功后调用导入方法
-            xinlilaoshiLiuyanUploadSuccess(data){
+            TeacherLiuyanUploadSuccess(data){
                 let _this = this;
                 _this.$http({
-                    url: "xinlilaoshiLiuyan/batchInsert?fileName=" + data.file,
+                    url: "TeacherLiuyan/batchInsert?fileName=" + data.file,
                     method: "get"
                 }).then(({data}) => {
                     if(data && data.code === 0){
@@ -764,7 +764,7 @@
 
             },
             // 导入功能上传文件失败后调用导入方法
-            xinlilaoshiLiuyanUploadError(data){
+            TeacherLiuyanUploadError(data){
                 this.$message.error('上传失败');
             },
         }

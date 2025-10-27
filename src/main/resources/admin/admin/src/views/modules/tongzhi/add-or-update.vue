@@ -10,39 +10,39 @@
             <el-row>
                 <input id="updateId" name="id" type="hidden">
                <el-col :span="12">
-                   <el-form-item class="input" v-if="type!='info'"  label="通知名称" prop="tongzhiName">
-                       <el-input v-model="ruleForm.tongzhiName"
-                                 placeholder="通知名称" clearable  :readonly="ro.tongzhiName"></el-input>
+                   <el-form-item class="input" v-if="type!='info'"  label="通知名称" prop="InfoName">
+                       <el-input v-model="ruleForm.InfoName"
+                                 placeholder="通知名称" clearable  :readonly="ro.InfoName"></el-input>
                    </el-form-item>
                    <div v-else>
-                       <el-form-item class="input" label="通知名称" prop="tongzhiName">
-                           <el-input v-model="ruleForm.tongzhiName"
+                       <el-form-item class="input" label="通知名称" prop="InfoName">
+                           <el-input v-model="ruleForm.InfoName"
                                      placeholder="通知名称" readonly></el-input>
                        </el-form-item>
                    </div>
                </el-col>
                 <el-col :span="12">
-                    <el-form-item class="upload" v-if="type!='info' && !ro.tongzhiPhoto" label="通知图片" prop="tongzhiPhoto">
+                    <el-form-item class="upload" v-if="type!='info' && !ro.InfoPhoto" label="通知图片" prop="InfoPhoto">
                         <file-upload
                             tip="点击上传通知图片"
                             action="file/upload"
                             :limit="3"
                             :multiple="true"
-                            :fileUrls="ruleForm.tongzhiPhoto?ruleForm.tongzhiPhoto:''"
-                            @change="tongzhiPhotoUploadChange"
+                            :fileUrls="ruleForm.InfoPhoto?ruleForm.InfoPhoto:''"
+                            @change="InfoPhotoUploadChange"
                         ></file-upload>
                     </el-form-item>
                     <div v-else>
-                        <el-form-item v-if="ruleForm.tongzhiPhoto" label="通知图片" prop="tongzhiPhoto">
-                            <img style="margin-right:20px;" v-bind:key="index" v-for="(item,index) in (ruleForm.tongzhiPhoto || '').split(',')" :src="item" width="100" height="100">
+                        <el-form-item v-if="ruleForm.InfoPhoto" label="通知图片" prop="InfoPhoto">
+                            <img style="margin-right:20px;" v-bind:key="index" v-for="(item,index) in (ruleForm.InfoPhoto || '').split(',')" :src="item" width="100" height="100">
                         </el-form-item>
                     </div>
                 </el-col>
                 <el-col :span="12">
-                    <el-form-item class="select" v-if="type!='info'"  label="通知类型" prop="tongzhiTypes">
-                        <el-select v-model="ruleForm.tongzhiTypes" :disabled="ro.tongzhiTypes" placeholder="请选择通知类型">
+                    <el-form-item class="select" v-if="type!='info'"  label="通知类型" prop="InfoTypes">
+                        <el-select v-model="ruleForm.InfoTypes" :disabled="ro.InfoTypes" placeholder="请选择通知类型">
                             <el-option
-                                v-for="(item,index) in tongzhiTypesOptions"
+                                v-for="(item,index) in InfoTypesOptions"
                                 v-bind:key="item.codeIndex"
                                 :label="item.indexName"
                                 :value="item.codeIndex">
@@ -50,23 +50,23 @@
                         </el-select>
                     </el-form-item>
                     <div v-else>
-                        <el-form-item class="input" label="通知类型" prop="tongzhiValue">
-                        <el-input v-model="ruleForm.tongzhiValue"
+                        <el-form-item class="input" label="通知类型" prop="InfoValue">
+                        <el-input v-model="ruleForm.InfoValue"
                             placeholder="通知类型" readonly></el-input>
                         </el-form-item>
                     </div>
                 </el-col>
                 <el-col :span="24">
-                    <el-form-item v-if="type!='info'"  label="通知详情" prop="tongzhiContent">
+                    <el-form-item v-if="type!='info'"  label="通知详情" prop="InfoContent">
                         <editor style="min-width: 200px; max-width: 600px;"
-                                v-model="ruleForm.tongzhiContent"
+                                v-model="ruleForm.InfoContent"
                                 class="editor"
                                 action="file/upload">
                         </editor>
                     </el-form-item>
                     <div v-else>
-                        <el-form-item v-if="ruleForm.tongzhiContent" label="通知详情" prop="tongzhiContent">
-                            <span v-html="ruleForm.tongzhiContent"></span>
+                        <el-form-item v-if="ruleForm.InfoContent" label="通知详情" prop="InfoContent">
+                            <span v-html="ruleForm.InfoContent"></span>
                         </el-form-item>
                     </div>
                 </el-col>
@@ -93,28 +93,28 @@
                 role : "",//权限
                 userId:"",//当前登录人的id
                 ro:{
-                    tongzhiName: false,
-                    tongzhiPhoto: false,
-                    tongzhiTypes: false,
+                    InfoName: false,
+                    InfoPhoto: false,
+                    InfoTypes: false,
                     insertTime: false,
-                    tongzhiContent: false,
+                    InfoContent: false,
                 },
                 ruleForm: {
-                    tongzhiName: '',
-                    tongzhiPhoto: '',
-                    tongzhiTypes: '',
+                    InfoName: '',
+                    InfoPhoto: '',
+                    InfoTypes: '',
                     insertTime: '',
-                    tongzhiContent: '',
+                    InfoContent: '',
                 },
-                tongzhiTypesOptions : [],
+                InfoTypesOptions : [],
                 rules: {
-                   tongzhiName: [
+                   InfoName: [
                               { required: true, message: '通知名称不能为空', trigger: 'blur' },
                           ],
-                   tongzhiPhoto: [
+                   InfoPhoto: [
                               { required: true, message: '通知图片不能为空', trigger: 'blur' },
                           ],
-                   tongzhiTypes: [
+                   InfoTypes: [
                               { required: true, message: '通知类型不能为空', trigger: 'blur' },
                               {  pattern: /^[1-9][0-9]*$/,
                                   message: '只允许输入整数',
@@ -124,7 +124,7 @@
                    insertTime: [
                               { required: true, message: '通知发布时间不能为空', trigger: 'blur' },
                           ],
-                   tongzhiContent: [
+                   InfoContent: [
                               { required: true, message: '通知详情不能为空', trigger: 'blur' },
                           ],
                 }
@@ -147,11 +147,11 @@
             this.addEditUploadStyleChange()
             //获取下拉框信息
                 this.$http({
-                    url:`dictionary/page?page=1&limit=100&sort=&order=&dicCode=tongzhi_types`,
+                    url:`dictionary/page?page=1&limit=100&sort=&order=&dicCode=Info_types`,
                     method: "get"
                 }).then(({ data }) => {
                     if (data && data.code === 0) {
-                        this.tongzhiTypesOptions = data.data.list;
+                        this.InfoTypesOptions = data.data.list;
                     }
                 });
 
@@ -189,7 +189,7 @@
             info(id) {
                 let _this =this;
                 _this.$http({
-                    url: `tongzhi/info/${id}`,
+                    url: `Info/info/${id}`,
                     method: 'get'
                 }).then(({ data }) => {
                     if (data && data.code === 0) {
@@ -204,7 +204,7 @@
                 this.$refs["ruleForm"].validate(valid => {
                     if (valid) {
                         this.$http({
-                            url:`tongzhi/${!this.ruleForm.id ? "save" : "update"}`,
+                            url:`Info/${!this.ruleForm.id ? "save" : "update"}`,
                             method: "post",
                             data: this.ruleForm
                         }).then(({ data }) => {
@@ -216,7 +216,7 @@
                                     onClose: () => {
                                         this.parent.showFlag = true;
                                         this.parent.addOrUpdateFlag = false;
-                                        this.parent.tongzhiCrossAddOrUpdateFlag = false;
+                                        this.parent.InfoCrossAddOrUpdateFlag = false;
                                         this.parent.search();
                                         this.parent.contentStyleChange();
                                     }
@@ -236,12 +236,12 @@
             back() {
                 this.parent.showFlag = true;
                 this.parent.addOrUpdateFlag = false;
-                this.parent.tongzhiCrossAddOrUpdateFlag = false;
+                this.parent.InfoCrossAddOrUpdateFlag = false;
                 this.parent.contentStyleChange();
             },
             //图片
-            tongzhiPhotoUploadChange(fileUrls){
-                this.ruleForm.tongzhiPhoto = fileUrls;
+            InfoPhotoUploadChange(fileUrls){
+                this.ruleForm.InfoPhoto = fileUrls;
                 this.addEditUploadStyleChange()
             },
 

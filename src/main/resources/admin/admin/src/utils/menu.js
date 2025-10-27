@@ -15,7 +15,7 @@ const menu = {
                         ],
                         "menu":"健康知识类型管理",
                         "menuJump":"列表",
-                        "tableName":"dictionaryJiankangzhishi"
+                        "tableName":"dictionaryHealthyKnowledge"
                     }
                     ,
                     {
@@ -39,7 +39,7 @@ const menu = {
                         ],
                         "menu":"通知类型管理",
                         "menuJump":"列表",
-                        "tableName":"dictionaryTongzhi"
+                        "tableName":"dictionaryInfo"
                     }
                 ],
                 "menu":"基础数据管理"
@@ -55,7 +55,7 @@ const menu = {
                         ],
                         "menu":"健康知识管理",
                         "menuJump":"列表",
-                        "tableName":"jiankangzhishi"
+                        "tableName":"HealthyKnowledge"
                     }
                 ],
                 "menu":"健康知识管理"
@@ -71,7 +71,7 @@ const menu = {
                         ],
                         "menu":"通知管理",
                         "menuJump":"列表",
-                        "tableName":"tongzhi"
+                        "tableName":"Info"
                     }
                 ],
                 "menu":"通知管理"
@@ -103,7 +103,7 @@ const menu = {
                         ],
                         "menu":"心理老师管理",
                         "menuJump":"列表",
-                        "tableName":"xinlilaoshi"
+                        "tableName":"Teacher"
                     }
                     ,
                     {
@@ -114,7 +114,7 @@ const menu = {
                         ],
                         "menu":"心理老师留言管理",
                         "menuJump":"列表",
-                        "tableName":"xinlilaoshiLiuyan"
+                        "tableName":"TeacherLiuyan"
                     }
                     ,
                     {
@@ -124,7 +124,7 @@ const menu = {
                         ],
                         "menu":"心理老师收藏管理",
                         "menuJump":"列表",
-                        "tableName":"xinlilaoshiCollection"
+                        "tableName":"TeacherCollection"
                     }
                     ,
                     {
@@ -136,7 +136,7 @@ const menu = {
                         ],
                         "menu":"心理咨询预约申请管理",
                         "menuJump":"列表",
-                        "tableName":"xinlilaoshiOrder"
+                        "tableName":"TeacherOrder"
                     }
                 ],
                 "menu":"心理老师管理"
@@ -229,7 +229,7 @@ const menu = {
                         ],
                         "menu":"健康知识管理",
                         "menuJump":"列表",
-                        "tableName":"jiankangzhishi"
+                        "tableName":"HealthyKnowledge"
                     }
                 ],
                 "menu":"健康知识管理"
@@ -242,7 +242,7 @@ const menu = {
                         ],
                         "menu":"通知管理",
                         "menuJump":"列表",
-                        "tableName":"tongzhi"
+                        "tableName":"Info"
                     }
                 ],
                 "menu":"通知管理"
@@ -269,7 +269,7 @@ const menu = {
                         ],
                         "menu":"心理老师留言管理",
                         "menuJump":"列表",
-                        "tableName":"xinlilaoshiLiuyan"
+                        "tableName":"TeacherLiuyan"
                     }
                     ,
                     {
@@ -279,7 +279,7 @@ const menu = {
                         ],
                         "menu":"心理咨询预约申请管理",
                         "menuJump":"列表",
-                        "tableName":"xinlilaoshiOrder"
+                        "tableName":"TeacherOrder"
                     }
                 ],
                 "menu":"心理老师管理"
@@ -343,7 +343,7 @@ const menu = {
         "hasFrontLogin":"否",
         "hasFrontRegister":"否",
         "roleName":"心理老师",
-        "tableName":"xinlilaoshi"
+        "tableName":"Teacher"
     }
 	,
 	{
@@ -356,7 +356,7 @@ const menu = {
                         ],
                         "menu":"健康知识管理",
                         "menuJump":"列表",
-                        "tableName":"jiankangzhishi"
+                        "tableName":"HealthyKnowledge"
                     }
                 ],
                 "menu":"健康知识管理"
@@ -369,7 +369,7 @@ const menu = {
                         ],
                         "menu":"通知管理",
                         "menuJump":"列表",
-                        "tableName":"tongzhi"
+                        "tableName":"Info"
                     }
                 ],
                 "menu":"通知管理"
@@ -382,7 +382,7 @@ const menu = {
                         ],
                         "menu":"心理老师管理",
                         "menuJump":"列表",
-                        "tableName":"xinlilaoshi"
+                        "tableName":"Teacher"
                     }
                     ,
                     {
@@ -391,7 +391,7 @@ const menu = {
                         ],
                         "menu":"心理老师留言管理",
                         "menuJump":"列表",
-                        "tableName":"xinlilaoshiLiuyan"
+                        "tableName":"TeacherLiuyan"
                     }
                     ,
                     {
@@ -401,7 +401,7 @@ const menu = {
                         ],
                         "menu":"心理老师收藏管理",
                         "menuJump":"列表",
-                        "tableName":"xinlilaoshiCollection"
+                        "tableName":"TeacherCollection"
                     }
                     ,
                     {
@@ -410,7 +410,7 @@ const menu = {
                         ],
                         "menu":"心理咨询预约申请管理",
                         "menuJump":"列表",
-                        "tableName":"xinlilaoshiOrder"
+                        "tableName":"TeacherOrder"
                     }
                 ],
                 "menu":"心理老师管理"

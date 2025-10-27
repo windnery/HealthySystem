@@ -454,34 +454,34 @@
     <span>健康知识展示</span>
 </div>
 
-                <div v-if="jiankangzhishiList.length" class="new-list-6" style="display: flex;">
+                <div v-if="HealthyKnowledgeList.length" class="new-list-6" style="display: flex;">
                     <div class="swiper-container" id="new-list-6"
                          :style='{"padding":"0","boxShadow":"0 0 0px rgba(0,0,0, .3)","margin":"0","backgroundColor":"var(--publicSubColor)","borderRadius":"0","borderWidth":"0","width":"60%","borderStyle":"solid","height":"250px"}'>
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide animation-box" v-for="(item,index) in jiankangzhishiList" v-if="index<5"
-                                 :key="index" @click="jump('../jiankangzhishi/detail.html?id='+item.id)">
+                            <div class="swiper-slide animation-box" v-for="(item,index) in HealthyKnowledgeList" v-if="index<5"
+                                 :key="index" @click="jump('../HealthyKnowledge/detail.html?id='+item.id)">
                                 <img :style='{"padding":"6px","boxShadow":"0 0 0px rgba(0,0,0, .3)","backgroundColor":"var(--publicSubColor)","borderRadius":"20px","borderWidth":"0","width":"100%","borderStyle":"solid","height":"100%"}'
                                      style="object-fit: cover;width: 100%;height: 100%;box-sizing: border-box;"
-                                     :src="item.jiankangzhishiPhoto">
+                                     :src="item.HealthyKnowledgePhoto">
                             </div>
                         </div>
                     </div>
                     <div class="new6-list" style="width: 40%;"
                          :style='{"padding":"10px","boxShadow":"0 0 6px rgba(0,0,0, .3)","margin":"0","borderColor":"#ccc","backgroundColor":"var(--publicSubColor)","overflow":"hidden","borderRadius":"0","borderWidth":"0","width":"40%","boxSizing":"border-box","borderStyle":"solid","height":"250px"}'>
-                        <div class="jiankangzhishi-title-box"
+                        <div class="HealthyKnowledge-title-box"
                              style="display: flex;justify-content: space-between;align-items: center;">
                             <div class="new-title"
                                  :style='{"padding":"0 10px","boxShadow":"0 0 0px rgba(0,0,0,.3)","margin":"0","borderColor":"#ccc","backgroundColor":"rgba(43,135,33,0)","color":"#fff","borderRadius":"0","borderWidth":"0","width":"auto","lineHeight":"28px","fontSize":"14px","borderStyle":"solid"}'>
                                 最新动态
                             </div>
                         </div>
-                        <div v-for="(item,index) in jiankangzhishiList" v-if="index<5" :key="index"
-                             @click="jump('../jiankangzhishi/detail.html?id='+item.id)" class="new6-list-item"
+                        <div v-for="(item,index) in HealthyKnowledgeList" v-if="index<5" :key="index"
+                             @click="jump('../HealthyKnowledge/detail.html?id='+item.id)" class="new6-list-item"
                              style="display: flex;box-sizing: border-box;" style="box-sizing: border-box;"
                              :style='{"padding":"0 10px","boxShadow":"0 0 3px rgba(0,0,0,0)","margin":"0 0 5px 0","borderColor":"#ccc","backgroundColor":"#fff","borderRadius":"0","borderWidth":"0 0 1px 0","width":"100%","borderStyle":"solid","height":"auto"}'>
                             <div class="new6-list-item-title"
                                  :style='{"padding":"0","boxShadow":"0 0 0px rgba(0,0,0,0)","margin":"0","borderColor":"#ccc","backgroundColor":"rgba(0,0,0,0)","color":"var(--publicSubColor)","textAlign":"left","borderRadius":"0","borderWidth":"0","width":"70%","lineHeight":"28px","fontSize":"14px","borderStyle":"solid"}'>
-                                {{ item.jiankangzhishiName }}
+                                {{ item.HealthyKnowledgeName }}
                             </div>
                             <div class="new6-list-item-time"
                                  :style='{"padding":"0","boxShadow":"0 0 6px rgba(0,0,0,0)","margin":"0","borderColor":"#ccc","backgroundColor":"rgba(0,0,0,0)","color":"rgba(153, 153, 153, 1)","textAlign":"right","borderRadius":"0","borderWidth":"0","width":"30%","lineHeight":"28px","fontSize":"12px","borderStyle":"solid"}'>
@@ -492,7 +492,7 @@
                 </div>
                 <div class="clear"></div>
                 <div style="text-align: center;">
-                    <button @click="jump('../jiankangzhishi/list.html')" style="display: block;cursor: pointer;" type="button"
+                    <button @click="jump('../HealthyKnowledge/list.html')" style="display: block;cursor: pointer;" type="button"
                         :style='{"padding":"0 15px","boxShadow":"0 0 6px rgba(255,0,0,0)","margin":"4px auto","borderColor":"#ccc","backgroundColor":"#fff","color":"rgba(160, 67, 26, 1)","borderRadius":"6px","borderWidth":"0","width":"auto","fontSize":"14px","borderStyle":"solid","height":"34px"}'>
                     查看更多
                         <i v-if="true" :style='{"isshow":true,"padding":"0 0 0 1px","fontSize":"14px","color":"rgba(160, 67, 26, 1)"}' class="layui-icon layui-icon-next"></i>
@@ -510,23 +510,23 @@
 </div>
 
                 <div class="list">
-                    <div v-for="(item,index) in xinlilaoshiList" :key="index"
-                         @click="jump('../xinlilaoshi/detail.html?id='+item.id)" class="list-item"
+                    <div v-for="(item,index) in TeacherList" :key="index"
+                         @click="jump('../Teacher/detail.html?id='+item.id)" class="list-item"
                          :class="4=='3'?'list-item3':4=='4'?'list-item4':''">
                         <div class="list-item-body animation-box"
                              :style='{"padding":"0px 0 6px 0","boxShadow":"","margin":"20px 4px","borderColor":"rgba(0,0,0,.3)","backgroundColor":"#fff","borderRadius":"4px","borderWidth":"0","borderStyle":"solid"}'>
                             <img class="sub_borderColor" :style='{"borderColor":"rgba(0,0,0,.3)","borderRadius":"100%","borderWidth":"0","width":"220px","borderStyle":"solid","height":"220px"}'
-                                 :src="item.xinlilaoshiPhoto?item.xinlilaoshiPhoto.split(',')[0]:''" alt=""/>
+                                 :src="item.TeacherPhoto?item.TeacherPhoto.split(',')[0]:''" alt=""/>
                             <div v-if='true'
                                  :style='{"isshow":true,"padding":"2px","margin":"8px 0 0 0","backgroundColor":"rgba(255, 255, 255, 0.2)","color":"rgba(51, 51, 51, 1)","borderRadius":"0 0 6px 6px","textAlign":"center","fontSize":"20px"}'
-                                 class="name">{{item.xinlilaoshiName}}
+                                 class="name">{{item.TeacherName}}
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="clear"></div>
                 <div style="text-align: center;">
-                    <button @click="jump('../xinlilaoshi/list.html')" style="display: block;cursor: pointer;" type="button"
+                    <button @click="jump('../Teacher/list.html')" style="display: block;cursor: pointer;" type="button"
                             :style='{"padding":"0 15px","boxShadow":"0 0 6px rgba(255,0,0,0)","margin":"4px auto","borderColor":"#ccc","backgroundColor":"#fff","color":"rgba(160, 67, 26, 1)","borderRadius":"6px","borderWidth":"0","width":"auto","fontSize":"14px","borderStyle":"solid","height":"34px"}'>
                         查看更多<i v-if="true"
                                :style='{"isshow":true,"padding":"0 0 0 1px","fontSize":"14px","color":"rgba(160, 67, 26, 1)"}'
@@ -543,34 +543,34 @@
     <span>通知展示</span>
 </div>
 
-                <div v-if="tongzhiList.length" class="new-list-6" style="display: flex;">
+                <div v-if="InfoList.length" class="new-list-6" style="display: flex;">
                     <div class="swiper-container" id="new-list-6"
                          :style='{"padding":"0","boxShadow":"0 0 0px rgba(0,0,0, .3)","margin":"0","backgroundColor":"var(--publicSubColor)","borderRadius":"0","borderWidth":"0","width":"60%","borderStyle":"solid","height":"250px"}'>
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide animation-box" v-for="(item,index) in tongzhiList" v-if="index<5"
-                                 :key="index" @click="jump('../tongzhi/detail.html?id='+item.id)">
+                            <div class="swiper-slide animation-box" v-for="(item,index) in InfoList" v-if="index<5"
+                                 :key="index" @click="jump('../Info/detail.html?id='+item.id)">
                                 <img :style='{"padding":"6px","boxShadow":"0 0 0px rgba(0,0,0, .3)","backgroundColor":"var(--publicSubColor)","borderRadius":"20px","borderWidth":"0","width":"100%","borderStyle":"solid","height":"100%"}'
                                      style="object-fit: cover;width: 100%;height: 100%;box-sizing: border-box;"
-                                     :src="item.tongzhiPhoto">
+                                     :src="item.InfoPhoto">
                             </div>
                         </div>
                     </div>
                     <div class="new6-list" style="width: 40%;"
                          :style='{"padding":"10px","boxShadow":"0 0 6px rgba(0,0,0, .3)","margin":"0","borderColor":"#ccc","backgroundColor":"var(--publicSubColor)","overflow":"hidden","borderRadius":"0","borderWidth":"0","width":"40%","boxSizing":"border-box","borderStyle":"solid","height":"250px"}'>
-                        <div class="tongzhi-title-box"
+                        <div class="Info-title-box"
                              style="display: flex;justify-content: space-between;align-items: center;">
                             <div class="new-title"
                                  :style='{"padding":"0 10px","boxShadow":"0 0 0px rgba(0,0,0,.3)","margin":"0","borderColor":"#ccc","backgroundColor":"rgba(43,135,33,0)","color":"#fff","borderRadius":"0","borderWidth":"0","width":"auto","lineHeight":"28px","fontSize":"14px","borderStyle":"solid"}'>
                                 最新动态
                             </div>
                         </div>
-                        <div v-for="(item,index) in tongzhiList" v-if="index<5" :key="index"
-                             @click="jump('../tongzhi/detail.html?id='+item.id)" class="new6-list-item"
+                        <div v-for="(item,index) in InfoList" v-if="index<5" :key="index"
+                             @click="jump('../Info/detail.html?id='+item.id)" class="new6-list-item"
                              style="display: flex;box-sizing: border-box;" style="box-sizing: border-box;"
                              :style='{"padding":"0 10px","boxShadow":"0 0 3px rgba(0,0,0,0)","margin":"0 0 5px 0","borderColor":"#ccc","backgroundColor":"#fff","borderRadius":"0","borderWidth":"0 0 1px 0","width":"100%","borderStyle":"solid","height":"auto"}'>
                             <div class="new6-list-item-title"
                                  :style='{"padding":"0","boxShadow":"0 0 0px rgba(0,0,0,0)","margin":"0","borderColor":"#ccc","backgroundColor":"rgba(0,0,0,0)","color":"var(--publicSubColor)","textAlign":"left","borderRadius":"0","borderWidth":"0","width":"70%","lineHeight":"28px","fontSize":"14px","borderStyle":"solid"}'>
-                                {{ item.tongzhiName }}
+                                {{ item.InfoName }}
                             </div>
                             <div class="new6-list-item-time"
                                  :style='{"padding":"0","boxShadow":"0 0 6px rgba(0,0,0,0)","margin":"0","borderColor":"#ccc","backgroundColor":"rgba(0,0,0,0)","color":"rgba(153, 153, 153, 1)","textAlign":"right","borderRadius":"0","borderWidth":"0","width":"30%","lineHeight":"28px","fontSize":"12px","borderStyle":"solid"}'>
@@ -581,7 +581,7 @@
                 </div>
                 <div class="clear"></div>
                 <div style="text-align: center;">
-                    <button @click="jump('../tongzhi/list.html')" style="display: block;cursor: pointer;" type="button"
+                    <button @click="jump('../Info/list.html')" style="display: block;cursor: pointer;" type="button"
                         :style='{"padding":"0 15px","boxShadow":"0 0 6px rgba(255,0,0,0)","margin":"4px auto","borderColor":"#ccc","backgroundColor":"#fff","color":"rgba(160, 67, 26, 1)","borderRadius":"6px","borderWidth":"0","width":"auto","fontSize":"14px","borderStyle":"solid","height":"34px"}'>
                     查看更多
                         <i v-if="true" :style='{"isshow":true,"padding":"0 0 0 1px","fontSize":"14px","color":"rgba(160, 67, 26, 1)"}' class="layui-icon layui-icon-next"></i>
@@ -610,9 +610,9 @@
         data: {
             swiperList: [],
             // dianyingRecommend: [],
-            jiankangzhishiList: [],
-            xinlilaoshiList: [],
-            tongzhiList: [],
+            HealthyKnowledgeList: [],
+            TeacherList: [],
+            InfoList: [],
         },
         filters: {
             newsDesc: function (val) {
@@ -699,11 +699,11 @@
             }
         });
 
-        http.request('jiankangzhishi/list', 'get', {
+        http.request('HealthyKnowledge/list', 'get', {
             page: 1,
             limit: 8,
         }, function (res) {
-            vue.jiankangzhishiList = res.data.list;
+            vue.HealthyKnowledgeList = res.data.list;
             let flag = 6;
             let options = {
                 "navigation": {"nextEl": ".swiper-button-next", "prevEl": ".swiper-button-prev"},
@@ -739,11 +739,11 @@
             }
 
         });
-        http.request('xinlilaoshi/list', 'get', {
+        http.request('Teacher/list', 'get', {
             page: 1,
             limit: 8,
         }, function (res) {
-            vue.xinlilaoshiList = res.data.list;
+            vue.TeacherList = res.data.list;
             let flag = 6;
             let options = {
                 "navigation": {"nextEl": ".swiper-button-next", "prevEl": ".swiper-button-prev"},
@@ -779,11 +779,11 @@
             }
 
         });
-        http.request('tongzhi/list', 'get', {
+        http.request('Info/list', 'get', {
             page: 1,
             limit: 8,
         }, function (res) {
-            vue.tongzhiList = res.data.list;
+            vue.InfoList = res.data.list;
             let flag = 6;
             let options = {
                 "navigation": {"nextEl": ".swiper-button-next", "prevEl": ".swiper-button-prev"},

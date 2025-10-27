@@ -19,22 +19,22 @@ import center from '@/views/center'
     import examrecord from '@/views/modules/examrecord/list'
     import examredetails from '@/views/modules/examredetails/list'
     import examrewrongquestion from '@/views/modules/examrewrongquestion/list'
-    import jiankangzhishi from '@/views/modules/jiankangzhishi/list'
-    import tongzhi from '@/views/modules/tongzhi/list'
-    import xinlilaoshiCollection from '@/views/modules/xinlilaoshiCollection/list'
-    import xinlilaoshiLiuyan from '@/views/modules/xinlilaoshiLiuyan/list'
-    import xinlilaoshiOrder from '@/views/modules/xinlilaoshiOrder/list'
+    import HealthyKnowledge from '@/views/modules/HealthyKnowledge/list'
+    import Info from '@/views/modules/Info/list'
+    import TeacherCollection from '@/views/modules/TeacherCollection/list'
+    import TeacherLiuyan from '@/views/modules/TeacherLiuyan/list'
+    import TeacherOrder from '@/views/modules/TeacherOrder/list'
     import yonghu from '@/views/modules/yonghu/list'
-    import xinlilaoshi from '@/views/modules/xinlilaoshi/list'
+    import Teacher from '@/views/modules/Teacher/list'
     import config from '@/views/modules/config/list'
     import dictionaryExampaper from '@/views/modules/dictionaryExampaper/list'
     import dictionaryExamquestion from '@/views/modules/dictionaryExamquestion/list'
-    import dictionaryJiankangzhishi from '@/views/modules/dictionaryJiankangzhishi/list'
+    import dictionaryHealthyKnowledge from '@/views/modules/dictionaryHealthyKnowledge/list'
     import dictionarySex from '@/views/modules/dictionarySex/list'
     import dictionaryShijianduan from '@/views/modules/dictionaryShijianduan/list'
-    import dictionaryTongzhi from '@/views/modules/dictionaryTongzhi/list'
-    import dictionaryXinlilaoshiCollection from '@/views/modules/dictionaryXinlilaoshiCollection/list'
-    import dictionaryXinlilaoshiOrderYesno from '@/views/modules/dictionaryXinlilaoshiOrderYesno/list'
+    import dictionaryInfo from '@/views/modules/dictionaryInfo/list'
+    import dictionaryTeacherCollection from '@/views/modules/dictionaryTeacherCollection/list'
+    import dictionaryTeacherOrderYesno from '@/views/modules/dictionaryTeacherOrderYesno/list'
 
     import adminexam from '@/views/modules/exampaper/exam'
 
@@ -89,9 +89,9 @@ const routes = [{
         component: dictionaryExamquestion
     }
     ,{
-        path: '/dictionaryJiankangzhishi',
+        path: '/dictionaryHealthyKnowledge',
         name: '健康知识类型',
-        component: dictionaryJiankangzhishi
+        component: dictionaryHealthyKnowledge
     }
     ,{
         path: '/dictionarySex',
@@ -104,19 +104,19 @@ const routes = [{
         component: dictionaryShijianduan
     }
     ,{
-        path: '/dictionaryTongzhi',
+        path: '/dictionaryInfo',
         name: '通知类型',
-        component: dictionaryTongzhi
+        component: dictionaryInfo
     }
     ,{
-        path: '/dictionaryXinlilaoshiCollection',
+        path: '/dictionaryTeacherCollection',
         name: '收藏表类型',
-        component: dictionaryXinlilaoshiCollection
+        component: dictionaryTeacherCollection
     }
     ,{
-        path: '/dictionaryXinlilaoshiOrderYesno',
+        path: '/dictionaryTeacherOrderYesno',
         name: '预约状态',
-        component: dictionaryXinlilaoshiOrderYesno
+        component: dictionaryTeacherOrderYesno
     }
     ,{
         path: '/config',
@@ -156,29 +156,29 @@ const routes = [{
         component: examrewrongquestion
       }
     ,{
-        path: '/jiankangzhishi',
+        path: '/HealthyKnowledge',
         name: '健康知识',
-        component: jiankangzhishi
+        component: HealthyKnowledge
       }
     ,{
-        path: '/tongzhi',
+        path: '/Info',
         name: '通知',
-        component: tongzhi
+        component: Info
       }
     ,{
-        path: '/xinlilaoshiCollection',
+        path: '/TeacherCollection',
         name: '心理老师收藏',
-        component: xinlilaoshiCollection
+        component: TeacherCollection
       }
     ,{
-        path: '/xinlilaoshiLiuyan',
+        path: '/TeacherLiuyan',
         name: '心理老师留言',
-        component: xinlilaoshiLiuyan
+        component: TeacherLiuyan
       }
     ,{
-        path: '/xinlilaoshiOrder',
+        path: '/TeacherOrder',
         name: '心理咨询预约申请',
-        component: xinlilaoshiOrder
+        component: TeacherOrder
       }
     ,{
         path: '/yonghu',
@@ -186,9 +186,9 @@ const routes = [{
         component: yonghu
       }
     ,{
-        path: '/xinlilaoshi',
+        path: '/Teacher',
         name: '心理老师',
-        component: xinlilaoshi
+        component: Teacher
       }
 
 

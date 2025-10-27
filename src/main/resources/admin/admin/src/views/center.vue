@@ -44,52 +44,52 @@
          </el-col>
 
          <el-col :span="12">
-           <el-form-item v-if="flag=='xinlilaoshi'"  label='心理老师姓名' prop="xinlilaoshiName">
-               <el-input v-model="ruleForm.xinlilaoshiName"  placeholder='心理老师姓名' clearable></el-input>
+           <el-form-item v-if="flag=='Teacher'"  label='心理老师姓名' prop="TeacherName">
+               <el-input v-model="ruleForm.TeacherName"  placeholder='心理老师姓名' clearable></el-input>
            </el-form-item>
          </el-col>
 
          <el-col :span="12">
-           <el-form-item v-if="flag=='xinlilaoshi'"  label='心理老师手机号' prop="xinlilaoshiPhone">
-               <el-input v-model="ruleForm.xinlilaoshiPhone"  placeholder='心理老师手机号' clearable></el-input>
+           <el-form-item v-if="flag=='Teacher'"  label='心理老师手机号' prop="TeacherPhone">
+               <el-input v-model="ruleForm.TeacherPhone"  placeholder='心理老师手机号' clearable></el-input>
            </el-form-item>
          </el-col>
 
          <el-col :span="12">
-             <el-form-item v-if="flag=='xinlilaoshi'" label='心理老师头像' prop="xinlilaoshiPhoto">
+             <el-form-item v-if="flag=='Teacher'" label='心理老师头像' prop="TeacherPhoto">
                  <file-upload
                          tip="点击上传照片"
                          action="file/upload"
                          :limit="3"
                          :multiple="true"
-                         :fileUrls="ruleForm.xinlilaoshiPhoto?ruleForm.xinlilaoshiPhoto:''"
-                         @change="xinlilaoshiPhotoUploadChange"
+                         :fileUrls="ruleForm.TeacherPhoto?ruleForm.TeacherPhoto:''"
+                         @change="TeacherPhotoUploadChange"
                  ></file-upload>
              </el-form-item>
          </el-col>
          <el-col :span="12">
-           <el-form-item v-if="flag=='xinlilaoshi'"  label='电子邮箱' prop="xinlilaoshiEmail">
-               <el-input v-model="ruleForm.xinlilaoshiEmail"  placeholder='电子邮箱' clearable></el-input>
+           <el-form-item v-if="flag=='Teacher'"  label='电子邮箱' prop="TeacherEmail">
+               <el-input v-model="ruleForm.TeacherEmail"  placeholder='电子邮箱' clearable></el-input>
            </el-form-item>
          </el-col>
 
          <el-col :span="12">
-           <el-form-item v-if="flag=='xinlilaoshi'"  label='擅长' prop="xinlilaoshiShanchang">
-               <el-input v-model="ruleForm.xinlilaoshiShanchang"  placeholder='擅长' clearable></el-input>
+           <el-form-item v-if="flag=='Teacher'"  label='擅长' prop="TeacherShanchang">
+               <el-input v-model="ruleForm.TeacherShanchang"  placeholder='擅长' clearable></el-input>
            </el-form-item>
          </el-col>
 
          <el-col :span="12">
-           <el-form-item v-if="flag=='xinlilaoshi'"  label='履历' prop="xinlilaoshiLvli">
-               <el-input v-model="ruleForm.xinlilaoshiLvli"  placeholder='履历' clearable></el-input>
+           <el-form-item v-if="flag=='Teacher'"  label='履历' prop="TeacherLvli">
+               <el-input v-model="ruleForm.TeacherLvli"  placeholder='履历' clearable></el-input>
            </el-form-item>
          </el-col>
 
          <el-col :span="24">
-             <el-form-item v-if="flag=='xinlilaoshi'"  label="心理老师详细介绍" prop="xinlilaoshiContent">
+             <el-form-item v-if="flag=='Teacher'"  label="心理老师详细介绍" prop="TeacherContent">
                  <editor
                          style="min-width: 200px; max-width: 600px;"
-                         v-model="ruleForm.xinlilaoshiContent"
+                         v-model="ruleForm.TeacherContent"
                          class="editor"
                          action="file/upload">
                  </editor>
@@ -181,8 +181,8 @@ export default {
     yonghuPhotoUploadChange(fileUrls) {
         this.ruleForm.yonghuPhoto = fileUrls;
     },
-    xinlilaoshiPhotoUploadChange(fileUrls) {
-        this.ruleForm.xinlilaoshiPhoto = fileUrls;
+    TeacherPhotoUploadChange(fileUrls) {
+        this.ruleForm.TeacherPhoto = fileUrls;
     },
 
 
@@ -210,35 +210,35 @@ export default {
                                  this.$message.error(`邮箱应输入邮箱格式`);
                                  return
                              }
-                         if((!this.ruleForm.xinlilaoshiName)&& 'xinlilaoshi'==this.flag){
+                         if((!this.ruleForm.TeacherName)&& 'Teacher'==this.flag){
                              this.$message.error('心理老师姓名不能为空');
                              return
                          }
 
-                             if( 'xinlilaoshi' ==this.flag && this.ruleForm.xinlilaoshiPhone&&(!isMobile(this.ruleForm.xinlilaoshiPhone))){
+                             if( 'Teacher' ==this.flag && this.ruleForm.TeacherPhone&&(!isMobile(this.ruleForm.TeacherPhone))){
                                  this.$message.error(`手机应输入手机格式`);
                                  return
                              }
-                         if((!this.ruleForm.xinlilaoshiPhoto)&& 'xinlilaoshi'==this.flag){
+                         if((!this.ruleForm.TeacherPhoto)&& 'Teacher'==this.flag){
                              this.$message.error('心理老师头像不能为空');
                              return
                          }
 
-                             if( 'xinlilaoshi' ==this.flag && this.ruleForm.xinlilaoshiEmail&&(!isEmail(this.ruleForm.xinlilaoshiEmail))){
+                             if( 'Teacher' ==this.flag && this.ruleForm.TeacherEmail&&(!isEmail(this.ruleForm.TeacherEmail))){
                                  this.$message.error(`邮箱应输入邮箱格式`);
                                  return
                              }
-                         if((!this.ruleForm.xinlilaoshiShanchang)&& 'xinlilaoshi'==this.flag){
+                         if((!this.ruleForm.TeacherShanchang)&& 'Teacher'==this.flag){
                              this.$message.error('擅长不能为空');
                              return
                          }
 
-                         if((!this.ruleForm.xinlilaoshiLvli)&& 'xinlilaoshi'==this.flag){
+                         if((!this.ruleForm.TeacherLvli)&& 'Teacher'==this.flag){
                              this.$message.error('履历不能为空');
                              return
                          }
 
-                         if((!this.ruleForm.xinlilaoshiContent)&& 'xinlilaoshi'==this.flag){
+                         if((!this.ruleForm.TeacherContent)&& 'Teacher'==this.flag){
                              this.$message.error('心理老师详细介绍不能为空');
                              return
                          }

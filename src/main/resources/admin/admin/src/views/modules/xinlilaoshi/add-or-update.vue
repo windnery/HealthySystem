@@ -22,43 +22,43 @@
                    </div>
                </el-col>
                <el-col :span="12">
-                   <el-form-item class="input" v-if="type!='info'"  label="心理老师姓名" prop="xinlilaoshiName">
-                       <el-input v-model="ruleForm.xinlilaoshiName"
-                                 placeholder="心理老师姓名" clearable  :readonly="ro.xinlilaoshiName"></el-input>
+                   <el-form-item class="input" v-if="type!='info'"  label="心理老师姓名" prop="TeacherName">
+                       <el-input v-model="ruleForm.TeacherName"
+                                 placeholder="心理老师姓名" clearable  :readonly="ro.TeacherName"></el-input>
                    </el-form-item>
                    <div v-else>
-                       <el-form-item class="input" label="心理老师姓名" prop="xinlilaoshiName">
-                           <el-input v-model="ruleForm.xinlilaoshiName"
+                       <el-form-item class="input" label="心理老师姓名" prop="TeacherName">
+                           <el-input v-model="ruleForm.TeacherName"
                                      placeholder="心理老师姓名" readonly></el-input>
                        </el-form-item>
                    </div>
                </el-col>
                <el-col :span="12">
-                   <el-form-item class="input" v-if="type!='info'"  label="心理老师手机号" prop="xinlilaoshiPhone">
-                       <el-input v-model="ruleForm.xinlilaoshiPhone"
-                                 placeholder="心理老师手机号" clearable  :readonly="ro.xinlilaoshiPhone"></el-input>
+                   <el-form-item class="input" v-if="type!='info'"  label="心理老师手机号" prop="TeacherPhone">
+                       <el-input v-model="ruleForm.TeacherPhone"
+                                 placeholder="心理老师手机号" clearable  :readonly="ro.TeacherPhone"></el-input>
                    </el-form-item>
                    <div v-else>
-                       <el-form-item class="input" label="心理老师手机号" prop="xinlilaoshiPhone">
-                           <el-input v-model="ruleForm.xinlilaoshiPhone"
+                       <el-form-item class="input" label="心理老师手机号" prop="TeacherPhone">
+                           <el-input v-model="ruleForm.TeacherPhone"
                                      placeholder="心理老师手机号" readonly></el-input>
                        </el-form-item>
                    </div>
                </el-col>
                 <el-col :span="12">
-                    <el-form-item class="upload" v-if="type!='info' && !ro.xinlilaoshiPhoto" label="心理老师头像" prop="xinlilaoshiPhoto">
+                    <el-form-item class="upload" v-if="type!='info' && !ro.TeacherPhoto" label="心理老师头像" prop="TeacherPhoto">
                         <file-upload
                             tip="点击上传心理老师头像"
                             action="file/upload"
                             :limit="3"
                             :multiple="true"
-                            :fileUrls="ruleForm.xinlilaoshiPhoto?ruleForm.xinlilaoshiPhoto:''"
-                            @change="xinlilaoshiPhotoUploadChange"
+                            :fileUrls="ruleForm.TeacherPhoto?ruleForm.TeacherPhoto:''"
+                            @change="TeacherPhotoUploadChange"
                         ></file-upload>
                     </el-form-item>
                     <div v-else>
-                        <el-form-item v-if="ruleForm.xinlilaoshiPhoto" label="心理老师头像" prop="xinlilaoshiPhoto">
-                            <img style="margin-right:20px;" v-bind:key="index" v-for="(item,index) in (ruleForm.xinlilaoshiPhoto || '').split(',')" :src="item" width="100" height="100">
+                        <el-form-item v-if="ruleForm.TeacherPhoto" label="心理老师头像" prop="TeacherPhoto">
+                            <img style="margin-right:20px;" v-bind:key="index" v-for="(item,index) in (ruleForm.TeacherPhoto || '').split(',')" :src="item" width="100" height="100">
                         </el-form-item>
                     </div>
                 </el-col>
@@ -81,52 +81,52 @@
                     </div>
                 </el-col>
                <el-col :span="12">
-                   <el-form-item class="input" v-if="type!='info'"  label="电子邮箱" prop="xinlilaoshiEmail">
-                       <el-input v-model="ruleForm.xinlilaoshiEmail"
-                                 placeholder="电子邮箱" clearable  :readonly="ro.xinlilaoshiEmail"></el-input>
+                   <el-form-item class="input" v-if="type!='info'"  label="电子邮箱" prop="TeacherEmail">
+                       <el-input v-model="ruleForm.TeacherEmail"
+                                 placeholder="电子邮箱" clearable  :readonly="ro.TeacherEmail"></el-input>
                    </el-form-item>
                    <div v-else>
-                       <el-form-item class="input" label="电子邮箱" prop="xinlilaoshiEmail">
-                           <el-input v-model="ruleForm.xinlilaoshiEmail"
+                       <el-form-item class="input" label="电子邮箱" prop="TeacherEmail">
+                           <el-input v-model="ruleForm.TeacherEmail"
                                      placeholder="电子邮箱" readonly></el-input>
                        </el-form-item>
                    </div>
                </el-col>
                <el-col :span="12">
-                   <el-form-item class="input" v-if="type!='info'"  label="擅长" prop="xinlilaoshiShanchang">
-                       <el-input v-model="ruleForm.xinlilaoshiShanchang"
-                                 placeholder="擅长" clearable  :readonly="ro.xinlilaoshiShanchang"></el-input>
+                   <el-form-item class="input" v-if="type!='info'"  label="擅长" prop="TeacherShanchang">
+                       <el-input v-model="ruleForm.TeacherShanchang"
+                                 placeholder="擅长" clearable  :readonly="ro.TeacherShanchang"></el-input>
                    </el-form-item>
                    <div v-else>
-                       <el-form-item class="input" label="擅长" prop="xinlilaoshiShanchang">
-                           <el-input v-model="ruleForm.xinlilaoshiShanchang"
+                       <el-form-item class="input" label="擅长" prop="TeacherShanchang">
+                           <el-input v-model="ruleForm.TeacherShanchang"
                                      placeholder="擅长" readonly></el-input>
                        </el-form-item>
                    </div>
                </el-col>
                <el-col :span="12">
-                   <el-form-item class="input" v-if="type!='info'"  label="履历" prop="xinlilaoshiLvli">
-                       <el-input v-model="ruleForm.xinlilaoshiLvli"
-                                 placeholder="履历" clearable  :readonly="ro.xinlilaoshiLvli"></el-input>
+                   <el-form-item class="input" v-if="type!='info'"  label="履历" prop="TeacherLvli">
+                       <el-input v-model="ruleForm.TeacherLvli"
+                                 placeholder="履历" clearable  :readonly="ro.TeacherLvli"></el-input>
                    </el-form-item>
                    <div v-else>
-                       <el-form-item class="input" label="履历" prop="xinlilaoshiLvli">
-                           <el-input v-model="ruleForm.xinlilaoshiLvli"
+                       <el-form-item class="input" label="履历" prop="TeacherLvli">
+                           <el-input v-model="ruleForm.TeacherLvli"
                                      placeholder="履历" readonly></el-input>
                        </el-form-item>
                    </div>
                </el-col>
                 <el-col :span="24">
-                    <el-form-item v-if="type!='info'"  label="心理老师详细介绍" prop="xinlilaoshiContent">
+                    <el-form-item v-if="type!='info'"  label="心理老师详细介绍" prop="TeacherContent">
                         <editor style="min-width: 200px; max-width: 600px;"
-                                v-model="ruleForm.xinlilaoshiContent"
+                                v-model="ruleForm.TeacherContent"
                                 class="editor"
                                 action="file/upload">
                         </editor>
                     </el-form-item>
                     <div v-else>
-                        <el-form-item v-if="ruleForm.xinlilaoshiContent" label="心理老师详细介绍" prop="xinlilaoshiContent">
-                            <span v-html="ruleForm.xinlilaoshiContent"></span>
+                        <el-form-item v-if="ruleForm.TeacherContent" label="心理老师详细介绍" prop="TeacherContent">
+                            <span v-html="ruleForm.TeacherContent"></span>
                         </el-form-item>
                     </div>
                 </el-col>
@@ -155,26 +155,26 @@
                 ro:{
                     username: false,
                     password: false,
-                    xinlilaoshiName: false,
-                    xinlilaoshiPhone: false,
-                    xinlilaoshiPhoto: false,
+                    TeacherName: false,
+                    TeacherPhone: false,
+                    TeacherPhoto: false,
                     sexTypes: false,
-                    xinlilaoshiEmail: false,
-                    xinlilaoshiShanchang: false,
-                    xinlilaoshiLvli: false,
-                    xinlilaoshiContent: false,
+                    TeacherEmail: false,
+                    TeacherShanchang: false,
+                    TeacherLvli: false,
+                    TeacherContent: false,
                 },
                 ruleForm: {
                     username: '',
                     password: '',
-                    xinlilaoshiName: '',
-                    xinlilaoshiPhone: '',
-                    xinlilaoshiPhoto: '',
+                    TeacherName: '',
+                    TeacherPhone: '',
+                    TeacherPhoto: '',
                     sexTypes: '',
-                    xinlilaoshiEmail: '',
-                    xinlilaoshiShanchang: '',
-                    xinlilaoshiLvli: '',
-                    xinlilaoshiContent: '',
+                    TeacherEmail: '',
+                    TeacherShanchang: '',
+                    TeacherLvli: '',
+                    TeacherContent: '',
                 },
                 sexTypesOptions : [],
                 rules: {
@@ -184,17 +184,17 @@
                    password: [
                               { required: true, message: '密码不能为空', trigger: 'blur' },
                           ],
-                   xinlilaoshiName: [
+                   TeacherName: [
                               { required: true, message: '心理老师姓名不能为空', trigger: 'blur' },
                           ],
-                   xinlilaoshiPhone: [
+                   TeacherPhone: [
                               {  required: true, message: '心理老师手机号不能为空', trigger: 'blur' },
                               {  pattern: /^(13[0-9]|14[01456879]|15[0-35-9]|16[2567]|17[0-8]|18[0-9]|19[0-35-9])\d{8}$/,
                                  message: '心理老师手机号格式不对',
                                  trigger: 'blur'
                               }
                           ],
-                   xinlilaoshiPhoto: [
+                   TeacherPhoto: [
                               { required: true, message: '心理老师头像不能为空', trigger: 'blur' },
                           ],
                    sexTypes: [
@@ -204,20 +204,20 @@
                                   trigger: 'blur'
                               }
                           ],
-                   xinlilaoshiEmail: [
+                   TeacherEmail: [
                               { required: true, message: '电子邮箱不能为空', trigger: 'blur' },
                               { pattern: /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/,
                                 message: '电子邮箱只能是邮箱格式',
                                 trigger: 'blur'
                               }
                           ],
-                   xinlilaoshiShanchang: [
+                   TeacherShanchang: [
                               { required: true, message: '擅长不能为空', trigger: 'blur' },
                           ],
-                   xinlilaoshiLvli: [
+                   TeacherLvli: [
                               { required: true, message: '履历不能为空', trigger: 'blur' },
                           ],
-                   xinlilaoshiContent: [
+                   TeacherContent: [
                               { required: true, message: '心理老师详细介绍不能为空', trigger: 'blur' },
                           ],
                 }
@@ -282,7 +282,7 @@
             info(id) {
                 let _this =this;
                 _this.$http({
-                    url: `xinlilaoshi/info/${id}`,
+                    url: `Teacher/info/${id}`,
                     method: 'get'
                 }).then(({ data }) => {
                     if (data && data.code === 0) {
@@ -297,7 +297,7 @@
                 this.$refs["ruleForm"].validate(valid => {
                     if (valid) {
                         this.$http({
-                            url:`xinlilaoshi/${!this.ruleForm.id ? "save" : "update"}`,
+                            url:`Teacher/${!this.ruleForm.id ? "save" : "update"}`,
                             method: "post",
                             data: this.ruleForm
                         }).then(({ data }) => {
@@ -309,7 +309,7 @@
                                     onClose: () => {
                                         this.parent.showFlag = true;
                                         this.parent.addOrUpdateFlag = false;
-                                        this.parent.xinlilaoshiCrossAddOrUpdateFlag = false;
+                                        this.parent.TeacherCrossAddOrUpdateFlag = false;
                                         this.parent.search();
                                         this.parent.contentStyleChange();
                                     }
@@ -329,12 +329,12 @@
             back() {
                 this.parent.showFlag = true;
                 this.parent.addOrUpdateFlag = false;
-                this.parent.xinlilaoshiCrossAddOrUpdateFlag = false;
+                this.parent.TeacherCrossAddOrUpdateFlag = false;
                 this.parent.contentStyleChange();
             },
             //图片
-            xinlilaoshiPhotoUploadChange(fileUrls){
-                this.ruleForm.xinlilaoshiPhoto = fileUrls;
+            TeacherPhotoUploadChange(fileUrls){
+                this.ruleForm.TeacherPhoto = fileUrls;
                 this.addEditUploadStyleChange()
             },
 

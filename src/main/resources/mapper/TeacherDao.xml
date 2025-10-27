@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.TeacherDao">
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        a.id as id
+        ,a.username as username
+        ,a.password as password
+        ,a.Teacher_name as TeacherName
+        ,a.Teacher_phone as TeacherPhone
+        ,a.Teacher_photo as TeacherPhoto
+        ,a.sex_types as sexTypes
+        ,a.Teacher_email as TeacherEmail
+        ,a.Teacher_shanchang as TeacherShanchang
+        ,a.Teacher_lvli as TeacherLvli
+        ,a.Teacher_content as TeacherContent
+        ,a.create_time as createTime
+    </sql>
+    <select id="selectListView" parameterType="map" resultType="com.entity.view.TeacherView" >
+        SELECT
+        <include refid="Base_Column_List" />
+
+--         级联表的字段
+
+        FROM Teacher  a
+
+        <where>
+            <if test="params.ids != null">
+                and a.id in
+                <foreach item="item" index="index" collection="params.ids" open="(" separator="," close=")">
+                #{item}
+                </foreach>
+            </if>
+            <if test=" params.username != '' and params.username != null and params.username != 'null' ">
+                and a.username like CONCAT('%',#{params.username},'%')
+            </if>
+            <if test=" params.password != '' and params.password != null and params.password != 'null' ">
+                and a.password like CONCAT('%',#{params.password},'%')
+            </if>
+            <if test=" params.TeacherName != '' and params.TeacherName != null and params.TeacherName != 'null' ">
+                and a.Teacher_name like CONCAT('%',#{params.TeacherName},'%')
+            </if>
+            <if test=" params.TeacherPhone != '' and params.TeacherPhone != null and params.TeacherPhone != 'null' ">
+                and a.Teacher_phone like CONCAT('%',#{params.TeacherPhone},'%')
+            </if>
+            <if test="params.sexTypes != null and params.sexTypes != ''">
+                and a.sex_types = #{params.sexTypes}
+            </if>
+            <if test=" params.TeacherEmail != '' and params.TeacherEmail != null and params.TeacherEmail != 'null' ">
+                and a.Teacher_email like CONCAT('%',#{params.TeacherEmail},'%')
+            </if>
+            <if test=" params.TeacherShanchang != '' and params.TeacherShanchang != null and params.TeacherShanchang != 'null' ">
+                and a.Teacher_shanchang like CONCAT('%',#{params.TeacherShanchang},'%')
+            </if>
+            <if test=" params.TeacherLvli != '' and params.TeacherLvli != null and params.TeacherLvli != 'null' ">
+                and a.Teacher_lvli like CONCAT('%',#{params.TeacherLvli},'%')
+            </if>
+            <if test=" params.TeacherContent != '' and params.TeacherContent != null and params.TeacherContent != 'null' ">
+                and a.Teacher_content like CONCAT('%',#{params.TeacherContent},'%')
+            </if>
+
+        </where>
+
+        order by a.${params.orderBy} desc 
+    </select>
+
+</mapper>

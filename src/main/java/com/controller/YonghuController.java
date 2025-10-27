@@ -51,7 +51,7 @@ public class YonghuController {
     //级联表service
 
     @Autowired
-    private XinlilaoshiService xinlilaoshiService;
+    private TeacherService teacherService;
 
 
     /**
@@ -66,7 +66,7 @@ public class YonghuController {
         else if("学生".equals(role))
             params.put("yonghuId",request.getSession().getAttribute("userId"));
         else if("心理老师".equals(role))
-            params.put("xinlilaoshiId",request.getSession().getAttribute("userId"));
+            params.put("TeacherId",request.getSession().getAttribute("userId"));
         if(params.get("orderBy")==null || params.get("orderBy")==""){
             params.put("orderBy","id");
         }

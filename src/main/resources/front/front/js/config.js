@@ -34,11 +34,11 @@ var centerMenu = [
     }
     ,{
         name: '心理老师收藏',
-        url: '../xinlilaoshiCollection/list.html'
+        url: '../TeacherCollection/list.html'
     }
     ,{
         name: '心理咨询预约申请',
-        url: '../xinlilaoshiOrder/list.html'
+        url: '../TeacherOrder/list.html'
     }
 
     ,{
@@ -60,15 +60,15 @@ var indexNav = [
     },
     {
         name: '健康知识',
-        url: './pages/jiankangzhishi/list.html'
+        url: './pages/HealthyKnowledge/list.html'
     },
     {
         name: '通知',
-        url: './pages/tongzhi/list.html'
+        url: './pages/Info/list.html'
     },
     {
         name: '心理老师',
-        url: './pages/xinlilaoshi/list.html'
+        url: './pages/Teacher/list.html'
     },
 
 ]

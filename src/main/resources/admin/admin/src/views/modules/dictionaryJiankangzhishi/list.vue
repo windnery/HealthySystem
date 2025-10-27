@@ -14,13 +14,13 @@
                 <el-row class="ad" :style="{justifyContent:contents.btnAdAllBoxPosition=='1'?'flex-start':contents.btnAdAllBoxPosition=='2'?'center':'flex-end'}">
                     <el-form-item>
                         <el-button
-                                v-if="isAuth('dictionaryJiankangzhishi','新增')"
+                                v-if="isAuth('dictionaryHealthyKnowledge','新增')"
                                 type="success"
                                 icon="el-icon-plus"
                                 @click="addOrUpdateHandler()"
                         >新增</el-button>
                         <el-button
-                                v-if="isAuth('dictionaryJiankangzhishi','删除')"
+                                v-if="isAuth('dictionaryHealthyKnowledge','删除')"
                                 :disabled="dataListSelections.length <= 0"
                                 type="danger"
                                 icon="el-icon-delete"
@@ -38,7 +38,7 @@
                           :row-style="rowStyle"
                           :cell-style="cellStyle"
                           :style="{width: '100%',fontSize:contents.tableContentFontSize,color:contents.tableContentFontColor}"
-                          v-if="isAuth('dictionaryJiankangzhishi','查看')"
+                          v-if="isAuth('dictionaryHealthyKnowledge','查看')"
                           :data="dataList"
                           v-loading="dataListLoading"
                           @selection-change="selectionChangeHandler">
@@ -77,9 +77,9 @@
                                      header-align="center"
                                      label="操作">
                         <template slot-scope="scope">
-                            <el-button v-if="isAuth('dictionaryJiankangzhishi','查看')" type="success" icon="el-icon-tickets" size="mini" @click="addOrUpdateHandler(scope.row.id,'info')">详情</el-button>
-                            <el-button v-if="isAuth('dictionaryJiankangzhishi','修改')" type="primary" icon="el-icon-edit" size="mini" @click="addOrUpdateHandler(scope.row.id)">修改</el-button>
-                            <el-button v-if="isAuth('dictionaryJiankangzhishi','删除')" type="danger" icon="el-icon-delete" size="mini" @click="deleteHandler(scope.row.id)">删除</el-button>
+                            <el-button v-if="isAuth('dictionaryHealthyKnowledge','查看')" type="success" icon="el-icon-tickets" size="mini" @click="addOrUpdateHandler(scope.row.id,'info')">详情</el-button>
+                            <el-button v-if="isAuth('dictionaryHealthyKnowledge','修改')" type="primary" icon="el-icon-edit" size="mini" @click="addOrUpdateHandler(scope.row.id)">修改</el-button>
+                            <el-button v-if="isAuth('dictionaryHealthyKnowledge','删除')" type="danger" icon="el-icon-delete" size="mini" @click="deleteHandler(scope.row.id)">删除</el-button>
                         </template>
                     </el-table-column>
                 </el-table>
@@ -310,7 +310,7 @@
                     params['indexName'] = this.searchForm.indexNameSearch
                 }
                 //本表的
-                params['dicCode'] = "jiankangzhishi_types"//编码名字
+                params['dicCode'] = "HealthyKnowledge_types"//编码名字
                 params['dicName'] = "健康知识类型",//汉字名字
                 this.$http({
                     url: "dictionary/page",

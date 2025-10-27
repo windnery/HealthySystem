@@ -10,39 +10,39 @@
             <el-row>
                 <input id="updateId" name="id" type="hidden">
                <el-col :span="12">
-                   <el-form-item class="input" v-if="type!='info'"  label="健康知识名称" prop="jiankangzhishiName">
-                       <el-input v-model="ruleForm.jiankangzhishiName"
-                                 placeholder="健康知识名称" clearable  :readonly="ro.jiankangzhishiName"></el-input>
+                   <el-form-item class="input" v-if="type!='info'"  label="健康知识名称" prop="HealthyKnowledgeName">
+                       <el-input v-model="ruleForm.HealthyKnowledgeName"
+                                 placeholder="健康知识名称" clearable  :readonly="ro.HealthyKnowledgeName"></el-input>
                    </el-form-item>
                    <div v-else>
-                       <el-form-item class="input" label="健康知识名称" prop="jiankangzhishiName">
-                           <el-input v-model="ruleForm.jiankangzhishiName"
+                       <el-form-item class="input" label="健康知识名称" prop="HealthyKnowledgeName">
+                           <el-input v-model="ruleForm.HealthyKnowledgeName"
                                      placeholder="健康知识名称" readonly></el-input>
                        </el-form-item>
                    </div>
                </el-col>
                 <el-col :span="12">
-                    <el-form-item class="upload" v-if="type!='info' && !ro.jiankangzhishiPhoto" label="健康知识图片" prop="jiankangzhishiPhoto">
+                    <el-form-item class="upload" v-if="type!='info' && !ro.HealthyKnowledgePhoto" label="健康知识图片" prop="HealthyKnowledgePhoto">
                         <file-upload
                             tip="点击上传健康知识图片"
                             action="file/upload"
                             :limit="3"
                             :multiple="true"
-                            :fileUrls="ruleForm.jiankangzhishiPhoto?ruleForm.jiankangzhishiPhoto:''"
-                            @change="jiankangzhishiPhotoUploadChange"
+                            :fileUrls="ruleForm.HealthyKnowledgePhoto?ruleForm.HealthyKnowledgePhoto:''"
+                            @change="HealthyKnowledgePhotoUploadChange"
                         ></file-upload>
                     </el-form-item>
                     <div v-else>
-                        <el-form-item v-if="ruleForm.jiankangzhishiPhoto" label="健康知识图片" prop="jiankangzhishiPhoto">
-                            <img style="margin-right:20px;" v-bind:key="index" v-for="(item,index) in (ruleForm.jiankangzhishiPhoto || '').split(',')" :src="item" width="100" height="100">
+                        <el-form-item v-if="ruleForm.HealthyKnowledgePhoto" label="健康知识图片" prop="HealthyKnowledgePhoto">
+                            <img style="margin-right:20px;" v-bind:key="index" v-for="(item,index) in (ruleForm.HealthyKnowledgePhoto || '').split(',')" :src="item" width="100" height="100">
                         </el-form-item>
                     </div>
                 </el-col>
                 <el-col :span="12">
-                    <el-form-item class="select" v-if="type!='info'"  label="健康知识类型" prop="jiankangzhishiTypes">
-                        <el-select v-model="ruleForm.jiankangzhishiTypes" :disabled="ro.jiankangzhishiTypes" placeholder="请选择健康知识类型">
+                    <el-form-item class="select" v-if="type!='info'"  label="健康知识类型" prop="HealthyKnowledgeTypes">
+                        <el-select v-model="ruleForm.HealthyKnowledgeTypes" :disabled="ro.HealthyKnowledgeTypes" placeholder="请选择健康知识类型">
                             <el-option
-                                v-for="(item,index) in jiankangzhishiTypesOptions"
+                                v-for="(item,index) in HealthyKnowledgeTypesOptions"
                                 v-bind:key="item.codeIndex"
                                 :label="item.indexName"
                                 :value="item.codeIndex">
@@ -50,23 +50,23 @@
                         </el-select>
                     </el-form-item>
                     <div v-else>
-                        <el-form-item class="input" label="健康知识类型" prop="jiankangzhishiValue">
-                        <el-input v-model="ruleForm.jiankangzhishiValue"
+                        <el-form-item class="input" label="健康知识类型" prop="HealthyKnowledgeValue">
+                        <el-input v-model="ruleForm.HealthyKnowledgeValue"
                             placeholder="健康知识类型" readonly></el-input>
                         </el-form-item>
                     </div>
                 </el-col>
                 <el-col :span="24">
-                    <el-form-item v-if="type!='info'"  label="健康知识详情" prop="jiankangzhishiContent">
+                    <el-form-item v-if="type!='info'"  label="健康知识详情" prop="HealthyKnowledgeContent">
                         <editor style="min-width: 200px; max-width: 600px;"
-                                v-model="ruleForm.jiankangzhishiContent"
+                                v-model="ruleForm.HealthyKnowledgeContent"
                                 class="editor"
                                 action="file/upload">
                         </editor>
                     </el-form-item>
                     <div v-else>
-                        <el-form-item v-if="ruleForm.jiankangzhishiContent" label="健康知识详情" prop="jiankangzhishiContent">
-                            <span v-html="ruleForm.jiankangzhishiContent"></span>
+                        <el-form-item v-if="ruleForm.HealthyKnowledgeContent" label="健康知识详情" prop="HealthyKnowledgeContent">
+                            <span v-html="ruleForm.HealthyKnowledgeContent"></span>
                         </el-form-item>
                     </div>
                 </el-col>
@@ -93,28 +93,28 @@
                 role : "",//权限
                 userId:"",//当前登录人的id
                 ro:{
-                    jiankangzhishiName: false,
-                    jiankangzhishiPhoto: false,
-                    jiankangzhishiTypes: false,
+                    HealthyKnowledgeName: false,
+                    HealthyKnowledgePhoto: false,
+                    HealthyKnowledgeTypes: false,
                     insertTime: false,
-                    jiankangzhishiContent: false,
+                    HealthyKnowledgeContent: false,
                 },
                 ruleForm: {
-                    jiankangzhishiName: '',
-                    jiankangzhishiPhoto: '',
-                    jiankangzhishiTypes: '',
+                    HealthyKnowledgeName: '',
+                    HealthyKnowledgePhoto: '',
+                    HealthyKnowledgeTypes: '',
                     insertTime: '',
-                    jiankangzhishiContent: '',
+                    HealthyKnowledgeContent: '',
                 },
-                jiankangzhishiTypesOptions : [],
+                HealthyKnowledgeTypesOptions : [],
                 rules: {
-                   jiankangzhishiName: [
+                   HealthyKnowledgeName: [
                               { required: true, message: '健康知识名称不能为空', trigger: 'blur' },
                           ],
-                   jiankangzhishiPhoto: [
+                   HealthyKnowledgePhoto: [
                               { required: true, message: '健康知识图片不能为空', trigger: 'blur' },
                           ],
-                   jiankangzhishiTypes: [
+                   HealthyKnowledgeTypes: [
                               { required: true, message: '健康知识类型不能为空', trigger: 'blur' },
                               {  pattern: /^[1-9][0-9]*$/,
                                   message: '只允许输入整数',
@@ -124,7 +124,7 @@
                    insertTime: [
                               { required: true, message: '健康知识发布时间不能为空', trigger: 'blur' },
                           ],
-                   jiankangzhishiContent: [
+                   HealthyKnowledgeContent: [
                               { required: true, message: '健康知识详情不能为空', trigger: 'blur' },
                           ],
                 }
@@ -147,11 +147,11 @@
             this.addEditUploadStyleChange()
             //获取下拉框信息
                 this.$http({
-                    url:`dictionary/page?page=1&limit=100&sort=&order=&dicCode=jiankangzhishi_types`,
+                    url:`dictionary/page?page=1&limit=100&sort=&order=&dicCode=HealthyKnowledge_types`,
                     method: "get"
                 }).then(({ data }) => {
                     if (data && data.code === 0) {
-                        this.jiankangzhishiTypesOptions = data.data.list;
+                        this.HealthyKnowledgeTypesOptions = data.data.list;
                     }
                 });
 
@@ -189,7 +189,7 @@
             info(id) {
                 let _this =this;
                 _this.$http({
-                    url: `jiankangzhishi/info/${id}`,
+                    url: `HealthyKnowledge/info/${id}`,
                     method: 'get'
                 }).then(({ data }) => {
                     if (data && data.code === 0) {
@@ -204,7 +204,7 @@
                 this.$refs["ruleForm"].validate(valid => {
                     if (valid) {
                         this.$http({
-                            url:`jiankangzhishi/${!this.ruleForm.id ? "save" : "update"}`,
+                            url:`HealthyKnowledge/${!this.ruleForm.id ? "save" : "update"}`,
                             method: "post",
                             data: this.ruleForm
                         }).then(({ data }) => {
@@ -216,7 +216,7 @@
                                     onClose: () => {
                                         this.parent.showFlag = true;
                                         this.parent.addOrUpdateFlag = false;
-                                        this.parent.jiankangzhishiCrossAddOrUpdateFlag = false;
+                                        this.parent.HealthyKnowledgeCrossAddOrUpdateFlag = false;
                                         this.parent.search();
                                         this.parent.contentStyleChange();
                                     }
@@ -236,12 +236,12 @@
             back() {
                 this.parent.showFlag = true;
                 this.parent.addOrUpdateFlag = false;
-                this.parent.jiankangzhishiCrossAddOrUpdateFlag = false;
+                this.parent.HealthyKnowledgeCrossAddOrUpdateFlag = false;
                 this.parent.contentStyleChange();
             },
             //图片
-            jiankangzhishiPhotoUploadChange(fileUrls){
-                this.ruleForm.jiankangzhishiPhoto = fileUrls;
+            HealthyKnowledgePhotoUploadChange(fileUrls){
+                this.ruleForm.HealthyKnowledgePhoto = fileUrls;
                 this.addEditUploadStyleChange()
             },
 

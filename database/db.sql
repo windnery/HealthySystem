@@ -2,7 +2,8 @@
 SQLyog Ultimate v11.3 (64 bit)
 MySQL - 5.7.32-log : Database - xinlijiankangxitong
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -49,7 +50,7 @@ CREATE TABLE `dictionary` (
 
 /*Data for the table `dictionary` */
 
-insert  into `dictionary`(`id`,`dic_code`,`dic_name`,`code_index`,`index_name`,`super_id`,`beizhu`,`create_time`) values (1,'sex_types','性别类型',1,'男',NULL,NULL,'2024-03-29 11:36:44'),(2,'sex_types','性别类型',2,'女',NULL,NULL,'2024-03-29 11:36:44'),(3,'xinlilaoshi_collection_types','收藏表类型',1,'收藏',NULL,NULL,'2024-03-29 11:36:44'),(4,'xinlilaoshi_order_yesno_types','预约状态',1,'待审核',NULL,NULL,'2024-03-29 11:36:44'),(5,'xinlilaoshi_order_yesno_types','预约状态',2,'同意',NULL,NULL,'2024-03-29 11:36:44'),(6,'xinlilaoshi_order_yesno_types','预约状态',3,'拒绝',NULL,NULL,'2024-03-29 11:36:44'),(7,'shijianduan_types','时间段',1,'08:00-09:00',NULL,NULL,'2024-03-29 11:36:44'),(8,'shijianduan_types','时间段',2,'09:00-10:00',NULL,NULL,'2024-03-29 11:36:44'),(9,'shijianduan_types','时间段',3,'10:00-11:00',NULL,NULL,'2024-03-29 11:36:44'),(10,'shijianduan_types','时间段',4,'11:00-12:00',NULL,NULL,'2024-03-29 11:36:44'),(11,'shijianduan_types','时间段',5,'14:00-15:00',NULL,NULL,'2024-03-29 11:36:44'),(12,'shijianduan_types','时间段',6,'15:00-16:00',NULL,NULL,'2024-03-29 11:36:44'),(13,'shijianduan_types','时间段',7,'16:00-17:00',NULL,NULL,'2024-03-29 11:36:44'),(14,'shijianduan_types','时间段',8,'17:00-18:00',NULL,NULL,'2024-03-29 11:36:44'),(15,'tongzhi_types','通知类型',1,'通知类型1',NULL,NULL,'2024-03-29 11:36:44'),(16,'tongzhi_types','通知类型',2,'通知类型2',NULL,NULL,'2024-03-29 11:36:44'),(17,'jiankangzhishi_types','健康知识类型',1,'健康知识类型1',NULL,NULL,'2024-03-29 11:36:44'),(18,'jiankangzhishi_types','健康知识类型',2,'健康知识类型2',NULL,NULL,'2024-03-29 11:36:44'),(19,'examquestion_types','试题类型',1,'单选题',NULL,NULL,'2024-03-29 11:36:44'),(20,'examquestion_types','试题类型',2,'多选题',NULL,NULL,'2024-03-29 11:36:44'),(21,'examquestion_types','试题类型',3,'判断题',NULL,NULL,'2024-03-29 11:36:44'),(22,'examquestion_types','试题类型',4,'填空题',NULL,NULL,'2024-03-29 11:36:44'),(23,'exampaper_types','试卷状态',1,'启用',NULL,NULL,'2024-03-29 11:36:44'),(24,'exampaper_types','试卷状态',2,'禁用',NULL,NULL,'2024-03-29 11:36:44'),(25,'tongzhi_types','通知类型',3,'通知类型3',NULL,'','2024-03-29 13:05:29');
+insert  into `dictionary`(`id`,`dic_code`,`dic_name`,`code_index`,`index_name`,`super_id`,`beizhu`,`create_time`) values (1,'sex_types','性别类型',1,'男',NULL,NULL,'2024-03-29 11:36:44'),(2,'sex_types','性别类型',2,'女',NULL,NULL,'2024-03-29 11:36:44'),(3,'Teacher_collection_types','收藏表类型',1,'收藏',NULL,NULL,'2024-03-29 11:36:44'),(4,'Teacher_order_yesno_types','预约状态',1,'待审核',NULL,NULL,'2024-03-29 11:36:44'),(5,'Teacher_order_yesno_types','预约状态',2,'同意',NULL,NULL,'2024-03-29 11:36:44'),(6,'Teacher_order_yesno_types','预约状态',3,'拒绝',NULL,NULL,'2024-03-29 11:36:44'),(7,'shijianduan_types','时间段',1,'08:00-09:00',NULL,NULL,'2024-03-29 11:36:44'),(8,'shijianduan_types','时间段',2,'09:00-10:00',NULL,NULL,'2024-03-29 11:36:44'),(9,'shijianduan_types','时间段',3,'10:00-11:00',NULL,NULL,'2024-03-29 11:36:44'),(10,'shijianduan_types','时间段',4,'11:00-12:00',NULL,NULL,'2024-03-29 11:36:44'),(11,'shijianduan_types','时间段',5,'14:00-15:00',NULL,NULL,'2024-03-29 11:36:44'),(12,'shijianduan_types','时间段',6,'15:00-16:00',NULL,NULL,'2024-03-29 11:36:44'),(13,'shijianduan_types','时间段',7,'16:00-17:00',NULL,NULL,'2024-03-29 11:36:44'),(14,'shijianduan_types','时间段',8,'17:00-18:00',NULL,NULL,'2024-03-29 11:36:44'),(15,'Info_types','通知类型',1,'通知类型1',NULL,NULL,'2024-03-29 11:36:44'),(16,'Info_types','通知类型',2,'通知类型2',NULL,NULL,'2024-03-29 11:36:44'),(17,'HealthyKnowledge_types','健康知识类型',1,'健康知识类型1',NULL,NULL,'2024-03-29 11:36:44'),(18,'HealthyKnowledge_types','健康知识类型',2,'健康知识类型2',NULL,NULL,'2024-03-29 11:36:44'),(19,'examquestion_types','试题类型',1,'单选题',NULL,NULL,'2024-03-29 11:36:44'),(20,'examquestion_types','试题类型',2,'多选题',NULL,NULL,'2024-03-29 11:36:44'),(21,'examquestion_types','试题类型',3,'判断题',NULL,NULL,'2024-03-29 11:36:44'),(22,'examquestion_types','试题类型',4,'填空题',NULL,NULL,'2024-03-29 11:36:44'),(23,'exampaper_types','试卷状态',1,'启用',NULL,NULL,'2024-03-29 11:36:44'),(24,'exampaper_types','试卷状态',2,'禁用',NULL,NULL,'2024-03-29 11:36:44'),(25,'Info_types','通知类型',3,'通知类型3',NULL,'','2024-03-29 13:05:29');
 
 /*Table structure for table `exampaper` */
 
@@ -149,24 +150,24 @@ CREATE TABLE `examrewrongquestion` (
 
 insert  into `examrewrongquestion`(`id`,`yonghu_id`,`exampaper_id`,`examquestion_id`,`examredetails_myanswer`,`insert_time`,`create_time`) values (1,1,1,3,'A','2024-03-29 13:04:03','2024-03-29 13:04:03'),(2,1,1,2,'B,D','2024-03-29 13:04:07','2024-03-29 13:04:07'),(3,1,1,1,'B','2024-03-29 13:04:11','2024-03-29 13:04:11');
 
-/*Table structure for table `jiankangzhishi` */
+/*Table structure for table `HealthyKnowledge` */
 
-DROP TABLE IF EXISTS `jiankangzhishi`;
+DROP TABLE IF EXISTS `HealthyKnowledge`;
 
-CREATE TABLE `jiankangzhishi` (
+CREATE TABLE `HealthyKnowledge` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键 ',
-  `jiankangzhishi_name` varchar(200) DEFAULT NULL COMMENT '健康知识名称 Search111  ',
-  `jiankangzhishi_photo` varchar(200) DEFAULT NULL COMMENT '健康知识图片 ',
-  `jiankangzhishi_types` int(11) NOT NULL COMMENT '健康知识类型 ',
+  `HealthyKnowledge_name` varchar(200) DEFAULT NULL COMMENT '健康知识名称 Search111  ',
+  `HealthyKnowledge_photo` varchar(200) DEFAULT NULL COMMENT '健康知识图片 ',
+  `HealthyKnowledge_types` int(11) NOT NULL COMMENT '健康知识类型 ',
   `insert_time` timestamp NULL DEFAULT NULL COMMENT '健康知识发布时间 ',
-  `jiankangzhishi_content` text COMMENT '健康知识详情 ',
+  `HealthyKnowledge_content` text COMMENT '健康知识详情 ',
   `create_time` timestamp NULL DEFAULT NULL COMMENT '创建时间 show1 show2 nameShow',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='健康知识';
 
-/*Data for the table `jiankangzhishi` */
+/*Data for the table `HealthyKnowledge` */
 
-insert  into `jiankangzhishi`(`id`,`jiankangzhishi_name`,`jiankangzhishi_photo`,`jiankangzhishi_types`,`insert_time`,`jiankangzhishi_content`,`create_time`) values (1,'健康知识名称1','http://localhost:8080/xinlijiankangxitong/upload/yonghu1.jpg',1,'2024-03-29 11:39:43','健康知识详情1','2024-03-29 11:39:43'),(2,'健康知识名称2','http://localhost:8080/xinlijiankangxitong/upload/yonghu2.jpg',2,'2024-03-29 11:39:43','健康知识详情2','2024-03-29 11:39:43'),(3,'健康知识名称3','http://localhost:8080/xinlijiankangxitong/upload/yonghu3.jpg',1,'2024-03-29 11:39:43','健康知识详情3','2024-03-29 11:39:43'),(4,'健康知识名称4','http://localhost:8080/xinlijiankangxitong/upload/yonghu1.jpg',1,'2024-03-29 11:39:43','健康知识详情4','2024-03-29 11:39:43'),(5,'健康知识名称5','http://localhost:8080/xinlijiankangxitong/upload/yonghu2.jpg',1,'2024-03-29 11:39:43','健康知识详情5','2024-03-29 11:39:43');
+insert  into `HealthyKnowledge`(`id`,`HealthyKnowledge_name`,`HealthyKnowledge_photo`,`HealthyKnowledge_types`,`insert_time`,`HealthyKnowledge_content`,`create_time`) values (1,'健康知识名称1','http://localhost:8080/xinlijiankangxitong/upload/yonghu1.jpg',1,'2024-03-29 11:39:43','健康知识详情1','2024-03-29 11:39:43'),(2,'健康知识名称2','http://localhost:8080/xinlijiankangxitong/upload/yonghu2.jpg',2,'2024-03-29 11:39:43','健康知识详情2','2024-03-29 11:39:43'),(3,'健康知识名称3','http://localhost:8080/xinlijiankangxitong/upload/yonghu3.jpg',1,'2024-03-29 11:39:43','健康知识详情3','2024-03-29 11:39:43'),(4,'健康知识名称4','http://localhost:8080/xinlijiankangxitong/upload/yonghu1.jpg',1,'2024-03-29 11:39:43','健康知识详情4','2024-03-29 11:39:43'),(5,'健康知识名称5','http://localhost:8080/xinlijiankangxitong/upload/yonghu2.jpg',1,'2024-03-29 11:39:43','健康知识详情5','2024-03-29 11:39:43');
 
 /*Table structure for table `token` */
 
@@ -186,26 +187,26 @@ CREATE TABLE `token` (
 
 /*Data for the table `token` */
 
-insert  into `token`(`id`,`userid`,`username`,`tablename`,`role`,`token`,`addtime`,`expiratedtime`) values (1,6,'admin','users','管理员','qsh241u4wenz9q880lzg956l6gdvnfy5','2024-03-29 11:49:29','2024-03-29 14:10:47'),(2,1,'a1','yonghu','学生','1o29ta3k4dzq9qthlcltpazu9kmmu6ie','2024-03-29 11:50:44','2024-03-29 14:08:30'),(3,1,'a1','xinlilaoshi','心理老师','nu8v2a1pz7u1qg0es7c4yrjs6vd9r4j3','2024-03-29 13:07:56','2024-03-29 14:08:52');
+insert  into `token`(`id`,`userid`,`username`,`tablename`,`role`,`token`,`addtime`,`expiratedtime`) values (1,6,'admin','users','管理员','qsh241u4wenz9q880lzg956l6gdvnfy5','2024-03-29 11:49:29','2024-03-29 14:10:47'),(2,1,'a1','yonghu','学生','1o29ta3k4dzq9qthlcltpazu9kmmu6ie','2024-03-29 11:50:44','2024-03-29 14:08:30'),(3,1,'a1','Teacher','心理老师','nu8v2a1pz7u1qg0es7c4yrjs6vd9r4j3','2024-03-29 13:07:56','2024-03-29 14:08:52');
 
-/*Table structure for table `tongzhi` */
+/*Table structure for table `Info` */
 
-DROP TABLE IF EXISTS `tongzhi`;
+DROP TABLE IF EXISTS `Info`;
 
-CREATE TABLE `tongzhi` (
+CREATE TABLE `Info` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键 ',
-  `tongzhi_name` varchar(200) DEFAULT NULL COMMENT '通知名称 Search111  ',
-  `tongzhi_photo` varchar(200) DEFAULT NULL COMMENT '通知图片 ',
-  `tongzhi_types` int(11) NOT NULL COMMENT '通知类型 ',
+  `Info_name` varchar(200) DEFAULT NULL COMMENT '通知名称 Search111  ',
+  `Info_photo` varchar(200) DEFAULT NULL COMMENT '通知图片 ',
+  `Info_types` int(11) NOT NULL COMMENT '通知类型 ',
   `insert_time` timestamp NULL DEFAULT NULL COMMENT '通知发布时间 ',
-  `tongzhi_content` text COMMENT '通知详情 ',
+  `Info_content` text COMMENT '通知详情 ',
   `create_time` timestamp NULL DEFAULT NULL COMMENT '创建时间 show1 show2 nameShow',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='通知';
 
-/*Data for the table `tongzhi` */
+/*Data for the table `Info` */
 
-insert  into `tongzhi`(`id`,`tongzhi_name`,`tongzhi_photo`,`tongzhi_types`,`insert_time`,`tongzhi_content`,`create_time`) values (1,'通知名称1','http://localhost:8080/xinlijiankangxitong/upload/yonghu1.jpg',2,'2024-03-29 11:39:43','通知详情1','2024-03-29 11:39:43'),(2,'通知名称2','http://localhost:8080/xinlijiankangxitong/upload/yonghu2.jpg',1,'2024-03-29 11:39:43','通知详情2','2024-03-29 11:39:43'),(3,'通知名称3','http://localhost:8080/xinlijiankangxitong/upload/yonghu3.jpg',1,'2024-03-29 11:39:43','通知详情3','2024-03-29 11:39:43'),(4,'通知名称4','http://localhost:8080/xinlijiankangxitong/upload/yonghu1.jpg',2,'2024-03-29 11:39:43','通知详情4','2024-03-29 11:39:43'),(5,'通知名称5','http://localhost:8080/xinlijiankangxitong/upload/yonghu2.jpg',1,'2024-03-29 11:39:43','<p>通知详情51111</p>','2024-03-29 11:39:43');
+insert  into `Info`(`id`,`Info_name`,`Info_photo`,`Info_types`,`insert_time`,`Info_content`,`create_time`) values (1,'通知名称1','http://localhost:8080/xinlijiankangxitong/upload/yonghu1.jpg',2,'2024-03-29 11:39:43','通知详情1','2024-03-29 11:39:43'),(2,'通知名称2','http://localhost:8080/xinlijiankangxitong/upload/yonghu2.jpg',1,'2024-03-29 11:39:43','通知详情2','2024-03-29 11:39:43'),(3,'通知名称3','http://localhost:8080/xinlijiankangxitong/upload/yonghu3.jpg',1,'2024-03-29 11:39:43','通知详情3','2024-03-29 11:39:43'),(4,'通知名称4','http://localhost:8080/xinlijiankangxitong/upload/yonghu1.jpg',2,'2024-03-29 11:39:43','通知详情4','2024-03-29 11:39:43'),(5,'通知名称5','http://localhost:8080/xinlijiankangxitong/upload/yonghu2.jpg',1,'2024-03-29 11:39:43','<p>通知详情51111</p>','2024-03-29 11:39:43');
 
 /*Table structure for table `users` */
 
@@ -224,57 +225,57 @@ CREATE TABLE `users` (
 
 insert  into `users`(`id`,`username`,`password`,`role`,`addtime`) values (6,'admin','admin','管理员','2024-05-02 14:51:13');
 
-/*Table structure for table `xinlilaoshi` */
+/*Table structure for table `Teacher` */
 
-DROP TABLE IF EXISTS `xinlilaoshi`;
+DROP TABLE IF EXISTS `Teacher`;
 
-CREATE TABLE `xinlilaoshi` (
+CREATE TABLE `Teacher` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `username` varchar(200) DEFAULT NULL COMMENT '账户',
   `password` varchar(200) DEFAULT NULL COMMENT '密码',
-  `xinlilaoshi_name` varchar(200) DEFAULT NULL COMMENT '心理老师姓名 Search111 ',
-  `xinlilaoshi_phone` varchar(200) DEFAULT NULL COMMENT '心理老师手机号',
-  `xinlilaoshi_photo` varchar(200) DEFAULT NULL COMMENT '心理老师头像',
+  `Teacher_name` varchar(200) DEFAULT NULL COMMENT '心理老师姓名 Search111 ',
+  `Teacher_phone` varchar(200) DEFAULT NULL COMMENT '心理老师手机号',
+  `Teacher_photo` varchar(200) DEFAULT NULL COMMENT '心理老师头像',
   `sex_types` int(11) DEFAULT NULL COMMENT '性别',
-  `xinlilaoshi_email` varchar(200) DEFAULT NULL COMMENT '电子邮箱',
-  `xinlilaoshi_shanchang` varchar(200) DEFAULT NULL COMMENT '擅长',
-  `xinlilaoshi_lvli` varchar(200) DEFAULT NULL COMMENT '履历',
-  `xinlilaoshi_content` text COMMENT '心理老师详细介绍 ',
+  `Teacher_email` varchar(200) DEFAULT NULL COMMENT '电子邮箱',
+  `Teacher_shanchang` varchar(200) DEFAULT NULL COMMENT '擅长',
+  `Teacher_lvli` varchar(200) DEFAULT NULL COMMENT '履历',
+  `Teacher_content` text COMMENT '心理老师详细介绍 ',
   `create_time` timestamp NULL DEFAULT NULL COMMENT '创建时间  show1 show2 photoShow',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='心理老师';
 
-/*Data for the table `xinlilaoshi` */
+/*Data for the table `Teacher` */
 
-insert  into `xinlilaoshi`(`id`,`username`,`password`,`xinlilaoshi_name`,`xinlilaoshi_phone`,`xinlilaoshi_photo`,`sex_types`,`xinlilaoshi_email`,`xinlilaoshi_shanchang`,`xinlilaoshi_lvli`,`xinlilaoshi_content`,`create_time`) values (1,'a1','123456','心理老师姓名1','17703786901','http://localhost:8080/xinlijiankangxitong/upload/xinlilaoshi1.jpg',2,'1@qq.com','擅长1','履历1','心理老师详细介绍1','2024-03-29 11:39:43'),(2,'a2','123456','心理老师姓名2','17703786902','http://localhost:8080/xinlijiankangxitong/upload/xinlilaoshi2.jpg',2,'2@qq.com','擅长2','履历2','心理老师详细介绍2','2024-03-29 11:39:43'),(3,'a3','123456','心理老师姓名3','17703786903','http://localhost:8080/xinlijiankangxitong/upload/xinlilaoshi3.jpg',1,'3@qq.com','擅长3','履历3','心理老师详细介绍3','2024-03-29 11:39:43');
+insert  into `Teacher`(`id`,`username`,`password`,`Teacher_name`,`Teacher_phone`,`Teacher_photo`,`sex_types`,`Teacher_email`,`Teacher_shanchang`,`Teacher_lvli`,`Teacher_content`,`create_time`) values (1,'a1','123456','心理老师姓名1','17703786901','http://localhost:8080/xinlijiankangxitong/upload/Teacher1.jpg',2,'1@qq.com','擅长1','履历1','心理老师详细介绍1','2024-03-29 11:39:43'),(2,'a2','123456','心理老师姓名2','17703786902','http://localhost:8080/xinlijiankangxitong/upload/Teacher2.jpg',2,'2@qq.com','擅长2','履历2','心理老师详细介绍2','2024-03-29 11:39:43'),(3,'a3','123456','心理老师姓名3','17703786903','http://localhost:8080/xinlijiankangxitong/upload/Teacher3.jpg',1,'3@qq.com','擅长3','履历3','心理老师详细介绍3','2024-03-29 11:39:43');
 
-/*Table structure for table `xinlilaoshi_collection` */
+/*Table structure for table `Teacher_collection` */
 
-DROP TABLE IF EXISTS `xinlilaoshi_collection`;
+DROP TABLE IF EXISTS `Teacher_collection`;
 
-CREATE TABLE `xinlilaoshi_collection` (
+CREATE TABLE `Teacher_collection` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `xinlilaoshi_id` int(11) DEFAULT NULL COMMENT '心理老师',
+  `Teacher_id` int(11) DEFAULT NULL COMMENT '心理老师',
   `yonghu_id` int(11) DEFAULT NULL COMMENT '用户',
-  `xinlilaoshi_collection_types` int(11) DEFAULT NULL COMMENT '类型',
+  `Teacher_collection_types` int(11) DEFAULT NULL COMMENT '类型',
   `insert_time` timestamp NULL DEFAULT NULL COMMENT '收藏时间',
   `create_time` timestamp NULL DEFAULT NULL COMMENT '创建时间 show3 photoShow',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='心理老师收藏';
 
-/*Data for the table `xinlilaoshi_collection` */
+/*Data for the table `Teacher_collection` */
 
-insert  into `xinlilaoshi_collection`(`id`,`xinlilaoshi_id`,`yonghu_id`,`xinlilaoshi_collection_types`,`insert_time`,`create_time`) values (1,2,3,1,'2024-03-29 11:39:43','2024-03-29 11:39:43'),(2,3,2,1,'2024-03-29 11:39:43','2024-03-29 11:39:43'),(3,1,1,1,'2024-03-29 11:39:43','2024-03-29 11:39:43'),(4,1,3,1,'2024-03-29 11:39:43','2024-03-29 11:39:43'),(5,2,2,1,'2024-03-29 11:39:43','2024-03-29 11:39:43'),(6,2,1,1,'2024-03-29 13:04:50','2024-03-29 13:04:50');
+insert  into `Teacher_collection`(`id`,`Teacher_id`,`yonghu_id`,`Teacher_collection_types`,`insert_time`,`create_time`) values (1,2,3,1,'2024-03-29 11:39:43','2024-03-29 11:39:43'),(2,3,2,1,'2024-03-29 11:39:43','2024-03-29 11:39:43'),(3,1,1,1,'2024-03-29 11:39:43','2024-03-29 11:39:43'),(4,1,3,1,'2024-03-29 11:39:43','2024-03-29 11:39:43'),(5,2,2,1,'2024-03-29 11:39:43','2024-03-29 11:39:43'),(6,2,1,1,'2024-03-29 13:04:50','2024-03-29 13:04:50');
 
-/*Table structure for table `xinlilaoshi_liuyan` */
+/*Table structure for table `Teacher_liuyan` */
 
-DROP TABLE IF EXISTS `xinlilaoshi_liuyan`;
+DROP TABLE IF EXISTS `Teacher_liuyan`;
 
-CREATE TABLE `xinlilaoshi_liuyan` (
+CREATE TABLE `Teacher_liuyan` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `xinlilaoshi_id` int(11) DEFAULT NULL COMMENT '心理老师',
+  `Teacher_id` int(11) DEFAULT NULL COMMENT '心理老师',
   `yonghu_id` int(11) DEFAULT NULL COMMENT '用户',
-  `xinlilaoshi_liuyan_text` text COMMENT '留言内容',
+  `Teacher_liuyan_text` text COMMENT '留言内容',
   `insert_time` timestamp NULL DEFAULT NULL COMMENT '留言时间',
   `reply_text` text COMMENT '回复内容',
   `update_time` timestamp NULL DEFAULT NULL COMMENT '回复时间',
@@ -282,31 +283,31 @@ CREATE TABLE `xinlilaoshi_liuyan` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='心理老师留言';
 
-/*Data for the table `xinlilaoshi_liuyan` */
+/*Data for the table `Teacher_liuyan` */
 
-insert  into `xinlilaoshi_liuyan`(`id`,`xinlilaoshi_id`,`yonghu_id`,`xinlilaoshi_liuyan_text`,`insert_time`,`reply_text`,`update_time`,`create_time`) values (1,2,2,'留言内容1','2024-03-29 11:39:43','回复信息1','2024-03-29 11:39:43','2024-03-29 11:39:43'),(2,1,1,'留言内容2','2024-03-29 11:39:43','回复信息2','2024-03-29 11:39:43','2024-03-29 11:39:43'),(3,1,3,'留言内容3','2024-03-29 11:39:43','回复信息3','2024-03-29 11:39:43','2024-03-29 11:39:43'),(4,2,2,'留言内容4','2024-03-29 11:39:43','回复信息4','2024-03-29 11:39:43','2024-03-29 11:39:43'),(5,3,3,'留言内容5','2024-03-29 11:39:43','回复信息5','2024-03-29 11:39:43','2024-03-29 11:39:43'),(6,1,1,'333333','2024-03-29 13:04:37','22222222222','2024-03-29 13:08:11','2024-03-29 13:04:37');
+insert  into `Teacher_liuyan`(`id`,`Teacher_id`,`yonghu_id`,`Teacher_liuyan_text`,`insert_time`,`reply_text`,`update_time`,`create_time`) values (1,2,2,'留言内容1','2024-03-29 11:39:43','回复信息1','2024-03-29 11:39:43','2024-03-29 11:39:43'),(2,1,1,'留言内容2','2024-03-29 11:39:43','回复信息2','2024-03-29 11:39:43','2024-03-29 11:39:43'),(3,1,3,'留言内容3','2024-03-29 11:39:43','回复信息3','2024-03-29 11:39:43','2024-03-29 11:39:43'),(4,2,2,'留言内容4','2024-03-29 11:39:43','回复信息4','2024-03-29 11:39:43','2024-03-29 11:39:43'),(5,3,3,'留言内容5','2024-03-29 11:39:43','回复信息5','2024-03-29 11:39:43','2024-03-29 11:39:43'),(6,1,1,'333333','2024-03-29 13:04:37','22222222222','2024-03-29 13:08:11','2024-03-29 13:04:37');
 
-/*Table structure for table `xinlilaoshi_order` */
+/*Table structure for table `Teacher_order` */
 
-DROP TABLE IF EXISTS `xinlilaoshi_order`;
+DROP TABLE IF EXISTS `Teacher_order`;
 
-CREATE TABLE `xinlilaoshi_order` (
+CREATE TABLE `Teacher_order` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `xinlilaoshi_order_uuid_number` varchar(200) DEFAULT NULL COMMENT '预约流水号 Search111 ',
-  `xinlilaoshi_id` int(11) DEFAULT NULL COMMENT '心理老师',
+  `Teacher_order_uuid_number` varchar(200) DEFAULT NULL COMMENT '预约流水号 Search111 ',
+  `Teacher_id` int(11) DEFAULT NULL COMMENT '心理老师',
   `yonghu_id` int(11) DEFAULT NULL COMMENT '用户',
   `yuyue_time` date DEFAULT NULL COMMENT '预约日期',
   `shijianduan_types` int(11) DEFAULT NULL COMMENT '预约时间段 Search111 ',
-  `xinlilaoshi_order_yesno_types` int(11) DEFAULT NULL COMMENT '预约状态 Search111 ',
-  `xinlilaoshi_order_yesno_text` text COMMENT '审核意见',
+  `Teacher_order_yesno_types` int(11) DEFAULT NULL COMMENT '预约状态 Search111 ',
+  `Teacher_order_yesno_text` text COMMENT '审核意见',
   `insert_time` timestamp NULL DEFAULT NULL COMMENT '申请时间',
   `create_time` timestamp NULL DEFAULT NULL COMMENT '创建时间 show3',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='心理老师预约订单';
 
-/*Data for the table `xinlilaoshi_order` */
+/*Data for the table `Teacher_order` */
 
-insert  into `xinlilaoshi_order`(`id`,`xinlilaoshi_order_uuid_number`,`xinlilaoshi_id`,`yonghu_id`,`yuyue_time`,`shijianduan_types`,`xinlilaoshi_order_yesno_types`,`xinlilaoshi_order_yesno_text`,`insert_time`,`create_time`) values (1,'1648525919361',2,1,'2024-03-30',8,1,NULL,'2024-03-29 11:51:59','2024-03-29 11:51:59'),(2,'1648530223381',3,1,'2024-03-30',8,1,NULL,'2024-03-29 13:03:43','2024-03-29 13:03:43'),(3,'1648530268888',1,1,'2024-03-31',3,2,'key','2024-03-29 13:04:29','2024-03-29 13:04:29');
+insert  into `Teacher_order`(`id`,`Teacher_order_uuid_number`,`Teacher_id`,`yonghu_id`,`yuyue_time`,`shijianduan_types`,`Teacher_order_yesno_types`,`Teacher_order_yesno_text`,`insert_time`,`create_time`) values (1,'1648525919361',2,1,'2024-03-30',8,1,NULL,'2024-03-29 11:51:59','2024-03-29 11:51:59'),(2,'1648530223381',3,1,'2024-03-30',8,1,NULL,'2024-03-29 13:03:43','2024-03-29 13:03:43'),(3,'1648530268888',1,1,'2024-03-31',3,2,'key','2024-03-29 13:04:29','2024-03-29 13:04:29');
 
 /*Table structure for table `yonghu` */
 
